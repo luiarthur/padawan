@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <h3> {{page.title}} </h3>
-            <em> {{page.subtitle}} </em>
+            {% if page.title %} <em> {{page.subtitle}} </em> {% endif %}
             <hr>
             <div class="col-lg-4 col-md-5">
                 <ul>
