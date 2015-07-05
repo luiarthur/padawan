@@ -1,7 +1,7 @@
 ---
 layout: temperature
 title: "Example Multiline Plot"
-subtitle: "Attraction Indian Buffet Process Temperature Plot"
+subtitle: "Attraction Indian Buffet Process: Probability vs. Temperature Plot"
 description: "Example multiline plot, d3, hover over highlight, attraction Indian buffet process"
 alpha: 1
 sigma: "(1,2,3,4)"
@@ -13,8 +13,6 @@ D: "\\left( \\begin{array}{rrrr}
     \\end{array} \\right)"
 image:
 ---
-
-### aIBP: Probability vs. Temperature
 
 <!-- Javascript: -->
 <script type="text/javascript">
