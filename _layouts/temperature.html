@@ -18,9 +18,9 @@
             <hr>
             <div class="col-lg-4 col-md-5">
                 <ul>
-                  <li> \( \small \alpha = {{page.alpha}} \)</li>
-                  <li> \( \small \sigma = {{page.sigma}} \)</li>
-                  <li> \( D = {{page.D}} \)</li>
+                  {% if page.alpha %} <li> \( \small \alpha = {{page.alpha}} \)</li> {% endif %}
+                  {% if page.sigma %} <li> \( \small \sigma = {{page.sigma}} \)</li> {% endif %}
+                  {% if page.D %} <li> \( {\small D} = {{page.D}} \)</li> {% endif %}
                 </ul>
             </div>      
             <div class="col-lg-8 col-md-7">
