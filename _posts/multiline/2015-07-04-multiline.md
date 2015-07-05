@@ -14,6 +14,8 @@ D: "\\left( \\begin{array}{rrrr}
 image:
 ---
 
+### aIBP: Probability vs. Temperature
+
 <!-- Javascript: -->
 <script type="text/javascript">
   draw("/assets/demoDat.tsv","tau","#multilinePlot");
