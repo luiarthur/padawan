@@ -1,0 +1,178 @@
+<!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">#= Install Packages if needed:</span>
+  Pkg<span style="color: #666666">.</span>add(<span style="color: #4070a0">&quot;Distributions&quot;</span>)
+  Pkg<span style="color: #666666">.</span>add(<span style="color: #4070a0">&quot;DataFrames&quot;</span>)
+  Pkg<span style="color: #666666">.</span>add(<span style="color: #4070a0">&quot;Gadfly&quot;</span>)
+<span style="color: #666666">=</span><span style="color: #60a0b0; font-style: italic">#</span>
+<span style="color: #60a0b0; font-style: italic">#ta = 1:size(X,2); (ta .!= 3) &amp; (ta .!= 5)</span>
+<span style="color: #60a0b0; font-style: italic">#blas_set_num_thread(8)</span>
+
+println(<span style="color: #4070a0">&quot;Loading packages (20 seconds)...&quot;</span>)
+<span style="color: #007020; font-weight: bold">using</span> DataFrames, Distributions, Gadfly
+println(<span style="color: #4070a0">&quot;Finished loading packages...&quot;</span>)
+
+<span style="color: #007020; font-weight: bold">const</span> dat <span style="color: #666666">=</span> readdlm(<span style="color: #4070a0">&quot;../data/dat.txt&quot;</span>)
+n,k1 <span style="color: #666666">=</span> size(dat)
+<span style="color: #007020; font-weight: bold">const</span> k <span style="color: #666666">=</span> k1<span style="color: #666666">-</span><span style="color: #40a070">1</span>
+
+<span style="color: #007020; font-weight: bold">const</span> y <span style="color: #666666">=</span>dat[:,<span style="color: #40a070">1</span>]
+<span style="color: #007020; font-weight: bold">const</span> X <span style="color: #666666">=</span> dat[:,<span style="color: #40a070">2</span>:<span style="color: #007020; font-weight: bold">end</span>]
+
+<span style="color: #007020; font-weight: bold">const</span> XXi <span style="color: #666666">=</span> inv(X<span style="color: #666666">&#39;</span>X)
+<span style="color: #007020; font-weight: bold">const</span> s <span style="color: #666666">=</span> <span style="color: #40a070">100</span>
+<span style="color: #007020; font-weight: bold">const</span> mle <span style="color: #666666">=</span> XXi<span style="color: #666666">*</span>X<span style="color: #666666">&#39;</span>y
+
+a <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+b <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+s2<span style="color: #666666">=</span><span style="color: #40a070">10</span>
+csb<span style="color: #666666">=</span><span style="color: #40a070">4</span>XXi
+S<span style="color: #666666">=</span>chol(csb)<span style="color: #666666">&#39;</span>
+css<span style="color: #666666">=</span><span style="color: #40a070">1</span>
+
+<span style="color: #007020; font-weight: bold">function</span><span style="color: #06287e"> ll</span>(be::Array{<span style="color: #902000">Float64</span>,<span style="color: #40a070">1</span>},sig2::<span style="color: #902000">Float64</span>) 
+  c <span style="color: #666666">=</span> y<span style="color: #666666">-</span>X<span style="color: #666666">*</span>be
+  c<span style="color: #666666">&#39;</span>c<span style="color: #666666">/</span>(<span style="color: #666666">-</span><span style="color: #40a070">2</span>sig2)<span style="color: #666666">-</span>n<span style="color: #666666">*</span>log(sig2)<span style="color: #666666">/</span><span style="color: #40a070">2</span> 
+<span style="color: #007020; font-weight: bold">end</span>
+
+lpb(be::Array{<span style="color: #902000">Float64</span>,<span style="color: #40a070">1</span>}) <span style="color: #666666">=</span> <span style="color: #666666">-</span>be<span style="color: #666666">&#39;</span>XXi<span style="color: #666666">*</span>be<span style="color: #666666">/</span><span style="color: #40a070">2</span>s2
+lps(sig2::<span style="color: #902000">Float64</span>) <span style="color: #666666">=</span> (a<span style="color: #666666">-</span><span style="color: #40a070">1</span>)<span style="color: #666666">*</span>log(s2)<span style="color: #666666">-</span>s2<span style="color: #666666">/</span>b 
+mvrnorm(M::Array{<span style="color: #902000">Float64</span>,<span style="color: #40a070">1</span>}) <span style="color: #666666">=</span> M<span style="color: #666666">+</span>S<span style="color: #666666">*</span>randn(k)
+
+
+<span style="color: #007020; font-weight: bold">function</span><span style="color: #06287e"> mh</span>(B<span style="color: #666666">=</span><span style="color: #40a070">100000</span>)
+  accb <span style="color: #666666">=</span> <span style="color: #40a070">0</span>; accs <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+  bb <span style="color: #666666">=</span> Array(<span style="color: #902000">Float64</span>,(k,B))
+  ss <span style="color: #666666">=</span> Array(<span style="color: #902000">Float64</span>,B)
+  bcur <span style="color: #666666">=</span> bb[:,<span style="color: #40a070">1</span>]
+  scur <span style="color: #666666">=</span> <span style="color: #40a070">1.0</span>
+
+  println(<span style="color: #4070a0">&quot;Starting Metropolis...&quot;</span>)
+  <span style="color: #60a0b0; font-style: italic">#@time @fastmath for i in 1:B</span>
+  @time <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #40a070">1</span>:B
+
+    <span style="color: #60a0b0; font-style: italic"># Update β̂: </span>
+    candb <span style="color: #666666">=</span> mvrnorm(bcur)
+    q <span style="color: #666666">=</span> ll(candb,scur)<span style="color: #666666">+</span>lpb(candb) <span style="color: #666666">-</span>ll(bcur,scur)<span style="color: #666666">-</span>lpb(bcur)
+    <span style="color: #007020; font-weight: bold">if</span> q[<span style="color: #40a070">1</span>]<span style="color: #666666">&gt;</span>log(rand())
+      bcur <span style="color: #666666">=</span> candb
+      accb <span style="color: #666666">+=</span> <span style="color: #40a070">1</span>
+    <span style="color: #007020; font-weight: bold">end</span>
+
+    <span style="color: #60a0b0; font-style: italic"># Update ŝ²:</span>
+    cands <span style="color: #666666">=</span> rand(Normal(scur,sqrt(css)))
+    <span style="color: #007020; font-weight: bold">if</span> cands<span style="color: #666666">&gt;</span><span style="color: #40a070">0</span>
+      q <span style="color: #666666">=</span> ll(bcur,cands)<span style="color: #666666">+</span>lps(cands) <span style="color: #666666">-</span>ll(bcur,scur)<span style="color: #666666">-</span>lps(scur)
+      <span style="color: #007020; font-weight: bold">if</span> q[<span style="color: #40a070">1</span>]<span style="color: #666666">&gt;</span>log(rand())
+        scur <span style="color: #666666">=</span> cands
+        accs <span style="color: #666666">+=</span> <span style="color: #40a070">1</span>
+      <span style="color: #007020; font-weight: bold">end</span>
+    <span style="color: #007020; font-weight: bold">end</span>
+
+    @inbounds bb[:,i] <span style="color: #666666">=</span> bcur
+    @inbounds ss[i]  <span style="color: #666666">=</span> scur
+
+    <span style="color: #007020; font-weight: bold">if</span> i<span style="color: #666666">%</span>(B<span style="color: #666666">/</span><span style="color: #40a070">10</span>)<span style="color: #666666">==</span><span style="color: #40a070">0</span> print(<span style="color: #4070a0">&quot;</span><span style="color: #4070a0; font-weight: bold">\r</span><span style="color: #4070a0">&quot;</span>,round(<span style="color: #40a070">100</span><span style="color: #666666">*</span>i<span style="color: #666666">/</span>B),<span style="color: #4070a0">&quot;%&quot;</span>) <span style="color: #007020; font-weight: bold">end</span>
+  <span style="color: #007020; font-weight: bold">end</span> <span style="color: #60a0b0; font-style: italic"># End of loops</span>
+  println(<span style="color: #4070a0">&quot;End of Metropolis.</span><span style="color: #4070a0; font-weight: bold">\n\n</span><span style="color: #4070a0">&quot;</span>)
+
+  <span style="color: #007020; font-weight: bold">return</span> (bb,ss,accb,accs,B)
+<span style="color: #007020; font-weight: bold">end</span> <span style="color: #60a0b0; font-style: italic"># End of mh function</span>
+
+bb,ss,accb,accs,B <span style="color: #666666">=</span> @time mh();
+
+println(<span style="color: #4070a0">&quot;β̂: </span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span>, mean(bb[:,round(B<span style="color: #666666">*.</span><span style="color: #40a070">9</span>):<span style="color: #007020; font-weight: bold">end</span>],<span style="color: #40a070">2</span>),<span style="color: #4070a0">&quot;</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span>)
+println(<span style="color: #4070a0">&quot;ŝ²: &quot;</span>,  mean(ss[round(B<span style="color: #666666">*.</span><span style="color: #40a070">9</span>):<span style="color: #007020; font-weight: bold">end</span>]),<span style="color: #4070a0">&quot;</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span>)
+
+println(<span style="color: #4070a0">&quot;Acceptance rate for β̂: &quot;</span>,accb<span style="color: #666666">/</span>B)
+println(<span style="color: #4070a0">&quot;Acceptance rate for ŝ²:&quot;</span>,accs<span style="color: #666666">/</span>B)
+
+<span style="color: #60a0b0; font-style: italic">#plot(x=1:10000,y=ss[90000:99999], Geom.line,Theme( line_width=1pt, default_color=color(&quot;orange&quot;)))</span>
+<span style="color: #60a0b0; font-style: italic">#plot(x=ss[90000:99999],Geom.histogram())</span>
+</pre></td></tr></table></div>

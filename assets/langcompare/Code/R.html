@@ -1,0 +1,112 @@
+<!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre></td><td><pre style="margin: 0; line-height: 125%">dat <span style="color: #666666">&lt;-</span> as.matrix(read.table(<span style="color: #4070a0">&quot;../data/dat.txt&quot;</span>))
+
+y <span style="color: #666666">&lt;-</span> dat[,<span style="color: #40a070">1</span>]
+X <span style="color: #666666">&lt;-</span> dat[,<span style="color: #40a070">-1</span>]
+k <span style="color: #666666">&lt;-</span> ncol(X)
+n <span style="color: #666666">&lt;-</span> length(y)
+colnames(X) <span style="color: #666666">&lt;-</span> paste0(<span style="color: #4070a0">&quot;b&quot;</span>,<span style="color: #40a070">0</span><span style="color: #666666">:</span><span style="color: #40a070">9</span>)
+Xt <span style="color: #666666">&lt;-</span> t(X)
+XXi <span style="color: #666666">&lt;-</span> solve(Xt<span style="color: #666666">%*%</span>X)
+s <span style="color: #666666">&lt;-</span> <span style="color: #40a070">100</span>
+XXi<span style="color: #666666">%*%</span>Xt<span style="color: #666666">%*%</span>y
+a <span style="color: #666666">&lt;-</span> <span style="color: #40a070">1</span>
+b <span style="color: #666666">&lt;-</span> <span style="color: #40a070">1</span>
+B <span style="color: #666666">&lt;-</span> <span style="color: #40a070">1e5</span>
+s2 <span style="color: #666666">&lt;-</span> <span style="color: #40a070">10</span>
+
+det <span style="color: #666666">&lt;-</span> <span style="color: #007020; font-weight: bold">function</span>(x,log<span style="color: #666666">=</span><span style="color: #007020; font-weight: bold">F</span>) as.numeric(determinant(x,log<span style="color: #666666">=</span>log))[<span style="color: #40a070">1</span>]
+ll <span style="color: #666666">&lt;-</span> <span style="color: #007020; font-weight: bold">function</span>(be,sig2) t(y<span style="color: #666666">-</span>X<span style="color: #666666">%*%</span>be)<span style="color: #666666">%*%</span>(y<span style="color: #666666">-</span>X<span style="color: #666666">%*%</span>be)<span style="color: #666666">/</span>(<span style="color: #40a070">-2</span><span style="color: #666666">*</span>sig2) <span style="color: #666666">-</span> n<span style="color: #666666">/</span><span style="color: #40a070">2</span><span style="color: #666666">*</span>log(sig2)
+lpb <span style="color: #666666">&lt;-</span> <span style="color: #007020; font-weight: bold">function</span>(be) <span style="color: #666666">-</span>t(be)<span style="color: #666666">%*%</span>XXi<span style="color: #666666">%*%</span>be<span style="color: #666666">/</span>(s2<span style="color: #666666">*</span><span style="color: #40a070">2</span>)
+lps <span style="color: #666666">&lt;-</span> <span style="color: #007020; font-weight: bold">function</span>(sig2) (a<span style="color: #40a070">-1</span>)<span style="color: #666666">*</span>log(sig2)<span style="color: #666666">-</span>sig2<span style="color: #666666">/</span>b
+mvrnorm <span style="color: #666666">&lt;-</span> <span style="color: #007020; font-weight: bold">function</span>(M,S,n<span style="color: #666666">=</span>nrow(S)) M <span style="color: #666666">+</span> t(chol(S)) <span style="color: #666666">%*%</span> rnorm(n)
+
+csb <span style="color: #666666">&lt;-</span> <span style="color: #40a070">4</span><span style="color: #666666">*</span>XXi
+css <span style="color: #666666">&lt;-</span> <span style="color: #40a070">1</span>
+acc.b <span style="color: #666666">&lt;-</span> <span style="color: #40a070">0</span>
+acc.s <span style="color: #666666">&lt;-</span> <span style="color: #40a070">0</span>
+
+b.hat <span style="color: #666666">&lt;-</span> matrix(<span style="color: #40a070">0</span>,B,k)
+s2.hat <span style="color: #666666">&lt;-</span> rep(<span style="color: #40a070">1</span>,B)
+
+r.time <span style="color: #666666">&lt;-</span> system.time(
+<span style="color: #007020; font-weight: bold">for</span> (i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #40a070">2</span><span style="color: #666666">:</span>B) {
+  b.hat[i,] <span style="color: #666666">&lt;-</span> b.hat[i<span style="color: #40a070">-1</span>,]
+  s2.hat[i] <span style="color: #666666">&lt;-</span> s2.hat[i<span style="color: #40a070">-1</span>]
+
+  <span style="color: #60a0b0; font-style: italic"># Update Beta</span>
+  cand <span style="color: #666666">&lt;-</span> mvrnorm(b.hat[i,],csb)
+  q <span style="color: #666666">&lt;-</span> ll(cand,s2.hat[i])<span style="color: #666666">+</span>lpb(cand)<span style="color: #666666">-</span>ll(b.hat[i,],s2.hat[i])<span style="color: #666666">-</span>lpb(b.hat[i,])
+  <span style="color: #007020; font-weight: bold">if</span> (q<span style="color: #666666">&gt;</span>log(runif(<span style="color: #40a070">1</span>))) {
+    b.hat[i,] <span style="color: #666666">&lt;-</span> cand
+    acc.b <span style="color: #666666">&lt;-</span> acc.b<span style="color: #40a070">+1</span>
+  }
+
+  <span style="color: #60a0b0; font-style: italic"># Update s2</span>
+  cand <span style="color: #666666">&lt;-</span> rnorm(<span style="color: #40a070">1</span>,s2.hat[i],css)
+  <span style="color: #007020; font-weight: bold">if</span> (cand<span style="color: #666666">&gt;</span><span style="color: #40a070">0</span>) {
+    q <span style="color: #666666">&lt;-</span> ll(b.hat[i,],cand)<span style="color: #666666">+</span>lps(cand)<span style="color: #666666">-</span>ll(b.hat[i,],s2.hat[i])<span style="color: #666666">-</span>lps(s2.hat[i])
+    <span style="color: #007020; font-weight: bold">if</span> (q<span style="color: #666666">&gt;</span>log(runif(<span style="color: #40a070">1</span>))) {
+      s2.hat[i] <span style="color: #666666">&lt;-</span> cand
+      acc.s <span style="color: #666666">&lt;-</span> acc.s<span style="color: #40a070">+1</span>
+    }
+  }
+
+  cat(paste0(<span style="color: #4070a0">&quot;\r&quot;</span>,round(<span style="color: #40a070">100</span><span style="color: #666666">*</span>i<span style="color: #666666">/</span>B),<span style="color: #4070a0">&quot;%&quot;</span>))
+}
+)
+</pre></td></tr></table></div>

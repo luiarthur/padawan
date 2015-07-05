@@ -1,0 +1,248 @@
+<!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020">#include &lt;iostream&gt;</span>
+<span style="color: #007020">#include &lt;armadillo&gt;</span>
+<span style="color: #007020">#include &lt;ctime&gt;</span>
+
+<span style="color: #007020; font-weight: bold">using</span> <span style="color: #007020; font-weight: bold">namespace</span> std;
+<span style="color: #007020; font-weight: bold">using</span> <span style="color: #007020; font-weight: bold">namespace</span> arma;
+
+<span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">double</span> pi  <span style="color: #666666">=</span><span style="color: #40a070">3.141592653589793238462</span>;
+<span style="color: #902000">int</span> n,k;  <span style="color: #60a0b0; font-style: italic">// nrow(X),ncol(X)</span>
+mat z,X,y,XXi,Xt;
+<span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">double</span> a<span style="color: #666666">=</span><span style="color: #40a070">1</span>;
+<span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">double</span> b<span style="color: #666666">=</span><span style="color: #40a070">1</span>;
+<span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">int</span> B<span style="color: #666666">=</span>pow(<span style="color: #40a070">10</span>,<span style="color: #40a070">5</span>);
+<span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">double</span> s2 <span style="color: #666666">=</span> <span style="color: #40a070">10</span>;
+
+<span style="color: #902000">double</span> <span style="color: #06287e">ll</span>(mat be, <span style="color: #902000">double</span> sig2) {
+  mat c(<span style="color: #40a070">1</span>,k), out(k,<span style="color: #40a070">1</span>);
+
+  c <span style="color: #666666">=</span> y<span style="color: #666666">-</span>X<span style="color: #666666">*</span>be;
+  out <span style="color: #666666">=</span> (c.t()<span style="color: #666666">*</span>c <span style="color: #666666">/</span> sig2 <span style="color: #666666">+</span> n<span style="color: #666666">*</span>log(sig2))<span style="color: #666666">/-</span><span style="color: #40a070">2</span>;
+  
+  <span style="color: #007020; font-weight: bold">return</span> as_scalar(out);
+}
+
+<span style="color: #902000">double</span> <span style="color: #06287e">lpb</span>(mat be) {
+  <span style="color: #007020; font-weight: bold">return</span> as_scalar(<span style="color: #666666">-</span>be.t()<span style="color: #666666">*</span>XXi<span style="color: #666666">*</span>be<span style="color: #666666">/</span>(<span style="color: #40a070">2</span><span style="color: #666666">*</span>s2));
+}
+
+<span style="color: #902000">double</span> <span style="color: #06287e">lps</span>(<span style="color: #902000">double</span> sig2) {
+  <span style="color: #007020; font-weight: bold">return</span> (a<span style="color: #666666">-</span><span style="color: #40a070">1</span>) <span style="color: #666666">*</span> log(sig2) <span style="color: #666666">-</span> sig2<span style="color: #666666">/</span>b;
+}
+
+mat <span style="color: #06287e">mvrnorm</span>(mat M, mat S) {
+  <span style="color: #902000">int</span> n <span style="color: #666666">=</span> M.n_rows;
+  mat e <span style="color: #666666">=</span> randn(n);
+  <span style="color: #007020; font-weight: bold">return</span> M <span style="color: #666666">+</span> chol(S).t()<span style="color: #666666">*</span>e;
+}
+
+<span style="color: #902000">int</span> <span style="color: #06287e">main</span>(<span style="color: #902000">int</span> argc, <span style="color: #902000">char</span><span style="color: #666666">**</span> argv) {
+  mat mle;
+
+  <span style="color: #60a0b0; font-style: italic">//posteriors:</span>
+  mat bb; 
+  mat ss;
+
+  <span style="color: #60a0b0; font-style: italic">// candidate sigma:</span>
+  mat csb;
+  <span style="color: #007020; font-weight: bold">const</span> <span style="color: #902000">double</span> css <span style="color: #666666">=</span> <span style="color: #40a070">1</span>;
+
+  <span style="color: #60a0b0; font-style: italic">//candidate values:</span>
+  mat candb;
+  <span style="color: #902000">double</span> cands;
+  
+  <span style="color: #60a0b0; font-style: italic">//acceptance rates:</span>
+  <span style="color: #902000">int</span> accb <span style="color: #666666">=</span> <span style="color: #40a070">0</span>;
+  <span style="color: #902000">int</span> accs <span style="color: #666666">=</span> <span style="color: #40a070">0</span>;
+
+  <span style="color: #60a0b0; font-style: italic">//metropolis ratio:</span>
+  <span style="color: #902000">double</span> q;
+
+  z.load(<span style="color: #4070a0">&quot;../data/dat.txt&quot;</span>);
+  n <span style="color: #666666">=</span> z.n_rows;
+  k <span style="color: #666666">=</span> z.n_cols<span style="color: #666666">-</span><span style="color: #40a070">1</span>;
+
+  y <span style="color: #666666">=</span> z.col(<span style="color: #40a070">0</span>);
+  X <span style="color: #666666">=</span> z.cols(<span style="color: #40a070">1</span>,k); <span style="color: #60a0b0; font-style: italic">// columns 2 to k+1 of z</span>
+  Xt <span style="color: #666666">=</span> X.t();
+  XXi <span style="color: #666666">=</span> (Xt<span style="color: #666666">*</span>X).i();
+  csb <span style="color: #666666">=</span> <span style="color: #40a070">4</span><span style="color: #666666">*</span>XXi;
+  mle <span style="color: #666666">=</span> XXi <span style="color: #666666">*</span> Xt <span style="color: #666666">*</span> y;
+  
+  bb.set_size(B,k);
+  ss.set_size(B,<span style="color: #40a070">1</span>);
+  bb.zeros();
+  ss.ones();
+
+  <span style="color: #60a0b0; font-style: italic">//current vals:</span>
+  mat bc <span style="color: #666666">=</span> bb.row(<span style="color: #40a070">0</span>);
+  <span style="color: #902000">double</span> sc <span style="color: #666666">=</span> <span style="color: #40a070">1.0</span>;
+
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Starting Metropolis:&quot;</span> <span style="color: #666666">&lt;&lt;</span>endl;
+  <span style="color: #902000">clock_t</span> t1 <span style="color: #666666">=</span> clock();
+  <span style="color: #007020; font-weight: bold">for</span> (<span style="color: #902000">int</span> i<span style="color: #666666">=</span><span style="color: #40a070">1</span>; i<span style="color: #666666">&lt;</span>B; i<span style="color: #666666">++</span>) {
+    <span style="color: #60a0b0; font-style: italic">// Set Initial Values:</span>
+    bb.row(i) <span style="color: #666666">=</span> bb.row(i<span style="color: #666666">-</span><span style="color: #40a070">1</span>);
+    ss.at(i,<span style="color: #40a070">0</span>) <span style="color: #666666">=</span> sc;
+    bc <span style="color: #666666">=</span> bb.row(i).t();
+
+    <span style="color: #60a0b0; font-style: italic">//Update Beta:</span>
+    candb <span style="color: #666666">=</span> mvrnorm(bc,csb);
+    q <span style="color: #666666">=</span> ll(candb,sc)<span style="color: #666666">+</span>lpb(candb) <span style="color: #666666">-</span>ll(bc,sc)<span style="color: #666666">-</span>lpb(bc);
+    <span style="color: #007020; font-weight: bold">if</span> (q<span style="color: #666666">&gt;</span>log(randu())) {
+      bc <span style="color: #666666">=</span> candb;
+      bb.row(i) <span style="color: #666666">=</span> bc.t();
+      accb<span style="color: #666666">++</span>;
+    }
+
+    <span style="color: #60a0b0; font-style: italic">//Update sigma2:</span>
+    cands <span style="color: #666666">=</span> randn()<span style="color: #666666">*</span>sqrt(css)<span style="color: #666666">+</span>sc;
+    <span style="color: #007020; font-weight: bold">if</span> (cands<span style="color: #666666">&gt;</span><span style="color: #40a070">0</span>){
+      q <span style="color: #666666">=</span> ll(bc,cands)<span style="color: #666666">+</span>lps(cands) <span style="color: #666666">-</span>ll(bc,sc)<span style="color: #666666">-</span>lps(sc);
+      <span style="color: #007020; font-weight: bold">if</span> (q<span style="color: #666666">&gt;</span>log(randu())) {
+        sc <span style="color: #666666">=</span> cands;
+        accs<span style="color: #666666">++</span>;
+      }
+    }
+    
+    cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;</span><span style="color: #4070a0; font-weight: bold">\r</span><span style="color: #4070a0">&quot;</span> <span style="color: #666666">&lt;&lt;</span> i<span style="color: #666666">*</span><span style="color: #40a070">100</span><span style="color: #666666">/</span>B <span style="color: #666666">&lt;&lt;</span><span style="color: #4070a0">&quot;%&quot;</span>;
+  }
+  <span style="color: #902000">clock_t</span> t2 <span style="color: #666666">=</span> clock();
+  <span style="color: #902000">double</span> elapsed <span style="color: #666666">=</span> <span style="color: #902000">double</span>(t2<span style="color: #666666">-</span>t1) <span style="color: #666666">/</span> CLOCKS_PER_SEC;
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Elapsed Time: &quot;</span> <span style="color: #666666">&lt;&lt;</span>elapsed<span style="color: #666666">&lt;&lt;</span><span style="color: #4070a0">&quot;s. </span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">&lt;&lt;</span>endl;
+
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Posterior Means Beta: </span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span> <span style="color: #666666">&lt;&lt;</span> 
+          mean(bb.rows(<span style="color: #40a070">90000</span>,<span style="color: #40a070">100000</span><span style="color: #666666">-</span><span style="color: #40a070">1</span>)).t()<span style="color: #666666">&lt;&lt;</span>endl;
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Posterior Mean Sigma2: </span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span> <span style="color: #666666">&lt;&lt;</span>
+          mean(ss.rows(<span style="color: #40a070">90000</span>,<span style="color: #40a070">100000</span><span style="color: #666666">-</span><span style="color: #40a070">1</span>))<span style="color: #666666">&lt;&lt;</span>endl;
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Beta Acceptance:   &quot;</span><span style="color: #666666">&lt;&lt;</span> <span style="color: #40a070">100</span><span style="color: #666666">*</span>accb<span style="color: #666666">/</span>B <span style="color: #666666">&lt;&lt;</span><span style="color: #4070a0">&quot;%&quot;</span><span style="color: #666666">&lt;&lt;</span>endl;
+  cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #4070a0">&quot;Sigma2 Acceptance: &quot;</span><span style="color: #666666">&lt;&lt;</span> <span style="color: #40a070">100</span><span style="color: #666666">*</span>accs<span style="color: #666666">/</span>B <span style="color: #666666">&lt;&lt;</span><span style="color: #4070a0">&quot;%&quot;</span><span style="color: #666666">&lt;&lt;</span>endl;
+  cout <span style="color: #666666">&lt;&lt;</span>endl;
+  <span style="color: #60a0b0; font-style: italic">//ss.save(&quot;s2.txt&quot;,raw_ascii);</span>
+
+  <span style="color: #007020; font-weight: bold">return</span> <span style="color: #40a070">0</span>;
+}
+</pre></td></tr></table></div>

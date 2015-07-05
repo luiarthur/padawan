@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html%}
+  <body>
+    <!-- Navigation -->
+    {% include nav.html%}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-color:#FF9933; height:60px; margin:0">
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <h3> {{page.title}} </h3>
+            <hr>
+            <div class="col-lg-4 col-md-5">
+                <ul>
+                  <li> \( \small \alpha = {{page.alpha}} \)</li>
+                  <li> \( \small \sigma = {{page.sigma}} \)</li>
+                  <li> \( \small D = {{page.D}} \)</li>
+                </ul>
+            </div>      
+            <div class="col-lg-8 col-md-7">
+                <div id="multilinePlot"></div>
+            </div>
+            <div class="row"></div>
+            {{content}}
+            <!--Comments-->
+            <div id="cucumber"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {% include footer.html %}
+  </body>
+</html>

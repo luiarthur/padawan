@@ -1,0 +1,88 @@
+.comment {
+  margin: 7px 0;
+  padding: 5px;
+  background: #fff;
+  min-height: 50px;
+  font: sans-serif;
+}
+#textWrap {
+  padding-top: 5px;
+  margin-top: 10px;
+  border-top: 1px solid #E6E6E6;
+}
+.commentBox {
+  width: 100%;
+  resize: none;
+  font-family: sans-serif;
+  font-size:15px;
+  margin-bottom:30px;
+  border-radius: 3px;
+}
+#oComName {
+  color: steelblue;
+  font-size:16px;
+}
+.upic {
+  border-radius: 50%;
+  position:absolute;
+  width:50px;
+}
+.oCom {
+  margin-left:55px;
+  display:inline-block;
+  word-wrap: break-word;
+  font-family: sans-serif;
+  font-size:16px;
+}
+.twrap{
+  overflow: hidden;
+  padding-left: 55px;
+}
+#login, #logout {
+  float:right;
+  text-decoration:none;
+  color: grey;
+  font-size:15px;
+  font-family:sans-serif;
+}
+#googleLogin,#fbLogin,#githubLogin {
+  float:right;
+  height: 20px;
+  width:  20px;
+  padding: 2px;
+}
+#show,#hide {
+  float:right;
+  text-decoration:none;
+  color:grey;
+  font-size:15px;
+}
+#togComments {
+  text-decoration:none;
+  color:darkgrey;
+}
+#pen {
+  height:12px;
+  width:auto;
+  opacity:.5;
+}
+#pen:hover {
+  opacity:1;
+}
+#x {
+  /*float: right;*/
+  font-size: 15px;
+  text-decoration:none;
+  color:lightgrey;
+}
+#x:hover {
+  color:red;
+  cursor:default;
+}
+.timeago {
+  color: lightgrey;
+  font-size: 12px;
+}
+#noul {
+  text-decoration:none
+}

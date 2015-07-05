@@ -1,0 +1,256 @@
+<!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">//https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet</span>
+<span style="color: #60a0b0; font-style: italic">//http://www.scalanlp.org/api/breeze/index.html#breeze.linalg.package</span>
+<span style="color: #60a0b0; font-style: italic">//https://github.com/scalanlp/breeze/wiki/Installation</span>
+<span style="color: #60a0b0; font-style: italic">//http://www.scala-sbt.org/0.12.2/docs/Getting-Started/Hello.html</span>
+
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">scala.io.Source</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.File</span> <span style="color: #60a0b0; font-style: italic">// write to file. new File(&quot;file.txt&quot;)</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">scala.util.Random</span>
+
+<span style="color: #60a0b0; font-style: italic">// put breeze.jar in the scala lib</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">breeze.linalg._</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">breeze.numerics._</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">breeze.stats.distributions._</span>
+
+<span style="color: #007020; font-weight: bold">object</span> <span style="color: #0e84b5; font-weight: bold">bayesMLR</span><span style="color: #666666">{</span>
+  <span style="color: #60a0b0; font-style: italic">// Objects</span>
+  <span style="color: #007020; font-weight: bold">val</span> afile <span style="color: #007020; font-weight: bold">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #0e84b5; font-weight: bold">File</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;../data/dat.txt&quot;</span><span style="color: #666666">)</span>
+  <span style="color: #007020; font-weight: bold">val</span> rnorm <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">Gaussian</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,</span><span style="color: #40a070">1</span><span style="color: #666666">)</span>
+  <span style="color: #60a0b0; font-style: italic">//val runif = new Random // runif.nextDouble</span>
+
+  <span style="color: #60a0b0; font-style: italic">// Other Constants</span>
+  <span style="color: #007020; font-weight: bold">val</span> m <span style="color: #007020; font-weight: bold">=</span> csvread<span style="color: #666666">(</span>afile<span style="color: #666666">,</span><span style="color: #4070a0">&#39; &#39;</span><span style="color: #666666">)</span> <span style="color: #60a0b0; font-style: italic">//requires breeze.linalg</span>
+  <span style="color: #007020; font-weight: bold">val</span> n <span style="color: #007020; font-weight: bold">=</span> m<span style="color: #666666">.</span>rows
+  <span style="color: #007020; font-weight: bold">val</span> k <span style="color: #007020; font-weight: bold">=</span> m<span style="color: #666666">.</span>cols<span style="color: #666666">-</span><span style="color: #40a070">1</span>
+
+  <span style="color: #007020; font-weight: bold">val</span> X <span style="color: #007020; font-weight: bold">=</span> m<span style="color: #666666">(::,</span><span style="color: #40a070">1</span> to k<span style="color: #666666">)</span>
+  <span style="color: #007020; font-weight: bold">val</span> <span style="color: #0e84b5; font-weight: bold">Xt</span> <span style="color: #007020; font-weight: bold">=</span> X<span style="color: #666666">.</span>t
+  <span style="color: #007020; font-weight: bold">var</span> <span style="color: #0e84b5; font-weight: bold">XXi</span> <span style="color: #007020; font-weight: bold">=</span> inv<span style="color: #666666">(</span><span style="color: #0e84b5; font-weight: bold">Xt</span><span style="color: #666666">*</span>X<span style="color: #666666">)</span>
+  <span style="color: #007020; font-weight: bold">val</span> y <span style="color: #007020; font-weight: bold">=</span> m<span style="color: #666666">(::,</span><span style="color: #40a070">0</span><span style="color: #666666">)</span>
+  <span style="color: #007020; font-weight: bold">val</span> s2 <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">10.0</span>
+  <span style="color: #007020; font-weight: bold">val</span> a <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">1.0</span>
+  <span style="color: #007020; font-weight: bold">val</span> b <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">1.0</span>
+  <span style="color: #007020; font-weight: bold">val</span> B <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">100000</span>
+  <span style="color: #007020; font-weight: bold">val</span> r <span style="color: #007020; font-weight: bold">=</span> log<span style="color: #666666">(</span><span style="color: #0e84b5; font-weight: bold">DenseVector</span><span style="color: #666666">.</span>rand<span style="color: #666666">(</span>B<span style="color: #666666">*</span><span style="color: #40a070">2</span><span style="color: #666666">))</span>
+
+  <span style="color: #60a0b0; font-style: italic">// Posteriors:</span>
+  <span style="color: #007020; font-weight: bold">var</span> bb <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">DenseMatrix</span><span style="color: #666666">.</span>zeros<span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">](</span>B<span style="color: #666666">,</span>k<span style="color: #666666">)</span>
+  <span style="color: #007020; font-weight: bold">var</span> ss <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">DenseVector</span><span style="color: #666666">.</span>ones<span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">](</span>B<span style="color: #666666">)</span>
+  
+  <span style="color: #60a0b0; font-style: italic">// Candidate Sigmas:</span>
+  <span style="color: #007020; font-weight: bold">val</span> csb <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">XXi</span><span style="color: #666666">(::,*)</span> <span style="color: #666666">*</span> <span style="color: #40a070">4.0</span>
+  <span style="color: #007020; font-weight: bold">val</span> css <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">1.0</span>
+
+  <span style="color: #60a0b0; font-style: italic">// Acceptance Counters:</span>
+  <span style="color: #007020; font-weight: bold">var</span> accb<span style="color: #666666">,</span> accs <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">0</span>
+
+  <span style="color: #60a0b0; font-style: italic">// The Scala Cholesky funtion is too sensitive. It thinks</span>
+  <span style="color: #60a0b0; font-style: italic">// matrices are not symmetric. It needs fixing.</span>
+  <span style="color: #60a0b0; font-style: italic">// Also, the Scala Cholesky returns the lower triangle, instead of upper,</span>
+  <span style="color: #60a0b0; font-style: italic">// which is the convention in R and C++ (armadillo).</span>
+  <span style="color: #007020; font-weight: bold">def</span> chol<span style="color: #666666">(</span>x<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseMatrix</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">])</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseMatrix</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">]</span> <span style="color: #007020; font-weight: bold">=</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">val</span> up <span style="color: #007020; font-weight: bold">=</span> upperTriangular<span style="color: #666666">(</span>x<span style="color: #666666">)</span>
+    <span style="color: #007020; font-weight: bold">val</span> lo <span style="color: #007020; font-weight: bold">=</span> up<span style="color: #666666">.</span>t
+    <span style="color: #007020; font-weight: bold">val</span> out <span style="color: #007020; font-weight: bold">=</span> up <span style="color: #666666">+</span> lo <span style="color: #666666">-</span> diag<span style="color: #666666">(</span>diag<span style="color: #666666">(</span>x<span style="color: #666666">))</span>
+    cholesky<span style="color: #666666">(</span>out<span style="color: #666666">).</span>t
+  <span style="color: #666666">}</span>
+
+  <span style="color: #007020; font-weight: bold">def</span> ll<span style="color: #666666">(</span>be<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseVector</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">],</span> sig2<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span><span style="color: #666666">)</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span> <span style="color: #666666">=</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">val</span> c <span style="color: #007020; font-weight: bold">=</span> y<span style="color: #666666">-</span>X<span style="color: #666666">*</span>be
+    <span style="color: #007020; font-weight: bold">val</span> out <span style="color: #007020; font-weight: bold">=</span> <span style="color: #666666">(</span>c<span style="color: #666666">.</span>t<span style="color: #666666">*</span>c<span style="color: #666666">/</span>sig2 <span style="color: #666666">+</span> n<span style="color: #666666">*</span>log<span style="color: #666666">(</span>sig2<span style="color: #666666">))</span> <span style="color: #666666">/</span> <span style="color: #666666">-</span><span style="color: #40a070">2.0</span>
+    out
+  <span style="color: #666666">}</span>
+
+  <span style="color: #007020; font-weight: bold">def</span> lpb<span style="color: #666666">(</span>be<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseVector</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">])</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span> <span style="color: #666666">=</span> <span style="color: #666666">{</span>
+    be<span style="color: #666666">.</span>t<span style="color: #666666">*</span><span style="color: #0e84b5; font-weight: bold">XXi</span><span style="color: #666666">*</span>be <span style="color: #666666">/</span> <span style="color: #666666">(-</span><span style="color: #40a070">2.0</span><span style="color: #666666">*</span>s2<span style="color: #666666">)</span>
+  <span style="color: #666666">}</span>
+  
+  <span style="color: #007020; font-weight: bold">def</span> lps<span style="color: #666666">(</span>sig2<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span><span style="color: #666666">)</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span> <span style="color: #666666">=</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">(</span>a<span style="color: #666666">-</span><span style="color: #40a070">1</span><span style="color: #666666">)*</span>log<span style="color: #666666">(</span>sig2<span style="color: #666666">)</span> <span style="color: #666666">-</span> sig2<span style="color: #666666">/</span>b
+  <span style="color: #666666">}</span>
+
+  <span style="color: #007020; font-weight: bold">def</span> round<span style="color: #666666">(</span>x<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span><span style="color: #666666">,</span> figs<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Int</span><span style="color: #666666">=</span><span style="color: #40a070">3</span><span style="color: #666666">)</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Double</span> <span style="color: #666666">=</span> <span style="color: #666666">{</span>
+    <span style="color: #0e84b5; font-weight: bold">BigDecimal</span><span style="color: #666666">(</span>x<span style="color: #666666">).</span>setScale<span style="color: #666666">(</span>figs<span style="color: #666666">,</span><span style="color: #0e84b5; font-weight: bold">BigDecimal</span><span style="color: #666666">.</span><span style="color: #0e84b5; font-weight: bold">RoundingMode</span><span style="color: #666666">.</span><span style="color: #0e84b5; font-weight: bold">HALF_UP</span><span style="color: #666666">).</span>toDouble
+  <span style="color: #666666">}</span>
+  
+  <span style="color: #007020; font-weight: bold">def</span> mvrnorm<span style="color: #666666">(</span>M<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseVector</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">],</span> S<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseMatrix</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">])</span><span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">DenseVector</span><span style="color: #666666">[</span><span style="color: #902000">Double</span><span style="color: #666666">]</span> <span style="color: #007020; font-weight: bold">=</span> <span style="color: #666666">{</span>
+    M <span style="color: #666666">+</span> chol<span style="color: #666666">(</span>S<span style="color: #666666">).</span>t <span style="color: #666666">*</span> <span style="color: #0e84b5; font-weight: bold">DenseVector</span><span style="color: #666666">(</span>rnorm<span style="color: #666666">.</span>sample<span style="color: #666666">(</span>k<span style="color: #666666">).</span>toArray<span style="color: #666666">)</span>
+  <span style="color: #666666">}</span>
+
+  <span style="color: #007020; font-weight: bold">def</span> main<span style="color: #666666">(</span>args<span style="color: #007020; font-weight: bold">:</span> <span style="color: #902000">Array</span><span style="color: #666666">[</span><span style="color: #902000">String</span><span style="color: #666666">])</span> <span style="color: #007020; font-weight: bold">=</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">(</span><span style="color: #40a070">1</span> to <span style="color: #40a070">10</span><span style="color: #666666">).</span>foreach<span style="color: #666666">(</span>s <span style="color: #007020; font-weight: bold">=&gt;</span> println<span style="color: #666666">())</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Starting...&quot;</span><span style="color: #666666">)</span> <span style="color: #60a0b0; font-style: italic">// Takes about 2 seconds to compile, and 6 seconds to run.</span>
+    <span style="color: #007020; font-weight: bold">val</span> t1 <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">System</span><span style="color: #666666">.</span>currentTimeMillis <span style="color: #666666">/</span> <span style="color: #40a070">1000.0</span>
+      <span style="color: #60a0b0; font-style: italic">// current values:</span>
+      <span style="color: #007020; font-weight: bold">var</span> bc <span style="color: #007020; font-weight: bold">=</span> bb<span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,::).</span>t
+      <span style="color: #007020; font-weight: bold">var</span> sc <span style="color: #007020; font-weight: bold">=</span> ss<span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">)</span>
+
+      <span style="color: #60a0b0; font-style: italic">// Candidate Values:</span>
+      <span style="color: #007020; font-weight: bold">var</span> cb <span style="color: #007020; font-weight: bold">=</span> bc
+      <span style="color: #007020; font-weight: bold">var</span> cs <span style="color: #007020; font-weight: bold">=</span> sc
+      <span style="color: #007020; font-weight: bold">var</span> q <span style="color: #007020; font-weight: bold">=</span> <span style="color: #40a070">0.0</span>
+
+      <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span>i <span style="color: #007020; font-weight: bold">&lt;-</span> <span style="color: #40a070">1</span> to <span style="color: #666666">(</span>B<span style="color: #666666">-</span><span style="color: #40a070">1</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+        bb<span style="color: #666666">(</span>i<span style="color: #666666">,::)</span> <span style="color: #666666">:=</span> bc<span style="color: #666666">.</span>t
+        ss<span style="color: #666666">(</span>i<span style="color: #666666">)</span> <span style="color: #007020; font-weight: bold">=</span> sc
+
+        <span style="color: #60a0b0; font-style: italic">//Update Beta:</span>
+        cb <span style="color: #007020; font-weight: bold">=</span> mvrnorm<span style="color: #666666">(</span>bc<span style="color: #666666">,</span>csb<span style="color: #666666">)</span>
+        q <span style="color: #007020; font-weight: bold">=</span> ll<span style="color: #666666">(</span>cb<span style="color: #666666">,</span>sc<span style="color: #666666">)+</span>lpb<span style="color: #666666">(</span>cb<span style="color: #666666">)</span> <span style="color: #666666">-</span> ll<span style="color: #666666">(</span>bc<span style="color: #666666">,</span>sc<span style="color: #666666">)-</span>lpb<span style="color: #666666">(</span>bc<span style="color: #666666">)</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>q <span style="color: #666666">&gt;</span> r<span style="color: #666666">(</span>i<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+          bc <span style="color: #007020; font-weight: bold">=</span> cb
+          accb <span style="color: #007020; font-weight: bold">=</span> accb<span style="color: #666666">+</span><span style="color: #40a070">1</span>     
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">//Update sigma2:</span>
+        cs <span style="color: #007020; font-weight: bold">=</span> rnorm<span style="color: #666666">.</span>draw<span style="color: #666666">()*</span>sqrt<span style="color: #666666">(</span>css<span style="color: #666666">)</span> <span style="color: #666666">+</span> sc
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>cs <span style="color: #666666">&gt;</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+          q <span style="color: #007020; font-weight: bold">=</span> ll<span style="color: #666666">(</span>bc<span style="color: #666666">,</span>cs<span style="color: #666666">)+</span>lps<span style="color: #666666">(</span>cs<span style="color: #666666">)</span> <span style="color: #666666">-</span>ll<span style="color: #666666">(</span>bc<span style="color: #666666">,</span>sc<span style="color: #666666">)-</span>lps<span style="color: #666666">(</span>sc<span style="color: #666666">)</span> 
+          <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>q <span style="color: #666666">&gt;</span> r<span style="color: #666666">(</span>i<span style="color: #666666">+</span>B<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            sc <span style="color: #007020; font-weight: bold">=</span> cs
+            accs <span style="color: #007020; font-weight: bold">=</span> accs <span style="color: #666666">+</span> <span style="color: #40a070">1</span>
+          <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #60a0b0; font-style: italic">//print(&quot;\rProgress: &quot;+round(i*100.0/B,0)+&quot;%&quot;)//This slows down by half the time</span>
+      <span style="color: #666666">}</span> <span style="color: #60a0b0; font-style: italic">// End of Metropolis</span>
+    <span style="color: #007020; font-weight: bold">val</span> t2 <span style="color: #007020; font-weight: bold">=</span> <span style="color: #0e84b5; font-weight: bold">System</span><span style="color: #666666">.</span>currentTimeMillis <span style="color: #666666">/</span> <span style="color: #40a070">1000.0</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Runtime: &quot;</span><span style="color: #666666">+</span>round<span style="color: #666666">(</span>t2<span style="color: #666666">-</span>t1<span style="color: #666666">,</span><span style="color: #40a070">3</span><span style="color: #666666">)+</span><span style="color: #4070a0">&quot;\n&quot;</span><span style="color: #666666">)</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Acceptance beta: &quot;</span><span style="color: #666666">+</span><span style="color: #40a070">100.0</span><span style="color: #666666">*</span>accb<span style="color: #666666">/</span>B<span style="color: #666666">+</span><span style="color: #4070a0">&quot;%&quot;</span><span style="color: #666666">)</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Acceptance sig2: &quot;</span><span style="color: #666666">+</span><span style="color: #40a070">100.0</span><span style="color: #666666">*</span>accs<span style="color: #666666">/</span>B<span style="color: #666666">+</span><span style="color: #4070a0">&quot;%\n&quot;</span><span style="color: #666666">)</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Posterior sig2: &quot;</span><span style="color: #666666">+</span>round<span style="color: #666666">(</span>sum<span style="color: #666666">(</span>ss<span style="color: #666666">(</span><span style="color: #40a070">90000</span> to <span style="color: #40a070">99999</span><span style="color: #666666">))</span> <span style="color: #666666">/</span> <span style="color: #666666">(</span>B<span style="color: #666666">*.</span><span style="color: #40a070">1</span><span style="color: #666666">)))</span>
+    println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Posterior beta:&quot;</span><span style="color: #666666">)</span>
+    <span style="color: #60a0b0; font-style: italic">//(sum(bb(::,*)).t / (B*1.0)).toArray.foreach(s =&gt; println(&quot;\t&quot;+s))</span>
+    <span style="color: #666666">(</span>sum<span style="color: #666666">(</span>bb<span style="color: #666666">(</span><span style="color: #40a070">90000</span> to <span style="color: #40a070">99999</span><span style="color: #666666">,*)).</span>t <span style="color: #666666">/</span> <span style="color: #666666">(</span>B<span style="color: #666666">*.</span><span style="color: #40a070">1</span><span style="color: #666666">)).</span>toArray<span style="color: #666666">.</span>foreach<span style="color: #666666">(</span>s <span style="color: #007020; font-weight: bold">=&gt;</span> println<span style="color: #666666">(</span><span style="color: #4070a0">&quot;\t&quot;</span><span style="color: #666666">+</span>s<span style="color: #666666">))</span>
+    println<span style="color: #666666">()</span>
+  <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+<span style="color: #60a0b0; font-style: italic">// TO launch REPL:</span>
+<span style="color: #60a0b0; font-style: italic">//sbt ~console</span>
+</pre></td></tr></table></div>

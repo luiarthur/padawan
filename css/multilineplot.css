@@ -1,0 +1,21 @@
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none; /*prevents default VERY BOLD axis line*/
+  stroke: #000;
+  shape-rendering: crispEdges; /*makes axis line thin and pretty*/
+}
+
+.x.axis path {
+  display: none; /*removes axis line*/
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+  opacity: 1;
+}
