@@ -1,0 +1,18 @@
+# Site settings
+title: Arthur Lui
+header-img: img/home-bg.jpg
+header-color: "grey"
+email: luiarthur@gmail.com
+description: "Write your site description here. It will be used as your sites meta description as well!"
+baseurl: ""
+url: "http://luiarthur.github.io"
+#twitter_username: SBootstrap
+github_username:  luiarthur
+facebook_username:  arthur.lui.90
+
+# Build settings
+markdown: redcarpet
+#highlighter: pygments
+permalink: /:title #pretty
+paginate: 20
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
