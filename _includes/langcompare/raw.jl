@@ -1,15 +1,5 @@
 {% highlight julia linenos %}
-##= Install Packages if needed:
-#  Pkg.add("Distributions")
-#  Pkg.add("DataFrames")
-#  Pkg.add("Gadfly")
-#=#
-#ta = 1:size(X,2); (ta .!= 3) & (ta .!= 5)
-#blas_set_num_thread(8)
-
-println("Loading packages (20 seconds)...")
 using DataFrames, Distributions, Gadfly
-println("Finished loading packages...")
 
 const dat = readdlm("../data/dat.txt")
 n,k1 = size(dat)
@@ -37,7 +27,6 @@ end
 lpb(be::Array{Float64,1}) = -be'XXi*be/2s2
 lps(sig2::Float64) = (a-1)*log(s2)-s2/b 
 mvrnorm(M::Array{Float64,1}) = M+S*randn(k)
-
 
 function mh(B=100000)
   accb = 0; accs = 0
@@ -85,7 +74,4 @@ println("ŝ²: ",  mean(ss[round(B*.9):end]),"\n")
 
 println("Acceptance rate for β̂: ",accb/B)
 println("Acceptance rate for ŝ²:",accs/B)
-
-#plot(x=1:10000,y=ss[90000:99999], Geom.line,Theme( line_width=1pt, default_color=color("orange")))
-#plot(x=ss[90000:99999],Geom.histogram())
 {% endhighlight %}

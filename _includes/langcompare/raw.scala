@@ -1,8 +1,4 @@
 {% highlight scala linenos %}
-//https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet
-//http://www.scalanlp.org/api/breeze/index.html#breeze.linalg.package
-//https://github.com/scalanlp/breeze/wiki/Installation
-//http://www.scala-sbt.org/0.12.2/docs/Getting-Started/Hello.html
 
 import scala.io.Source
 import java.io.File // write to file. new File("file.txt")
@@ -45,10 +41,6 @@ object bayesMLR{
   // Acceptance Counters:
   var accb, accs = 0
 
-  // The Scala Cholesky funtion is too sensitive. It thinks
-  // matrices are not symmetric. It needs fixing.
-  // Also, the Scala Cholesky returns the lower triangle, instead of upper,
-  // which is the convention in R and C++ (armadillo).
   def chol(x: DenseMatrix[Double]): DenseMatrix[Double] = {
     val up = upperTriangular(x)
     val lo = up.t
@@ -112,7 +104,6 @@ object bayesMLR{
             accs = accs + 1
           }
         }
-        //print("\rProgress: "+round(i*100.0/B,0)+"%")//This slows down by half the time
       } // End of Metropolis
     val t2 = System.currentTimeMillis / 1000.0
     println("Runtime: "+round(t2-t1,3)+"\n")
@@ -120,7 +111,6 @@ object bayesMLR{
     println("Acceptance sig2: "+100.0*accs/B+"%\n")
     println("Posterior sig2: "+round(sum(ss(90000 to 99999)) / (B*.1)))
     println("Posterior beta:")
-    //(sum(bb(::,*)).t / (B*1.0)).toArray.foreach(s => println("\t"+s))
     (sum(bb(90000 to 99999,*)).t / (B*.1)).toArray.foreach(s => println("\t"+s))
     println()
   }
