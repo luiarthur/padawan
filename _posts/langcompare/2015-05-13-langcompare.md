@@ -46,7 +46,7 @@ coded.
 ***
 
 ![Conciseness Comparison](/assets/langcompare/img/lines.svg)
-<span class="caption text-muted">R wins marginally in conciseness.</span>
+<span class="caption text-muted">R wins in conciseness.</span>
 ***
 
 ![Overall Comparison](/assets/langcompare/img/vs.svg)
