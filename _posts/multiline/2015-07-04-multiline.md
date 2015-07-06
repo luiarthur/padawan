@@ -18,5 +18,5 @@ image:
 
 <!-- Javascript: -->
 <script type="text/javascript">
-  draw("/assets/demoDat.tsv","tau","#multilinePlot");
+  multiline("/assets/demoDat.tsv","tau","#multilinePlot");
 </script>
