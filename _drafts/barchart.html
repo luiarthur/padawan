@@ -10,15 +10,25 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-      function barchart() {
+      function barchart(dataset,scaling,w,h,barPadding) {
         //Width and height
-        var w = 500;
-        var h = 100;
-        var barPadding = 1;
-        
-        var dataset = [ 5, 11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
-        
+        if (w === undefined) {
+          var w = 500;
+        }
+        if (h === undefined) {
+          var h = 100;
+        }
+        if (barPadding === undefined) {
+          var barPadding = 1;
+        }
+        if (legend === undefined) {
+          var scaling = 1;
+        } else {
+          var scaling = .95;
+        }
+
         //Create SVG element
+        yhi = d3.max(dataset);
         var svg = d3.select("body")
               .append("svg")
               .attr("width", w)
@@ -32,14 +42,15 @@
               return i * (w / dataset.length);
            })
            .attr("y", function(d) {
-              return h - (d * 4);
+              return h * (1 - d / yhi) * scaling;
            })
            .attr("width", w / dataset.length - barPadding)
            .attr("height", function(d) {
-              return d * 4;
+              return d * h / yhi * scaling;
            })
            .attr("fill", function(d) {
-            return "rgb(0, 0, " + (d * 10) + ")";
+            //return "rgb(0, 0, " + (d * 10) + ")";
+            return "steelblue";
            });
 
         svg.selectAll("text")
@@ -54,13 +65,22 @@
               return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
            })
            .attr("y", function(d) {
-              return h - (d * 4) + 14;
+              return h * (1 - d / yhi) * scaling + 15;
            })
            .attr("font-family", "sans-serif")
-           .attr("font-size", "11px")
+           .attr("font-size", "15px")
            .attr("fill", "white");
       }
 		</script>
-    <script> barchart(); </script>
+    <script> 
+      var dataset = [ 3.3, 7.2, 9.1, 51.2 ];
+      var legend = [{code:"C++",color:"yellow",val:3.3},
+                    {code:"Scala",color:"green",val:7.2},
+                    {code:"Julia",color:"red",val:9.1},
+                    {code:"R",color:"blue",val:51.2}];
+      barchart(dataset,legend,800,500,2);
+      var t = legend.forEach(function(d){return d.val;});
+      alert(t);
+    </script>
 	</body>
 </html>
