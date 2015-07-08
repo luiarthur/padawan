@@ -25,29 +25,29 @@
           var scaling = 1;
         }
 
-        dataset = [];
+        vals = [];
         for (i=0;  i < data.length; i++) {
-          dataset.push(data[i].val);
+          vals.push(data[i].val);
         }
 
         //Create SVG element
-        yhi = d3.max(dataset);
+        yhi = d3.max(vals);
         var svg = d3.select("body")
               .append("svg")
               .attr("width", w)
               .attr("height", h);
 
         svg.selectAll("rect")
-           .data(dataset)
+           .data(vals)
            .enter()
            .append("rect")
            .attr("x", function(d, i) {
-              return i * (w / dataset.length);
+              return i * (w / vals.length);
            })
            .attr("y", function(d) {
               return h * (1 - d / yhi) * scaling;
            })
-           .attr("width", w / dataset.length - barPadding)
+           .attr("width", w / vals.length - barPadding)
            .attr("height", function(d) {
               return d * h / yhi * scaling;
            })
@@ -58,7 +58,7 @@
            });
 
         svg.selectAll("text")
-           .data(dataset)
+           .data(vals)
            .enter()
            .append("text")
            .text(function(d) {
@@ -66,7 +66,7 @@
            })
            .attr("text-anchor", "middle")
            .attr("x", function(d, i) {
-              return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+              return i * (w / vals.length) + (w / vals.length - barPadding) / 2;
            })
            .attr("y", function(d) {
               return h * (1 - d / yhi) * scaling + 15;
@@ -76,7 +76,7 @@
            .attr("fill", "white");
 
         svg.selectAll(".bartext")
-           .data(dataset)
+           .data(vals)
            .enter()
            .append("text")
            .text(function(d,i) {
@@ -84,7 +84,7 @@
            })
            .attr("text-anchor", "middle")
            .attr("x", function(d, i) {
-              return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+              return i * (w / vals.length) + (w / vals.length - barPadding) / 2;
            })
            .attr("y", function(d) {
               return h;
