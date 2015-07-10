@@ -1,14 +1,17 @@
-function barchart(data,div,scale,w,h,barPadding) {
+function barchart(data,div,scale,w,h,barPadding,labelPadding) {
   //Width and height
 
+  if (labelPadding === undefined) {
+    labelPadding = 0;
+  }
   if (w === undefined) {
-    var w = 500;
+    w = 500;
   }
   if (h === undefined) {
-    var h = 100;
+    h = 100;
   }
   if (barPadding === undefined) {
-    var barPadding = 2;
+    barPadding = 2;
   }
   var scaling = .97;
   if (scale === undefined) {
