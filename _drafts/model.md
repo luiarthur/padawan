@@ -54,6 +54,48 @@ is, we need to first retrieve the latent features, and then fit the logistic
 regression model.
 
 We will obtain $\hat{\mathbf{Z}}$ for the entire dataset then train our
-logistic regression model using leave one out cross-validation and compute AUC.
+logistic regression model using leave one out cross-validation. We will then
+compute the proportion of accurate predictions.
 
----
+## Functions
+{% highlight julia%}
+
+function gibbs(X::data, B::numOfIterations) 
+  # Note that we are modeling tau
+  return posterior_draws_Z
+end
+
+function modeIBP(Z::posteriorDraws)
+  return posterior_mode_Z
+end
+
+function logisticRegression(y::responses, X::regressors, B::numOfIterations)
+  return posterior_draws_beta
+end
+
+function predict(x::regressor, beta::estimates)
+  prediction = x'beta
+  return prediction
+end
+
+function leaveOneOutCV(y::responses, X::regressors, B::numOfIterations)
+  N = length(y)
+  pred = zeros(N)
+  for i in 1:N
+    beta = logistic_regression(y[-i],X[-i,:],B)
+    pred[i] = predict(x[i],beta)
+  end
+
+  prop_correct = mean(y == pred)
+  return prop_correct
+end
+
+# Main:
+post_Z = gibbs(X,B)
+Z = modeIBP(post_Z)
+prop_X = leaveOneOutCV(y,X,B)
+prop_Z = leaveOneOutCV(y,Z,B)
+
+println(prop_Z > prop_X)
+
+{% endhighlight %}
