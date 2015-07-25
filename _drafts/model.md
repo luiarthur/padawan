@@ -58,8 +58,7 @@ logistic regression model using leave one out cross-validation. We will then
 compute the proportion of accurate predictions.
 
 ## Functions
-{% highlight julia%}
-
+~~~Julia
 function gibbs(X::data, B::numOfIterations) 
   # Note that we are modeling tau
   return posterior_draws_Z
@@ -82,7 +81,8 @@ function leaveOneOutCV(y::responses, X::regressors, B::numOfIterations)
   N = length(y)
   pred = zeros(N)
   for i in 1:N
-    beta = logistic_regression(y[-i],X[-i,:],B)
+    post_beta = logisticRegression(y[-i],X[-i,:],B)
+    beta = mean(post_beta)
     pred[i] = predict(x[i],beta)
   end
 
@@ -96,6 +96,5 @@ Z = modeIBP(post_Z)
 prop_X = leaveOneOutCV(y,X,B)
 prop_Z = leaveOneOutCV(y,Z,B)
 
-println(prop_Z > prop_X)
-
-{% endhighlight %}
+println(prop_Z, prop_X)
+~~~
