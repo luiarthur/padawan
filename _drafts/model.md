@@ -35,17 +35,22 @@ $$
   \begin{array}{rcl}
     y\_i & \sim & \text{Bernuolli($p\_i$)}, \text{ where}\\\\
     \ln{\left( \frac{p\_i}{1-p\_i} \right)} & = & \mathbf{x'}\_i \beta \\\\
+    \beta & \sim & \text{Normal}(0,10\ \mathbf I\_{P+1}) \\\\
   \end{array}
 $$
 
 ### Latent Feature Model
 $$
   \begin{array}{rcl}
-    y\_i & \sim & \text{Bernuolli($q\_i$)}, \text{ where}\\\\
-    \ln{\left( \frac{q\_i}{1-q\_i} \right)} & = & \mathbf{\hat z'}\_i \gamma, \\\\
+    y\_i & \sim & \text{Bernuolli($q\_i$)}\\\\
+    \ln{\left( \frac{q\_i}{1-q\_i} \right)} & = & \mathbf{\hat z'}\_i \gamma \\\\
+    \gamma & \sim & \text{Normal}(0,10\ \mathbf I\_{P+1}) \\\\
   \end{array}
 $$
-and $\hat{\mathbf{Z}}$ is the posterior mode.
+where $\hat{\mathbf{Z}}$ is the posterior mode and $P+1$ is the number of
+columns in $\mathbf X$ and $\hat{\mathbf{Z}}$, which in this case also includes
+a column of $\mathbf 1$'s. A Bayesian model is appropriate here as $P$ is much
+larger than $N$.
 
 The difference between the two models is that in the raw data model, we are
 directly modeling the response based on the data; whereas, in the latent
