@@ -54,6 +54,6 @@ is, we need to first retrieve the latent features, and then fit the logistic
 regression model.
 
 We will obtain $\hat{\mathbf{Z}}$ for the entire dataset then train our
-logistic regression model using leave one out cross validation and compuite AUC.
+logistic regression model using leave one out cross-validation and compute AUC.
 
 ---
