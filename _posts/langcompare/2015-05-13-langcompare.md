@@ -9,10 +9,10 @@ header-color: "rgb(136,48,48)"
 As a statistical package with a large support community R serves its purpose
 well. However, at times, especially when doing more computation-heavy analysis,
 R slows down and reaches memory limits. So, I've looked around for a language
-that is reasonalbly fast, and quick to develop. Conciseness usually means less
+that is reasonably fast, and quick to develop. Conciseness usually means less
 room for coding errors and higher productivity. I tried out C++, Scala, and
 Julia. (I also attempted C and Go, but soon realized the linear algebra
-libraries were a pain to to grind through.) And since my computational work is
+libraries were a pain to grind through.) And since my computational work is
 usually Bayesian, I created my own criteria for judging performance — a
 standard Bayesian multiple linear regression algorithm.
 
