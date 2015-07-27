@@ -2,3 +2,33 @@ img.eg {
   padding:5%;
   background-color:grey;
 }
+
+@media print {
+  h1 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 14px;
+  }
+  h3,h4,h5,h6 {
+    font-size: 12px;
+  }
+
+  body {
+    font-size: 12px;
+  }
+  .highlight * {
+    font-size: 8px;
+  }
+  blockquote * {
+    font-size: 10px;
+  }
+
+  #cucumber, footer *{
+    display: none;
+  }
+  .pager {
+    display: none;
+  }
+}
+
