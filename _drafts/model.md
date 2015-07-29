@@ -9,11 +9,10 @@ dollar: on
 ## Model
 $$
   \begin{array}{rclcl}
-    \mathbf{X} & | & Z,A,\eta\_1,\eta\_2 & \sim & \text{Normal}(     ZA, \  \eta\_1I\_N, \ \eta\_2I\_P ) \\\\
-    Z & | & \alpha, D, \sigma, \tau & \sim      & \text{aIBM}( \alpha, \  \sigma, \  \tau ) \\\\
-    & & A & \sim                           & \text{Normal}( 0, \ I\_K, \ I\_P ) \\\\
+    \mathbf{X} & | & Z,A,\eta\_1 & \sim & \text{Normal}(     ZA, \  \eta\_1I\_N, \ \eta\_1I\_P ) \\\\
+    Z & | & \alpha, D, \sigma  & \sim      & \text{aIBM}( \alpha, \  \sigma ) \\\\
+    A & | & \eta\_2 & \sim                           & \text{Normal}( 0, \ \eta\_2I\_K, \ \eta\_2I\_P ) \\\\
     & & \alpha  & \sim                     & \text{Gamma}( 1,1 ) \\\\
-    & & \tau    & \sim                     & \text{Gamma}( 1,1 ) \\\\
     & & \eta\_1 & \sim                     & \text{Gamma}( 1,1 ) \\\\
     & & \eta\_2 & \sim                     & \text{Gamma}( 1,1 ) \\\\
     & & \sigma  & \sim                     & \text{permute}( 1,...,6 ) \\\\
