@@ -6,6 +6,8 @@ dollar: on
 # Model Specification for Attraction Indian Buffet Model
 ---
 
+
+
 ## Model
 $$
   \begin{array}{rclcl}
