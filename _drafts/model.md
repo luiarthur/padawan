@@ -6,7 +6,8 @@ dollar: on
 # Model Specification for Attraction Indian Buffet Model
 ---
 
-
+<!--http://rcmdnk.github.io/en/blog/2014/12/11/blog-javascript/ 
+ https://mailinabox.email://mailinabox.email/ -->
 
 ## Model
 $$
