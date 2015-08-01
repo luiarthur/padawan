@@ -141,10 +141,10 @@ function onClickEdit(e) {
   var loc = $("#"+eComID);
   orig = loc.html();
   console.log(orig);
-  var curCom = loc.children("span").children("text");
+  var curCom = loc.children("span").children("p");
   loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox' style='border:1px solid;'></textarea></div>");
   loc.after("<p style='clear:both'></p>");
-  var ta = loc.children("div").children("textarea");
+  var ta = loc.children("div").children("p");
   ta.focus().val("").val(curCom.text());
   $(".commentBox").elastic();
 }
@@ -154,7 +154,7 @@ function onEditKeyDown(e) {
   var ta = loc.children("div").children("textarea");
   if (e.keyCode==13) {
     edRef.child('body').set(ta.val());
-    loc.html("").append(orig).children("span").children("text").text(ta.val());
+    loc.html("").append(orig).children("span").children("p").text(ta.val());
   }
 }
 
