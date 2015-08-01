@@ -19,6 +19,7 @@ $(document).ready(function(){ // executes js when document is ready. Allows js t
 
 //$(".oCom[userid='"+uid+"']").children(".editCom").show();
 function onLoginClick(provider) {
+  event.preventDefault();
   ref.authWithOAuthPopup(provider,function(){});
 }
 function onLogoutClick(e) {
@@ -27,11 +28,29 @@ function onLogoutClick(e) {
   $(".oCom").children(".editCom").hide();
 }
 
+function genLoginHtml(id, socialMedia) {
+  return "<li>" + 
+           "<a id='"+id+"' href='#' class='smLogin' onclick='onLoginClick(\""+socialMedia+"\")'>" + 
+             "<span class='fa-stack fa-lg'>" + 
+               "<i class='fa fa-circle fa-stack-2x'></i>" +
+               "<i class='fa fa-"+socialMedia+" fa-stack-1x fa-inverse'></i>" +
+             "</span>" +
+           "</a>" +
+         "</li>";
+}
 ref.onAuth(function(authData) {
-var login = "<img id='githubLogin' href='#' onclick='onLoginClick(\"github\")'   src='/img/github.png'>"+
-            "<img id='googleLogin' href='#' onclick='onLoginClick(\"google\")'   src='/img/google.png'>"+ 
-            "<img id='fbLogin'     href='#' onclick='onLoginClick(\"facebook\")' src='/img/fb.png'>";
-var logout = "<a href='#' onclick='onLogoutClick(event)' id='logout'>logout</a>";
+var login =  "<ul class='list-inline text-right'>" +
+               genLoginHtml("fbLogin","facebook") +
+               genLoginHtml("googleLogin","google") +
+               genLoginHtml("githubLogin","github") +
+             "</ul>";
+/*
+  "<img id='githubLogin' href='#' onclick='onLoginClick(\"github\")'   src='/img/github.png'>"+
+  "<img id='googleLogin' href='#' onclick='onLoginClick(\"google\")'   src='/img/google.png'>"+ 
+  "<img id='fbLogin'     href='#' onclick='onLoginClick(\"facebook\")' src='/img/fb.png'>";
+*/
+
+var logout = "<a href='#' onclick='onLogoutClick(event)' id='logout'>logout</a><br>";
 
   if (authData) {
     myUserID = authData.uid; 

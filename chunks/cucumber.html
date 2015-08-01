@@ -7,16 +7,16 @@
   - reply, and send email to author when replied to
   - store: email, time, votes
 -->
-<h2><a id="togComments" href="#" show="0" onclick="onCommentClick(event)">Comments</a></h2>
-<div id="oldComments" style="display: none;">
+<h2><a id="togComments" href="#" show="1" onclick="onCommentClick(event)">Comments</a></h2>
+<div id="oldComments" style="display: ;">
   <script id="template" type="text/template">
     <img class="upic" src="{{picture}}">
     <span class="oCom" userid="{{userid}}"><a id="noul" href="{{url}}" target="_blank"><b id="oComName">{{name}} &nbsp;</b></a><text>{{body}}</text><br/><abbr class="timeago">{{time}}</abbr>&nbsp;&nbsp;<img id="pen" class="editCom" onclick="onClickEdit(this)" src="/img/pencil.png" >&nbsp;<a id="x" class="editCom" onclick="onClickRemove(this)">&#10006;</a></span> 
   <p style="clear:both"></p>
   </script>
 </div>
-<div id="textWrap" style="display: none;">
-  <div id="logIO"></div><br/>
+<div id="textWrap" style="display: ;">
+  <div id="logIO"></div>
   <img id="userPic" class="upic" src="/img/man.jpg">
   <div class="twrap"><textarea id="newComment" class="commentBox" rows="3" placeholder="Enter comment..." onkeydown="onCommentKeyDown(event)"></textarea></div>
 </div>
