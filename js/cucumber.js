@@ -199,10 +199,14 @@ function onCommentClick(e) {
 var parentID = null;
 function onClickReply(e) {
   alert("coming soon...");
-  parentID = e.parentNode.parentNode.id;
-  console.log(parentID);
+  //parentID = e.parentNode.parentNode.id;
+  //ptag = "#" + parentID;
+  //console.log($(ptag).html());
+  //var newDiv = $(ptag).after($("<div/>").addClass("comResponse").html($(ptag).html()));
+  //var reply = $(".comResponse");
+  //reply.children("img").attr("src",myPicture);
+  //reply.children("span").children("a").children("#oComName").text(myName);
+
 }
 
-// Only give remove options to those that have access.
-// Show remove options on mouseover.
 // http://www.w3schools.com/jquery/jquery_events.asp

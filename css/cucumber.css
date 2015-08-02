@@ -5,6 +5,9 @@
 .comment p {
   margin: 0;
 }
+.comResponse p {
+  margin: 0;
+}
 .comment {
   margin: 0px 0px;
   padding: 5px;
@@ -117,4 +120,7 @@
 #comReply:hover {
   color: green;
   cursor: pointer;
+}
+.comResponse {
+  margin-left: 55px;
 }
