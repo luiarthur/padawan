@@ -75,7 +75,8 @@ var logout = "<a href='#' onclick='onLogoutClick(event)' id='logout'>logout</a><
     $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
     $("#logIO").text("").append(logout);
     $("#userPic").attr("src",myPicture);
-    $("#newComment").attr("placeholder",myName+"' s comment...");
+    //$("#newComment").attr("placeholder",myName+"' s comment...");
+    $("#newComment").attr("placeholder","Write a comment...");
   } else {
     $("#logIO").text("").append(login);
     myName=null;
@@ -140,12 +141,10 @@ function onClickEdit(e) {
   var edRef = new Firebase(link+"/"+eComID);
   var loc = $("#"+eComID);
   orig = loc.html();
-  console.log(orig);
-  var curCom = loc.children("span").children("p");
-  loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox' style='border:1px solid;'></textarea></div>");
-  loc.after("<p style='clear:both'></p>");
-  var ta = loc.children("div").children("p");
-  ta.focus().val("").val(curCom.text());
+  var curCom = loc.children("span").children("p").text();
+  loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox' style='border: none; border-color: white;'></textarea></div>");
+  var ta = loc.children("div").children("textarea");
+  ta.focus().val("").val(curCom);
   $(".commentBox").elastic();
 }
 function onEditKeyDown(e) {
@@ -153,8 +152,12 @@ function onEditKeyDown(e) {
   var loc = $("#"+eComID)
   var ta = loc.children("div").children("textarea");
   if (e.keyCode==13) {
-    edRef.child('body').set(ta.val());
-    loc.html("").append(orig).children("span").children("p").text(ta.val());
+    if (e.shiftKey && $("$eComID").length>0) {
+      $("#eComID").val($("#eComID").val()+"\n");
+    } else {
+      edRef.child('body').set(ta.val());
+      loc.html("").append(orig).children("span").children("p").text(ta.val());
+    }
   }
 }
 
@@ -169,6 +172,10 @@ function onCommentClick(e) {
     $("#textWrap").show();
     $("#togComments").attr("show","1");
   }
+}
+
+function onClickReply(e) {
+  alert("coming soon...");
 }
 // Only give remove options to those that have access.
 // Show remove options on mouseover.

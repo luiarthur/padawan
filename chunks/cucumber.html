@@ -11,11 +11,27 @@
 <div id="oldComments" style="display: ;">
   <script id="template" type="text/template">
     <img class="upic" src="{{picture}}">
-    <span class="oCom" userid="{{userid}}"><a id="noul" href="{{url}}" target="_blank"><b id="oComName">{{name}} &nbsp;</b></a><abbr class="timeago">{{time}}</abbr>&nbsp;&nbsp;<p>{{body}}</p><img id="pen" class="editCom" onclick="onClickEdit(this)" src="/img/pencil.png">&nbsp;<a id="x" class="editCom" onclick="onClickRemove(this)">&#10006;</a></span> 
-  <p style="clear:both"></p>
+    <span class="oCom" userid="{{userid}}">
+      <a id="noul" href="{{url}}" target="_blank">
+        <b id="oComName">
+          {{name}} &nbsp;
+        </b>
+      </a>
+      <abbr class="timeago">
+        {{time}}
+      </abbr>
+      <p>
+       {{body}}
+      </p>
+      <a id="comReply" onclick="onClickReply(this)">
+        reply &nbsp;
+      </a>
+      <img id="pen" class="editCom" onclick="onClickEdit(this)" src="/img/pencil.png">&nbsp;
+      <a id="x" class="editCom" onclick="onClickRemove(this)">&#10006;</a>
+    </span> 
   </script>
 </div>
-<div id="textWrap" style="display: ;">
+<div id="textWrap">
   <div id="logIO"></div>
   <img id="userPic" class="upic" src="/img/man.jpg">
   <div class="twrap"><textarea id="newComment" class="commentBox" rows="3" placeholder="Enter comment..." onkeydown="onCommentKeyDown(event)"></textarea></div>

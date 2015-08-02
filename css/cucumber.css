@@ -84,17 +84,25 @@
 #x {
   /*float: right;*/
   font-size: 15px;
-  text-decoration:none;
-  color:lightgrey;
+  text-decoration: none;
+  color: lightgrey;
 }
 #x:hover {
-  color:red;
-  cursor:default;
+  color: red;
+  cursor: default;
 }
 .timeago {
   color: lightgrey;
   font-size: 12px;
 }
 #noul {
-  text-decoration:none
+  text-decoration: none;
+}
+#comReply {
+  color: lightgrey;
+  text-decoration: none;
+}
+#comReply:hover {
+  color: green;
+  cursor: pointer;
 }
