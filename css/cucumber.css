@@ -1,10 +1,13 @@
+#oldComments {
+  /*background-color: #E0E0E0;*/
+  border-radius: 15px;
+}
 .comment p {
   margin: 0;
 }
 .comment {
   margin: 0px 0px;
   padding: 5px;
-  background: #fff;
   min-height: 50px;
   font: sans-serif;
 }
@@ -17,8 +20,17 @@
   width: 100%;
   resize: none;
   font-family: sans-serif;
-  font-size:15px;
+  font-size: 15px;
   border-radius: 3px;
+}
+.eCom {
+  resize: none;
+  font-family: sans-serif;
+  font-size: 16px; 
+}
+.eCom:focus {
+  outline: none;
+  border: none;
 }
 #oComName {
   color: steelblue;
@@ -85,21 +97,21 @@
   /*float: right;*/
   font-size: 15px;
   text-decoration: none;
-  color: lightgrey;
+  color: darkgrey;
 }
 #x:hover {
   color: red;
   cursor: default;
 }
 .timeago {
-  color: lightgrey;
+  color: darkgrey;
   font-size: 12px;
 }
 #noul {
   text-decoration: none;
 }
 #comReply {
-  color: lightgrey;
+  color: darkgrey;
   text-decoration: none;
 }
 #comReply:hover {

@@ -25,7 +25,8 @@ function onLoginClick(provider) {
 function onLogoutClick(e) {
   e.preventDefault(); //prevents default actions such as going to top of page because: href="#"
   ref.unauth();
-  $(".oCom").children(".editCom").hide();
+  $(".editCom").hide();
+  $(".comReply").hide();
 }
 
 function genLoginHtml(id, socialMedia) {
@@ -73,6 +74,7 @@ var logout = "<a href='#' onclick='onLogoutClick(event)' id='logout'>logout</a><
         break;
     }
     $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
+    $(".comReply").show();
     $("#logIO").text("").append(logout);
     $("#userPic").attr("src",myPicture);
     //$("#newComment").attr("placeholder",myName+"' s comment...");
@@ -112,12 +114,19 @@ var lastXComments = ref.limitToLast(100);
 //Render Comments
 lastXComments.on('child_added', function (snapshot) {
   var comment = snapshot.val();
+  var body = comment.body;
   comment.time = jQuery.timeago(new Date(comment.time));
   var newDiv = $("<div/>").addClass("comment").attr("id",snapshot.key()).appendTo("#oldComments");
   newDiv.html(Mustache.to_html($('#template').html(), comment));
   // If the comment owner is logged in, he can view the remove the comment option.
-  $(".oCom").children(".editCom").hide();
+  $(".editCom").hide();
   $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
+  if (myUserID === null ) {
+    $(".comReply").hide();
+  } else {
+    $(".comReply").show();
+  }
+  $("#"+snapshot.key()+" p").replaceWith("<p>"+body.replace(/\n/g,"<br>")+"</p>");
 });
 
 //Remove deleted comments
@@ -141,22 +150,35 @@ function onClickEdit(e) {
   var edRef = new Firebase(link+"/"+eComID);
   var loc = $("#"+eComID);
   orig = loc.html();
-  var curCom = loc.children("span").children("p").text();
-  loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox' style='border: none; border-color: white;'></textarea></div>");
+  var curCom = loc.children("span").children("p");
+  var comment = curCom.html().replace(/<br>/g,"\n");
+  /* ORIGINAL
+  loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox'></textarea></div>");
   var ta = loc.children("div").children("textarea");
-  ta.focus().val("").val(curCom);
+  ta.focus().val("").val(comment);
   $(".commentBox").elastic();
+  */
+  curCom.replaceWith("<div><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='eCom' style='width:"+
+                     ($(".comment").width()-$(".upic").width())+"px;'></textarea></div>");
+  var ta = loc.children("span").children("div").children("textarea");
+  ta.focus().val("").val(comment);
+  $(".eCom").elastic();
+  $(".editCom").hide();
+  $(".comReply").hide();
 }
 function onEditKeyDown(e) {
   var edRef = new Firebase(link+"/"+eComID);
-  var loc = $("#"+eComID)
-  var ta = loc.children("div").children("textarea");
+  var loc = $("#"+eComID);
+  var ta = loc.children("span").children("div").children("textarea");
   if (e.keyCode==13) {
-    if (e.shiftKey && $("$eComID").length>0) {
+    if (e.shiftKey) {
       $("#eComID").val($("#eComID").val()+"\n");
     } else {
       edRef.child('body').set(ta.val());
       loc.html("").append(orig).children("span").children("p").text(ta.val());
+      loc.html("").append(orig).children("span").children("p").replaceWith("<p>"+ta.val().replace(/\n/g,"<br/>")+"</p>");
+      $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
+      $(".comReply").show();
     }
   }
 }
@@ -174,9 +196,13 @@ function onCommentClick(e) {
   }
 }
 
+var parentID = null;
 function onClickReply(e) {
   alert("coming soon...");
+  parentID = e.parentNode.parentNode.id;
+  console.log(parentID);
 }
+
 // Only give remove options to those that have access.
 // Show remove options on mouseover.
 // http://www.w3schools.com/jquery/jquery_events.asp

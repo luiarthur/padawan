@@ -8,7 +8,7 @@
   - store: email, time, votes
 -->
 <h2><a id="togComments" href="#" show="1" onclick="onCommentClick(event)">Comments</a></h2>
-<div id="oldComments" style="display: ;">
+<div id="oldComments">
   <script id="template" type="text/template">
     <img class="upic" src="{{picture}}">
     <span class="oCom" userid="{{userid}}">
@@ -23,7 +23,7 @@
       <p>
        {{body}}
       </p>
-      <a id="comReply" onclick="onClickReply(this)">
+      <a id="comReply" class="comReply" onclick="onClickReply(this)">
         reply &nbsp;
       </a>
       <img id="pen" class="editCom" onclick="onClickEdit(this)" src="/img/pencil.png">&nbsp;
