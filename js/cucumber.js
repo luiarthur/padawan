@@ -261,7 +261,7 @@ function onClickEditReply(e) {
   var curCom = loc.children("span").children("p");
   var comment = curCom.html().replace(/<br>/g,"\n");
   curCom.replaceWith("<div><textarea id='eCom' onkeydown='onEditReplyKeyDown(event)' class='eCom' style='width:"+
-                     ($(".comment").width()-$(".upic").width())+"px;'></textarea></div>");
+                     ($(".comment").width()-2*$(".upic").width()-5)+"px;'></textarea></div>");
   var ta = loc.children("span").children("div").children("textarea");
   ta.focus().val("").val(comment);
   $(".eCom").elastic();
