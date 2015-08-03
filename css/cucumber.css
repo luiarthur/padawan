@@ -5,7 +5,7 @@
 .comment p {
   margin: 0;
 }
-.comResponse p {
+.reply p {
   margin: 0;
 }
 .comment {
@@ -78,7 +78,7 @@
 #githubLogin{
   color: black
 }
-#show,#hide {
+#show, #hide {
   float:right;
   text-decoration:none;
   color:grey;
@@ -121,6 +121,6 @@
   color: green;
   cursor: pointer;
 }
-.comResponse {
+.newReply, .reply {
   margin-left: 55px;
 }

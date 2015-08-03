@@ -28,6 +28,24 @@
       <a id="x" class="editCom" onclick="onClickRemove(this)">&#10006;</a>
     </span> 
   </script>
+  <script id="replyTemplate" type="text/template">
+    <img class="upic" src="{{picture}}">
+    <span class="oCom oCom-reply" userid="{{userid}}">
+      <a id="noul" href="{{url}}" target="_blank">
+        <b id="oComName">
+          {{name}} &nbsp;
+        </b>
+      </a>
+      <abbr class="timeago">
+        {{time}}
+      </abbr>
+      <p>
+       {{body}}
+      </p>
+      <img id="pen" class="editCom" onclick="onClickEditReply(this)" src="/img/pencil.png">&nbsp;
+      <a id="x" class="editCom" onclick="onClickRemoveReply(this)">&#10006;</a>
+    </span> 
+  </script>
 </div>
 <div id="textWrap">
   <div id="logIO"></div>

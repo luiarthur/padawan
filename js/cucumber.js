@@ -4,7 +4,9 @@ var myPicture = null;
 var myUrl = null;
 var slug = (window.location.href).replace("index.html","").replace(/\/|\.|:|\[|\]|\#|\$\-/g,"");
 var link = "https://luifireapp.firebaseio.com/comments/"+slug;
+var replyLink = "https://luifireapp.firebaseio.com/reply/"+slug;
 var ref = new Firebase(link);
+var replyRef = new Firebase(replyLink);
 
 //var newCommentID = null;
 // Store: name, uid, body, picture
@@ -152,12 +154,6 @@ function onClickEdit(e) {
   orig = loc.html();
   var curCom = loc.children("span").children("p");
   var comment = curCom.html().replace(/<br>/g,"\n");
-  /* ORIGINAL
-  loc.children("span").replaceWith("<div class='twrap'><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='commentBox'></textarea></div>");
-  var ta = loc.children("div").children("textarea");
-  ta.focus().val("").val(comment);
-  $(".commentBox").elastic();
-  */
   curCom.replaceWith("<div><textarea id='eCom' onkeydown='onEditKeyDown(event)' class='eCom' style='width:"+
                      ($(".comment").width()-$(".upic").width())+"px;'></textarea></div>");
   var ta = loc.children("span").children("div").children("textarea");
@@ -198,15 +194,93 @@ function onCommentClick(e) {
 
 var parentID = null;
 function onClickReply(e) {
-  alert("coming soon...");
-  //parentID = e.parentNode.parentNode.id;
-  //ptag = "#" + parentID;
-  //console.log($(ptag).html());
-  //var newDiv = $(ptag).after($("<div/>").addClass("comResponse").html($(ptag).html()));
-  //var reply = $(".comResponse");
-  //reply.children("img").attr("src",myPicture);
-  //reply.children("span").children("a").children("#oComName").text(myName);
+  //alert("coming soon...");
+  $(".comReply").hide();
+  parentID = e.parentNode.parentNode.id;
+  ptag = "#" + parentID;
+  var newDiv = $(ptag).after($("<div/>").addClass("newReply"));
+  var reply = {userid:myUserID, name:myName, picture:myPicture, url:myUrl};
+  $(".newReply").html(Mustache.to_html($('#replyTemplate').html(), reply));
+  $(".newReply").children("span").children(".editCom").hide();
+  $(".newReply").children("span").children("p")
+    .replaceWith("<textarea id='eCom' onkeydown='onReplyKeyDown(event)' class='eCom' style='width:"+
+                 ($(".newReply").width()-$(".upic").width())+"px;'></textarea>");
+  $("#eCom").focus();
+  $("#eCom").elastic();
+}
+function onReplyKeyDown(event) {
+  if (event.keyCode == 13) {
+    if (event.shiftKey) {
+      var tag = $(".newReply").children("span").children("textarea");
+      tag.val(tag.val()+"\n");
+    } else {
+        var currTime = new Date();
+        currTime = currTime.toString();
+        replyRef.push({userid:myUserID, body:$("#eCom").val(), name:myName, picture:myPicture, time:currTime, url:myUrl, commentID: parentID});
+        $(".newReply").replaceWith("");
+        $(".comReply").show();
+    }
+    event.preventDefault(); // prevents default actions
+  }
+}
+//Create a query for only the last 100 comments
+var lastXReply = replyRef.limitToLast(100);
 
+//Render Comments
+lastXReply.on('child_added', function (snapshot) {
+  var reply = snapshot.val();
+  var body = reply.body;
+  reply.time = jQuery.timeago(new Date(reply.time));
+  var newDiv = $("<div/>").addClass("reply").attr("id",snapshot.key()).appendTo("#"+reply.commentID);
+  newDiv.html(Mustache.to_html($('#replyTemplate').html(), reply));
+  // If the reply owner is logged in, he can view the remove the comment option.
+  $(".editCom").hide();
+  $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
+  $("#"+snapshot.key()+" p").replaceWith("<p>"+body.replace(/\n/g,"<br>")+"</p>");
+});
+
+//Remove deleted comments
+lastXReply.on("child_removed", function(snapshot) {
+  $("#" + snapshot.key()).remove();
+});
+
+//Remove Comment
+function onClickRemoveReply(e) { 
+  var replyID = e.parentNode.parentNode.id;
+  var rmRef = new Firebase(replyLink+"/"+replyID);
+  rmRef.remove();
 }
 
-// http://www.w3schools.com/jquery/jquery_events.asp
+//Edit Comment:
+function onClickEditReply(e) {
+  //var commentID = e.parentNode.parentNode.id;
+  eComID = e.parentNode.parentNode.id;
+  var edRef = new Firebase(replyLink+"/"+eComID);
+  var loc = $("#"+eComID);
+  orig = loc.html();
+  var curCom = loc.children("span").children("p");
+  var comment = curCom.html().replace(/<br>/g,"\n");
+  curCom.replaceWith("<div><textarea id='eCom' onkeydown='onEditReplyKeyDown(event)' class='eCom' style='width:"+
+                     ($(".comment").width()-$(".upic").width())+"px;'></textarea></div>");
+  var ta = loc.children("span").children("div").children("textarea");
+  ta.focus().val("").val(comment);
+  $(".eCom").elastic();
+  $(".editCom").hide();
+  $(".comReply").hide();
+}
+function onEditReplyKeyDown(e) {
+  var edRef = new Firebase(replyLink+"/"+eComID);
+  var loc = $("#"+eComID);
+  var ta = loc.children("span").children("div").children("textarea");
+  if (e.keyCode==13) {
+    if (e.shiftKey) {
+      $("#eComID").val($("#eComID").val()+"\n");
+    } else {
+      edRef.child('body').set(ta.val());
+      loc.html("").append(orig).children("span").children("p").text(ta.val());
+      loc.html("").append(orig).children("span").children("p").replaceWith("<p>"+ta.val().replace(/\n/g,"<br/>")+"</p>");
+      $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
+      $(".comReply").show();
+    }
+  }
+}
