@@ -3,6 +3,7 @@ layout: gfm
 ---
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/fb-comments.css">
 
 # hi
 <script>
@@ -17,8 +18,8 @@ layout: gfm
   $(document).ready(function(){ // executes js when document is ready. Allows js to be put in head. Good practice.
     var link = window.location.href.replace(/\?fb_comment_id=.*/g,"")
     console.log("here: \n" + link);
-    $(".fb-com").attr("data-href",link).attr("data-numposts","5").attr("class","fb-comments").attr("style","background-color:#E9DBEF ; border-radius: 10px; margin-top:15px;")
+    $(".fb-comments").attr("data-href",link).attr("width",$(".fb-comments").width()+"px").attr("colorscheme","dark");
   });
 </script>
 
-<div class="fb-com"></div>
+<div class="fb-comments" colorscheme="dark"></div>
