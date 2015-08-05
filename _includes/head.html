@@ -51,26 +51,27 @@
     <script type="text/javascript" src="/js/jquery.elastic.source.js"></script>
 
     <!-- HTML File Inclusions-->
-    <!-- Cucumber. Needs jQuery. -->
-    <!--
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.js"></script>
-    <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.elastic.source.js"></script>
-    <script> $(function(){$("#cucumber").load("/chunks/cucumber.html");}); </script>
-    <link rel="stylesheet" type="text/css" href="/css/cucumber.css">
-    -->
-    <!-- Inline Disqus>
-    <script src="/js/inlineDisqussions.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/inlineDisqussions.css" /-->
-
-    <!-- Regular Disquss >
-    <script src="/js/disqus.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/disqus.css"-->
-
-    <!-- fb-comments-->
-    <script src="/js/fb-comments.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/fb-comments.css">
+    {% if page.comments == "cucumber" %}
+      <!-- Cucumber. Needs jQuery. -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.js"></script>
+      <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
+      <script type="text/javascript" src="/js/jquery.elastic.source.js"></script>
+      <script> $(function(){$("#cucumber").load("/chunks/cucumber.html");}); </script>
+      <link rel="stylesheet" type="text/css" href="/css/cucumber.css">
+    {% elsif page.comments == "inlinedisqus" %}
+      <!-- Inline Disqus -->
+      <script src="/js/inlineDisqussions.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/inlineDisqussions.css">
+    {% elsif page.comments == "disqus" %}
+      <!-- Regular Disquss -->
+      <script src="/js/disqus.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/disqus.css">
+    {% elsif page.comments == "fb" %}
+      <!-- fb-comments-->
+      <script src="/js/fb-comments.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/fb-comments.css">
+    {% endif %}  
 
 
     <!--pygments syntax highlighting-->

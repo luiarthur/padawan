@@ -28,8 +28,16 @@
             </div>
             <div class="row"></div>
             {{content}}
-            <!--Comments-->
-            <div class="fb-comments"></div>
+
+            {% if page.comments == "fb" %}
+              <div class="fb-comments"></div>
+            {% elsif page.comments == "cucumber" %}  
+              <div id="cucumber"></div>
+            {% elsif page.comments == "disqus" %}  
+              <div id="disqus_thread"></div>
+            {% elsif page.comments == "inlinedisqus" %}  
+              <div id="disqus_thread"></div>
+            {% endif %}
         </div>
     </div>
 
