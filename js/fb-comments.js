@@ -18,6 +18,6 @@
 
 $(document).ready(function(){ // executes js when document is ready. Allows js to be put in head. Good practice.
   var link = window.location.href.replace(/\?fb_comment_id=.*/g,"")
-  console.log("here: \n" + link);
+  console.log("website: \n" + link);
   $(".fb-comments").attr("data-href",link).attr("width",$(".fb-comments").width()+"px").attr("colorscheme","dark");
 });
