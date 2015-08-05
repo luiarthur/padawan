@@ -1,6 +1,5 @@
 
 $(document).ready(function(){ // executes js when document is ready. Allows js to be put in head. Good practice.
-
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
