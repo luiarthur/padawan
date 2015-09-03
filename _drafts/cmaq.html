@@ -51,8 +51,8 @@
       .attr("height", height);
 
   queue()
-      .defer(d3.json, "luiarthur.github.io/assets/cmaq/us.json")
-      .defer(d3.tsv,  "luiarthur.github.io/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
+      .defer(d3.json, "http://luiarthur.github.io/assets/cmaq/us.json")
+      .defer(d3.tsv,  "http://luiarthur.github.io/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
       .await(ready);
 
   function ready(error, us) {
