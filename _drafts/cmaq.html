@@ -12,6 +12,7 @@
   stroke-linejoin: round;
 }
 
+/* Original Colors for heats 
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
 .q2-9 { fill:rgb(198,219,239); }
@@ -21,6 +22,19 @@
 .q6-9 { fill:rgb(33,113,181); }
 .q7-9 { fill:rgb(8,81,156); }
 .q8-9 { fill:rgb(8,48,107); }
+*/
+
+/* new */
+.q0-9 { fill:rgb(8,48,107); }
+.q1-9 { fill:rgb(8,81,156); }
+.q2-9 { fill:rgb(33,113,181); }
+.q3-9 { fill:rgb(66,146,198); }
+.q4-9 { fill:rgb(255,255,255); }
+.q5-9 { fill:rgb(236,194,194); }
+.q6-9 { fill:rgb(239,155,155); }
+.q7-9 { fill:rgb(239,105,105); }
+.q8-9 { fill:rgb(243,62,62); }
+
 
 </style>
 <body>
@@ -35,7 +49,8 @@ var width = 960,
 var rateById = d3.map();
 
 var quantize = d3.scale.quantize()
-    .domain([0, .15])
+    //.domain([0, .15])
+    .domain([30, 80])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
 var projection = d3.geo.albersUsa()
@@ -52,7 +67,8 @@ var svg = d3.select("body").append("svg")
 queue()
     .defer(d3.json, "/assets/cmaq/us.json")
     //.defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
-    .defer(d3.csv,  "/assets/cmaq/cmaq.csv", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.json, "/assets/cmaq/ll.json")
+    .defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, +d.cmaq); })
     .await(ready);
 
 function ready(error, us) {
