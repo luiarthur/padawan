@@ -2,6 +2,10 @@
 <meta charset="utf-8">
 <style>
 
+body {
+  background-color: grey;
+}
+
 .counties {
   fill: none;
 }
@@ -25,15 +29,15 @@
 */
 
 /* new */
-.q0-9 { fill:rgb(8,48,107); }
-.q1-9 { fill:rgb(8,81,156); }
-.q2-9 { fill:rgb(33,113,181); }
-.q3-9 { fill:rgb(66,146,198); }
-.q4-9 { fill:rgb(255,255,255); }
-.q5-9 { fill:rgb(236,194,194); }
-.q6-9 { fill:rgb(239,155,155); }
-.q7-9 { fill:rgb(239,105,105); }
-.q8-9 { fill:rgb(243,62,62); }
+.q0-9 { fill:rgb(77,77,252); }
+.q1-9 { fill:rgb(83,77,252); }
+.q2-9 { fill:rgb(124,77,252); }
+.q3-9 { fill:rgb(158,77,252); }
+.q4-9 { fill:rgb(193,77,252); }
+.q5-9 { fill:rgb(252,77,193); }
+.q6-9 { fill:rgb(252,77,141); }
+.q7-9 { fill:rgb(252,77,106); }
+.q8-9 { fill:rgb(252,77,77); }
 
 
 </style>
@@ -50,7 +54,7 @@ var rateById = d3.map();
 
 var quantize = d3.scale.quantize()
     //.domain([0, .15])
-    .domain([30, 80])
+    .domain([40, 70])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
 var projection = d3.geo.albersUsa()
@@ -65,15 +69,16 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "/assets/cmaq/us.json")
+    //.defer(d3.json, "/assets/cmaq/us.json")
     //.defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
-    .defer(d3.json, "/assets/cmaq/ll.json")
+    .defer(d3.json, "/assets/cmaq/us.json")
     .defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, +d.cmaq); })
     .await(ready);
 
 function ready(error, us) {
   if (error) throw error;
 
+  // Fills in the colors.
   svg.append("g")
       .attr("class", "counties")
     .selectAll("path")
@@ -82,6 +87,7 @@ function ready(error, us) {
       .attr("class", function(d) { return quantize(rateById.get(d.id)); })
       .attr("d", path);
 
+  // Draws the state lines. Uses us.json.
   svg.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
       .attr("class", "states")
