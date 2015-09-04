@@ -51,7 +51,8 @@ var svg = d3.select("body").append("svg")
 
 queue()
     .defer(d3.json, "/assets/cmaq/us.json")
-    .defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
+    //.defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.csv,  "/assets/cmaq/cmaq.csv", function(d) { rateById.set(d.id, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
