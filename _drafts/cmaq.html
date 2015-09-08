@@ -72,7 +72,8 @@ queue()
     //.defer(d3.json, "/assets/cmaq/us.json")
     //.defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .defer(d3.json, "/assets/cmaq/us.json")
-    .defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, +d.cmaq); })
+    //.defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, +d.cmaq); })
+    .defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, [+d.cmaq,+d.la,+d.lo]); })
     .await(ready);
 
 function ready(error, us) {
@@ -84,7 +85,14 @@ function ready(error, us) {
     .selectAll("path")
       .data(topojson.feature(us, us.objects.counties).features)
     .enter().append("path")
-      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
+      //.attr("class", function(d) { return quantize(rateById.get(d.id)); })
+    .attr("class", function(d) { 
+      var out = quantize(rateById.get(d.id)); 
+      if (out != null) {
+        console.log(out);
+        return out;
+      }
+    })
       .attr("d", path);
 
   // Draws the state lines. Uses us.json.
