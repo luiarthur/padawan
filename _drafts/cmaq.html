@@ -1,3 +1,7 @@
+<!--
+  Russian Choropleth Example:
+    http://bl.ocks.org/KoGor/5685876
+-->
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -28,7 +32,7 @@ body {
 .q8-9 { fill:rgb(8,48,107); }
 */
 
-/* new */
+/* Blue to Red
 .q0-9 { fill:rgb(77,77,252); }
 .q1-9 { fill:rgb(83,77,252); }
 .q2-9 { fill:rgb(124,77,252); }
@@ -38,7 +42,18 @@ body {
 .q6-9 { fill:rgb(252,77,141); }
 .q7-9 { fill:rgb(252,77,106); }
 .q8-9 { fill:rgb(252,77,77); }
+*/
 
+/* Blue to White to Red */
+.q0-9 { fill:rgb(10,5,140); }
+.q1-9 { fill:rgb(60,50,224); }
+.q2-9 { fill:rgb(110,100,230); }
+.q3-9 { fill:rgb(160,160,240); }
+.q4-9 { fill:rgb(255,255,255); }
+.q5-9 { fill:rgb(240,77,193); }
+.q6-9 { fill:rgb(230,150,170); }
+.q7-9 { fill:rgb(220,40,70); }
+.q8-9 { fill:rgb(220,10,40); }
 
 </style>
 <body>
@@ -54,7 +69,7 @@ var rateById = d3.map();
 
 var quantize = d3.scale.quantize()
     //.domain([0, .15])
-    .domain([40, 70])
+    .domain([35, 80])
     .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
 var projection = d3.geo.albersUsa()
@@ -69,39 +84,35 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    //.defer(d3.json, "/assets/cmaq/us.json")
-    //.defer(d3.tsv,  "/assets/cmaq/dat.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .defer(d3.json, "/assets/cmaq/us.json")
-    //.defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, +d.cmaq); })
-    .defer(d3.csv,  "/assets/cmaq/ll.csv", function(d) { rateById.set(d.id, [+d.cmaq,+d.la,+d.lo]); })
     .await(ready);
 
 function ready(error, us) {
   if (error) throw error;
 
-  // Fills in the colors.
-  svg.append("g")
-      .attr("class", "counties")
-    .selectAll("path")
-      .data(topojson.feature(us, us.objects.counties).features)
-    .enter().append("path")
-      //.attr("class", function(d) { return quantize(rateById.get(d.id)); })
-    .attr("class", function(d) { 
-      var out = quantize(rateById.get(d.id)); 
-      if (out != null) {
-        console.log(out);
-        return out;
-      }
-    })
-      .attr("d", path);
+  // Cities
+  d3.csv("/assets/cmaq/ll2.csv", function(error, data) {
+    var city = svg.selectAll("g.city")
+    .data(data)
+    .enter()
+    .append("g")
+    .attr("class", "city")
+    .attr("class", function(d) {return quantize(+d.cmaq);})
+    .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
+
+    city.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .style("opacity", 1)
+  });
 
   // Draws the state lines. Uses us.json.
   svg.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
       .attr("class", "states")
       .attr("d", path);
+
 }
 
 d3.select(self.frameElement).style("height", height + "px");
-
 </script>
