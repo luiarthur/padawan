@@ -1,22 +1,17 @@
 <!--
   Russian Choropleth Example:
     http://bl.ocks.org/KoGor/5685876
+  Classic Choropleth Example:
+    http://bl.ocks.org/mbostock/4060606`
+    https://gist.github.com/mbostock/4136647#file-thumbnail-png
 -->
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
 
-body {
-  background-color: grey;
-}
-
-.counties {
-  fill: none;
-}
-
 .states {
   fill: none;
-  stroke: #fff;
+  stroke: black;
   stroke-linejoin: round;
 }
 
@@ -32,19 +27,8 @@ body {
 .q8-9 { fill:rgb(8,48,107); }
 */
 
-/* Blue to Red
-.q0-9 { fill:rgb(77,77,252); }
-.q1-9 { fill:rgb(83,77,252); }
-.q2-9 { fill:rgb(124,77,252); }
-.q3-9 { fill:rgb(158,77,252); }
-.q4-9 { fill:rgb(193,77,252); }
-.q5-9 { fill:rgb(252,77,193); }
-.q6-9 { fill:rgb(252,77,141); }
-.q7-9 { fill:rgb(252,77,106); }
-.q8-9 { fill:rgb(252,77,77); }
-*/
 
-/* Blue to White to Red */
+/* Blue to White to Red  */
 .q0-9 { fill:rgb(10,5,140); }
 .q1-9 { fill:rgb(60,50,224); }
 .q2-9 { fill:rgb(110,100,230); }
@@ -62,57 +46,82 @@ body {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
 <script>
 
-var width = 960,
+function usmap(csv,v,scale,width,height,pw,ph,op) {
+  
+  if (pw === null) {
+    pw = 7;
+  }
+  if (ph === null) {
+    ph = 7;
+  }
+  if (op === null) {
+    op = 1;
+  }
+  if (scale ===null) {
+    scale = 1280;
+  }
+  if (width === null) {
+    width = 960;
+  }
+  if (height === null) {
     height = 600;
+  }
 
-var rateById = d3.map();
+  var rateById = d3.map();
 
-var quantize = d3.scale.quantize()
-    //.domain([0, .15])
-    .domain([35, 80])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+  var projection = d3.geo.albersUsa()
+      .scale(scale)
+      .translate([width / 2, height / 2]);
 
-var projection = d3.geo.albersUsa()
-    .scale(1280)
-    .translate([width / 2, height / 2]);
+  var path = d3.geo.path()
+      .projection(projection);
 
-var path = d3.geo.path()
-    .projection(projection);
+  var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+  queue()
+      .defer(d3.json, "/assets/cmaq/us.json")
+      .await(ready);
 
-queue()
-    .defer(d3.json, "/assets/cmaq/us.json")
-    .await(ready);
+  function ready(error, us) {
+    if (error) throw error;
 
-function ready(error, us) {
-  if (error) throw error;
+    // Cities
+    d3.csv(csv, function(error, data) {
+      var quantize = d3.scale.quantize()
+          .domain([
+            d3.min(data, function(d) {return +d[v] + 5;} ),
+            d3.max(data, function(d) {return +d[v] - 5;} )
+          ])
+          .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
-  // Cities
-  d3.csv("/assets/cmaq/ll2.csv", function(error, data) {
-    var city = svg.selectAll("g.city")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("class", "city")
-    .attr("class", function(d) {return quantize(+d.cmaq);})
-    .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
+      var point = svg.selectAll("g.point")
+      .data(data)
+      .enter()
+      .append("g")
+      .attr("class", "point")
+      //.attr("class", function(d) {return quantize(+d.cmaq);})
+      .attr("class", function(d) {return quantize(+d[v]);})
+      .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
 
-    city.append("rect")
-      .attr("width", 10)
-      .attr("height", 10)
-      .style("opacity", 1)
-  });
+      point.append("rect")
+        .attr("width", pw)
+        .attr("height", ph)
+        .style("opacity", op)
 
-  // Draws the state lines. Uses us.json.
-  svg.append("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("class", "states")
-      .attr("d", path);
+      // Draws State Lines. Only uses us.json.
+      svg.append("g")
+          .attr("class", "states")
+        .selectAll("path")
+          .data(topojson.feature(us, us.objects.states).features)
+        .enter().append("path")
+          .attr("d", path);
+    }); // End of City Drawing
+  } // End of Function ready 
 
+  d3.select(self.frameElement).style("height", height + "px");
 }
 
-d3.select(self.frameElement).style("height", height + "px");
+usmap("/assets/cmaq/cmaq.csv","cmaq",null,null,null,7,7,null);
 </script>
