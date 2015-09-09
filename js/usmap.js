@@ -58,7 +58,6 @@ function usmap(csv,v,scale,div,pw,ph,op,width,height) {
       .enter()
       .append("g")
       .attr("class", "point")
-      //.attr("class", function(d) {return quantize(+d.cmaq);})
       .attr("class", function(d) {return quantize(+d[v]);})
       .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
 
