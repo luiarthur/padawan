@@ -1,4 +1,4 @@
-Provider.ID,Hospital.Name,Measure.ID,Gastrointestinal,Eye,Nervous.System,Musculoskeletal,Skin,Genitourinary,Cardiovascular,Measure.Start.Date,Measure.End.Date,lat,lon
+ProviderID,HospitalName,MeasureID,Gastrointestinal,Eye,NervousSystem,Musculoskeletal,Skin,Genitourinary,Cardiovascular,MeasureStartDate,MeasureEndDate,lat,lon
 10001,SOUTHEAST ALABAMA MEDICAL CENTER,OP-26,100,306,198,1399,513,1209,8,01/01/2013,12/31/2013,31.21537937900007,85.36146587999997
 10005,MARSHALL MEDICAL CENTERS,OP-26,3473,116,1047,1023,5862,279,281,01/01/2013,12/31/2013,34.221334555000055,86.15937514699993
 10006,ELIZA COFFEE MEMORIAL HOSPITAL,OP-26,5470,0,61,192,53,281,919,01/01/2013,12/31/2013,34.795039605000056,87.68507485399994
