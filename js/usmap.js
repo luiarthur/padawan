@@ -1,65 +1,4 @@
-<!--
-  Russian Choropleth Example:
-    http://bl.ocks.org/KoGor/5685876
-  Classic Choropleth Example:
-    http://bl.ocks.org/mbostock/4060606`
-    https://gist.github.com/mbostock/4136647#file-thumbnail-png
--->
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-.states {
-  fill: none;
-  stroke: black;
-  stroke-linejoin: round;
-}
-
-/* Original Colors for heats 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
-*/
-
-
-/* Blue to White to Red  */
-.q0-9 { fill:rgb(10,5,140); }
-.q1-9 { fill:rgb(60,50,224); }
-.q2-9 { fill:rgb(110,100,230); }
-.q3-9 { fill:rgb(160,160,240); }
-.q4-9 { fill:rgb(255,255,255); }
-.q5-9 { fill:rgb(240,77,193); }
-.q6-9 { fill:rgb(230,150,170); }
-.q7-9 { fill:rgb(220,40,70); }
-.q8-9 { fill:rgb(220,10,40); }
-
-</style>
-
-
-
-<h1>body</h1>
-<body>
-<h1>HERE</h1>
-<div id='here'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-<script>
-
-function usmap(csv,v,scale,div,width,height,pw,ph,op) {
-  if (div === undefined) {
-    div = "body";
-  } else {
-    width = d3.select(div).node().getBoundingClientRect().width * .85;
-    height = width/2;
-  }
-
+function usmap(csv,v,scale,div,pw,ph,op,width,height) {
   if (pw === undefined) {
     pw = 7;
   }
@@ -77,6 +16,12 @@ function usmap(csv,v,scale,div,width,height,pw,ph,op) {
   }
   if (height === undefined) {
     height = 600;
+  }
+  if (div === undefined) {
+    div = "body";
+  } else {
+    width = d3.select(div).node().getBoundingClientRect().width;
+    height = width/2;
   }
 
   var rateById = d3.map();
@@ -134,6 +79,3 @@ function usmap(csv,v,scale,div,width,height,pw,ph,op) {
 
   d3.select(self.frameElement).style("height", height + "px");
 }
-usmap("/assets/cmaq/ozone.csv","ozone",1280,"body",960,600,7,7,1);
-</script>
-

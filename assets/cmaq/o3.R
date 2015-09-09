@@ -8,26 +8,26 @@ library(geoR)
 library(maps)
 library(xtable)
 
-CMAQ  <- read.csv("../Data/CMAQ.csv")       # 66960 x 4
-O3    <- read.csv("../Data/Ozone.csv")      #   800 x 6
-predL <- read.csv("../Data/PredLocs.csv")   #  2834 x 4
+CMAQ  <- read.csv("cmaq.csv")       # 66960 x 4
+O3    <- read.csv("ozone.csv")      #   800 x 6
+predL <- read.csv("PredLocs.csv")   #  2834 x 4
 
+quilt.plot(CMAQ$lon,CMAQ$lat,CMAQ$cmaq)
+map('state',add=T)
 
 plot.O3 <- function(main="") {
-  quilt.plot(c(O3$Lon,-110),c(O3$Lat,50),c(O3$Ozone,50),main=main)
+  quilt.plot(c(O3$lon,-110),c(O3$lat,50),c(O3$ozone,50),main=main)
   map('state',add=T)
 }  
 
 plot.CMAQ <- function(main="") {
-  quilt.plot(CMAQ$Lon,CMAQ$Lat,CMAQ$CMAQ,main=main)
+  quilt.plot(CMAQ$lon,CMAQ$lat,CMAQ$cmaq,main=main)
   map('state',add=T)
 }
 
-
-
 #GP: #####################################################################
 GP <- function(o3=O3,cmaq=CMAQ,pred=cbind(predL$X,predL$Y),
-               nu=2,init=c(c(var(o3$Ozone),.001)),X1.col=10){
+               nu=2,init=c(c(var(o3$ozone),.001)),X1.col=10){
 
   find.X1 <- function(DD,k=X1.col) {
 
@@ -50,7 +50,7 @@ GP <- function(o3=O3,cmaq=CMAQ,pred=cbind(predL$X,predL$Y),
     find.x1 <- function(one.row) {
       ind <- find.smallest.i(one.row)
       #weighted.ave(cmaq$CMAQ[ind]) # method 1
-      cmaq$CMAQ[ind] # method 2
+      cmaq$cmaq[ind] # method 2
     }
 
     #library(foreach)
@@ -64,8 +64,8 @@ GP <- function(o3=O3,cmaq=CMAQ,pred=cbind(predL$X,predL$Y),
   }  
   
   N <- nrow(o3)
-  coord <- cbind(o3$Lo,o3$La)
-  Y <- o3$Ozone
+  coord <- cbind(o3$lo,o3$la)
+  Y <- o3$ozone
   print("rdist is executing")
   D.X1 <- rdist(coord,cmaq[,1:2])
   X1 <- find.X1(D.X1)
@@ -200,7 +200,7 @@ pdf("../latex/raw/all.pdf");plot.all();dev.off()
 
   library(foreach)
   library(doMC)
-  registerDoMC(12)
+  registerDoMC(4)
   coverages <- foreach(i=1:10,.errorhandling="remove") %dopar% get.coverage(400)
 
   covs <- sapply(coverages,function(x) x$cov)
