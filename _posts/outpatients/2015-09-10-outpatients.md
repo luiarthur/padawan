@@ -14,7 +14,7 @@ An outpatient is a patient who receives medical treatment without being
 admitted to a hospital. In most cases, if you *don't stay overnight* at a
 hospital, you are an outpatient.
 
-Below I have illustrated the proportion of [outpatients treated in each of 7
+The graphs below illustrat the proportion of [outpatients treated in each of 7
 departments at several medicare-registered hospitals in
 2013](http://catalog.data.gov/dataset/outpatient-procedures-volume/resource/af370823-8af4-414e-bf65-ca1b7f6f3fa0).
 The departments are:
@@ -32,7 +32,7 @@ out of which 100 were treated in the gastro department, then the proportion of
 gastro patients in that location is 100/1000 = 10%. A spectrum of shades of
 blue is used to indicate the proportions. <text style="color: rgb(8,48,107);
 font-weight: bold; background-color: #8D8D8D; padding: 2px; border-radius: 4px;">
-Navy Blue</text> is used to indicate that the proportion is greater than %10.
+Navy Blue</text> is used to indicate that the proportion is greater than 10%.
 And <text style="color: white; font-weight: bold; background-color: #8D8D8D;
 padding: 2px; border-radius: 4px;">White</text> is used to indicate 0. 
 Different shades of blue are used to linearly interpolate between 0 and 10%.
