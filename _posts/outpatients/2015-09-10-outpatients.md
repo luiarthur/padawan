@@ -1,9 +1,12 @@
 ---
-layout: map
+layout: post
+title: Distribution of Outpatient Procedures at Medicare-registered Hospitals
+subtitle: Why do people visit hospitals?
+description: Mapping information using d3
 nohlink: on
+usmap: on
 ---
 
-# [Distribution of Outpatient Procedures at Medicare-registered Hospitals](http://catalog.data.gov/dataset/outpatient-procedures-volume/resource/af370823-8af4-414e-bf65-ca1b7f6f3fa0)
 Why do people visit the hospital? 
 
 A look at the distribution of outpatient procedures may provide some insights.
@@ -11,9 +14,10 @@ An outpatient is a patient who receives medical treatment without being
 admitted to a hospital. In most cases, if you *don't stay overnight* at a
 hospital, you are an outpatient.
 
-Below I have illustrated the proportion of outpatients treated at each of 7
-departments at several medicare-registered hospitals in 2013. The 
-departments are:
+Below I have illustrated the proportion of [outpatients treated in each of 7
+departments at several medicare-registered hospitals in
+2013](http://catalog.data.gov/dataset/outpatient-procedures-volume/resource/af370823-8af4-414e-bf65-ca1b7f6f3fa0).
+The departments are:
 
 - Gastrointestinal
 - Musculoskeletal

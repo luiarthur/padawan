@@ -82,4 +82,12 @@
     <script type="text/javascript" src="/js/multilineplot.js"></script>
     <link rel="stylesheet" href="/css/multilineplot.css">
 
+    {% if page.usmap %}
+      <link rel="stylesheet" href="/css/usmap.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+      <script src="/js/usmap.js"></script>
+    {% endif %}
+
+
 </head>
