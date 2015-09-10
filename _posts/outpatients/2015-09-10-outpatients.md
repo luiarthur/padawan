@@ -7,7 +7,7 @@ nohlink: on
 usmap: on
 ---
 
-Why do people visit the hospital? 
+Why do people visit hospitals? 
 
 A look at the distribution of outpatient procedures may provide some insights.
 An outpatient is a patient who receives medical treatment without being
