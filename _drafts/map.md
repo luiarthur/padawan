@@ -12,6 +12,6 @@ nohlink: on
 <div id='temp'></div>
 <script>
   usmap("/assets/cmaq/ozone.csv","ozone",800,"#ozone",7,7,1);
-  usmap("/assets/Hospital_Outpatient/gastro.csv","gastro",800,"#gastro",4,4,1,'orig',0,0,1500);
+  usmap("/assets/Hospital_Outpatient/Gastrointestinal.csv","Gastrointestinal",800,"#gastro",4,4,1,'orig',0,0,1500);
   //usmap("/assets/Hospital_Outpatient/outpatient_vol.csv","Gastrointestinal",800,"#temp",4,4,1,'orig',0,0,1500);
 </script>
