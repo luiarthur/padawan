@@ -44,25 +44,25 @@ the top.
 
 ***
 
-## Gatrointestinal
+## Gatrointestinal (median: 36%)
 <div id='gastro'></div>
 
-## Musculoskeletal
+## Musculoskeletal (median: 12%)
 <div id='muscle'></div>
 
-## Genitourinary
+## Genitourinary (median: 5.6%)
 <div id='genital'></div>
 
-## Skin
+## Skin (median: 5.4%)
 <div id='skin'></div>
 
-## Nervous System
+## Nervous System (median: 4.8%)
 <div id='nerve'></div>
 
-## Cardiovascular
+## Cardiovascular (median: 4.1%)
 <div id='cardio'></div>
 
-## Eye
+## Eye (median: 2.6%)
 <div id='eye'></div>
 
 ***
