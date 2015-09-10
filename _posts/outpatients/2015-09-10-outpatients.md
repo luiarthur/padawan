@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Distribution of Outpatient Procedures at Medicare-registered Hospitals
+title: Distribution of Outpatient Procedures
 subtitle: Why do people visit hospitals?
 description: Mapping information using d3
 nohlink: on
