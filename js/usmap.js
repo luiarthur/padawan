@@ -1,15 +1,12 @@
-function usmap(csv,v,scale,div,pw,ph,op,css,pm,mn,mx,width,height) {
+function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
   if (pm === undefined) {
-    pm = 5;
+    pm = 0;
   }
   if (css === undefined) {
     css = "orig";
   }
-  if (pw === undefined) {
-    pw = 7;
-  }
-  if (ph === undefined) {
-    ph = 7;
+  if (r === undefined) {
+    r = 2;
   }
   if (op === undefined) {
     op = 1;
@@ -70,9 +67,8 @@ function usmap(csv,v,scale,div,pw,ph,op,css,pm,mn,mx,width,height) {
       .attr("class", function(d) {return css +" "+ quantize(+d[v]);})
       .attr("transform", function(d) {return "translate(" + projection([d.lon, d.lat]) + ")"; });
 
-      point.append("rect")
-        .attr("width", pw)
-        .attr("height", ph)
+      point.append("circle")
+        .attr("r",r)
         .style("opacity", op)
 
       // Draws State Lines. Only uses us.json.

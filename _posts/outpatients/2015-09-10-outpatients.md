@@ -35,7 +35,7 @@ font-weight: bold; background-color: #8D8D8D; padding: 2px; border-radius: 4px;"
 Navy Blue</text> is used to indicate that the proportion is greater than %10.
 And <text style="color: white; font-weight: bold; background-color: #8D8D8D;
 padding: 2px; border-radius: 4px;">White</text> is used to indicate 0. 
-Different shades of blue are used to interpolate between 0 and 10%.
+Different shades of blue are used to linearly interpolate between 0 and 10%.
 
 The plots are ordered according to the median proportions within each
 department.
@@ -76,11 +76,13 @@ surgery, but you'll never run out of work at the gastro clinic.
 <script>
   var thresh = .1;
   var color = 'blue'; //orig
-  usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",800,"#nerve",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Skin",800,"#skin",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Musculoskeletal",800,"#muscle",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",800,"#cardio",4,4,1,'blue',0,0,thresh);
+  var r = 2;
+  var op = .7;
+  usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",800,"#nerve",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Skin",800,"#skin",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Musculoskeletal",800,"#muscle",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",800,"#cardio",r,op,'blue',0,thresh);
 </script>
