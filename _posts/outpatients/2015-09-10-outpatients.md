@@ -2,9 +2,9 @@
 layout: post
 title: National Distribution of Outpatient Procedures
 subtitle: Why do people visit hospitals?
-description: Mapping information using d3, Spatial visualization
+description: "Mapping information using d3, Spatial visualization"
 nohlink: on
-og-img: "http://luiarthur.github.io/assets/Hospital_Outpatient/hospital.jpg"
+ogimg: "http://luiarthur.github.io/assets/Hospital_Outpatient/hospital.jpg"
 usmap: on
 ---
 
