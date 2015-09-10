@@ -12,7 +12,7 @@ admitted to a hospital. In most cases, if you *don't stay overnight* at a
 hospital, you are an outpatient.
 
 Below I have illustrated the proportion of outpatients treated at each of 7
-departments at several medicare-registered hospitals in recent years. The 
+departments at several medicare-registered hospitals in 2013. The 
 departments are:
 
 - Gastrointestinal
@@ -63,8 +63,8 @@ department.
 
 Lightheartedly, if you are a med student considering specializations, why not
 look into gastroenterology? They have more than enough patients keeping them
-busy during the day.  For those of you looking into becoming a neuro-surgeon,
-it's not too late to change your mind. (*pun intented*.) Sure, it's not brain
+busy during the day.  For those of you thinking of becoming a neuro-surgeon,
+it's not too late to *change your mind*. Sure, it's not brain
 surgery, but you'll never run out of work at the gastro clinic.
 
 
@@ -74,7 +74,7 @@ surgery, but you'll never run out of work at the gastro clinic.
   var color = 'blue'; //orig
   usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",4,4,1,'blue',0,0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",4,4,1,'blue',0,0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.System.csv","Nervous.System",800,"#nerve",4,4,1,'blue',0,0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",800,"#nerve",4,4,1,'blue',0,0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Skin",800,"#skin",4,4,1,'blue',0,0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Musculoskeletal",800,"#muscle",4,4,1,'blue',0,0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",4,4,1,'blue',0,0,thresh);
