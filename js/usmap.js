@@ -1,4 +1,4 @@
-function usmap(csv,v,scale,div,pw,ph,op,width,height) {
+function usmap(csv,v,scale,div,pw,ph,op,css,width,height) {
   if (pw === undefined) {
     pw = 7;
   }

@@ -4,20 +4,7 @@
   stroke-linejoin: round;
 }
 
-/* Original Colors for heats 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
-*/
-
-
-/* Blue to White to Red  */
+/* Blue to White to Red */
 .q0-9 { fill:rgb(10,5,140); }
 .q1-9 { fill:rgb(60,50,224); }
 .q2-9 { fill:rgb(110,100,230); }
@@ -27,3 +14,14 @@
 .q6-9 { fill:rgb(230,150,170); }
 .q7-9 { fill:rgb(220,40,70); }
 .q8-9 { fill:rgb(220,10,40); }
+
+/* Original Colors for heats */
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
