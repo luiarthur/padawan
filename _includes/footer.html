@@ -1,4 +1,10 @@
 <!-- Footer -->
+{% if !page.nohlink %}
+<script> 
+  $("h2 a").attr("style","text-decoration: none;");
+</script>
+{% endif %}
+
 <footer>
     <div class="container">
         <div class="row">

@@ -36,7 +36,7 @@
 
     <!--MathJax-->
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    {% if  page.dollar %}
+    {% if page.dollar %}
     <script> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } });</script>
     {% endif %}
     <!--d3. Not necessary. Just for exploration.-->
@@ -81,4 +81,5 @@
     <script type="text/javascript" src="/js/barchart.js"></script>
     <script type="text/javascript" src="/js/multilineplot.js"></script>
     <link rel="stylesheet" href="/css/multilineplot.css">
+
 </head>
