@@ -2,7 +2,7 @@
 layout: post
 title: Distribution of Outpatient Procedures
 subtitle: Why do people visit hospitals?
-description: Mapping information using d3
+description: Mapping information using d3, Spatial visualization
 nohlink: on
 usmap: on
 ---
