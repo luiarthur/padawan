@@ -37,8 +37,9 @@ And <text style="color: white; font-weight: bold; background-color: #8D8D8D;
 padding: 2px; border-radius: 4px;">White</text> is used to indicate 0. 
 Different shades of blue are used to linearly interpolate between 0 and 10%.
 
-The plots are ordered according to the median proportions within each
-department.
+The plots are ordered according to the median proportion of visits within each
+department, the department with the highest median proportion being placed at
+the top.
 
 ***
 
