@@ -1,7 +1,12 @@
 <!-- Footer -->
 {% if !page.nohlink %}
 <script> 
+  $("h1 a").attr("style","text-decoration: none;").attr("target","_blank");
   $("h2 a").attr("style","text-decoration: none;").attr("target","_blank");
+  $("h3 a").attr("style","text-decoration: none;").attr("target","_blank");
+  $("h4 a").attr("style","text-decoration: none;").attr("target","_blank");
+  $("h5 a").attr("style","text-decoration: none;").attr("target","_blank");
+  $("h6 a").attr("style","text-decoration: none;").attr("target","_blank");
 </script>
 {% endif %}
 
