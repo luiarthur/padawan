@@ -10,5 +10,5 @@ $(document).ready(function(){ // executes js when document is ready. Allows js t
 
   var link = window.location.href.replace(/\?fb_comment_id=.*/g,"")
   console.log("website: \n" + link);
-  $(".fb-comments").attr("data-href",link).attr("width",$(".fb-comments").width()+"px").attr("colorscheme","dark");
+  $(".fb-comments").attr("data-href",link).attr("width",$(".fb-comments").width()+"px").attr("colorscheme","light");
 });
