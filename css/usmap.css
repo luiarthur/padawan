@@ -5,23 +5,34 @@
 }
 
 /* Blue to White to Red */
-.q0-9 { fill:rgb(10,5,140); }
-.q1-9 { fill:rgb(60,50,224); }
-.q2-9 { fill:rgb(110,100,230); }
-.q3-9 { fill:rgb(160,160,240); }
-.q4-9 { fill:rgb(255,255,255); }
-.q5-9 { fill:rgb(240,77,193); }
-.q6-9 { fill:rgb(230,150,170); }
-.q7-9 { fill:rgb(220,40,70); }
-.q8-9 { fill:rgb(220,10,40); }
+.orig.q0-9 { fill:rgb(10,5,140); }
+.orig.q1-9 { fill:rgb(60,50,224); }
+.orig.q2-9 { fill:rgb(110,100,230); }
+.orig.q3-9 { fill:rgb(160,160,240); }
+.orig.q4-9 { fill:rgb(255,255,255); }
+.orig.q5-9 { fill:rgb(240,77,193); }
+.orig.q6-9 { fill:rgb(230,150,170); }
+.orig.q7-9 { fill:rgb(220,40,70); }
+.orig.q8-9 { fill:rgb(220,10,40); }
 
-/* Original Colors for heats */
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+/* White to Blue */
+.blue.q0-9 { fill:rgb(247,251,255); }
+.blue.q1-9 { fill:rgb(222,235,247); }
+.blue.q2-9 { fill:rgb(198,219,239); }
+.blue.q3-9 { fill:rgb(158,202,225); }
+.blue.q4-9 { fill:rgb(107,174,214); }
+.blue.q5-9 { fill:rgb(66,146,198); }
+.blue.q6-9 { fill:rgb(33,113,181); }
+.blue.q7-9 { fill:rgb(8,81,156); }
+.blue.q8-9 { fill:rgb(8,48,107); }
+
+/* White to Red */
+.blue.q0-9 { fill:rgb(247,251,255); }
+.blue.q1-9 { fill:rgb(222,235,247); }
+.blue.q2-9 { fill:rgb(198,219,239); }
+.blue.q3-9 { fill:rgb(158,202,225); }
+.blue.q4-9 { fill:rgb(107,174,214); }
+.blue.q5-9 { fill:rgb(66,146,198); }
+.blue.q6-9 { fill:rgb(33,113,181); }
+.blue.q7-9 { fill:rgb(8,81,156); }
+.blue.q8-9 { fill:rgb(8,48,107); }

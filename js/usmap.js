@@ -1,4 +1,10 @@
-function usmap(csv,v,scale,div,pw,ph,op,css,width,height) {
+function usmap(csv,v,scale,div,pw,ph,op,css,pm,mn,mx,width,height) {
+  if (pm === undefined) {
+    pm = 5;
+  }
+  if (css === undefined) {
+    css = "orig";
+  }
   if (pw === undefined) {
     pw = 7;
   }
@@ -46,11 +52,14 @@ function usmap(csv,v,scale,div,pw,ph,op,css,width,height) {
 
     // Cities
     d3.csv(csv, function(error, data) {
+      if (mn === undefined) {
+        mn = d3.min(data, function(d) {return +d[v] + pm;} )
+      }
+      if (mx === undefined) {
+        mx = d3.max(data, function(d) {return +d[v] - pm;} )
+      }
       var quantize = d3.scale.quantize()
-          .domain([
-            d3.min(data, function(d) {return +d[v] + 5;} ),
-            d3.max(data, function(d) {return +d[v] - 5;} )
-          ])
+          .domain([mn,mx])
           .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
       var point = svg.selectAll("g.point")
@@ -58,7 +67,7 @@ function usmap(csv,v,scale,div,pw,ph,op,css,width,height) {
       .enter()
       .append("g")
       .attr("class", "point")
-      .attr("class", function(d) {return quantize(+d[v]);})
+      .attr("class", function(d) {return css +" "+ quantize(+d[v]);})
       .attr("transform", function(d) {return "translate(" + projection([d.lon, d.lat]) + ")"; });
 
       point.append("rect")
