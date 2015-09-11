@@ -81,7 +81,12 @@ it's not too late to *change your mind*. Sure, it's not brain
 surgery, but you'll never run out of work at the gastro clinic.
 
 
+
+<div id = 'test'></div>
+<link rel="stylesheet" type="text/css" href="/css/histogram.css">
+
 <!-- Scipts -->
+<script src="/js/histogram.js"></script>
 <script>
   var thresh = .1;
   var color = 'blue'; //orig
@@ -95,3 +100,27 @@ surgery, but you'll never run out of work at the gastro clinic.
   usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",r,op,'blue',0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",800,"#cardio",r,op,'blue',0,thresh);
 </script>
+
+<script>
+ var gastro = [];
+     //eye = [],
+     //ns = [],
+     //skin = [],
+     //muscle = [],
+     //genital = [],
+     //cardio = [];
+
+  d3.csv('/assets/Hospital_Outpatient/prop.csv', function(csv){
+    csv.map(function(d) { gastro.push(d.Gastrointestinal); });
+  });
+
+        //eye.push(d.eye);
+        //ns.push(d.ns);
+        //skin.push(d.skin);
+        //muscle.push(d.muscle);
+        //genital.push(d.genital);
+        //cardio.push(d.cardio);
+  histogram(gastro,"#test");
+</script>
+
+
