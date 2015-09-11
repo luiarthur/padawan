@@ -1,12 +1,17 @@
 function histogram(values,div,width,height) {
+
+  var margin = {top: 10, right: 30, bottom: 30, left: 30};
+
   if (div === undefined) {
     div = "body";
   }
   if (width === undefined) {
-    width = d3.select(div).node().getBoundingClientRect().width;
+    width = d3.select(div).node().getBoundingClientRect().width * 1;
+    width = width - margin.left - margin.right;
   }
   if (height === undefined) {
     height = width/2;
+    height = height - margin.top - margin.bottom;
   }
 
   // Generate a Bates distribution of 10 random variables.
@@ -33,10 +38,10 @@ function histogram(values,div,width,height) {
       .orient("bottom");
 
   var svg = d3.select(div).append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + 0 + "," + 0 + ")");
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var bar = svg.selectAll(".bar")
       .data(data)
@@ -54,7 +59,7 @@ function histogram(values,div,width,height) {
       .attr("y", 6)
       .attr("x", x(data[0].dx) / 2)
       .attr("text-anchor", "middle")
-      .text(function(d) { return formatCount(d.y); });
+      .text(function(d) { if ( height-y(d.y) > 15 ) { return formatCount(d.y); } });
 
   svg.append("g")
       .attr("class", "x axis")
