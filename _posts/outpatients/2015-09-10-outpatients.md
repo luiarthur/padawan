@@ -15,7 +15,7 @@ An outpatient is a patient who receives medical treatment without being
 admitted to a hospital. In most cases, if you *don't stay overnight* at a
 hospital, you are an outpatient.
 
-The graphs below illustrat the proportion of [outpatients treated in each of 7
+The graphs below illustrate the proportion of [outpatients treated in each of 7
 departments at several medicare-registered hospitals in
 2013](http://catalog.data.gov/dataset/outpatient-procedures-volume/resource/af370823-8af4-414e-bf65-ca1b7f6f3fa0).
 The departments are:
