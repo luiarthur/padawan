@@ -89,7 +89,7 @@ surgery, but you'll never run out of work at the gastro clinic.
 <script>
   var thresh = .1;
   var color = 'blue'; //orig
-  var r = 1;
+  var r = 2;
   var op = 1;
   usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",r,op,'blue',0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",r,op,'blue',0,thresh);
