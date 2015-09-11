@@ -80,11 +80,6 @@ busy during the day.  For those of you thinking of becoming a neuro-surgeon,
 it's not too late to *change your mind*. Sure, it's not brain
 surgery, but you'll never run out of work at the gastro clinic.
 
-
-
-<div id = 'test'></div>
-<link rel="stylesheet" type="text/css" href="/css/histogram.css">
-
 <!-- Scipts -->
 <script src="/js/histogram.js"></script>
 <script>
@@ -100,6 +95,14 @@ surgery, but you'll never run out of work at the gastro clinic.
   usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",r,op,'blue',0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",800,"#cardio",r,op,'blue',0,thresh);
 </script>
+
+
+
+
+<!--
+<div id = 'test'></div>
+<link rel="stylesheet" type="text/css" href="/css/histogram.css">
+
 
 <script>
  var gastro = [];
@@ -123,4 +126,4 @@ surgery, but you'll never run out of work at the gastro clinic.
   histogram(gastro,"#test");
 </script>
 
-
+-->
