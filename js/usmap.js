@@ -65,11 +65,29 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
       .append("g")
       .attr("class", "point")
       .attr("class", function(d) {return css +" "+ quantize(+d[v]);})
-      .attr("transform", function(d) {return "translate(" + projection([d.lon, d.lat]) + ")"; });
+      .attr("transform", function(d) {return "translate(" + projection([d.lon, d.lat]) + ")"; })
+      .attr("hospital", function(d) {return d.hospital;})
+      .attr("lat", function(d) {return d.lat;})
+      .attr("lon", function(d) {return d.lon;})
+      .attr("prop", function(d) {return Math.floor(+d[v] * 10000) / 100 +"%";})
 
       point.append("circle")
         .attr("r",r)
         .style("opacity", op)
+        .on("mouseover", mouseover)
+        .on("mouseout",  mouseout);
+
+      /* mouseover stuff below*/
+        function mouseover() { 
+          d3.select(this).attr("r",30); 
+          var pn = d3.select(this.parentNode);
+          console.log(pn.attr("hospital")+": "+pn.attr("prop"));
+          console.log("("+pn.attr("lat")+","+pn.attr("lon")+")");
+        };
+        function mouseout() { 
+          d3.select(this).attr("r",r); 
+        };
+      /*End of Mouseover stuff*/
 
       // Draws State Lines. Only uses us.json.
       svg.append("g")
