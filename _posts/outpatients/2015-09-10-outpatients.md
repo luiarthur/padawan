@@ -30,11 +30,11 @@ The departments are:
 
 The proportions are computed as follows: if a hospital had 1000 outpatients,
 out of which 100 were treated in the gastro department, then the proportion of
-gastro patients in that location is 100/1000 = 10%. A spectrum of shades of
-blue is used to indicate the proportions. <text style="color: rgb(8,48,107);
-font-weight: bold; background-color: #8D8D8D; padding: 2px; border-radius: 4px;">
-Navy Blue</text> is used to indicate that the proportion is greater than 10%.
-And <text style="color: white; font-weight: bold; background-color: #8D8D8D;
+gastro patients in that location is 100/1000 = 10%. A shades of blue are used
+to indicate the proportions. <text style="color: rgb(8,48,107); font-weight:
+bold; background-color: #8D8D8D; padding: 2px; border-radius: 4px;"> Navy
+Blue</text> is used to indicate that the proportion is greater than 10%.  And
+<text style="color: white; font-weight: bold; background-color: #8D8D8D;
 padding: 2px; border-radius: 4px;">White</text> is used to indicate 0. 
 Different shades of blue are used to linearly interpolate between 0 and 10%.
 
