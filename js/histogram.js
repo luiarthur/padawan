@@ -1,6 +1,8 @@
-function histogram(values,div,width,height) {
+function histogram(values,div,margin,width,height) {
 
-  var margin = {top: 10, right: 30, bottom: 30, left: 30};
+  if (margin === undefined) {
+    margin = {top: 10, right: 30, bottom: 30, left: 30};
+  }
 
   if (div === undefined) {
     div = "body";

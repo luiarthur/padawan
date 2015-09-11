@@ -45,41 +45,39 @@ the top.
 
 ***
 
-## Gatrointestinal (median: 36%)
+### Gatrointestinal (median: 36%)
 <div id='gastro'></div>
 <div id='gastroh'></div>
-<br>
+***
 
-## Musculoskeletal (median: 12%)
+### Musculoskeletal (median: 12%)
 <div id='muscle'></div>
 <div id='muscleh'></div>
-<br>
+***
 
-## Genitourinary (median: 5.6%)
+### Genitourinary (median: 5.6%)
 <div id='genital'></div>
 <div id='genitalh'></div>
-<br>
+***
 
-## Skin (median: 5.4%)
+### Skin (median: 5.4%)
 <div id='skin'></div>
 <div id='skinh'></div>
-<br>
+***
 
-## Nervous System (median: 4.8%)
+### Nervous System (median: 4.8%)
 <div id='nerve'></div>
 <div id='nerveh'></div>
-<br>
+***
 
-## Cardiovascular (median: 4.1%)
+### Cardiovascular (median: 4.1%)
 <div id='cardio'></div>
 <div id='cardioh'></div>
-<br>
+***
 
-## Eye (median: 2.6%)
+### Eye (median: 2.6%)
 <div id='eye'></div>
 <div id='eyeh'></div>
-<br>
-
 ***
 
 Lightheartedly, if you are a medical student considering specializations, why
@@ -91,8 +89,8 @@ surgery, but you'll never run out of work at the gastro clinic.
 <script>
   var thresh = .1;
   var color = 'blue'; //orig
-  var r = 2;
-  var op = .7;
+  var r = 1;
+  var op = 1;
   usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",r,op,'blue',0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",r,op,'blue',0,thresh);
   usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",800,"#nerve",r,op,'blue',0,thresh);
@@ -106,8 +104,11 @@ surgery, but you'll never run out of work at the gastro clinic.
       genital = [],
       skin = [],
       ns = [],
-      cardio = [];
-      eye = [],
+      cardio = [],
+      eye = [];
+
+  var margin = {top: 50, right: 100, bottom: 30, left: 100};
+
   d3.csv('/assets/Hospital_Outpatient/prop.csv', function(csv) {
     csv.map(function(d) { 
       gastro.push(d.Gastrointestinal);
@@ -118,12 +119,12 @@ surgery, but you'll never run out of work at the gastro clinic.
       cardio.push(d.Cardiovascular);
       eye.push(d.Eye);
     });
-    histogram(gastro,"#gastroh");
-    histogram(muscle,"#muscleh");
-    histogram(genital,"#genitalh");
-    histogram(skin,"#skinh");
-    histogram(ns,"#nerveh");
-    histogram(cardio,"#cardioh");
-    histogram(eye,"#eyeh");
+    histogram(gastro,"#gastroh",margin);
+    histogram(muscle,"#muscleh",margin);
+    histogram(genital,"#genitalh",margin);
+    histogram(skin,"#skinh",margin);
+    histogram(ns,"#nerveh",margin);
+    histogram(cardio,"#cardioh",margin);
+    histogram(eye,"#eyeh",margin);
   });
 </script>

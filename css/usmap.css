@@ -1,7 +1,8 @@
 .states {
-  fill: none;
+  fill: grey;
+  opacity: .1;
   stroke: black;
-  stroke-width: .3px;
+  stroke-width: 1px;
   stroke-linejoin: round;
 }
 
