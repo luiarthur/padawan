@@ -3,6 +3,7 @@ layout: post
 title: Comparing Programming Languages for Statistics
 subtitle: "Execution vs. Development Time"
 description: "C++ / Scala / Julia / R execution time vs. development time"
+barchart: on
 header-color: "rgb(136,48,48)"
 ---
 

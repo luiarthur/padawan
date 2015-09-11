@@ -13,6 +13,7 @@ D: "\\tiny \\begin{array}{crrrrr}
           CA & 3.74 & 3.65 & 3.32 & 0.00 & 1.01 \\\\
           NV & 3.78 & 3.69 & 3.46 & 1.01 & 0.00 \\\\
     \\end{array}"
+multiline: on
 image:
 ---
 
