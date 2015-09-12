@@ -40,6 +40,10 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
       .attr("width", width)
       .attr("height", height);
 
+  var msg = d3.select("body").append("div")   
+      .attr("class", "tooltip")               
+      .style("opacity", 0);
+
   queue()
       .defer(d3.json, "/assets/cmaq/us.json")
       .await(ready);
@@ -49,6 +53,14 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
 
     // Cities
     d3.csv(csv, function(error, data) {
+      // Draws State Lines. Only uses us.json.
+      svg.append("g")
+          .attr("class", "states")
+        .selectAll("path")
+          .data(topojson.feature(us, us.objects.states).features)
+        .enter().append("path")
+          .attr("d", path);
+
       if (mn === undefined) {
         mn = d3.min(data, function(d) {return +d[v] + pm;} )
       }
@@ -71,31 +83,45 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
       .attr("lon", function(d) {return d.lon;})
       .attr("prop", function(d) {return Math.floor(+d[v] * 10000) / 100 +"%";})
 
+      //point.append("circle")
+      //  .attr("r",r)
+      //  .style("opacity", op)
+      //  .on("mouseover", mouseover)
+      //  .on("mouseout",  mouseout);
+
+      /* mouseover stuff below*/
+      //  function mouseover() { 
+      //    d3.select(this).attr("r",100).style("opacity",.9); 
+      //    var pn = d3.select(this.parentNode);
+      //    console.log(pn.attr("hospital")+": "+pn.attr("prop"));
+      //    console.log("("+pn.attr("lat")+","+pn.attr("lon")+")");
+      //  };
+      //  function mouseout() { 
+      //    d3.select(this).attr("r",r).style("opacity",op); 
+      //  };
+      /*End of Mouseover stuff*/
+
       point.append("circle")
         .attr("r",r)
         .style("opacity", op)
-        .on("mouseover", mouseover)
-        .on("mouseout",  mouseout);
-
-      /* mouseover stuff below*/
-        function mouseover() { 
-          d3.select(this).attr("r",30); 
+        //Adding mouseevents
+        .on("mouseover", function(d) {
           var pn = d3.select(this.parentNode);
-          console.log(pn.attr("hospital")+": "+pn.attr("prop"));
-          console.log("("+pn.attr("lat")+","+pn.attr("lon")+")");
-        };
-        function mouseout() { 
-          d3.select(this).attr("r",r); 
-        };
-      /*End of Mouseover stuff*/
+          d3.select(this).transition().duration(300).style("opacity", 1);
+          msg.transition().duration(300)
+          .style("opacity", 1)
+          msg.text(d.hospital+": "+pn.attr("prop"))
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY -30) + "px");
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+          .transition().duration(300)
+          .style("opacity", 0.8);
+          msg.transition().duration(300)
+          .style("opacity", 0);
+        })
 
-      // Draws State Lines. Only uses us.json.
-      svg.append("g")
-          .attr("class", "states")
-        .selectAll("path")
-          .data(topojson.feature(us, us.objects.states).features)
-        .enter().append("path")
-          .attr("d", path);
     }); // End of City Drawing
   } // End of Function ready 
 
