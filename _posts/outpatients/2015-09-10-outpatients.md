@@ -47,36 +47,71 @@ the top.
 
 ### Gatrointestinal (median: 36%)
 <div id='gastro'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#gastro">
+    Open in a new window
+  </a>
+</aside>
 <div id='gastroh'></div>
 ***
 
 ### Musculoskeletal (median: 12%)
 <div id='muscle'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#muscle">
+    Open in a new window
+  </a>
+</aside>
 <div id='muscleh'></div>
 ***
 
 ### Genitourinary (median: 5.6%)
 <div id='genital'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#genital">
+    Open in a new window
+  </a>
+</aside>
 <div id='genitalh'></div>
 ***
 
 ### Skin (median: 5.4%)
 <div id='skin'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#skin">
+    Open in a new window
+  </a>
+</aside>
 <div id='skinh'></div>
 ***
 
 ### Nervous System (median: 4.8%)
 <div id='nerve'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#nerve">
+    Open in a new window
+  </a>
+</aside>
 <div id='nerveh'></div>
 ***
 
 ### Cardiovascular (median: 4.1%)
 <div id='cardio'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#cardio">
+    Open in a new window
+  </a>
+</aside>
 <div id='cardioh'></div>
 ***
 
 ### Eye (median: 2.6%)
 <div id='eye'></div>
+<aside>
+  <a target="_blank" href="/assets/Hospital_Outpatient/bigMap.html#eye">
+    Open in a new window
+  </a>
+</aside>
 <div id='eyeh'></div>
 ***
 
