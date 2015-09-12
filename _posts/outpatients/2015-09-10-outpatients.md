@@ -90,14 +90,15 @@ surgery, but you'll never run out of work at the gastro clinic.
   var thresh = .1;
   var color = 'blue'; //orig
   var r = 3;
-  var op = 1;
-  usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",800,"#gastro",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Eye",800,"#eye",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",800,"#nerve",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Skin",800,"#skin",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Musculoskeletal",800,"#muscle",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",800,"#genital",r,op,'blue',0,thresh);
-  usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",800,"#cardio",r,op,'blue',0,thresh);
+  var op = .7;
+  var scale = 700;
+  usmap("/assets/Hospital_Outpatient/prop.csv","Gastrointestinal",scale,"#gastro",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Musculoskeletal",scale,"#muscle",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Genitourinary",scale,"#genital",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Skin",scale,"#skin",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Nervous.System",scale,"#nerve",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Cardiovascular",scale,"#cardio",r,op,'blue',0,thresh);
+  usmap("/assets/Hospital_Outpatient/prop.csv","Eye",scale,"#eye",r,op,'blue',0,thresh);
 
   var gastro = [],
       muscle = [],
