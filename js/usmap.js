@@ -107,7 +107,7 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
         //Adding mouseevents
         .on("mouseover", function(d) {
           var pn = d3.select(this.parentNode);
-          d3.select(this).transition().duration(300).style("opacity", 1);
+          d3.select(this).transition().duration(300).style("opacity", 1).attr("r",20);
           msg.transition().duration(300)
           .style("opacity", 1)
           msg.text(d.hospital+": "+pn.attr("prop"))
@@ -117,7 +117,8 @@ function usmap(csv,v,scale,div,r,op,css,mn,mx,pm,width,height) {
         .on("mouseout", function() {
           d3.select(this)
           .transition().duration(300)
-          .style("opacity", 0.8);
+          .style("opacity", 0.8)
+          .attr("r",r);
           msg.transition().duration(300)
           .style("opacity", 0);
         })
