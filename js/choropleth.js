@@ -1,4 +1,4 @@
-function (file,v,scale,div,color,pm,mn,mx,width,height) {
+function choropleth (file,v,scale,div,color,pm,mn,mx,width,height) {
   if (color === undefined) {
     /*NEED SOMETHING HERE*/
   }
@@ -21,10 +21,10 @@ function (file,v,scale,div,color,pm,mn,mx,width,height) {
     height = width/2;
   }
   if (mn === undefined) {
-    mn = d3.min(data, function(d) {return +d[v] + pm;} )
+    mn = 0;//d3.min(data, function(d) {return +d[v] + pm;} )
   }
   if (mx === undefined) {
-    mx = d3.max(data, function(d) {return +d[v] - pm;} )
+    mx = 1;//d3.max(data, function(d) {return +d[v] - pm;} )
   }
 
   var rateById = d3.map();
@@ -34,7 +34,7 @@ function (file,v,scale,div,color,pm,mn,mx,width,height) {
       .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
   var projection = d3.geo.albersUsa()
-      .scale(1280)
+      .scale(scale)
       .translate([width / 2, height / 2]);
 
   var path = d3.geo.path()
@@ -57,7 +57,9 @@ function (file,v,scale,div,color,pm,mn,mx,width,height) {
       .selectAll("path")
         .data(topojson.feature(us, us.objects.counties).features)
       .enter().append("path")
-        .attr("class", function(d) { return quantize(rateById.get(d.fips)); })
+        .attr("class", function(d) { 
+          console.log(rateById.get(d.id));
+          return quantize(rateById.get(d.id)); })
         .attr("d", path);
 
     svg.append("path")

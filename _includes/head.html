@@ -102,4 +102,11 @@
       <script src="/js/histogram.js"></script>
       <link rel="stylesheet" type="text/css" href="/css/histogram.css">
     {% endif %}
+
+    {% if page.choropleth %}
+      <link rel="stylesheet" href="/css/choropleth.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+      <script src="/js/choropleth.js"></script>
+    {% endif %}
 </head>
