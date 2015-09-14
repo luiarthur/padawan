@@ -35,7 +35,7 @@ div.tooltip {
   padding: 2px;             
   font-size: 10px;     
   /*background: #FFFFE0;*/
-  background: rgba(255,255,224,1);
+  background: rgba(255,255,224,.85);
   border: 1px;      
   border-radius: 8px;           
   pointer-events: none;         
