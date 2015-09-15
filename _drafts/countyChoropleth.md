@@ -18,11 +18,11 @@ Documentation of Data: http://www.countyhealthrankings.org/sites/default/files/2
 # Number of Dentists / 100,000 Population (2013)
 <div id='dentists'></div>
 
-# Number of Primary Care Providers / 100,000 Population (2013)
+# Number of Primary Care Providers / 100,000 Population (2012)
 <div id='doctors'></div>
 
 <script>
-  // Median Household Income Value
+  // Obesity Prop
   var file = "/assets/chr2015/chr2015.csv",
              //v ="Median.household.income.Value",
              v ="",
