@@ -6,11 +6,13 @@ layout: default
 <header class="intro-header" style=
   "{% if page.header-img %}
     background-image: url('{{site.baseurl}}/{{page.header-img}}');
-    {% elsif page.header-color %}
+  {% elsif page.header-color %}
     background-color: {{page.header-color}};
   {% else %}
     background-color: {{site.header-color}};
-  {% endif %}">
+  {% endif %}
+  {{page.header-style}}
+  ">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
