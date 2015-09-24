@@ -23,3 +23,10 @@ defaults:
       path: ""
     values:
       comments: fb
+
+##################
+# http://jekyllrb.com/docs/collections/
+collections:
+  ucscNotes:
+    output: true
+    permalink: /ucsc_notes/:path/
