@@ -21,3 +21,4 @@ for (i in 2:N) {
 hist(rG(1e6),freq=F,add=F,col="lightgrey",border="white",xlab="x",
      ylab="Probability",main="")#, xlim=c(-4,4),ylim=c(0,.4))
 lines(table(x) / sum(table(x)) ,col="blue")
+
