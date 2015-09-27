@@ -1,11 +1,11 @@
 N <- 100 # number of observations?
-a <- 10 # alpha
+a <- 6 # alpha
 # X_i ~ G = Normal(0,1)
 
-rG <- function(num) rgamma(num,3,3)
+#rG <- function(num) rgamma(num,3,3)
 #rG <- function(num) rbeta(num,2,3)
 #rG <- function(num) rnorm(num,0,1)
-#rG <- function(num) rpois(num,30)
+rG <- function(num) rpois(num,4)
 
 
 x <- rep(0,N)
@@ -21,4 +21,3 @@ for (i in 2:N) {
 hist(rG(1e6),freq=F,add=F,col="lightgrey",border="white",xlab="x",
      ylab="Probability",main="")#, xlim=c(-4,4),ylim=c(0,.4))
 lines(table(x) / sum(table(x)) ,col="blue")
-
