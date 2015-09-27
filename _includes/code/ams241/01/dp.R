@@ -1,6 +1,5 @@
 N <- 1000 # number of observations?
 a <- 30 # alpha
-
 rG <- function(num) rgamma(num,3,scale=3)
 #rG <- function(num) rbeta(num,2,3)
 #rG <- function(num) rnorm(num,0,1)
@@ -20,7 +19,11 @@ for (i in 2:N) {
 # Plot Results
 #png("../../../../assets/ams241/01/plots/dp_gamma.png"); pmar <- par("mar")
 #par("mar"=c(4,4,1,0))
-  hist(rG(1e6),freq=F,add=F,col="lightgrey",border="white",xlab="x",
-       ylab="Probability",main="")
-  lines(table(x) / sum(table(x)) ,col="blue")
+  #hist(rG(1e6),freq=F,add=F,col="grey",border="white",xlab="x",
+  #     ylab="Probability",main="")
+  #lines(table(x) / sum(table(x)) ,col="blue")
+  hist(x ,add=F,freq=F,col=rgb(.4,.5,.9,1),border="white")
+  curve(dgamma(x,3,scale=3),add=T,col=rgb(0,0,0,1),lwd=2)
+  my.color(function(x) dgamma(x,3,scale=3),0,26,col.area=rgb(0,0,0,.5))
 #par("mar"=pmar); dev.off()
+
