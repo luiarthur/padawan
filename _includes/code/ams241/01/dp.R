@@ -6,13 +6,14 @@ a <- 6 # alpha
 #rG <- function(num) rnorm(num,0,1)
 rG <- function(num) rpois(num,4)
 
-
 x <- rep(0,N)
 x[1] <- rG(1)
 
 for (i in 2:N) {
   nx <- table(x[1:(i-1)])
-  x[i] <- as.numeric(sample(c(rG(1),names(nx)),1,prob=c(a/(a+N-1),nx/(a+N-1))))
+  xs <-    c(     rG(1),  names(nx) ) 
+  probs <- c( a/(a+N-1), nx/(a+N-1) )
+  x[i] <- as.numeric( sample(xs, 1, prob=probs) )
   cat("\r Progress: ",i,"/",N)
 }
 
@@ -21,4 +22,3 @@ opar <- par()
 hist(rG(1e6),freq=F,add=F,col="lightgrey",border="white",xlab="x",
      ylab="Probability",main="")
 lines(table(x) / sum(table(x)) ,col="blue")
-
