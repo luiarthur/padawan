@@ -1,5 +1,5 @@
 N <- 1000 # number of observations?
-a <- 3 # alpha
+a <- 30 # alpha
 
 rG <- function(num) rgamma(num,3,scale=3)
 #rG <- function(num) rbeta(num,2,3)
