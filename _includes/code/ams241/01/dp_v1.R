@@ -1,5 +1,5 @@
 source("cdf.R")
-
+# Polya Urn construction:
 dp <- function(rG,a,N=100,printProg=F) {
   x <- rep(0,N)
   x[1] <- rG(1)

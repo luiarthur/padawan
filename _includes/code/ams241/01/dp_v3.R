@@ -7,6 +7,7 @@ rdir <- function(N,a) {
   x / as.vector(rowsums)
 }
 
+# Using the dirichlet distribution from gamma's
 dp <- function(N=1,pG,a,xlim=c(0,1),n=1000) {
   x <- seq(xlim[1],xlim[2],length=n)
   x <- sort(c(-1e1000,x))
