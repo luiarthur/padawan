@@ -34,3 +34,4 @@ lines(X$x,EG,col=rgb(0,0,1,.4),lwd=5)
 
 
 
+
