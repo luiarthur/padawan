@@ -39,3 +39,5 @@ plot(density(y))
 
 # y_i | G ~ G
 # G ~ DP(G_0,a)
+
+
