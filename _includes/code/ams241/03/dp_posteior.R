@@ -23,14 +23,16 @@ n <- 9
 pG <- function(x) pnorm(x)
 
 X <- dp(N=N,pG=pG,a=a,xlim=xlim,n=n)
-plot(0,xlim=range(X$x),ylim=c(0,1),cex=0)
-for (i in 1:nrow(X$G)) {
-  lines(X$x,X$G[i,],type="l",col=rgb(.4,.4,.4),lwd=.1)
-  cat("\r", i/nrow(X$G))
-}
-curve(pnorm,add=T,col="red",lwd=3)
-EG <- apply(X$G,2,mean)
-lines(X$x,EG,col=rgb(0,0,1,.4),lwd=5)
+pdf("~/dp.pdf")
+  plot(0,xlim=range(X$x),ylim=c(0,1),cex=0)
+  for (i in 1:nrow(X$G)) {
+    lines(X$x,X$G[i,],type="l",col=rgb(.4,.4,.4,.5),lwd=.1)
+    cat("\r", i/nrow(X$G))
+  }
+  curve(pnorm,add=T,col=rgb(.5,0,0),lwd=3)
+  EG <- apply(X$G,2,mean)
+  lines(X$x,EG,col=rgb(0,0,1,.3),lwd=10)
+dev.off()
 
 y <- c(rnorm(100,7,2),rgamma(100,2,3))
 plot(density(y))
