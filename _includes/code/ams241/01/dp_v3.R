@@ -31,3 +31,4 @@ for (i in 1:nrow(X$G)) {
 curve(pnorm,add=T,col="darkred",lwd=3)
 EG <- apply(X$G,2,mean)
 lines(X$x,EG,col=rgb(0,0,1,.4),lwd=5)
+
