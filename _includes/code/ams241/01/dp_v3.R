@@ -33,3 +33,4 @@ EG <- apply(X$G,2,mean)
 lines(X$x,EG,col=rgb(0,0,1,.4),lwd=5)
 
 
+
