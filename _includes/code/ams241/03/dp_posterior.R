@@ -1,3 +1,12 @@
+color.btwn <- function(x,ylo,yhi,from,to,col.area="grey") {
+  x <- c(x,rev(x))
+  y <- c(yhi,rev(ylo))
+
+  polygon(c(x[x>=from & x<= to]),
+          c(y[x>=from & x<=to]),
+          col=col.area,border=F)
+}
+
 rdir <- function(N,a) {
   k <- length(a)
   x <- matrix(rgamma(k*N, a, 1), N, k, byrow=T)
@@ -16,18 +25,18 @@ dp <- function(N=1,pG,a,xlim=c(0,1),n=1000) {
 }
 
 ### Plotting Function
-dp.post <- function(X) {
-  plot(0,xlim=range(X$x),ylim=c(0,1),cex=0)
+dp.post <- function(X,...) {
+  plot(0,xlim=range(X$x),ylim=c(0,1),cex=0,...)
   for (i in 1:nrow(X$G)) {
-    lines(X$x,X$G[i,],type="l",col=rgb(.4,.4,.4),lwd=.1)
+    lines(X$x,X$G[i,],type="l",col=rgb(.4,.4,.4,.1))
   }
 }
 
 # Posterior Simulation ################
 # y_i | G ~ G
 # G ~ DP(G_0,a)
-n1 <- 1
-n2 <- 2
+n1 <- 1*5 
+n2 <- 2*5
 n <- n1+n2
 y <- c(rgamma(n1,4,2),rgamma(n2,2,3))
 pT <- function(x) (n1*pgamma(x,4,2) + n2*pgamma(x,2,3)) / n
@@ -45,12 +54,22 @@ pG1 <- function(x) {
 G <- dp(N=B,pG1,a=alpha+n,xlim=c(-10,10),n=k)
 EG <- apply(G$G,2,mean)
 
-pdf("~/temp/pdf/dp_post.pdf")
-  dp.post(G)
+#pdf("~/temp/pdf/dp_post.pdf")
+  #dp.post(G,xlab='y',ylab="Fn(y)")
+  plot(0,cex=.001,ylim=c(0,1),xlim=c(-10,10),main=paste("alpha =",alpha),
+       ylab="Fn(y)",xlab="y")
   lines(ecdf(y),cex=.5)
   curve(pG,add=T,col="red",lwd=3)
   lines(G$x,EG,col=rgb(0,0,1,.3),lwd=10)
   curve(pT,add=T,col="green",lwd=3)
-dev.off()
+  legend("bottomright",
+         legend=c('Truth','Data','G0','Posterior:\n 95% C.I.','E[G|y]',''),
+         col=c('green','black','red','grey','blue',rgb(0,0,0,0)),lwd=3)
+  qG <- apply(G$G,2,function(x) quantile(x,c(.025,.5,.975)))
+  #apply(qG,1,function(x) lines(G$x,x))
+  glo <- qG[1,]
+  ghi <- qG[3,]
+  color.btwn(G$x,glo,ghi,-100,100,col.area=rgb(.2,.2,.2,.5))
+#dev.off()
 
 #source("dp_posterior.R")
