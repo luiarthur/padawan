@@ -10,7 +10,7 @@ I only have one submodule `assets/R_Functions`. After cloning the main repo,
 > $ git submodule update
 
 This will clone the `assets/R_Functions` repo.  
-Learn more about Git Submodules [here](http://git-scm.com/book/en/v2/Git-Tools-Submodules).
+Learn more about *Git Submodules* [here](http://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ***
 
