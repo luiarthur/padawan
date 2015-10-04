@@ -1,3 +1,16 @@
+#Arthur Lui's Blog
+
+## Cloning
+> git clone https://github.com/luiarthur/luiarthur.github.io.git
+
+## Cloning Submodules
+I only have one submodule. After cloning the main repo,
+> git clone https://github.com/luiarthur/luiarthur.github.io.git
+
+This will clone the `assets/R_Functions` repo.
+
+***
+
 #Clean Blog by Start Bootstrap - Jekyll Version
 
 The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
