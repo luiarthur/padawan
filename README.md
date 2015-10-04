@@ -2,12 +2,12 @@
 
 ## Cloning
 In a terminal,
-> git clone https://github.com/luiarthur/luiarthur.github.io.git
+> $ git clone https://github.com/luiarthur/luiarthur.github.io.git
 
 ## Cloning Submodules
 I only have one submodule. After cloning the main repo,
-> git submodule init
-> git submodule update
+> $ git submodule init
+> $ git submodule update
 
 This will clone the `assets/R_Functions` repo.
 
