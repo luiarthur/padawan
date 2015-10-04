@@ -55,7 +55,7 @@ G <- dp(N=B,pG1,a=alpha+n,xlim=c(-10,10),n=k)
 EG <- apply(G$G,2,mean)
 
 #pdf("~/temp/pdf/dp_post.pdf")
-#png("../../../../assets/ams241/03/plots/dp_post.png")
+#svg("../../../../assets/ams241/03/plots/dp_post.svg")
   #dp.post(G,xlab='y',ylab="Fn(y)")
   plot(0,cex=.001,ylim=c(0,1),xlim=c(-10,10),main=paste("alpha =",alpha),
        ylab="Fn(y)",xlab="y")
