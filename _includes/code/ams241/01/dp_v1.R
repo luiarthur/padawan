@@ -40,12 +40,12 @@ make.plot <- function(a,N,B,rG,pG,col.a=.2,plot.main) {
 }
 
 
-#png("../../../../assets/ams241/01/plots/dp_compare.png",1000,400);
+#svg("../../../../assets/ams241/01/plots/dp_compare.svg",13,7);
 par(mfrow=c(1,3))
   rG <- function(n) rnorm(n,0,1)
   pG <- function(x) pnorm(x,0,1)
-  make.plot(a=1,N=100,B=100,rG,pG,col.a=.4,plot.main="a = 1")
-  make.plot(a=10,N=100,B=100,rG,pG,col.a=.4,plot.main="a = 10")
-  make.plot(a=100,N=100,B=100,rG,pG,col.a=.4,plot.main="a = 100")
+  make.plot(a=1,N=100,B=500,rG,pG,col.a=.1,plot.main="a = 1")
+  make.plot(a=10,N=100,B=500,rG,pG,col.a=.1,plot.main="a = 10")
+  make.plot(a=100,N=100,B=500,rG,pG,col.a=.1,plot.main="a = 100")
 par(mfrow=c(1,1))
 #dev.off();
