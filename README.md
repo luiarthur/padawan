@@ -5,7 +5,7 @@ In a terminal,
 > $ git clone https://github.com/luiarthur/luiarthur.github.io.git
 
 ## Cloning Submodules
-I only have one submodule. After cloning the main repo,
+I only have one submodule `assets/R_Functions`. After cloning the main repo,
 > $ git submodule init  
 > $ git submodule update
 
