@@ -6,8 +6,7 @@ In a terminal,
 
 ## Cloning Submodules
 I only have one submodule. After cloning the main repo,
-
-> $ git submodule init
+> $ git submodule init  
 > $ git submodule update
 
 This will clone the `assets/R_Functions` repo.
