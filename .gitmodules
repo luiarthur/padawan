@@ -2,5 +2,5 @@
 	path = assets/R_Functions
 	url = https://github.com/luiarthur/R_Functions.git
 [submodule "assets/ams241/LDA_practice"]
-	path = assets/ams241/LDA_practice
+	path = assets/ams241/project_ideas/LDA_practice
 	url = git@github.com:luiarthur/LDA_practice.git
