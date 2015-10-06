@@ -6,8 +6,6 @@ date: "10/15/2015"
 dollar: on
 ---
 
-
-
 # Latent Dirichlet Allocation
 
 ## Model:
