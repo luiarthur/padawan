@@ -10,9 +10,9 @@ dollar: on
 
 ## Model
 $$ \begin{array}{rcl}
-   x\_{dw} &\sim& \text{Cat}\_V(\mathbf\psi\_{x\_{dw}}),~ d=1...M, w=1...N\_d \\\\
-   z\_{dw} &\sim& \text{Cat}\_V(\mathbf\theta\_d),~ d=1...M, w=1...N\_d \\\\
-   \mathbf\psi\_k   &\sim& \text{Dir}\_K(\mathbf\beta),~ k=1...K \text{ topics} \\\\
+   x\_{dw} &\sim& \text{Cat}\_V(\mathbf\psi\_{z\_{dw}}),~ d=1...M, w=1...N\_d \\\\
+   z\_{dw} &\sim& \text{Cat}\_K(\mathbf\theta\_d),~ d=1...M, w=1...N\_d \\\\
+   \mathbf\psi\_k   &\sim& \text{Dir}\_V(\mathbf\beta),~ k=1...K \text{ topics} \\\\
    \mathbf\theta\_d &\sim& \text{Dir}\_K(\mathbf\alpha),~ d=1...M \text{ documents} \\\\
 \end{array} $$
 where $V = \sum\_{d=1}^{M}N\_d$ is the total number of words.
@@ -21,4 +21,3 @@ where $V = \sum\_{d=1}^{M}N\_d$ is the total number of words.
 {% highlight R linenos %}
   {% include code/ams241/project_ideas/lda/lda.R %}
 {% endhighlight %}
-
