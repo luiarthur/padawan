@@ -16,3 +16,9 @@ $$ \begin{array}{rcl}
    \mathbf\theta\_d &\sim& \text{Dir}\_K(\mathbf\alpha),~ d=1...M \text{ documents} \\\\
 \end{array} $$
 where $V = \sum\_{d=1}^{M}N\_d$ is the total number of words.
+
+## R Code
+{% highlight R linenos %}
+  {% include code/ams241/project_ideas/lda/lda.R %}
+{% endhighlight %}
+
