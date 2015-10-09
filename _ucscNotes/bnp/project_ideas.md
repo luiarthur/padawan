@@ -30,3 +30,6 @@ where $s\_{i,k}$ is the number of times the $i^{th}$ word in the *vocabulary* ha
 {% highlight R linenos %}
   {% include code/ams241/project_ideas/lda/lda.R %}
 {% endhighlight %}
+
+## HDP Tutorial & Applications (towards the end) by Michael Jordan
+<iframe src="https://www.youtube.com/embed/PxgW3lOrj60" frameborder="0" allowfullscreen></iframe>
