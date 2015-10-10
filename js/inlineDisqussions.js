@@ -24,6 +24,8 @@ var disqus_url;
 disqus_shortname = 'luiarthurgithubio';
 jQuery(document).ready(function() {
   jQuery("p").inlineDisqussions();
+  jQuery("iframe").inlineDisqussions();
+  jQuery(".lineno").inlineDisqussions(); // left?
 });
 
 (function($) {
@@ -40,7 +42,7 @@ jQuery(document).ready(function() {
         highlighted: false,
         position: 'right',
         background: 'white',
-        maxWidth: (window.innerWidth > 0) ? window.innerWidth : screen.width //9999
+        //maxWidth: (window.innerWidth > 0) ? window.innerWidth : screen.width //9999
       };
 
       // Overwrite default options with user provided ones.

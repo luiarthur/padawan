@@ -1,9 +1,7 @@
 ---
-layout: notes
 ams: 241
 title: Project Ideas
 date: "10/15/2015"
-dollar: on
 ---
 
 # Latent Dirichlet Allocation
