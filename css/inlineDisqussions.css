@@ -97,8 +97,8 @@
 }
 
 /* Arthur Lui */
-#disqus_thread {
-  min-width: 300px;
+#disqus_thread.positioned{
+  width: 33%;
 }
 h2 a.main-disqussion-link {
   text-decoration: none;
