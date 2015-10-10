@@ -25,7 +25,7 @@ disqus_shortname = 'luiarthurgithubio';
 jQuery(document).ready(function() {
   jQuery("p").inlineDisqussions();
   jQuery("iframe").inlineDisqussions();
-  jQuery(".lineno").inlineDisqussions(); // left?
+  jQuery("h2, h3, h4, h5, h6, h7").inlineDisqussions();
 });
 
 (function($) {
