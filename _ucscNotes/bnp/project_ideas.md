@@ -26,7 +26,7 @@ where $s\_{i,k}$ is the number of times the $i^{th}$ word in the *vocabulary* ha
 
 ### R Code <!--soft link: ln -s rel_path/to/lda.R -->
 {% highlight R linenos %}
-  {% include code/ams241/project_ideas/lda/lda.R %}
+  {% include code/ams241/project_ideas/lda/lda_hardlink %}
 {% endhighlight %}
 
 ### HDP Tutorial & Applications (towards the end) by Michael Jordan
