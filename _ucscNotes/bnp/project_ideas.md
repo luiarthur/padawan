@@ -24,7 +24,16 @@ where $s\_{i,k}$ is the number of times the $i^{th}$ word in the *vocabulary* ha
 (throughout all documents). And $t\_{j,d}$ is the number of words in *document* $d$ with 
 *topic* $j$.
 
-<!--hard link: ln rel_path/to/lda.R; soft links aren't allowed on Github-->
+<!--
+  hard link: ln rel_path/to/lda.R; 
+  soft link: ln -s rel_path/to/lda.R
+
+  Soft links aren't allowed on Github.
+  Difference: 
+    - Soft links are just links (just contains the path)
+    - Hard links are physical copies. You get a file that shares the same location.
+    If you change original file, you change the hardlinked file, and vice versea.
+-->
 ### R Code 
 {% highlight R linenos %}
   {% include code/ams241/project_ideas/lda/lda_hardlink %}
