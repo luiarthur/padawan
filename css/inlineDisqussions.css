@@ -103,6 +103,9 @@
 h2 a.main-disqussion-link {
   text-decoration: none;
 }
-.disqussion { /*disable inline*/
+
+/*disable inline
+.disqussion {
   display: none;
 }
+*/

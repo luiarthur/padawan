@@ -1,29 +1,7 @@
 ---
-layout: quick
-comments: inlinedisqus
+layout: notes
+comments: disqus
 ---
-
-# HELLO
-
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
-Here is some text.  Here is some text. 
 
 Here is some text.  Here is some text. 
 Here is some text.  Here is some text. 

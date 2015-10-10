@@ -10,24 +10,36 @@ layout: default
 <!-- Main Content -->
 <div class="container">
     <div class="row">
+        {% if page.comments != "inlinedisqus" %}
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          {{page.date}}
-          <h1> {{page.title}} </h1> 
-          <hr>
+        {% else %}
+        <div>
+        {% endif %}
+            {{page.date}}
+            <h1> {{page.title}} </h1> 
+            <hr>
 
-          {{content}}
+            {% if page.comments == "inlinedisqus" %}
+            <div style="width: 66%;">
+            {% endif %}
+                {{content}}
 
-          {% if page.comments == "fb" %}
-            <div id="fb-root"></div>
-            <div class="fb-comments"></div>
-          {% elsif page.comments == "cucumber" %}  
-            <div id="cucumber"></div>
-          {% elsif page.comments == "disqus" %}  
-            <div id="disqus_thread"></div>
-          {% elsif page.comments == "inlinedisqus" %}  
-            <div id="disqus_thread"></div>
-          {% endif %}
-      </div>
+                {% if page.comments == "fb" %}
+                  <div id="fb-root"></div>
+                  <div class="fb-comments"></div>
+                {% elsif page.comments == "cucumber" %}  
+                  <div id="cucumber"></div>
+                {% elsif page.comments == "disqus" %}  
+                  <hr>
+                  <div id="disqus_thread"></div>
+                {% elsif page.comments == "inlinedisqus" %}  
+                  <div id="disqus_thread"></div>
+                {% endif %}
+
+            {% if page.comments == "inlinedisqus" %}
+            </div>
+            {% endif %}
+        </div>
     </div>
 </div>
 
