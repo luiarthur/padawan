@@ -24,7 +24,7 @@ where $s\_{i,k}$ is the number of times the $i^{th}$ word in the *vocabulary* ha
 (throughout all documents). And $t\_{j,d}$ is the number of words in *document* $d$ with 
 *topic* $j$.
 
-### R Code
+### R Code <!--soft link: ln -s rel_path/to/lda.R -->
 {% highlight R linenos %}
   {% include code/ams241/project_ideas/lda/lda.R %}
 {% endhighlight %}
