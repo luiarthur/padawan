@@ -28,12 +28,22 @@ defaults:
       comments: fb
   -
     scope:
-      path: "bnp"
+      path: ""
       type: "ucscNotes"
     values:
       layout: "notes"
       comments: "inlinedisqus"
       dollar: "on"
+  -
+    scope:
+      path: "ucsc_notes/bnp"
+    values:
+      ams: 241
+  -
+    scope:
+      path: "ucsc_notes/am"
+    values:
+      ams: 211
 
 ##################
 # http://jekyllrb.com/docs/collections/

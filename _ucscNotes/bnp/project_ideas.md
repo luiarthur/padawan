@@ -1,5 +1,4 @@
 ---
-ams: 241
 title: Project Ideas
 date: "10/15/2015"
 ---
