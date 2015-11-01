@@ -13,7 +13,7 @@ function barchart(data,div,scale,w,h,barPadding,labelPadding) {
   if (barPadding === undefined) {
     barPadding = 2;
   }
-  var scaling = .97;
+  var scaling = .95;
   if (scale === undefined) {
     scale = 1;
   }
@@ -88,7 +88,7 @@ function barchart(data,div,scale,w,h,barPadding,labelPadding) {
         return i * (w / vals.length) + (w / vals.length - barPadding) / 2;
      })
      .attr("y", function(d) {
-        return h;
+        return h-5;
      })
      .attr("font-family", "sans-serif")
      .attr("font-size", "15px")

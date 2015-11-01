@@ -11,8 +11,8 @@ As a statistical package with a large support community R serves its purpose
 well. However, at times, especially when doing more computation-heavy analysis,
 R slows down and reaches memory limits. So, I've looked around for a language
 that is reasonably fast, and quick to develop. Conciseness usually means less
-room for coding errors and higher productivity. I tried out C++, Scala, and
-Julia. (I also attempted C and Go, but soon realized the linear algebra
+room for coding errors and higher productivity. I tried out C++, Scala, Python,
+and Julia. (I also attempted C and Go, but soon realized the linear algebra
 libraries were a pain to grind through.) And since my computational work is
 usually Bayesian, I created my own criteria for judging performance — a
 standard Bayesian multiple linear regression algorithm.
@@ -60,6 +60,7 @@ I've included code at the bottom of this page.
 ## Sample Code
 <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="rcode btn btn-default">R</button>
+  <button type="button" class="pycode btn btn-default">Python</button>
   <button type="button" class="jlcode btn btn-default">Julia</button>
   <button type="button" class="scalacode btn btn-default">Scala</button>
   <button type="button" class="cppcode btn btn-default">C++</button>
@@ -67,6 +68,11 @@ I've included code at the bottom of this page.
 
 <div class="code hide" id="r">
   {% include langcompare/raw.R %} 
+</div>
+<div class="code hide" id="py">
+  {% highlight python linenos %}
+  {% include langcompare/raw.py %} 
+  {% endhighlight %}
 </div>
 <div class="code hide" id="jl">
   {% include langcompare/raw.jl %}
@@ -86,6 +92,7 @@ I've included code at the bottom of this page.
 <script> 
 $(document).ready(function(){
   $("button.rcode").click(function(){$(".code").attr("class","code hide"); $("#r").attr("class","code show");});
+  $("button.pycode").click(function(){$(".code").attr("class","code hide"); $("#py").attr("class","code show");});
   $("button.jlcode").click(function(){$(".code").attr("class","code hide"); $("#jl").attr("class","code show");});
   $("button.scalacode").click(function(){$(".code").attr("class","code hide"); $("#scala").attr("class","code show");});
   $("button.cppcode").click(function(){$(".code").attr("class","code hide"); $("#cpp").attr("class","code show");});
@@ -96,6 +103,7 @@ $(document).ready(function(){
   var data = [{code:"C++",color:"goldenrod",val:3.3},
               {code:"Scala",color:"mediumseagreen",val:7.2},
               {code:"Julia",color:"crimson",val:9.1},
+              {code:"Python",color:"grey",val:23.5},
               {code:"R",color:"darkcyan",val:51.2}];
   barchart(data,"#speed");
 </script>
@@ -104,6 +112,7 @@ $(document).ready(function(){
   var data = [{code:"C++",color:"goldenrod",val:124},
               {code:"Scala",color:"mediumseagreen",val:117},
               {code:"Julia",color:"crimson",val:75},
+              {code:"Python",color:"grey",val:84},
               {code:"R",color:"darkcyan",val:56}];
   barchart(data,"#conciseness");
 </script>
