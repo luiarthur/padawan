@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<p><span><strong>Dirichlet Process Mixture Models</strong> <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> </span><br />UCSC AMS 241 Homework 2<br /><br />Arthur Lui<br /></p>
+<h1 id="location-normal-dp-mixed-model">Location Normal DP Mixed Model</h1>
+<h2 id="pólya-urn-based-gibbs-sampler">Pólya urn based Gibbs sampler</h2>
+<p>Below is Pólya urn based Gibbs sampler. I will use the following notation for convenience: <span class="math">\(\stv = \tv\)</span>, <span class="math">\(\stmi = \tmi\)</span>, and <span class="math">\(\stu = \tu\)</span>. <span class="math">\[p(\theta_i | \stmi, \alpha, \phi, \mu, \tau^2, y_i) = 
+    \ds\frac{\alpha q_0}{\denom} h(\theta_i| \psi, \phi, y_i) + 
+    \ds\sum_{j=1}^{n^{*-}}\frac{ n_j^- q_j }{\denom} \delta_{\theta_j^{*-}}(\theta_i)\]</span> where</p>
+<ul>
+<li><p><span class="math">\(q_j = k(y_i | \theta_j^{*-},\phi)\)</span>, the Normal density with mean and variance <span class="math">\(\theta_j^{*-}\)</span> and <span class="math">\(\phi\)</span> evaluated at <span class="math">\(y_i\)</span>.</p></li>
+<li><p><span class="math">\(q_0 = \ds\int k(y_i | \theta, \phi) g_0(\theta | \mu, \tau^2) d\theta
+    = [2\pi(\tau^2+\phi)]^{-1/2} 
+    \exp\left\{
+      \ds \left( \frac{y_i\tau^2 + \mu\phi}{\tau^2+\phi} \right)^2 -
+      \ds \frac{y_i^2\tau^2 + \mu^2\phi}{2 \tau^2 \phi}
+    \right\}\)</span></p></li>
+<li><p><span class="math">\(h(\theta_i| \psi, \phi, y_i) = c \cdot k(y_i | \theta_i, \phi) g_0(\theta_i | \mu, \tau^2)
+    = k\left(\theta_i~\biggr|~\ds \frac{y_i\tau^2 + \mu\phi}{\tau^2+\phi},
+    \ds\frac{\tau^2\phi}{\tau^2 + \phi} \right)\)</span>, where <span class="math">\(c\)</span> is a constant.</p></li>
+<li><p><span class="math">\(g_0\)</span>, is the density of <span class="math">\(G_0\)</span> and is <span class="math">\(k(\theta | \mu, \tau^2)\)</span>.</p></li>
+</ul>
+<h2 id="model-prior-specification">Model &amp; Prior Specification</h2>
+<p>The hierearchical version of the DP mixture model of interest is <span class="math">\[\begin{array}{rclcll}
+  y_i &amp;|&amp; \theta_i,\phi &amp;\overset{ind.}{\sim}&amp; \text{N}(\theta_i, \phi), &amp; i = 1,...,n\\
+  \theta_i &amp;|&amp; G &amp;\overset{i.i.d.}{\sim}&amp;  G, &amp; i = 1,...,n\\
+  G &amp;|&amp; \alpha, \mu, \tau^2 &amp;\sim&amp; \text{DP}(\alpha, G_0=\text{N}(\mu,\tau^2))\\
+    &amp;&amp; \phi &amp;\sim&amp; \Gamma^{-1}(a_\phi,b_\phi) \\
+    &amp;&amp; \alpha &amp;\sim&amp; \Gamma(a_\alpha,b_\alpha) \\
+    &amp;&amp; \mu &amp;\sim&amp; \text{N}(a_\mu,b_\mu) \\
+    &amp;&amp; \tau^2 &amp;\sim&amp; \Gamma^{-1}(a_{\tau^2},b_{\tau^2}).\\
+\end{array}\]</span> where <span class="math">\(\Gamma^{-1}(a,b)\)</span> denotes the inverse-Gamma distribution with the associated density <span class="math">\(f(x) = \ds \frac{b^a}{\Gamma(a)} x^{-a-1} \exp\left(\frac{-b}{x}\right)\)</span>, and we use the shape and <em>rate</em> parameterization for the Gamma distribution.</p>
+<p>We can write the complete conditions in closed form to be used in a Gibbs sampler as follows. <span class="math">\[\begin{array} {rclcl}
+  \phi &amp;|&amp; \stv, \y &amp;\sim&amp; \Gamma^{-1}\left(\ds\frac{n}{2}+a_\phi,\frac{\suml (y_i-\theta_i)^2}{2} + b_\phi \right)\\
+  \\
+  \mu &amp;|&amp; \stu, n^*, \y &amp;\sim&amp; \text{N}\left(\ds \frac{(n^*\bar{\stu}) b_\mu + a_\mu\tau^2}{n^*b_\mu + \tau^2},
+    \ds\frac{b_\mu \tau^2}{n^* b_\mu + \tau^2} \right)\\
+  \\
+  \tau^2 &amp;|&amp; \stu, n^*, \y &amp;\sim&amp; \Gamma^{-1}\left(\ds\frac{n^*}{2}+a_{\tau^2},
+    \frac{\sum_{j=1}^{n^*} (\theta_j^*-\mu)^2}{2} + b_{\tau^2} \right)\\
+  \eta &amp;|&amp; \alpha, \y &amp;\sim&amp; \text{Beta}(\alpha+1,n) \\
+  p(\alpha &amp;|&amp; n^*, \y) &amp;=&amp; (\epsilon)\text{gamma}(a_\alpha+n^*, b_\alpha-\text{log}(\eta)) +
+    (1-\epsilon)\text{gamma}(a_\alpha+n^*-1, b_\alpha-\text{log}(\eta))\\
+\end{array}\]</span> where <span class="math">\(\eta\)</span> is an auxiliary variable introduced to make the prior for <span class="math">\(\alpha\)</span> conjugate.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://github.com/luiarthur/bnp_hw/02_dp_priors">https://github.com/luiarthur/bnp_hw/02_dp_priors</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+</body>
+</html>
