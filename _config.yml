@@ -44,6 +44,11 @@ defaults:
       path: "ucsc_notes/am"
     values:
       ams: 211
+  -
+    scope:
+      path: "ucsc_notes/ams5"
+    values:
+      ams: 5
 
 ##################
 # http://jekyllrb.com/docs/collections/

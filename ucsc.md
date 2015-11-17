@@ -20,4 +20,11 @@ header-img: "img/beach.jpg"
   {% endif %}
 {% endfor %}
 
+### AMS 5 (Intro to Stats)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 5 %}
+  - [{{ notes.date }}: {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 <!--http://jekyllrb.com/docs/collections/-->
