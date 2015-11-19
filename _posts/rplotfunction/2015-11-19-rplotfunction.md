@@ -6,7 +6,9 @@ subtitle: "Simply Beautiful"
 ---
 
 If you type `plot( rnorm(100), rnorm(100) )` in R, this is what you get.
+
 ![Ugly R Plot](/assets/rplotfunction/ugly.svg)
+
 R is great for producing plots! Plotting is fast, graphs don't need to be
 viewed in a browser, and the user has a decent amount of control over his/her
 plots. I would choose R for *non-interactive* plotting any day. (For
