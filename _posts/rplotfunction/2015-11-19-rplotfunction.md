@@ -50,3 +50,12 @@ command as usual. You can still change the color of lines, points, etc.  using
 the `col` argument. (That is the motivation behind using a dummy function in
 the script above.) And you can get your default plots looking even better than
 the default default-plots.
+
+A word of caution: in this example, if I were to write some R code and let
+someone else run it. The other user should have no problem running my 
+code, even if I use the `plot` function - because all I have done 
+was modify the default parameters. I didn't *add* any new functions.
+So, if you intend your code to be used by others, don't lightly add
+things to your `.Rprofile`. The idea is to make sure that other users will 
+still be able to run your code. If they want the fancy plots you make, 
+you can teach them this wonderful trick!
