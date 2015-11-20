@@ -33,12 +33,11 @@ in your home directory and naming it `.Rprofile`.
 
 ~~~R
 # ~/.Rprofile
+
 dummy1 <- function(x,y,...) UseMethod("plot")
 
-plot <- function(..., fg="grey", bty="n", col="grey20", 
-                 col.lab="grey20",col.axis="grey30") {
-  dummy2 <- function(..., fg.a = fg, bty.a = bty, col.a = col, 
-                     col.lab.a = col.lab, col.axis.a = col.axis) {
+plot <- function(..., fg="grey", bty="n", col="grey20", col.lab="grey20",col.axis="grey30") {
+  dummy2 <- function(..., fg.a = fg, bty.a = bty, col.a = col, col.lab.a = col.lab, col.axis.a = col.axis) {
     dummy1(fg=fg.a,bty=bty.a,col=col.a,col.axis=col.axis.a,col.lab=col.lab.a,...) 
   }
   dummy2(...)
