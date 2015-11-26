@@ -39,3 +39,13 @@ curve(fs(x,N=3),add=T,col="blue",lwd=5,lty=3)
 curve(fs(x,N=3),from=-3*pi,to=3*pi,col="blue",lwd=5,lty=3,main="Extensions")
 par(mfrow=c(1,1))
 
+#1 
+#x^(2/3) + 9y^(2/3) = 4
+B <- 1e6
+x <- runif(B,-10,10)
+y <- runif(B,-1,1)
+
+ind <- which( (x^2)^(1/3) + 9*(y^2)^(1/3) <= 4 )
+# ((4 - (x^2)^(1/3)) / 9)^(3/2)
+plot(x[ind],y[ind],pch=20)
+# https://www.desmos.com/calculator
