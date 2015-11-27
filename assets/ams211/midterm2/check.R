@@ -49,3 +49,7 @@ ind <- which( (x^2)^(1/3) + 9*(y^2)^(1/3) <= 4 )
 # ((4 - (x^2)^(1/3)) / 9)^(3/2)
 plot(x[ind],y[ind],pch=20)
 # https://www.desmos.com/calculator
+
+#5
+z <- 13/20
+5*z ^5 +z^2 + z
