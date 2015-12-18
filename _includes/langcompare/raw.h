@@ -318,14 +318,14 @@ int my_gsl_linalg_cholesky_decomp (gsl_matrix * A)
        * the diagonal is common.  
        */
       
-      for (i = 1; i < M; i++)
-        {
-          for (j = 0; j < i; j++)
-            {
-              double A_ij = 0;//gsl_matrix_get (A, i, j);
-              gsl_matrix_set (A, j, i, A_ij);
-            }
-        } 
+      //for (i = 1; i < M; i++)
+      //  {
+      //    for (j = 0; j < i; j++)
+      //      {
+      //        double A_ij = 0;//gsl_matrix_get (A, i, j);
+      //        gsl_matrix_set (A, j, i, A_ij);
+      //      }
+      //  } 
       
       if (status == GSL_EDOM)
         {
