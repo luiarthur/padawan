@@ -64,6 +64,8 @@ I've included code at the bottom of this page.
   <button type="button" class="jlcode btn btn-default">Julia</button>
   <button type="button" class="scalacode btn btn-default">Scala</button>
   <button type="button" class="cppcode btn btn-default">C++</button>
+  <button type="button" class="ccode btn btn-default">c</button>
+  <button type="button" class="hcode btn btn-default">my_gsl.h</button>
 </div>
 
 <div class="code hide" id="r">
@@ -83,6 +85,16 @@ I've included code at the bottom of this page.
 <div class="code hide" id="cpp">
   {% include langcompare/raw.cpp %}
 </div>
+<div class="code hide" id="c">
+  {% highlight c linenos %}
+  {% include langcompare/raw.c %} 
+  {% endhighlight %}
+</div>
+<div class="code hide" id="h">
+  {% highlight c linenos %}
+  {% include langcompare/raw.h %} 
+  {% endhighlight %}
+</div>
 
 <script>
   var lineno = d3.selectAll(".lineno");
@@ -96,6 +108,8 @@ $(document).ready(function(){
   $("button.jlcode").click(function(){$(".code").attr("class","code hide"); $("#jl").attr("class","code show");});
   $("button.scalacode").click(function(){$(".code").attr("class","code hide"); $("#scala").attr("class","code show");});
   $("button.cppcode").click(function(){$(".code").attr("class","code hide"); $("#cpp").attr("class","code show");});
+  $("button.ccode").click(function(){$(".code").attr("class","code hide"); $("#c").attr("class","code show");});
+  $("button.hcode").click(function(){$(".code").attr("class","code hide"); $("#h").attr("class","code show");});
 });
 </script>
 
