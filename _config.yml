@@ -49,6 +49,16 @@ defaults:
       path: "ucsc_notes/ams5"
     values:
       ams: 5
+  -
+    scope:
+      path: "ucsc_notes/bayesInf"
+    values:
+      ams: "206"
+  -
+    scope:
+      path: "ucsc_notes/classicInf"
+    values:
+      ams: "205"
 
 ##################
 # http://jekyllrb.com/docs/collections/

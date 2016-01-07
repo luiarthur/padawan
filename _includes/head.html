@@ -22,6 +22,11 @@
     <!-- Pygments Github CSS -->
     <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
 
+    <!-- Glossary css. Work on this. Make a glossary type page. -->
+    {% if page.glossary %}
+    <link rel="stylesheet" href="{{ "/css/glossary.css" | prepend: site.baseurl }}">
+    {% endif %}
+
     <!-- Custom Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>

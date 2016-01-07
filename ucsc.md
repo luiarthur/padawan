@@ -20,6 +20,20 @@ header-img: "img/beach.jpg"
   {% endif %}
 {% endfor %}
 
+### AMS 206B (Bayesian Inference)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == "206" %}
+  - [{{ notes.date }}: {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
+### AMS 205B (Classical Inference)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == "205" %}
+  - [{{ notes.date }}: {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 ### AMS 5 (Intro to Stats)
 {% for notes in site.ucscNotes %}
   {% if notes.ams == 5 %}
