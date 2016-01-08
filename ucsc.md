@@ -20,6 +20,13 @@ header-img: "img/beach.jpg"
   {% endif %}
 {% endfor %}
 
+### AMS 268 (Advanced Bayesian Computation)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 268 %}
+  - [{{ notes.date }}: {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 ### AMS 206B (Bayesian Inference)
 {% for notes in site.ucscNotes %}
   {% if notes.ams == "206" %}

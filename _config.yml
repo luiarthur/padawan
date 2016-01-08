@@ -59,7 +59,11 @@ defaults:
       path: "ucsc_notes/classicInf"
     values:
       ams: "205"
-
+  -
+    scope:
+      path: "ucsc_notes/advBayesComputing"
+    values:
+      ams: 268
 ##################
 # http://jekyllrb.com/docs/collections/
 collections:
