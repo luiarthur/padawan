@@ -4,7 +4,7 @@ date: "01/08/2015"
 comments: fb
 ---
 $$
-\\begin{array}[rcl]
+\\begin{array}{rcl}
   \text{Gamma(n,2)} &=&\chi^2\_{2n} \\\\
   U \sim \text{Unif(0,1)} &\Rightarrow& -log(U) \sim \text{Exp(1)} \\\\
   \frac{\chi^2\_p/p}{\chi^2\_q/q} &\sim& F\_{n,m} \\\\
