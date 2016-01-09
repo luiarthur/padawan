@@ -26,3 +26,7 @@ $$
   \sum\_{i=1}^n (x\_i-\mu)^2 &=& \sum\_{i=1}^n (x\_i-\bar{x})^2 + n(\bar x-\mu)^2\\\\
 \\end{array}
 $$
+
+### To Add:
+- Univriate / Bivariate Transformations
+- cdf / pdf for order statistics, min, max, joint of two, joint of all
