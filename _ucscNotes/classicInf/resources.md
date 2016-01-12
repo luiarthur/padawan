@@ -5,3 +5,4 @@ comments: fb
 ---
 
 - [hw1](/assets/ams205/hw/hw1.pdf)
+- [hw2](/assets/ams205/hw/hw2.pdf)
