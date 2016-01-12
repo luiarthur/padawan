@@ -53,3 +53,14 @@ and $\theta|\mu,\tau^2 \sim N(\mu,\tau^2)$
 $E[X] = E[E[X | \theta]] = E[\theta] = \mu$  
 $V[X] = E[V[X | \theta]] + V[E[X | \theta]] = E[\sigma^2] + V[\theta] = \sigma^2 I\_n + 1'1\tau^2 = n\tau^2 + \sigma^2 I\_n$
 
+## Decision Theory
+Notation:
+
+1. $a \in A$: $a$ is an "action" and $A$ is the set of all possible actions
+2. $L(\theta,a)$: loss function for $\theta \in \Theta$ and $a\in A$, $L(\theta,a) \ge -K \gt -\infty$
+  - useful loss functions:
+    - Quadratic loss: $(\theta-a)^2$
+    - Absolute loss: $|theta-a|$
+    - 0-1 loss: $I(\theta=a)$
+3. $S(x)$: decision rule, function from $X$ to $A$, $X$ is the sample space
+
