@@ -21,3 +21,7 @@ $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **n
 - Multivariate Normal distribution
   - $AX + b \sim N(\mu+b,~A\Sigma A')$
   - Conditional normal
+- $\Gamma(1/2) = \sqrt{2\pi}$
+- Non-central $\chi^2$
+  - $X\_1 \sim N(1,1)$, etc
+  - $X\_1^2 \sim \chi^2\_1(1)$
