@@ -30,3 +30,4 @@ $$
 ### To Add:
 - Univriate / Bivariate Transformations
 - cdf / pdf for order statistics, min, max, joint of two, joint of all
+- CLT, delta method
