@@ -15,4 +15,9 @@ comments: fb
 **Natural Exponential Family:** 
 $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **natural parameter** $\eta$, and **sufficient statistic** $\sum\_{k=1}^K t\_k(x)$.
 
+# Notes
 
+- If $X\_1,X\_2$ iid $N(\mu,\sigma^2)$, a, b constant. $aX\_1 + bX\_2 \sim N((a+b)\mu,(a^2+b^2)\sigma^2)$
+- Multivariate Normal distribution
+  - $AX + b \sim N(\mu+b,~A\Sigma A')$
+  - Conditional normal
