@@ -1,6 +1,6 @@
 ---
 title: "Temp Notes"
-date: "01/07/2015"
+date: "01/14/2015"
 comments: fb
 ---
 
@@ -23,4 +23,43 @@ Notation:
   - $L(\theta,a) = 2(a-\theta) \text{ if } \theta\lt a$
 - Survey of $x$ peolpe out of $n$ responded "yes" 
   - possible model $x|n \sim Bin(n,\theta)$
-  - possible decision rule: $\delta(x) = x / n
+  - possible decision rule: $\delta(x) = x/n$
+- Classical Decision Theory
+  - Def: The risk function of a decision rule $\delta(x)$
+  - $R(\theta,\delta) = \int\_x L(\theta,\delta(x))p(x|\theta)dx$
+  - we say that $\delta\_1(x)$ is "better" than $\delta\_2(x)$ if $R(\theta,\delta\_1) \le R(\theta,\delta\_2) \forall \theta$. 
+  - How do we pick an estimator $\hat\theta$ for $\theta$?
+  - Choose $\hat\theta(\delta(x))$ that minimizes $R$. 
+    - Typically, we need to constrain $\theta$ space to get an optimum. For example, unbiased, linear, etc.
+    - Otherwise, you have many local minimums.
+- Bayesian Decision Theory
+  - $\theta$ unknown random variable
+  - $x$ are observed data
+  - Def: Let $\pi^\*(\theta)$ a pdf at the time of decision making. The Bayesian expected loss for an action $a$ is $$
+      \rho(\pi^\*,a) = \int\_\Theta L(\theta,a) \pi^\*(\theta) d\theta = E\_{\pi^\*(\theta)}[L(\theta,a)]
+$$
+  - $E\_{x|\theta}[L(\theta,a)] = R(\theta,a)$
+  - $E\_{\theta}[L(\theta,a)] = \rho(\pi,a)$, $\pi$ is prior
+  - $E\_{\theta|x}[L(\theta,a)] = \rho(p,a)$, $\rho$ is posterior
+  - Bayesian decision principle: choose $a \in A$ that minimizes $\rho(\pi^\*,a)$. This action is called a Bayes action.
+  - Example (Drug Company):
+  - Assume:
+    - $\pi(\theta) = 1/10$ if $.1 \lt \theta \lt .2$, 0 o.w.
+    - if no data: $\rho(\pi,a) = \int\_0^a L(\theta,a) \pi(\theta) d\theta$
+        - $ = \int\_0^a~2(a-\theta)\pi(\theta)~ d\theta + \int\_a^1~(\theta-a)\pi(\theta)~d\theta$
+    - case 1: $a \le .1 \Rightarrow \rho(\pi,a) = .15 - a$, minimum at $a = .1$
+        - $\rho\pi,.1) = .05$
+    - case 2: $.1 \lt a \lt .2 \Rightarrow a=2/15$ is optimal and $\rho(\pi,2/15) = .03$
+    - case 3: $a \ge .2 \Rightarrow \rho(\pi,a) = 2a-.3$, optimal at $a=.2$. So $\rho(\pi,.2)=.1$
+- The posterior expected loss of an action $a\in A$ is $$
+    \rho(p(x|\theta),a) = \int\_\Theta L(\theta,a) p(\theta|x) d\theta
+$$
+we could have a situation like this: picture1
+
+Minimizing $$
+    \rho(p(x|\theta),a) = \int\_\Theta L(\theta,a) p(\theta|x) d\theta
+$$
+- Say you obtained a Bayes action by minimizing $\rho(p(\theta|x),a)$, say $\delta^{p(\theta|x)}$
+- We can compute the "Bayes Risk" = $E\_x[\rho( p(\theta|x),\hat\delta )] = \int\_X \int\_\Theta L(\theta,\hat\delta)p(x|\theta)\pi(\theta)d\thetadx$
+- $= \int\_Theta R(\theta,\hat\delta)\pi\theta d\theta = E\_theta[R(\theta,\delta)]$
+
