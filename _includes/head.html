@@ -52,7 +52,10 @@
                  processEscapes: true 
                },
                TeX: {
-                 extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+                 extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+                 Macros: {
+                   norm: ["{\\left\\lVert#1\\right\\rVert}",1]
+                 }
                }
              });
     </script>
