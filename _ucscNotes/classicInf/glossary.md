@@ -15,8 +15,22 @@ comments: fb
 **Natural Exponential Family:** 
 $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **natural parameter** $\eta$, and **sufficient statistic** $\sum\_{k=1}^K t\_k(x)$.
 
-**CLT**
+**Convergence in Probability:** $\forall \epsilon \gt 0, \lim\_{n\rightarrow\infty} P(|X\_n-X|>\epsilon) = 0$. Usually, convergence in probability can be proved by Chebychev's inequality. Convergenve in probability always implies convergence in distribution.
 
-**Delta Method**
+- Note: $X\_n \overset{P}{\rightarrow} X \Rightarrow h(X\_n) \overset{P}{\rightarrow} h(X)$, for $h(\cdot)$ a continuous function.
 
+**Chebychev's Inequality:** $\displaystyle P(|g(x) -\mu| \ge r)~\le~\frac{E(g(x))}{r}$
+
+**Convergence in Distribution:** $\lim\_{n\rightarrow\infty} F\_n(x) = F(x)$, $F$ is continuous. Convergence in distribution to a constant implies convergence in distribution to the same constant.
+
+**Weak Law of Large Numbers (WLLN):** $\bar X\_n \overset{P}{\rightarrow} \mu$
+
+**CLT:** $\frac{\bar X\_n - \mu}{\sigma/n} \overset{D}{\rightarrow} N(0,1)$ 
+
+**Slutsky's Theorem:** If $X\_n \overset{D}{\rightarrow} X$ and $ Y\_n \overset{D}{\rightarrow} a$, then
+
+- $Y\_n X\_n \overset{D}{\rightarrow} aX$
+- $X\_n + Y\_n \overset{D}{\rightarrow} X + a$
+
+**Delta Method:**
 
