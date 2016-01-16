@@ -24,10 +24,20 @@ $$
   %\end{cases}
   %&\Rightarrow& \text{P(X$\ge$x)} = \text{P(Y$\le\theta$)} \\\\
   \sum\_{i=1}^n (x\_i-\mu)^2 &=& \sum\_{i=1}^n (x\_i-\bar{x})^2 + n(\bar x-\mu)^2\\\\
+  \Gamma(1/2) &=& \sqrt{2\pi}\\\\
+  \sum\_{i=1}^k N(\mu\_i^2,1) &\sim& {\chi^2}\_k(\sum\_{i=1}^k \mu\_i^2)\\\\
+  \\\\
+  \\\\
+  aX\_1 + bX\_2 &\sim& N((a+b)\mu,(a^2+b^2)\sigma^2)\\\\
+  AX + b &\sim& N(\mu+b,~A\Sigma A')\\\\
+  E[\bf y | \bf x] &=& \\mu\_y + \Sigma\_{yx}\Sigma\_{xx}^{-1}(\bf x-\mu\_x) \\\\
+  cov[\bf y | \bf x] &=&  \Sigma\_{yy} - \Sigma\_{yx}\Sigma\_{xx}^{-1}\Sigma\_{xy} \\\\
 \\end{array}
 $$
 
-### To Add:
+
+## Transformations
+If $h(Y) = X$, then $f\_Y(y) = f\_x[ h(y) ] |h'(y)|$.
+
 - Univriate / Bivariate Transformations
 - cdf / pdf for order statistics, min, max, joint of two, joint of all
-- CLT, delta method
