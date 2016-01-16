@@ -15,3 +15,8 @@ comments: fb
 **Natural Exponential Family:** 
 $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **natural parameter** $\eta$, and **sufficient statistic** $\sum\_{k=1}^K t\_k(x)$.
 
+**CLT**
+
+**Delta Method**
+
+
