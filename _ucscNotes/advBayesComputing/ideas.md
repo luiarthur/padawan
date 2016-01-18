@@ -7,7 +7,7 @@ comments: fb
 1. Updating Bayesian regression
 2. Quick way to get posterior means
 3. Indian Buffet Process (IBP) in relation to Non-negative Matrix Factorization (NMF)
-4. BNP Logistic Regression
+4. BNP Logistic Regression, modeling joint density, function regression?
 5. Spatial stats bayes + freq
 
 ## Notes: 
