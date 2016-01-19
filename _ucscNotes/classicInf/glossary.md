@@ -32,5 +32,8 @@ $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **n
 - $Y\_n X\_n \overset{D}{\rightarrow} aX$
 - $X\_n + Y\_n \overset{D}{\rightarrow} X + a$
 
-**Delta Method:**
+**Delta Method:** If $\sqrt{n}[Y\_n-\theta] \overset{D}{\rightarrow} N(0,\sigma^2)$ then
+$$
+  \sqrt{n}[g(Y\_n)-g(\theta)] \overset{D}{\rightarrow} N(0,\sigma^2[g'(\theta)]^2)
+$$
 
