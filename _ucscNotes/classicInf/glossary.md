@@ -41,7 +41,8 @@ $$
 
 **Sufficient Statistic:** $T(x)$ is sufficient for $\theta$ $iff$ $\forall x$ in the sample space $p(x|T(x) = \frac{p(x|\theta)}{q(t|\theta)}$ is independent of $\theta$. (Not unique)
 
-**Minimal Sufficient Statistic (mss):**  An mss $T(x)$ can be written as a function of any other sufficient statistic $T(x)$.
+**Minimal Sufficient Statistic (mss):**  An mss $T(x)$ can be written as a function of any other sufficient statistic $T(x)$.  
+- Find mss using this theorem: If $\frac{f(x|\theta)}{f(y|\theta)}$ is constant as a function of $\theta$ iff $T(x) = T(y)$, then $T(x)$ is mss.
 
 **Ancillary Statistic:**
 
