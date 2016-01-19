@@ -37,3 +37,12 @@ $$
   \sqrt{n}[g(Y\_n)-g(\theta)] \overset{D}{\rightarrow} N(0,\sigma^2[g'(\theta)]^2)
 $$
 
+## Data Reduction:
+**Sufficient Statistic:**
+**Minimal Sufficient Statistic (mss):**
+**Ancillary Statistic:**
+**Complete Statistic:**
+  - complete statistics are also minimal sufficient statistics (if they exist)
+  - In the exponential family, $T(X)$ is complete (as long as the parameter space $\Theta$ contains an open set in $\mathcal{R}^k$)
+**Basu's Theorem:** Complete mss are independent of every ancillary statistic.
+
