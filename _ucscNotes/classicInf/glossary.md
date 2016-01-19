@@ -38,11 +38,20 @@ $$
 $$
 
 ## Data Reduction:
-**Sufficient Statistic:**
-**Minimal Sufficient Statistic (mss):**
+
+**Sufficient Statistic:** $T(x)$ is sufficient for $\theta$ $iff$ $\forall x$ in the sample space $p(x|T(x) = \frac{p(x|\theta)}{q(t|\theta)}$ is independent of $\theta$. (Not unique)
+
+**Minimal Sufficient Statistic (mss):**  An mss $T(x)$ can be written as a function of any other sufficient statistic $T(x)$.
+
 **Ancillary Statistic:**
+
 **Complete Statistic:**
+
   - complete statistics are also minimal sufficient statistics (if they exist)
-  - In the exponential family, $T(X)$ is complete (as long as the parameter space $\Theta$ contains an open set in $\mathcal{R}^k$)
+  - In the exponential family, $T\_k(X)$ is complete (as long as the parameter space $\Theta^d$ contains an open set in $\mathcal{R}^k$, i.e. d \le k)
+
 **Basu's Theorem:** Complete mss are independent of every ancillary statistic.
+
+**Factorization Theorem:** $f(x|\theta) = g(t|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.  
+- Exercise: pick a distribution and find the sufficient statistic by identifying $g(.),h(.)$
 
