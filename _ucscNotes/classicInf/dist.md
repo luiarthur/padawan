@@ -51,7 +51,7 @@ $
 
 ## Order Statistics
 
-- $F\_{X\_{(j)}}(x) = P(Y\ge j) = \displaystyle\sum\_{k=j}^n {n\choose k}[F\_X(x)]^k[1-F\_X(x)]^{n-k}$
+- $F\_{X\_{(j)}}(x) = P(Y\le j) = \displaystyle\sum\_{k=j}^n {n\choose k}[F\_X(x)]^k[1-F\_X(x)]^{n-k}$
 - $f\_{X\_{(j)}}(x) = \displaystyle \frac{n!}{(j-1)!(n-j)!}f\_X(x)[F\_X(x)]^{j-1}[1-F\_X(x)]^{n-j}$
 - $f\_{X\_{(i)},X\_{(j)}}(u,v) = \displaystyle\frac{n!}{(i-1)!(j-1-i)!(n-j)!}f\_X(u)f\_X(v)[F\_X(u)]^{i-1}[F\_X(v)-F\_X(u)]^{j-1-i}[1-F\_X(v)]^{n-j}$
 - $f\_{ X\_{(1)} ,..., X\_{(n)} } (x\_1,...,x\_n) = n! f\_X(x\_1) ... f\_X(x\_n)$
