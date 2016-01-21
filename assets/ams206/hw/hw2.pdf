@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<script type="text/x-mathjax-config">MathJax.Hub.Config({
+  extensions: ['tex2jax.js'],
+  jax: ['input/TeX','output/HTML-CSS'],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    processEscapes: true
+  },
+  showProcessingMessages: false,
+  messageStyle: 'none'
+});</script>	<title>CruzID Blue Authentication | AMS206B, Winter 16, Section 01</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/sites/all/themes/bsoev2/assets/images/favicon.ico">
+	<link rel="apple-touch-icon" href="/sites/all/themes/bsoev2/assets/images/apple-touch-icon.png">
+	<style type="text/css" media="all">
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/system/system.base.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/system/system.menus.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/system/system.messages.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/system/system.theme.css?o0szf1");
+</style>
+<style type="text/css" media="all">
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/comment/comment.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/field/theme/field.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/node/node.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/search/search.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/user/user.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/modules/forum/forum.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/modules/views/css/views.css?o0szf1");
+</style>
+<style type="text/css" media="all">
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/modules/ctools/css/ctools.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/modules/soe_blue_auth/soe_blue_auth.css?o0szf1");
+</style>
+<style type="text/css" media="all">
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/assets/stylesheets/css/style.css?o0szf1");
+@import url("https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/update.css?o0szf1");
+</style>
+	<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/misc/drupal.js?o0szf1"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/modules/mathjax/mathjax.js?o0szf1"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/assets/js/vendor/modernizr.js?o0szf1"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/assets/js/vendor/lodash.js?o0szf1"></script>
+<script type="text/javascript" src="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/assets/js/source.js?o0szf1"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"bsoev2","theme_token":"SAT2gKkH0noV1ma8F7VaSiRbeDqwsKnCctRNXMWNdvQ","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/mathjax\/mathjax.js":1,"https:\/\/cdn.mathjax.org\/mathjax\/latest\/MathJax.js?config=TeX-AMS-MML_HTMLorMML":1,"sites\/all\/themes\/bsoev2\/assets\/js\/vendor\/modernizr.js":1,"sites\/all\/themes\/bsoev2\/assets\/js\/vendor\/lodash.js":1,"sites\/all\/themes\/bsoev2\/assets\/js\/source.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/soe_blue_auth\/soe_blue_auth.css":1,"sites\/all\/themes\/bsoev2\/assets\/stylesheets\/css\/style.css":1,"sites\/all\/themes\/bsoev2\/update.css":1}},"urlIsAjaxTrusted":{"\/user\/login?destination=system%2Ffiles%2Fsecure-attachments%2Fhw2_2016.pdf":true}});
+//--><!]]>
+</script>
+</head>
+
+<body id="user/login" class="html not-front not-logged-in one-sidebar sidebar-first page-user page-user-login" >
+	<!--[if lt IE 8]>
+	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div id="skip-link">
+		<a href="#site-content" class="sr-only">Skip to main content</a>
+	</div>
+
+		<header id="header-container" class="container" role="banner">
+	<div id="site-header" class="row">
+		<div id="site-logo" class="col-md-3">
+							<a href="https://www.soe.ucsc.edu/" title="Baskin School of Engineering"><img src="https://ams206b-winter16-01.courses.soe.ucsc.edu/sites/all/themes/bsoev2/logo.png"/></a>						<!-- MOBILE NAVIGATION -->
+			<a id="mobile-nav-open" class="pull-right"> <span>Menu</span> </a>
+		</div>
+		<div id="site-title" class="col-md-9">
+			<h1> <a href="/">AMS206B, Winter 16, Section 01</a></h1>
+
+					</div>
+	</div>
+</header>
+
+<div id="site-layout" class="container nopadding">
+
+	<div id="site-menu-area" class="col-lg-3">
+
+						<div class="region region-sidebar-menu">
+		<div id="block-system-main-menu" class="block block-system block-menu">
+
+	
+	
+	
+	<div class="content">
+		<ul class="menu"><li class="first leaf"><span class="expand-btn"></span><a href="/home">Home</a></li><li class="leaf"><span class="expand-btn"></span><a href="/node/5">Homework Assignments</a></li><li class="leaf"><span class="expand-btn"></span><a href="/node/4">Reading material</a></li><li class="last leaf"><span class="expand-btn"></span><a href="/node/3">Syllabus and Class Information</a></li></ul>	</div>
+
+</div>
+	</div>
+		
+		<!-- Sidebar is duplicated below to facilitate different layouts on large/small screen -->
+		<div class="visible-lg">
+								<div class="region region-sidebar-first">
+		<div id="block-search-form" class="block block-search">
+
+	
+	
+	
+	<div class="content">
+		<form action="/user/login?destination=system%2Ffiles%2Fsecure-attachments%2Fhw2_2016.pdf" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--3" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-Lgp1kfcTr-Ux7XCbjdKgE_QAd45khthbnNs0v2xw6cM" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>	</div>
+
+</div>
+	</div>
+			
+					</div>
+
+	</div>
+
+	<div id="site-content-area" class="col-md-9">
+		<main id="main-content" role="main">
+
+			<!--[Sub Header]-->
+			<section id="page-header" class="row">
+				<article id="search-area" class="col-md-4 no-min-height">
+									</article>
+			</section>
+
+			<!--[Tabs]-->
+							<section id="tabs-container" class="row">
+					<article class="col-md-12 tabs">
+											</article>
+				</section>
+			
+			<!--[Messages]-->
+			
+			<!--[Above Content]-->
+			
+			<!--[Breadcrumbs]-->
+							<aside id="breadcrumbs" class="row">
+					<div class="col-md-12">
+<h1><div class="breadcrumbs-list"><a href="/user/login" class="active">CruzID Blue Authentication</a></div></h1>
+					</div>
+				</aside>
+			
+			<!--[Action Links]-->
+			
+			<!--[Content]-->
+							<section id="content-region" class="row">
+						<div class="region region-content">
+		
+<article id="block-system-main" class="col-md-12 block block-system">
+
+	<div class="content" >
+
+		
+		<form autocomplete="off" action="/user/login?destination=system%2Ffiles%2Fsecure-attachments%2Fhw2_2016.pdf" method="post" id="user-login" accept-charset="UTF-8"><div><input type="hidden" name="form_build_id" value="form-x9icKSjMk7uzaW4HX7yv9Fs42-0zEcwUaC_BzugtPdg" />
+<input type="hidden" name="form_id" value="user_login" />
+<p><img id="cruzid-blue-logo-form" src="/sites/all/modules/soe_blue_auth/cruzid-blue-large.png" width="105" height="48" alt="CruzID Blue" title="CruzID Blue"></p>
+<div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">CruzID <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="16" maxlength="16" class="form-text required" />
+<div class="description">Please enter your CruzID.</div>
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">CruzID Blue Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="16" maxlength="128" class="form-text required" />
+<div class="description">Please enter your CruzID Blue password.</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Log in" class="form-submit" /></div></div></form>
+	</div>
+
+</article>	</div>
+				</section>
+			
+			<!--[Two Column]-->
+			
+			<!--[Three Column]-->
+			
+			<!--[Below Content]-->
+			
+		</main>
+	</div>
+
+	<!-- Sidebar is duplicated above to facilitate different layouts on large/small screen -->
+	<div class="site-sidebar-area hidden-lg">
+		<div class="row">
+							<div class="col-lg-12 col-sm-6">
+						<div class="region region-sidebar-first">
+			<div class="region region-sidebar-first">
+		<div id="block-search-form" class="block block-search">
+
+	
+	
+	
+	<div class="content">
+		<form action="/user/login?destination=system%2Ffiles%2Fsecure-attachments%2Fhw2_2016.pdf" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--3" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-Lgp1kfcTr-Ux7XCbjdKgE_QAd45khthbnNs0v2xw6cM" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>	</div>
+
+</div>
+	</div>
+	</div>
+				</div>
+								</div>
+	</div>
+
+</div>
+
+<footer id="site-footer" role="contentinfo">
+	<article id="site-footer-wrapper">
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="pull-left site-logo">
+					<a href="http://www.ucsc.edu/">
+						<img src="/sites/all/themes/bsoev2/assets/images/ucsc-logo-small.png" title="University of California Santa Cruz">
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="pull-left">
+					<p>
+						This site is maintained by: <a href="mailto:rprado@ucsc.edu">rprado@ucsc.edu</a><br />
+						UC Santa Cruz, 1156 High Street, Santa Cruz, CA 95064<br />
+						&copy; 2016 The Regents of the University of California. All rights reserved.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="pull-right">
+						<div class="region region-footer">
+		<div id="block-soe-log-in-0" class="block block-soe-log-in">
+
+	
+	
+	
+	<div class="content">
+		<a href="/user/login?destination=system/files/secure-attachments/hw2_2016.pdf" rel="nofollow" class="active">Log In</a>	</div>
+
+</div>
+	</div>
+				</div>
+			</div>
+		</div>
+	</article>
+	<div class="clearfix"></div>
+</footer>
+	
+</body>
+</html>
