@@ -47,19 +47,22 @@ $$
 - Use this to find mss for all distributions, as practice. (Remember to **prove both directions**)
 
 
-**Ancillary Statistics:** A statistic $S(x)$ whose  distribution does not depend on the parameter of interest $\theta$ is an ancillary statistic. (No shortcuts, must calculate the pdf.)
+**Ancillary Statistics:** A statistic $S(x)$ whose  distribution does not depend on the parameter of interest $\theta$ is an ancillary statistic. (No shortcuts, must calculate the pdf and show that it is constant w.r.t. $\theta$.)
 
   - The range is ancillary to the location parameter in location families
   - The ratio of two random variables in a scale family is ancillary to the scale parameter
   - Ancillary and sufficient statistics are not always independent 
 
 
-**Complete Statistic:**
+**Complete Statistic:** Let $f(t|\theta)$ be a family of pdfs or pmfs for a statistic $T(x)$ (i.e., $T(x)$ is a statistic / transformation of the data: mean, sd, etc.). If $E\_{t|\theta}[g(T)] = 0 $ for all $\theta$ implies that $P(g(T)=0) = 1$ for all $\theta$, then $T(x)$ is a complete statistic.
 
   - complete statistics are also minimal sufficient statistics (if they exist)
-  - In the exponential family, $T\_k(X)$ is complete (as long as the parameter space $\Theta^d$ contains an open set in $\mathcal{R}^k$, i.e. d \le k)
+  - In the exponential family, $T\_k(X)$ is complete (as long as the parameter space $\Theta^d$ contains an open set in $\mathcal{R}^k$, i.e. $d \le k$)
+  - Note: $\frac{d}{d\theta} \int\_0^\theta~g(t)~dt = G'(\theta) - G(0) = g(\theta) - g(0)$, if $g$ is Riemman integrable.
 
-**Basu's Theorem:** Complete mss are independent of every ancillary statistic.
+**Basu's Theorem:** Complete mss are independent of every ancillary statistic. 
+
+  - Example 6.2.26 is an interesting example
 
 **Factorization Theorem:** $f(x|\theta) = g(t|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.
 
