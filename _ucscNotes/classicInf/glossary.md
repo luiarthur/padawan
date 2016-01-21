@@ -46,7 +46,13 @@ $$
 - Find mss using this **important** theorem: If $\frac{f(x|\theta)}{f(y|\theta)}$ is constant as a function of $\theta$ iff $T(x) = T(y)$, then $T(x)$ is mss.
 - Use this to find mss for all distributions, as practice. (Remember to **prove both directions**)
 
-**Ancillary Statistic:**
+
+**Ancillary Statistics:** A statistic $S(x)$ whose  distribution does not depend on the parameter of interest $\theta$ is an ancillary statistic. (No shortcuts, must calculate the pdf.)
+
+  - The range is ancillary to the location parameter in location families
+  - The ratio of two random variables in a scale family is ancillary to the scale parameter
+  - Ancillary and sufficient statistics are not always independent 
+
 
 **Complete Statistic:**
 
