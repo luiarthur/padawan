@@ -1,0 +1,49 @@
+% To compile: pdflatex file.tex
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{pgffor}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{url} % for underscore in footnote
+\usepackage[UKenglish]{isodate} % for: \today
+\cleanlookdateon                % for: \today
+\usepackage{natbib} % Can remove if no bibliography. bibtex
+%\pagestyle{empty} % Removes page number. Graphs too big.
+
+\def\wl{\par \vspace{\baselineskip}\noindent}
+\def\beginmyfig{\begin{figure}[h]\center}
+\def\endmyfig{\end{figure}}
+\def\ds{\displaystyle}
+\def\tu{\textunderscore}
+\definecolor{grey}{rgb}{.2,.2,.2}
+\definecolor{lgrey}{rgb}{.8,.8,.8}
+\def\hline{ \textcolor{lgrey}{\hrulefill} }
+\newcommand{\m}[1]{\mathbf{\bm{#1}}} % Serif bold math
+\def\ds{\displaystyle}                                                    
+\def\inv{^{\raisebox{.2ex}{$\scriptscriptstyle-1$}}}
+\def\pm{^{\raisebox{.2ex}{$\scriptscriptstyle\prime$}}}
+\def\norm#1{\left\lVert#1\right\rVert}
+
+% \def for THIS ASSIGNMENT!!!%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% my title:
+\begin{center}
+  {\huge \textbf{Review of the Spatial Dirichlet Process}
+    \footnote{\url{https://github.com/luiarthur/bnp_hw/project/bnp_spatialDP}}
+  }\\
+  \wl
+  UCSC AMS 241 Course Project\\
+  \noindent\today\\
+  Arthur Lui\\
+  \hline
+\end{center}
+
+
+\end{document}
