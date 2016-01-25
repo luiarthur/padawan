@@ -58,7 +58,7 @@ $$
 
   - complete statistics are also minimal sufficient statistics (if they exist)
   - In the exponential family, $T\_k(X)$ is complete (as long as the parameter space $\Theta^d$ contains an open set in $\mathcal{R}^k$, i.e. $d \le k$)
-  - Note: $\frac{d}{d\theta} \int\_0^\theta~g(t)~dt = G'(\theta) - G(0) = g(\theta) - g(0)$, if $g$ is Riemman integrable.
+  - Note: $\frac{d}{d\theta} \int\_0^\theta~g(t)~dt = G'(\theta) - G'(0) = g(\theta) - g(0)$, if $g$ is Riemman integrable.
 
 **Basu's Theorem:** Complete mss are independent of every ancillary statistic. 
 
