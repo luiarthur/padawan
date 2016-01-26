@@ -238,6 +238,7 @@ lastXReply.on('child_added', function (snapshot) {
   $(".editCom").hide();
   $(".oCom[userid='"+myUserID+"']").children(".editCom").show();
   $("#"+snapshot.key()+" p").replaceWith("<p>"+body.replace(/\n/g,"<br>")+"</p>");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]); // Reloads MathJax
 });
 
 //Remove deleted comments
