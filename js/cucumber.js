@@ -129,7 +129,7 @@ lastXComments.on('child_added', function (snapshot) {
     $(".comReply").show();
   }
   $("#"+snapshot.key()+" p").replaceWith("<p>"+body.replace(/\n/g,"<br>")+"</p>");
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]); //new
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub]); // Reloads MathJax
 });
 
 //Remove deleted comments
