@@ -68,8 +68,8 @@ $$
 
 - Exercise: pick a distribution and find the sufficient statistic by identifying $g(.),h(.)$
 
-**MLE:** second derivative equivalent in bivariate case is the Hessian matrix: Matrix of second derivatives. Evaluate $H(\hat\mu,\hat\phi)$ and check that it has two negative eigenvalues. $H = $
-$$
+**MLE:** second derivative equivalent in bivariate case is the Hessian matrix H: Matrix of second derivatives. Evaluate $H=H(\hat\mu,\hat\phi)$ and check that it has all negative eigenvalues. True for higher dimensions.
+$$ H = 
 \left(
   \begin{matrix}
     l\_{\mu\mu} & l\_{\mu\phi} \\\\
