@@ -1,7 +1,7 @@
 ---
 title: "Classical Inference Glossary"
 date: "01/07/2015"
-comments: fb
+comments: cucumber
 ---
 
 **Bias:** $E[\hat{\theta}] = \theta $
@@ -67,4 +67,3 @@ $$
 **Factorization Theorem:** $f(x|\theta) = g(t|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.
 
 - Exercise: pick a distribution and find the sufficient statistic by identifying $g(.),h(.)$
-
