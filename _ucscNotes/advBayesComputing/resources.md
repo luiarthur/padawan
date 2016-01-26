@@ -1,7 +1,7 @@
 ---
 title: "Advanced Bayesian Computing Resources"
 date: "01/07/2015"
-comments: fb
+comments: cucumber
 ---
 
 - [Notes](/assets/ams268/notes/notes.pdf)
