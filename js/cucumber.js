@@ -111,7 +111,7 @@ function onCommentKeyDown(event) {
 }
 
 //Create a query for only the last 100 comments
-var lastXComments = ref.limitToLast(100);
+var lastXComments = ref.limitToLast(1000);
 
 //Render Comments
 lastXComments.on('child_added', function (snapshot) {
