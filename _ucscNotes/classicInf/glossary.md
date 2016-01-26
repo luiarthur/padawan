@@ -67,3 +67,13 @@ $$
 **Factorization Theorem:** $f(x|\theta) = g(t|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.
 
 - Exercise: pick a distribution and find the sufficient statistic by identifying $g(.),h(.)$
+
+**MLE:** second derivative equivalent in bivariate case is the Hessian matrix: Matrix of second derivatives. Evaluate $H(\hat\mu,\hat\phi)$ and check that it has two negative eigenvalues. $H = $
+$$
+\left(
+  \begin{matrix}
+    l\_{\mu\mu} & l\_{\mu\phi} \\\\
+    l\_{\phi\mu} & l\_{\phi\phi} \\\\
+  \end{matrix}
+\right)
+$$
