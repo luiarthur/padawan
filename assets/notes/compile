@@ -1,0 +1,11 @@
+#!/bin/bash
+
+NAME=`echo "$1" | cut -d'.' -f1`
+pandoc -s $NAME.md -o tmp.tex
+
+sed '2d' tmp.tex > $NAME.tex
+
+comptex 
+
+rm -f *.tex
+rm -f *.out
