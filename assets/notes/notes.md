@@ -15,10 +15,13 @@ $$\lim_{n\rightarrow\infty}P(\mathcal A_{GDP} = \mathcal A_{True Model})=1A$$
 Bayesian methods are not scalable compared to frequentist methods. Argue about other model traits.
 
 Just want good prediction ($p=50000$)
-$x_1,...,x_n$. $x_i$ is $p \times 1$
+$x_1,...,x_n$, 
+$x_i$ is $p \times 1$
 $\Phi x_i$ is $m \times 1$ (compress)
-$ y = \Phi x \beta + \epsilon $
-$ y = M \beta + \epsilon $
+
+$y = \Phi x \beta + \epsilon$
+
+$y = M \beta + \epsilon$
 
 $M$ is $n \times m$
 
