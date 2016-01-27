@@ -1,0 +1,82 @@
+\def\X   {\hbox{\bf X}}
+\def\p   {\hbox{\bf p}}
+
+
+Given that $X_1, X_2$ are two independent observations from
+\begin{equation}
+P(X=\theta-1|\theta)=P(X=\theta+1|\theta)=\frac{1}{2}
+\end{equation}
+where $\theta$ is an integer. \\
+We are provided with the 0 -1 Loss Function
+$$
+L(\theta,\theta(X_1,X_2))=\left\{\begin{array}{c}
+1\:\:\:\:\:\mbox{if}\:\:\theta(X_1,X_2)\neq \theta\\
+0\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\mbox{o.w.}\\
+\end{array}
+\right.
+$$
+
+\noindent
+\textbf{(a)} \\(i) We proceed to find the risk of the estimator $\theta_0(X_1,X_2)=\frac{X_1+X_2}{2}$. \\
+Let $\X=(X_1,X_2)'$
+\begin{eqnarray}
+R(\theta,\theta_0(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+&=& 1. P(X_1=\theta-1,X_2=\theta-1)+1.P(X_1=\theta+1,X_2=\theta+1)\nonumber\\
+&+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
+&=& P(X_1=\theta-1)P(X_2=\theta-1)+P(X_1=\theta+1)P(X_2=\theta+1)\nonumber\\
+&=& \frac{1}{2}.\frac{1}{2}+\frac{1}{2}.\frac{1}{2}=\frac{1}{2}.
+\end{eqnarray}
+(ii) Now considering the second estimator $\theta_1(X_1,X_2)=X_1+1$.
+\begin{eqnarray}
+R(\theta,\theta_1(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+&=& 1. P(X_1=\theta+1,X_2=\theta+1)+1.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
+&+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta-1,X_2=\theta-1)\nonumber\\
+&=& P(X_1=\theta+1)P(X_2=\theta+1)+P(X_1=\theta+1)P(X_2=\theta-1)\nonumber\\
+&=& \frac{1}{2}.\frac{1}{2}+\frac{1}{2}.\frac{1}{2}=\frac{1}{2}.
+\end{eqnarray}
+The two estimators are the same as far as ``Frequentist Risk" is concerned.\\
+
+
+\noindent
+\textbf{(b)} Need to find an estimator $\hat{\theta}(X_1,X_2)$ that minimizes Bayesian Expected Loss. \\
+
+\noindent
+Bayesian Expected Loss $=E_{\theta|\X}(L(\theta,\theta(\X)))$
+\begin{eqnarray}
+E_{\theta|\X}(L(\theta,\theta(\X))) &=& 1. P_{\theta|\X}(\theta\neq \theta(\X))+0. P_{\theta|\X}(\theta=\theta(\X))\\
+&=& P_{\theta|\X}(\theta\neq \theta(\X))=1-P_{\theta|\X}(\theta=\theta(\X)).
+\end{eqnarray}
+In order to minimize the Bayesian Expected Loss, we need to maximize \\
+$P_{\theta|\X}(\theta=\theta(\X))$. \\
+This implies
+$\hat{\theta}(\X)=arg\max\limits_{\theta} P_{\theta|\X}$. \\
+
+Let the prior distribution of $\theta$ be $\p(\cdot)$. 
+Consider the following cases:\\
+
+\emph{Case 1}: $X_1\neq X_2$ \\
+
+$P(\theta=\frac{X_1+X_2}{2}|X_1,X_2)=1$. \\So, the mode of the posterior distribution is $\frac{X_1+X_2}{2}$. \\Therefore, when $X_1\neq X_2$, $\hat{\theta}(\X)=\frac{X_1+X_2}{2}$. \\
+
+\emph{Case 2:} $X_1=X_2$\\
+
+The posterior distribution of $\theta$ has mass on $X_1+1$ and $X_1-1$ and the posterior p.m.f is given by
+\begin{equation}
+P(\theta=X_1+1|\X)=\frac{\p(\theta=X_1+1)}{\p(\theta=X_1+1)+\p(\theta=X_1-1)}
+\end{equation}
+and 
+\begin{equation}
+P(\theta=X_1-1|\X)=\frac{\p(\theta=X_1-1)}{\p(\theta=X_1+1)+\p(\theta=X_1-1)}.
+\end{equation}
+
+
+Thus the mode of $\theta|\X$ is ($X_1+1$) if $\p(\theta=X_1+1)\geq \p(\theta=X_1-1)$. Also, the mode of $\theta|\X$ is ($X_1-1$) if $\p(\theta=X_1+1) < \p(\theta=X_1-1)$. \\
+Hence
+$$
+\hat{\theta}(X_1,X_2)=\left\{\begin{array}{c}
+\frac{X_1+X_2}{2}, \:\:\:\:\:\:\:\:\:\:\:\:\:\:\mbox{If}\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:X_1\neq X_2\\
+X_1+1,\:\:\mbox{If}\:\:X_1=X_2\:\:\mbox{and}\:\:\p(\theta=X_1+1)\geq \p(\theta=X_1-1)\\
+X_1-1,\:\:\mbox{If}\:\:X_1=X_2\:\:\mbox{and}\:\:\p(\theta=X_1+1)<\p(\theta=X_1-1)\\
+\end{array}
+\right.
+$$

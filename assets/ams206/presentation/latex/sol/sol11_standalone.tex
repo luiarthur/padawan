@@ -1,0 +1,227 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage,amssymb}
+\oddsidemargin .2 in
+\evensidemargin .2 in
+\topmargin 0 in
+\textwidth 6.1 in
+\textheight 8.3 in
+
+
+\def\e#1{{\rm e}^{#1}}
+\def\exp#1{{\rm exp}{#1}}
+
+\def\frac#1#2{{{#1}\over{#2}}}
+\def\binom#1#2{{{#1}\choose{#2}}}
+\def\spot{$\bullet$\hspace{0.1cm}}
+
+\def\T{\mathbf{T}}
+\def\Y{\mathbf{Y}}
+\def\m{\mathbf{m}}
+\def\M{\mathbf{M}}
+\def\C{\mathbf{C}}
+\def\Q{\mathbf{Q}}
+\def\A{\mathbf{A}}
+\def\S{\mathbf{S}}
+\def\ept{\epsilon_t}
+\def\ei{\epsilon_i}
+\def\pj{\phi_j}
+\def\xtj{x_{t-j}}
+\def\r#1{\rho_#1}
+\def\omt{\omega_t}
+\def\AR#1{{\rm AR}$(#1)$}
+\def\be {\hbox{\bg\char'014}}
+\def\de {\hbox{\bg\char'016}}
+\def\ee {\hbox{\bg\char'021}}
+\def\la {\hbox{\bg\char'025}}
+\def\mm {\hbox{\bg\char'026}}
+\def\nn {\hbox{\bg\char'027}}
+\def\xx {\hbox{\bg\char'030}}
+\def\pp {\hbox{\bg\char'031}}
+\def\rh {\hbox{\bg\char'032}}
+\def\ps {\hbox{\bg\char'040}}
+\def\bo   {\hbox{\bf 0}}
+\def \f  {\hbox{\bf f}}
+\def \o  {\hbox{\bf o}}
+\def \l  {\hbox{\bf l}}
+\def \L  {\hbox{\bf L}}
+\def \O  {\hbox{\bf O}}
+\def \r  {\hbox{\bf r}}
+\def \y  {\hbox{\bf y}}
+\def \l  {\hbox{\bf l}}
+\def \e  {\hbox{\bf e}}
+\def \h  {\hbox{\bf h}}
+\def \j  {\hbox{\bf j}}
+\def \s  {\hbox{\bf s}}
+\def \b  {\hbox{\bf b}}
+\def \x  {\hbox{\bf x}}
+\def \q  {\hbox{\bf q}}
+\def \w  {\hbox{\bf w}}
+\def \z  {\hbox{\bf z}}
+\def \u  {\hbox{\bf u}}
+\def\V   {\hbox{\bf V}}
+\def\B   {\hbox{\bf B}}
+\def\D   {\hbox{\bf D}}
+\def\A   {\hbox{\bf A}}
+\def\R   {\hbox{\bf R}}
+\def\a   {\hbox{\bf a}}
+\def\F   {\hbox{\bf F}}
+\def\E   {\hbox{\bf E}}
+\def\G   {\hbox{\bf G}}
+\def\g   {\hbox{\bf g}}
+\def\J   {\hbox{\bf J}}
+\def\U   {\hbox{\bf U}}
+\def\Z   {\hbox{\bf Z}}
+
+
+\def\nl{\hfill\break}
+\def\W   {\hbox{\bf W}}
+\def\N   {\hbox{\bf N}}
+\def\P   {\hbox{\bf P}}
+\def\p   {\hbox{\bf p}}
+\def\m   {\hbox{\bf m}}
+\def\d   {\hbox{\bf d}}
+\def\C   {\hbox{\bf C}}
+\def\oned  {\hbox{\bf 1}}
+\def\onednew {\hbox{\bigbf\char'061}}
+\def\zerom {\hbox{\bf 0}}
+\def\K   {\hbox{\bf K}}
+\def\H   {\hbox{\bf H}}
+\def\U   {\hbox{\bf U}}
+\def\u   {\hbox{\bf u}}
+\def\v   {\hbox{\bf v}}
+\def\I   {\hbox{\bf I}}
+\def\X   {\hbox{\bf X}}
+
+\def\maE{\mbox{\boldmath$\mathcal E$}}
+\def\bbrac{\mbox{\boldmath$[$}}
+\def\bbracc{\mbox{\boldmath$]$}}
+
+\def\epbold{\mbox{\boldmath$\epsilon$}}
+\def\etabold{\mbox{\boldmath$\eta$}}
+\def\ombold{\mbox{\boldmath$\omega$}}
+\def\xin{\mbox{\boldmath$\xi$}}
+\def\mun{\mbox{\boldmath$\mu$}}
+\def\ph{\mbox{\boldmath$\phi$}}
+\def\rh{\mbox{\boldmath$\rho$}}
+\def\bet{\mbox{\boldmath$\beta$}}
+\def\al{\mbox{\boldmath$\alpha$}}
+\def\et{\mbox{\boldmath$\eta$}}
+\def\nub{\mbox{\boldmath$\nu$}}
+\def\np{\vfill\break}
+\def\sline{\item{--}}
+\def\ce#1{\centerline{#1}}\def\th{\mbox{\boldmath$\theta$}}
+\def\om{\mbox{\boldmath$\omega$}}
+\def\ga{\mbox{\boldmath$\gamma$}}
+\def\del{\mbox{\boldmath$\delta$}}
+\def\lam{\mbox{\boldmath$\lambda$}}
+\def\ep{\mbox{\boldmath$\epsilon$}}
+\def\n{\mbox{\boldmath$\nu$}}
+\def\Ph{\mbox{\boldmath$\phi$}}
+\def\Ps{\mbox{\boldmath$\psi$}}
+\def\PS{\mbox{\boldmath$\Psi$}}
+\def\TH{\mbox{\boldmath$\Theta$}}
+\def\OM{\mbox{\boldmath$\Omega$}}
+\def\PH{\mbox{\boldmath$\Phi$}}
+\def\bzero{\mbox{\boldmath$0$}}
+\def\Sig{\mbox{\boldmath$\Sigma$}}
+\def\UP{\mbox{\boldmath$\Upsilon$}}
+\def\GA{\mbox{\boldmath$\Gamma$}}
+\def\DE{\mbox{\boldmath$\Delta$}}
+
+\def\no{\noindent}
+
+
+\begin{document}
+\title{Solutions to Problem 11\\
+Homework Assignment 2 \\
+{\small {\bf AMS 206B, WINTER 2016 }} \\
+}
+
+\author{Prepared by: Sharmistha Guha}
+
+\maketitle
+
+\section*{Problem 11, HW 2}
+Given that $X_1, X_2$ are two independent observations from
+\begin{equation}
+P(X=\theta-1|\theta)=P(X=\theta+1|\theta)=\frac{1}{2}
+\end{equation}
+where $\theta$ is an integer. \\
+We are provided with the 0 -1 Loss Function
+$$
+L(\theta,\theta(X_1,X_2))=\left\{\begin{array}{c}
+1\:\:\:\:\:\mbox{if}\:\:\theta(X_1,X_2)\neq \theta\\
+0\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\mbox{o.w.}\\
+\end{array}
+\right.
+$$
+
+\textbf{(a)} \\(i) We proceed to find the risk of the estimator $\theta_0(X_1,X_2)=\frac{X_1+X_2}{2}$. \\
+Let $\X=(X_1,X_2)'$
+\begin{eqnarray}
+R(\theta,\theta_0(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+&=& 1. P(X_1=\theta-1,X_2=\theta-1)+1.P(X_1=\theta+1,X_2=\theta+1)\nonumber\\
+&+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
+&=& P(X_1=\theta-1)P(X_2=\theta-1)+P(X_1=\theta+1)P(X_2=\theta+1)\nonumber\\
+&=& \frac{1}{2}.\frac{1}{2}+\frac{1}{2}.\frac{1}{2}=\frac{1}{2}.
+\end{eqnarray}
+(ii) Now considering the second estimator $\theta_1(X_1,X_2)=X_1+1$.
+\begin{eqnarray}
+R(\theta,\theta_1(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+&=& 1. P(X_1=\theta+1,X_2=\theta+1)+1.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
+&+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta-1,X_2=\theta-1)\nonumber\\
+&=& P(X_1=\theta+1)P(X_2=\theta+1)+P(X_1=\theta+1)P(X_2=\theta-1)\nonumber\\
+&=& \frac{1}{2}.\frac{1}{2}+\frac{1}{2}.\frac{1}{2}=\frac{1}{2}.
+\end{eqnarray}
+The two estimators are the same as far as ``Frequentist Risk" is concerned.\\
+
+
+
+\textbf{(b)} Need to find an estimator $\hat{\theta}(X_1,X_2)$ that minimizes Bayesian Expected Loss. \\
+
+Bayesian Expected Loss $=E_{\theta|\X}(L(\theta,\theta(\X)))$
+\begin{eqnarray}
+E_{\theta|\X}(L(\theta,\theta(\X))) &=& 1. P_{\theta|\X}(\theta\neq \theta(\X))+0. P_{\theta|\X}(\theta=\theta(\X))\\
+&=& P_{\theta|\X}(\theta\neq \theta(\X))=1-P_{\theta|\X}(\theta=\theta(\X)).
+\end{eqnarray}
+In order to minimize the Bayesian Expected Loss, we need to maximize \\
+$P_{\theta|\X}(\theta=\theta(\X))$. \\
+This implies
+$\hat{\theta}(\X)=arg\max\limits_{\theta} P_{\theta|\X}$. \\
+
+Let the prior distribution of $\theta$ be $\p(\cdot)$. 
+Consider the following cases:\\
+
+\emph{Case 1}: $X_1\neq X_2$ \\
+
+$P(\theta=\frac{X_1+X_2}{2}|X_1,X_2)=1$. \\So, the mode of the posterior distribution is $\frac{X_1+X_2}{2}$. \\Therefore, when $X_1\neq X_2$, $\hat{\theta}(\X)=\frac{X_1+X_2}{2}$. \\
+
+\emph{Case 2:} $X_1=X_2$\\
+
+The posterior distribution of $\theta$ has mass on $X_1+1$ and $X_1-1$ and the posterior p.m.f is given by
+\begin{equation}
+P(\theta=X_1+1|\X)=\frac{\p(\theta=X_1+1)}{\p(\theta=X_1+1)+\p(\theta=X_1-1)}
+\end{equation}
+and 
+\begin{equation}
+P(\theta=X_1-1|\X)=\frac{\p(\theta=X_1-1)}{\p(\theta=X_1+1)+\p(\theta=X_1-1)}.
+\end{equation}
+
+
+Thus the mode of $\theta|\X$ is ($X_1+1$) if $\p(\theta=X_1+1)\geq \p(\theta=X_1-1)$. Also, the mode of $\theta|\X$ is ($X_1-1$) if $\p(\theta=X_1+1) < \p(\theta=X_1-1)$. \\
+Hence
+$$
+\hat{\theta}(X_1,X_2)=\left\{\begin{array}{c}
+\frac{X_1+X_2}{2}, \:\:\:\:\:\:\:\:\:\:\:\:\:\:\mbox{If}\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:X_1\neq X_2\\
+X_1+1,\:\:\mbox{If}\:\:X_1=X_2\:\:\mbox{and}\:\:\p(\theta=X_1+1)\geq \p(\theta=X_1-1)\\
+X_1-1,\:\:\mbox{If}\:\:X_1=X_2\:\:\mbox{and}\:\:\p(\theta=X_1+1)<\p(\theta=X_1-1)\\
+\end{array}
+\right.
+$$
+\section*{Problem Y2, HW XX} We show that...
+
+\vspace{2cm}
+Note: Please use figures if the solution needs them. Label the figures and use
+captions. Do not be afraid to write long figure captions. The reader
+should understand the figures reading the captions.
+\end{document}
