@@ -15,7 +15,7 @@ $$
 \textbf{(a)} \\(i) We proceed to find the risk of the estimator $\theta_0(X_1,X_2)=\frac{X_1+X_2}{2}$. \\
 Let $\X=(X_1,X_2)'$
 \begin{eqnarray}
-R(\theta,\theta_0(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+R(\theta,\theta_0(\X)) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
 &=& 1. P(X_1=\theta-1,X_2=\theta-1)+1.P(X_1=\theta+1,X_2=\theta+1)\nonumber\\
 &+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
 &=& P(X_1=\theta-1)P(X_2=\theta-1)+P(X_1=\theta+1)P(X_2=\theta+1)\nonumber\\
@@ -23,7 +23,7 @@ R(\theta,\theta_0(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta
 \end{eqnarray}
 (ii) Now considering the second estimator $\theta_1(X_1,X_2)=X_1+1$.
 \begin{eqnarray}
-R(\theta,\theta_1(\X) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
+R(\theta,\theta_1(\X)) &=& \sum_{x_1\in\{\theta-1,\theta+1\}}\sum_{x_2\in\{\theta-1,\theta+1\}}L(\theta,\theta(x_1,x_2))P(X_1=x_1,X_2=x_2)\nonumber\\
 &=& 1. P(X_1=\theta+1,X_2=\theta+1)+1.P(X_1=\theta+1,X_2=\theta-1)\nonumber\\
 &+& 0.P(X_1=\theta-1,X_2=\theta+1)+0.P(X_1=\theta-1,X_2=\theta-1)\nonumber\\
 &=& P(X_1=\theta+1)P(X_2=\theta+1)+P(X_1=\theta+1)P(X_2=\theta-1)\nonumber\\
@@ -74,3 +74,4 @@ X_1-1,\:\:\mbox{If}\:\:X_1=X_2\:\:\mbox{and}\:\:\p(\theta=X_1+1)<\p(\theta=X_1-1
 \end{array}
 \right.
 $$
+
