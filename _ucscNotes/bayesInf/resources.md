@@ -1,6 +1,6 @@
 ---
 title: "Bayesian Inference Resources"
-date: "01/07/2015"
+date: "01/07/2016"
 comments: cucumber
 ---
 
