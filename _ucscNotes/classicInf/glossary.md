@@ -1,6 +1,6 @@
 ---
 title: "Classical Inference Glossary"
-date: "01/07/2015"
+date: "01/07/2016"
 comments: cucumber
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Distributions"
-date: "01/08/2015"
+date: "01/08/2016"
 comments: fb
 ---
 $$
