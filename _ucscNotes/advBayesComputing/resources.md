@@ -1,6 +1,6 @@
 ---
 title: "Advanced Bayesian Computing Resources"
-date: "20160-01-07"
+date: "01/07/2016"
 comments: cucumber
 ---
 

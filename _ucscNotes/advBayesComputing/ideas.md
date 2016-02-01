@@ -1,6 +1,6 @@
 ---
 title: "Ideas / Things to Investigate"
-date: "2016-01-15"
+date: "01/15/2016"
 comments: fb
 ---
 
