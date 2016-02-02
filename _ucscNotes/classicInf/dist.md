@@ -1,7 +1,7 @@
 ---
 title: "Distributions"
 date: "01/08/2016"
-comments: fb
+comments: cucumber 
 ---
 $$
 \\begin{array}{rcl}
