@@ -25,7 +25,7 @@ $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **n
 
 **Weak Law of Large Numbers (WLLN):** $\bar X\_n \overset{P}{\rightarrow} \mu$
 
-**CLT:** $\frac{\bar X\_n - \mu}{\sigma/n} \overset{D}{\rightarrow} N(0,1)$ 
+**CLT:** $\frac{\bar X\_n - \mu}{\sigma/\sqrt n} \overset{D}{\rightarrow} N(0,1)$ 
 
 **Slutsky's Theorem:** If $X\_n \overset{D}{\rightarrow} X$ and $ Y\_n \overset{D}{\rightarrow} a$, then
 
