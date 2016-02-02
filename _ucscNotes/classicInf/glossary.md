@@ -80,7 +80,7 @@ $$
 
 **Invariance of MLE:** Let mle of a function of a parameter is the function of the mle of the parameter.
 
-**Satterwhite Approximation:** Approximating $Z = \sum a\_i Y\_$, $Y\_i \sim \chi^2\_{r\_i}$.
+**Satterwhite Approximation:** Approximating $Z = \sum a\_i Y\_i$, $Y\_i \sim \chi^2\_{r\_i}$.
 
 - Approx with $Z \approx \chi^2\_{\nu}/\nu$
 - $E(Z) = \sum a\_i r\_i \approx E(\chi^2\_\nu/\nu) = 1$
