@@ -1,6 +1,6 @@
 ---
 title: Project Ideas
-date: "10/15/2015"
+date: 2015-10-15
 ---
 
 ## Latent Dirichlet Allocation

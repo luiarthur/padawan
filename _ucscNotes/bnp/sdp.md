@@ -1,6 +1,6 @@
 ---
 title: A Review of the Spatial Dirichlet Process (Course Project)
-date: "12/09/2015"
+date: 2015-12-09
 comments: fb
 ---
 

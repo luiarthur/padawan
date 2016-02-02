@@ -1,6 +1,6 @@
 ---
 title: "Distributions"
-date: "01/08/2016"
+date: 2016-01-08
 comments: cucumber 
 ---
 $$
