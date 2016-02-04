@@ -4,11 +4,26 @@ date: 2016-01-07
 comments: cucumber
 ---
 
-**Bias:** $E[\hat{\theta}] = \theta $
+**Bias:** $E[\hat{\theta}] - \theta$
 
-**Consistency:**
+  - Note that by construction, method of moment estimators are unbaised for the moments.
+  - Unbiasedness is not invariant to transformations.
+  - The variances can be used to compare two estimators with the same bias.
+
+**Consistency:** An estimator $\hat\theta\_n$ is consistent if $\hat\theta\_n\overset{P}{\rightarrow}\theta$
+  
+  - You can prove consistency typically in two ways:
+    - using the definition of consistency (checking convergence in probability)
+    - If $\lim E\brak{\hat\theta} = \theta$ and $\lim Var\brak{\hat\theta} = 0$, then $\hat\theta$ is consistent. That is, if the estimator is asymptotically unbiased and has zero variance, then it is consistent.
+
+
+**Relative Efficiency:** $RE(\hat\theta\_n,\tilde\theta\_n) = \frac{V(\hat\theta\_n)}{V(\tilde\theta\_n)}$. 
+
+**Asymptotic Relative Efficiency:** $ARE(\hat\theta\_n,\tilde\theta\_n) = \lim \frac{V(\hat\theta\_n)}{V(\tilde\theta\_n)}$. 
 
 **Efficiency:**
+
+**MSE:** MSE($\hat\theta$) = E$\brak{\paren{\hat\theta -\theta}^2}$ = $\text{Bias}(\hat\theta)^2 + \text{Var}(\hat\theta)$
 
 **Exponential Family:** $p(x|\theta) = h(x)c(\theta)\exp\\{\sum\_{k=1}^K t\_k(x)w\_k(\theta)\\}$, where $K$ is the number of parameters (i.e. the dimensions of $\theta$).
 
@@ -87,3 +102,5 @@ $$
 - find $E(Z^2)$ then solve for $\nu$.
 - Finally, $\tilde\nu = \frac{2}{(\sum a\_i Y\_i)^2-1}$
 
+### Statistics Joke:
+Three statisticians go hunting in a forest. The first one shoots one meter to the left; the other shoots one meter to the right. The third statistician says, "we got it!"
