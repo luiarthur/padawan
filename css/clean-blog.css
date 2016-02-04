@@ -375,14 +375,22 @@ form .row:first-child .floating-label-form-group {
   cursor: not-allowed;
 }
 ::-moz-selection {
+  /*
   color: white;
   text-shadow: none;
   background: #0085a1;
+  */
+  color: steelblue;
+  background: rgba(0,0,0,0);
 }
 ::selection {
+  /*
   color: white;
   text-shadow: none;
   background: #0085a1;
+  */
+  color: steelblue;
+  background: rgba(0,0,0,0);
 }
 img::selection {
   color: white;
