@@ -69,30 +69,38 @@ I've included code at the bottom of this page.
 </div>
 
 <div class="code hide" id="r">
-  {% include langcompare/raw.R %} 
+  {% highlight R linenos %} 
+  {% include_relative code/raw.R %} 
+  {% endhighlight %}
 </div>
 <div class="code hide" id="py">
   {% highlight python linenos %}
-  {% include langcompare/raw.py %} 
+  {% include_relative code/raw.py %} 
   {% endhighlight %}
 </div>
 <div class="code hide" id="jl">
-  {% include langcompare/raw.jl %}
+  {% highlight julia linenos %}
+  {% include_relative code/raw.jl %}
+  {% endhighlight %}
 </div>
 <div class="code hide" id="scala">
-  {% include langcompare/raw.scala %}
+  {% highlight scala linenos %}
+  {% include_relative code/raw.scala %}
+  {% endhighlight %}
 </div>
 <div class="code hide" id="cpp">
-  {% include langcompare/raw.cpp %}
+  {% highlight C++ linenos %}
+  {% include_relative code/raw.cpp %}
+  {% endhighlight %}
 </div>
 <div class="code hide" id="c">
   {% highlight c linenos %}
-  {% include langcompare/raw.c %} 
+  {% include_relative code/raw.c %} 
   {% endhighlight %}
 </div>
 <div class="code hide" id="h">
   {% highlight c linenos %}
-  {% include langcompare/raw.h %} 
+  {% include_relative code/raw.h %} 
   {% endhighlight %}
 </div>
 

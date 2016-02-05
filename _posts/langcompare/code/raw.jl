@@ -1,4 +1,3 @@
-{% highlight julia linenos %}
 using DataFrames, Distributions, Gadfly
 
 const dat = readdlm("../data/dat.txt")
@@ -74,4 +73,3 @@ println("ŝ²: ",  mean(ss[round(B*.9):end]),"\n")
 
 println("Acceptance rate for β̂: ",accb/B)
 println("Acceptance rate for ŝ²:",accs/B)
-{% endhighlight %}

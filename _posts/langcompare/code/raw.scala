@@ -1,5 +1,3 @@
-{% highlight scala linenos %}
-
 import scala.io.Source
 import java.io.File // write to file. new File("file.txt")
 import scala.util.Random
@@ -117,4 +115,3 @@ object bayesMLR{
 }
 // TO launch REPL:
 //sbt ~console
-{% endhighlight %}

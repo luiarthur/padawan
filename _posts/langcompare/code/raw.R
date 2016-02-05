@@ -1,4 +1,3 @@
-{% highlight R linenos %} 
 dat <- as.matrix(read.table("../data/dat.txt"))
 
 y <- dat[,1]
@@ -55,4 +54,3 @@ for (i in 2:B) {
   cat(paste0("\r",round(100*i/B),"%"))
 }
 )
-{% endhighlight %}

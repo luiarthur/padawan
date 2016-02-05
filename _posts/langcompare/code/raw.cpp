@@ -1,4 +1,3 @@
-{% highlight C++ linenos %}
 #include <iostream>
 #include <armadillo>
 #include <ctime>
@@ -123,4 +122,3 @@ int main(int argc, char** argv) {
 
   return 0;
 }
-{% endhighlight %}
