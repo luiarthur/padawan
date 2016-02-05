@@ -104,9 +104,6 @@ I've included code at the bottom of this page.
   {% endhighlight %}
 </div>
 
-<script>
-  var lineno = d3.selectAll(".lineno");
-</script>
 
 
 <script> 
