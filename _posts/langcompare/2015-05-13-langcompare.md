@@ -68,55 +68,53 @@ I've included code at the bottom of this page.
   <button type="button" class="hcode btn btn-default">my_gsl.h</button>
 </div>
 
-<div class="mycode">
-<div class="code hide" id="r">
+<div class="mycode hide" id="r">
   {% highlight R linenos %} 
   {% include_relative code/raw.R %} 
   {% endhighlight %}
 </div>
-<div class="code hide" id="py">
+<div class="mycode hide" id="py">
   {% highlight python linenos %}
   {% include_relative code/raw.py %} 
   {% endhighlight %}
 </div>
-<div class="code hide" id="jl">
+<div class="mycode hide" id="jl">
   {% highlight julia linenos %}
   {% include_relative code/raw.jl %}
   {% endhighlight %}
 </div>
-<div class="code hide" id="scala">
+<div class="mycode hide" id="scala">
   {% highlight scala linenos %}
   {% include_relative code/raw.scala %}
   {% endhighlight %}
 </div>
-<div class="code hide" id="cpp">
+<div class="mycode hide" id="cpp">
   {% highlight C++ linenos %}
   {% include_relative code/raw.cpp %}
   {% endhighlight %}
 </div>
-<div class="code hide" id="c">
+<div class="mycode hide" id="c">
   {% highlight c linenos %}
   {% include_relative code/raw.c %} 
   {% endhighlight %}
 </div>
-<div class="code hide" id="h">
+<div class="mycode hide" id="h">
   {% highlight c linenos %}
   {% include_relative code/raw.h %} 
   {% endhighlight %}
-</div>
 </div>
 
 
 
 <script> 
 $(document).ready(function(){
-  $("button.rcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#r").attr("class","code show");});
-  $("button.pycode").click(function(){$(".mycode.code").attr("class","code hide"); $("#py").attr("class","code show");});
-  $("button.jlcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#jl").attr("class","code show");});
-  $("button.scalacode").click(function(){$(".mycode.code").attr("class","code hide"); $("#scala").attr("class","code show");});
-  $("button.cppcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#cpp").attr("class","code show");});
-  $("button.ccode").click(function(){$(".mycode.code").attr("class","code hide"); $("#c").attr("class","code show");});
-  $("button.hcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#h").attr("class","code show");});
+  $("button.rcode").click(function(){$(".mycode").attr("class","mycode hide"); $("#r").attr("class","mycode show");});
+  $("button.pycode").click(function(){$(".mycode").attr("class","mycode hide"); $("#py").attr("class","mycode show");});
+  $("button.jlcode").click(function(){$(".mycode").attr("class","mycode hide"); $("#jl").attr("class","mycode show");});
+  $("button.scalacode").click(function(){$(".mycode").attr("class","mycode hide"); $("#scala").attr("class","mycode show");});
+  $("button.cppcode").click(function(){$(".mycode").attr("class","mycode hide"); $("#cpp").attr("class","mycode show");});
+  $("button.ccode").click(function(){$(".mycode").attr("class","mycode hide"); $("#c").attr("class","mycode show");});
+  $("button.hcode").click(function(){$(".mycode").attr("class","mycode hide"); $("#h").attr("class","mycode show");});
 });
 </script>
 
