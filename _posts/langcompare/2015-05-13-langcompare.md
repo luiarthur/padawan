@@ -68,6 +68,7 @@ I've included code at the bottom of this page.
   <button type="button" class="hcode btn btn-default">my_gsl.h</button>
 </div>
 
+<div class="mycode">
 <div class="code hide" id="r">
   {% highlight R linenos %} 
   {% include_relative code/raw.R %} 
@@ -103,18 +104,19 @@ I've included code at the bottom of this page.
   {% include_relative code/raw.h %} 
   {% endhighlight %}
 </div>
+</div>
 
 
 
 <script> 
 $(document).ready(function(){
-  $("button.rcode").click(function(){$(".code").attr("class","code hide"); $("#r").attr("class","code show");});
-  $("button.pycode").click(function(){$(".code").attr("class","code hide"); $("#py").attr("class","code show");});
-  $("button.jlcode").click(function(){$(".code").attr("class","code hide"); $("#jl").attr("class","code show");});
-  $("button.scalacode").click(function(){$(".code").attr("class","code hide"); $("#scala").attr("class","code show");});
-  $("button.cppcode").click(function(){$(".code").attr("class","code hide"); $("#cpp").attr("class","code show");});
-  $("button.ccode").click(function(){$(".code").attr("class","code hide"); $("#c").attr("class","code show");});
-  $("button.hcode").click(function(){$(".code").attr("class","code hide"); $("#h").attr("class","code show");});
+  $("button.rcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#r").attr("class","code show");});
+  $("button.pycode").click(function(){$(".mycode.code").attr("class","code hide"); $("#py").attr("class","code show");});
+  $("button.jlcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#jl").attr("class","code show");});
+  $("button.scalacode").click(function(){$(".mycode.code").attr("class","code hide"); $("#scala").attr("class","code show");});
+  $("button.cppcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#cpp").attr("class","code show");});
+  $("button.ccode").click(function(){$(".mycode.code").attr("class","code hide"); $("#c").attr("class","code show");});
+  $("button.hcode").click(function(){$(".mycode.code").attr("class","code hide"); $("#h").attr("class","code show");});
 });
 </script>
 
