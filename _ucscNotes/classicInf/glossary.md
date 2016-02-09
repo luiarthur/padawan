@@ -25,12 +25,12 @@ comments: cucumber
 
 **MSE:** MSE($\hat\theta$) = E$\brak{\paren{\hat\theta -\theta}^2}$ = $\text{Bias}(\hat\theta)^2 + \text{Var}(\hat\theta)$
 
-**Exponential Family:** $p(x|\theta) = h(x)c(\theta)\exp\\{\sum\_{k=1}^K t\_k(x)w\_k(\theta)\\}$, where $K$ is the number of parameters (i.e. the dimensions of $\theta$).
+**Exponential Family:** $p(x\|\theta) = h(x)c(\theta)\exp\\{\sum_{k=1}^K t_k(x)w_k(\theta)\\}$, where $K$ is the number of parameters (i.e. the dimensions of $\theta$).
 
 **Natural Exponential Family:** 
 $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **natural parameter** $\eta$, and **sufficient statistic** $\sum\_{k=1}^K t\_k(x)$.
 
-**Convergence in Probability:** $\forall \epsilon \gt 0, \lim\_{n\rightarrow\infty} P(|X\_n-X|>\epsilon) = 0$. Usually, convergence in probability can be proved by Chebychev's inequality. Convergenve in probability always implies convergence in distribution.
+**Convergence in Probability:** $\forall \epsilon \gt 0, \lim\_{n\rightarrow\infty} P(\abs{X\_n-X}>\epsilon) = 0$. Usually, convergence in probability can be proved by Chebychev's inequality. Convergenve in probability always implies convergence in distribution.
 
 - Note: $X\_n \overset{P}{\rightarrow} X \Rightarrow h(X\_n) \overset{P}{\rightarrow} h(X)$, for $h(\cdot)$ a continuous function.
 
@@ -49,16 +49,16 @@ $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **n
 
 **Delta Method:** If $\sqrt{n}[Y\_n-\theta] \overset{D}{\rightarrow} N(0,\sigma^2)$ then
 $$
-  \sqrt{n}[g(Y\_n)-g(\theta)] \overset{D}{\rightarrow} N(0,\sigma^2[g'(\theta)]^2)
+  \sqrt{n}[g(Y_n)-g(\theta)] \overset{D}{\rightarrow} N(0,\sigma^2[g'(\theta)]^2)
 $$
 
 ## Data Reduction:
 
-**Sufficient Statistic:** $T(x)$ is sufficient for $\theta$ iff $\forall x$ in the sample space $p(x|T(x)) = \frac{p(x|\theta)}{q(t|\theta)}$ is independent of $\theta$. (Not unique)
+**Sufficient Statistic:** $T(x)$ is sufficient for $\theta$ iff $\forall x$ in the sample space $p(x\|T(x)) = \frac{p(x\|\theta)}{q(t\|\theta)}$ is independent of $\theta$. (Not unique)
 
 **Minimal Sufficient Statistic (mss):**  An mss $T(x)$ can be written as a function of any other sufficient statistic $T(x)$.
 
-- Find mss using this **important** theorem: If $\frac{f(x|\theta)}{f(y|\theta)}$ is constant as a function of $\theta$ iff $T(x) = T(y)$, then $T(x)$ is mss.
+- Find mss using this **important** theorem: If $\frac{f(x\|\theta)}{f(y\|\theta)}$ is constant as a function of $\theta$ iff $T(x) = T(y)$, then $T(x)$ is mss.
 - Use this to find mss for all distributions, as practice. (Remember to **prove both directions**)
 
 
@@ -69,7 +69,7 @@ $$
   - Ancillary and sufficient statistics are not always independent 
 
 
-**Complete Statistic:** Let $f(t|\theta)$ be a family of pdfs or pmfs for a statistic $T(x)$ (i.e., $T(x)$ is a statistic / transformation of the data: mean, sd, etc.). If $E\_{t|\theta}[g(T)] = 0 $ for all $\theta$ implies that $P(g(T)=0) = 1$ for all $\theta$, then $T(x)$ is a complete statistic.
+**Complete Statistic:** Let $f(t\|\theta)$ be a family of pdfs or pmfs for a statistic $T(x)$ (i.e., $T(x)$ is a statistic / transformation of the data: mean, sd, etc.). If $E\_{t\|\theta}[g(T)] = 0 $ for all $\theta$ implies that $P(g(T)=0) = 1$ for all $\theta$, then $T(x)$ is a complete statistic.
 
   - complete statistics are also minimal sufficient statistics (if they exist)
   - In the exponential family, $T\_k(X)$ is complete (as long as the parameter space $\Theta^d$ contains an open set in $\mathcal{R}^k$, i.e. $d \le k$)
@@ -79,7 +79,7 @@ $$
 
   - Example 6.2.26 is an interesting example
 
-**Factorization Theorem:** $f(x|\theta) = g(t|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.
+**Factorization Theorem:** $f(x\|\theta) = g(t\|\theta) h(x)$ iff $T(x)$ is sufficient for $\theta$.
 
 - Exercise: pick a distribution and find the sufficient statistic by identifying $g(.),h(.)$
 
@@ -87,8 +87,8 @@ $$
 $$ H = 
 \left(
   \begin{matrix}
-    l\_{\mu\mu} & l\_{\mu\phi} \\\\
-    l\_{\phi\mu} & l\_{\phi\phi} \\\\
+    l_{\mu\mu} & l_{\mu\phi} \\\\
+    l_{\phi\mu} & l_{\phi\phi} \\\\
   \end{matrix}
 \right)
 $$
