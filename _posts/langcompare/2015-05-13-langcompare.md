@@ -4,6 +4,7 @@ title: Comparing Programming Languages for Statistics
 subtitle: "Execution vs. Development Time"
 description: "C++ / Scala / Julia / R execution time vs. development time"
 barchart: on
+dollar: on
 header-color: "rgb(136,48,48)"
 ---
 
@@ -17,11 +18,13 @@ libraries were a pain to grind through.) And since my computational work is
 usually Bayesian, I created my own criteria for judging performance — a
 standard Bayesian multiple linear regression algorithm.
 
-\\[\begin{array}{rcl}
+$$
+\begin{array}{rcl}
    y|\beta & \sim & Normal(X\beta,\sigma^2I) \\\\
      \beta & \sim & Normal(0,100(X'X)^{-1}) \\\\
   \sigma^2 & \sim & Gamma(1,1) \\\\
-\end{array}\\]
+\end{array}
+$$
 
 The simulated data used for this study can be found at my
 [github](https://github.com/luiarthur/progSpeedCompare/blob/master/data/dat.txt).
@@ -42,19 +45,24 @@ packages](https://groups.google.com/forum/#!topic/julia-users/uQfBNtJksRo).
 I've included code at the bottom of this page.
 
 ***
+
 <div id="speed">
 <h3 style="text-align:center"> Bayesian Multiple Linear Regression Speed (seconds) </h3> 
 </div>
 <span class="caption text-muted"> C++ wins in execution time. </span>
+
 ***
+
 <div id="conciseness">
 <h3 style="text-align:center"> Bayesian Multiple Linear Regression (Lines of Code) </h3>
 </div>
 <span class="caption text-muted"> R wins in conciseness. </span>
+
 ***
 
 ![Overall Comparison](/assets/langcompare/img/vs.svg)
 <span class="caption text-muted">We want things to be in the bottom left quadrant &mdash;  Julia wins that one.</span>
+
 ***
 
 ## Sample Code
