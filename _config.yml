@@ -17,14 +17,13 @@ kramdown:
   syntax_highlighter: rouge
 permalink: /:title #pretty
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-comments: "cucumber"
+safe: on
 
 defaults:
   -
     scope:
       path: ""
     values:
-      type: "posts"
       comments: "cucumber"
   -
     scope:
