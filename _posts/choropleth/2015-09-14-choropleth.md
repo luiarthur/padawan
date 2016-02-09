@@ -10,6 +10,7 @@ header-style: "background-size: contain; padding:5%;"
 Documentation of Data: http://www.countyhealthrankings.org/sites/default/files/2015%20CHR%20SAS%20Analytic%20Data%20Documentation.pdf-->
 
 <br>
+
 # Adult Obesity Proportion (2011)
 <div id='obeseProp'></div>
 
