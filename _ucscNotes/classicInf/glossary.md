@@ -104,3 +104,20 @@ $$
 
 ### Statistics Joke:
 Three statisticians go hunting in a forest. The first one shoots one meter to the left; the other shoots one meter to the right. The third statistician says, "we got it!"
+
+UMVUE
+: Uniformly Minimum Variance Unibaised Estimator  
+
+Cramer-Rao Lower Bound
+: Let $$x_1,...,x_n$$ be a sample with pdf $$f(\pmb x|\theta)$$ and let
+$W(\pmb x)$ be any function satisfying 
+
+1.  $$\frac{d}{d\theta} \int_\mathcal{X}~W(x)f(x|\theta) ~dx = \int_\mathcal{X}~\frac{d}{d\theta}W(x)f(x|\theta) ~dx$$
+2. $$Var(W(x)) \lt \infty$$
+
+then, 
+
+$$Var(W(x)) \ge \frac{ \brak{\frac{d}{d\theta}E_{x|\theta}(W(x))}^2 }{E_{x|\theta}\paren{\paren{\frac{d}{d\theta}\log f(x|\theta)}^2}}$$
+
+Rao-Blackwell
+: Let $W = W(x)$ be an unbiased estimator of $\tau(\theta)$, and let $T$ be a sufficient statistic for $\theta$. Define $\phi(T) = E(W\|T)$. Then $E(\phi(T)) = T(\theta)$ and $Var(\phi(T)) \le Var(W)$ for all $\theta$.
