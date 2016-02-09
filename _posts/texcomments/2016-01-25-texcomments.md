@@ -14,7 +14,7 @@ Now **you** can type latex code in my comments. Try it out!
 It's not perfect. For example, if you want to edit your latex code, you'll see
 a bunch of unsolicited javascript... And of course, don't expect to type a
 ridiculous amount in it, because that would be a pain to edit. Great for short
-comments, in my opnion.
+comments, in my opinion.
 
 Instructions on adding cucumber to your website can be found [here][ref4].
 
