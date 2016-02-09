@@ -12,7 +12,9 @@ facebook_username:  arthur.lui.90
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 permalink: /:title #pretty
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
