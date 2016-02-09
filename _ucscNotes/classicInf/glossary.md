@@ -34,7 +34,7 @@ $p(x|\eta) = h(x)\exp\\{\sum\_{k=1}^K \eta\_k t\_k(x) - \psi(\eta)\\}$, with **n
 
 - Note: $X\_n \overset{P}{\rightarrow} X \Rightarrow h(X\_n) \overset{P}{\rightarrow} h(X)$, for $h(\cdot)$ a continuous function.
 
-**Chebychev's Inequality:** $\displaystyle P(|g(x) -\mu| \ge r)~\le~\frac{E(g(x))}{r}$
+**Chebychev's Inequality:** $\displaystyle P( \abs{g(x) -\mu} \ge r)~\le~\frac{E(g(x))}{r}$
 
 **Convergence in Distribution:** $\lim\_{n\rightarrow\infty} F\_n(x) = F(x)$, $F$ is continuous. Convergence in distribution to a constant implies convergence in distribution to the same constant.
 
