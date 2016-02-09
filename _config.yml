@@ -11,13 +11,9 @@ github_username:  luiarthur
 facebook_username:  arthur.lui.90
 
 # Build settings
-markdown: redcarpet #kramdown
-redcarpet:
-  extensions: ["autolink", "tables"]
-  #extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-highlighter: pygments # rouge
+markdown: kramdown
+highlighter: rouge
 permalink: /:title #pretty
-paginate: 20
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 defaults:
