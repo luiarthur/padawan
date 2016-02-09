@@ -23,14 +23,14 @@ defaults:
     scope:
       path: ""
     values:
-      comments: fb
+      comments: cucumber
   -
     scope:
       path: ""
       type: "ucscNotes"
     values:
       layout: "notes"
-      comments: "inlinedisqus"
+      comments: "cucumber"
       dollar: "on"
   -
     scope:
