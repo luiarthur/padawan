@@ -2,6 +2,7 @@
 layout: page
 description: "Bayesian Statistics / Computing"
 titleimg: <img src="https://avatars.githubusercontent.com/u/5297817?v=3" style="width:200px; border-radius:50%; margin:auto;">
+comments: off
 ---
 
 {% for post in site.posts %}
@@ -16,7 +17,7 @@ titleimg: <img src="https://avatars.githubusercontent.com/u/5297817?v=3" style="
         </h3>
         {% endif %}
     </a>
-    <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-meta">Posted on {{ post.date | date: "%-d %b, %Y" }}</p>
 </div>
 <hr>
 {% endfor %}

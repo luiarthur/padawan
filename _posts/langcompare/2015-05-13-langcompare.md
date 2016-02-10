@@ -77,41 +77,26 @@ I've included code at the bottom of this page.
 </div>
 
 <div class="mycode hide" id="r">
-  {% highlight R linenos %} 
-  {% include_relative code/raw.R %} 
-  {% endhighlight %}
+{% highlight R linenos %}{% include_relative code/raw.R %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="py">
-  {% highlight python linenos %}
-  {% include_relative code/raw.py %} 
-  {% endhighlight %}
+{% highlight python linenos %}{% include_relative code/raw.py %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="jl">
-  {% highlight julia linenos %}
-  {% include_relative code/raw.jl %}
-  {% endhighlight %}
+{% highlight julia linenos %}{% include_relative code/raw.jl %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="scala">
-  {% highlight scala linenos %}
-  {% include_relative code/raw.scala %}
-  {% endhighlight %}
+{% highlight scala linenos %}{% include_relative code/raw.scala %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="cpp">
-  {% highlight C++ linenos %}
-  {% include_relative code/raw.cpp %}
-  {% endhighlight %}
+{% highlight C++ linenos %}{% include_relative code/raw.cpp %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="c">
-  {% highlight c linenos %}
-  {% include_relative code/raw.c %} 
-  {% endhighlight %}
+{% highlight c linenos %}{% include_relative code/raw.c %}{% endhighlight %}
 </div>
 <div class="mycode hide" id="h">
-  {% highlight c linenos %}
-  {% include_relative code/raw.h %} 
-  {% endhighlight %}
+{% highlight c linenos %}{% include_relative code/raw.h %}{% endhighlight %}
 </div>
-
 
 
 <script> 

@@ -1,6 +1,6 @@
 # Site settings
 title: Arthur Lui
-header-img: img/home-bg.jpg
+header-img: off #img/home-bg.jpg
 header-color: "grey"
 email: luiarthur@gmail.com
 description: "Bayesian Statistics / Computation / Research / Arthur Lui / Blog"

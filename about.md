@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: quick
 title: "About"
-header-img: "img/about-bg.jpg"
 ---
 
 I am a PhD student at UC - Santa Cruz. My interests are in Bayesian 
