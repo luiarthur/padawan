@@ -31,8 +31,10 @@ img.eg {
     display: none;
   }
 }
-
 aside {
     font-size: small;
     text-align: right;
+}
+.MathJax * {
+  color: rgb(50,50,50) !important;
 }
