@@ -2,7 +2,6 @@ img.eg {
   padding:5%;
   background-color:grey;
 }
-
 @media print {
   h1 {
     font-size: 16px;
