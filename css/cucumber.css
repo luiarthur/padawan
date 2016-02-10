@@ -1,17 +1,14 @@
 #cucumber {
   padding: 5px 10px;
-  margin: 10px;
+  margin: 100px 10px 10px 10px;
   border-radius: 8px;
-  background-color: #353535;
+  background-color: white;
 }
 #cucumber h2 {
   padding: 0;
   margin: 0;
 }
-.comment p {
-  margin: 0;
-}
-.reply p {
+.comment p, .reply p {
   margin: 0;
 }
 .comment {
@@ -93,7 +90,7 @@
 }
 #togComments {
   text-decoration:none;
-  color:darkgrey;
+  color:#353535;
 }
 #pen {
   height:12px;
