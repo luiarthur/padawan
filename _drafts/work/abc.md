@@ -17,7 +17,7 @@ The performances of three Bayesian models
 - Bayesian Lasso
 - Generalized Double Pareto (GDP)
 
-were compared using the RMSE of the posterior means for the coefficiencts $E[\pmb{\beta\|y}]$. The findings are summarized in Figure 1 and Table 1. 
+were compared using the RMSE of the posterior means for the coefficiencts $E[\pmb\beta\|\mathbf y]$. The findings are summarized in Figure 1 and Table 1. 
 
 {::options parse_block_html="true" /}
 <div id="rmse-fig">
