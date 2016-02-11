@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm -f *.png
+
+convert rmseblasso.pdf rmseblasso.png
+convert rmsegdp.pdf rmsegdp.png
+convert rmsessvn.pdf rmsessvn.png
+
+rm -f *.pdf
