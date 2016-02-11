@@ -23,9 +23,9 @@ were compared using the RMSE of the posterior means for the coefficiencts $E[\pm
 <div id="rmse-fig">
 #### RMSE sorted by various Bayesian Regression Models
 {: style="text-align: center"}
-![rmseblasso](/assets/ams268/hw/hw1/img/rmseblasso-1.png){: class="img-blasso"}
-![rmseblasso](/assets/ams268/hw/hw1/img/rmsegdp-1.png){: class="img-gdp hide"}
-![rmseblasso](/assets/ams268/hw/hw1/img/rmsessvn-1.png){: class="img-ssvn hide"}
+![rmseblasso](/assets/ams268/hw/hw1/img/rmseblasso.png){: class="img-blasso"}
+![rmseblasso](/assets/ams268/hw/hw1/img/rmsegdp.png){: class="img-gdp hide"}
+![rmseblasso](/assets/ams268/hw/hw1/img/rmsessvn.png){: class="img-ssvn hide"}
 <span class="caption text-muted"> 
   Figure 1: RMSE of Bayesian regression models sorted according to the various
   models. Click the figure to change how the figure is sorted. Triangles
