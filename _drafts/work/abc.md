@@ -39,7 +39,7 @@ were compared using the RMSE of the posterior means for the coefficiencts $E[\pm
 
 |             |Bayesian Lasso|  GDP| SSVN|
 |:-----------:|-------------:|----:|----:|
-|Average RMSE |         1.115|1.129|3.695|
+|Average RMSE |         0.926|1.029|3.989|
 
 <span class="caption text-muted"> Table 1 </span>
 </div>
