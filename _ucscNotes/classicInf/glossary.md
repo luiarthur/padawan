@@ -121,3 +121,32 @@ $$Var(W(x)) \ge \frac{ \brak{\frac{d}{d\theta}E_{x|\theta}(W(x))}^2 }{E_{x|\thet
 
 Rao-Blackwell
 : Let $W = W(x)$ be an unbiased estimator of $\tau(\theta)$, and let $T$ be a sufficient statistic for $\theta$. Define $\phi(T) = E(W\|T)$. Then $E(\phi(T)) = T(\theta)$ and $Var(\phi(T)) \le Var(W)$ for all $\theta$.
+
+Theorem
+: UMVUE's are unique
+
+Theorem
+: Let $T$ be a complete sufficient statistic for $\theta$, and let $\phi(T)$ be any estimator of $\theta$ based on $T$. Then $\phi(T)$ is the unique best unbiased estimator of its expected value.
+
+Theorem (for checking an estimator is not UMVUE)
+: If $E\_{x\|\theta}(W)=\tau(\theta)$ $W$ is the best unbiased estimator for $\tau(\theta)$ iff $W$ is uncorrelated with all unbaised estimators of 0. (i.e. $Corr(W,W^\*)=0$, where $E[W^\*]=0$.)
+
+### EM (Expectation-Maximization) Algorithm
+
+- Let $Y$ = "incomplete" data (observed)
+- Let $X$ = "augmented" data (unobserved)
+- Let $(X,Y)$ = "complete" data
+- Then $p(x,y \| \lambda)$ is supposedly the likelihood
+- And  $p(x \| y,\lambda) = \frac{p(x,y \| \lambda)}{p(y \| \lambda)}$ 
+  - Startwith some $\lambda^0$, and sequentially compute: $\lambda^{(i)} = \underset{\lambda}{argmax} E[\log P(x,y \| \lambda) \| \lambda^{(i-1)}, y]$
+
+
+
+
+### Possible Projects
+
+- Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
+    - speed and difficulty
+    - review EM
+
+
