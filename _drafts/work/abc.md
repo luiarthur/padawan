@@ -5,9 +5,13 @@ subtitle: UCSC AMS 268 Course Assignment 1
 dollar: on
 ---
 
-{::comment}
-PUT THE INTRO HERE
-{:/comment}
+## The Problem 
+
+In my advanced Bayesian computation course this semester, we had to compare the performance of several modern regression models: lasso, rigdge, SSVN, Bayesian lasso, and generalized double pareto prior regression. To compare the performances, we were given some specifications for a simulation study. Here is are the specifications and what we wanted to investigate.
+
+<object data="/assets/ams268/hw/hw1/instructions/hw1.pdf" type="application/pdf" width="100%" height="1000px">
+</object>
+[Download](/assets/ams268/hw/hw1/instructions/hw1.pdf)
 
 ## Comparing Competing Bayesian Models
 
@@ -47,6 +51,9 @@ were compared using the RMSE of the posterior means for the coefficiencts $E[\pm
 From Table 1, we see averaged across the different simulated data sets, and across a variety of situations, the Bayesian lasso performs best (with lowest RMSE of 1.115). From Figure 1, we see that the SSVN performs the worst almost uniformly (with almost uniformly highest RMSE). The performance is worse as the number of predictors increases and becomes much greater than the number of observations. The utility of the SSVN, however, is in it's variable selection ability.The performance of the GDP prior model is almost as good as that of the Bayesian Lasso. It only sacrifices accuracy slightly to gain much flexibility. Note that in the case where none of the predictors were zero, the GDP prior model outperforms the Bayesian lasso model.
 
 {::options parse_block_html="false" /}
+
+
+## Comparing Spike and Slab Prior Model and Lasso for Variable Selection
 
 
 
