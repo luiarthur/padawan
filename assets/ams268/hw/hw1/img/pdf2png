@@ -11,4 +11,17 @@ convert rmseblasso.pdf rmseblasso.png
 convert rmsegdp.pdf rmsegdp.png
 convert rmsessvn.pdf rmsessvn.png
 
+convert lassoVssvnPP.pdf lassoVssvnPP.png
+convert ssvnVlassoPP.pdf ssvnVlassoPP.png
+convert lassoVssvnFF.pdf lassoVssvnFF.png
+convert ssvnVlassoFF.pdf ssvnVlassoFF.png
+
+convert Lblasso.pdf  Lblasso.png
+convert Lgdp.pdf     Lgdp.png
+convert Lssvn.pdf    Lssvn.png
+
+convert L1blasso.pdf  L1blasso.png
+convert L1gdp.pdf     L1gdp.png
+convert L1ssvn.pdf    L1ssvn.png
+
 rm -f *.pdf
