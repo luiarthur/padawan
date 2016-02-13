@@ -1,17 +1,17 @@
 ---
 layout: post
+wide: on
 title: Comparing Bayesian Regression Methods in High Dimension Settings
 subtitle: UCSC AMS 268 Course Assignment 1
 dollar: on
 ---
 
-## The Problem 
-
 In my advanced Bayesian computation course this semester, we had to compare the performance of several modern regression models: lasso, rigdge, SSVN, Bayesian lasso, and generalized double pareto prior regression. To compare the performances, we were given some specifications for a simulation study. Here is are the specifications and what we wanted to investigate.
 
-<object data="/assets/ams268/hw/hw1/instructions/hw1.pdf" type="application/pdf" width="100%" height="1000px">
+<center>
+<object data="/assets/ams268/hw/hw1/instructions/hw1.pdf" type="application/pdf" width="900px" height="1000px">
 </object>
-[Download](/assets/ams268/hw/hw1/instructions/hw1.pdf)
+</center>
 
 ## Comparing Competing Bayesian Models
 
@@ -43,12 +43,12 @@ were compared using the RMSE of the posterior means for the coefficiencts $E[\pm
 
 |             |Bayesian Lasso|  GDP| SSVN|
 |:-----------:|-------------:|----:|----:|
-|Average RMSE |         0.926|1.029|3.989|
+|Average RMSE |         0.314|0.372|0.584|
 
 <span class="caption text-muted"> Table 1 </span>
 </div>
 
-From Table 1, we see averaged across the different simulated data sets, and across a variety of situations, the Bayesian lasso performs best (with lowest RMSE of 1.115). From Figure 1, we see that the SSVN performs the worst almost uniformly (with almost uniformly highest RMSE). The performance is worse as the number of predictors increases and becomes much greater than the number of observations. The utility of the SSVN, however, is in it's variable selection ability.The performance of the GDP prior model is almost as good as that of the Bayesian Lasso. It only sacrifices accuracy slightly to gain much flexibility. Note that in the case where none of the predictors were zero, the GDP prior model outperforms the Bayesian lasso model.
+From Table 1, we see averaged across the different simulated data sets, and across a variety of situations, the Bayesian lasso performs best (with lowest RMSE of 1.115). From Figure 1, we see that the SSVN performs the worst when all the coefficents are non-zero. The effect is increased when the variables are correlated. The utility of the SSVN, however, is in its variable selection ability.The performance of the GDP prior model in recovering the true value of the coefficients is in between that of the Bayesian lasso and the GDP prior model. It sacrifices accuracy slightly to gain much flexibility. Note that in the case where none of the predictors were zero, the GDP prior model does at least as good as the Bayesian lasso model.
 
 {::options parse_block_html="false" /}
 

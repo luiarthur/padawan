@@ -1,6 +1,11 @@
 #!/bin/bash
 
-rm -f *.png
+rm -f *.{pdf,png}
+
+getucsc <<EOF
+  cd advBayesComputing/hw/hw1/code/R/output
+  get *
+EOF
 
 convert rmseblasso.pdf rmseblasso.png
 convert rmsegdp.pdf rmsegdp.png
