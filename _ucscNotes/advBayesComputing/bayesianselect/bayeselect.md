@@ -105,7 +105,9 @@ From Table 2, we see that averaged across all the models the lasso models true p
 
 {::options parse_block_html="true" /}
 
-## Mean Lengths of Parameters
+## Mean Lengths of Coefficients
+The posterior mean lengths of the truly-zero coefficients are generally low when the number of predictors is not drastically greater than the number of observations.  The SSVS model outperforms the competing models in most situations, except for when $p \gg n$. In which case, the $M\_0$ can get very large (about 30 in this simulation).  Similarly, the posterior mean lengths of the truly-nonzero coefficients are generally low when the number of predictors is not drastically greater than the number of observations.  The SSVS model outperforms the competing models in most situations, except for when $p \gg n$.  In which case, the $M\_{nonzero}$ can get very large (about 30 in this simulation). See Figure 3.
+
 <div id="mzero" style="text-align: center">
 <div class="img-Lblasso">
 ## $M\_{zero}$ sorted by Blasso $M\_{zero}$
@@ -132,25 +134,34 @@ From Table 2, we see that averaged across all the models the lasso models true p
 ![L1ssvn](/assets/ams268/hw/hw1/img/L1ssvn.png)
 </div>
 <span class="caption text-muted"> 
-  Figure 3: 
+  Figure 3
 </span>
 </div>
-
-ssvs gets some 30's for $M\_{zero}$ whenever $(n,p) = (50,1000)$.
 
 
 ## RMSE of Posterior Predictive Mean 
 
+The posterior predictive means for the Bayesian lasso and GDP models followed the data closely. The SSVS model posterior predictive was obtained by first determining which coefficients were zero, by checking if the posterior mean for the $\gamma\_j$'s were greater than .5. And then only using the predictors that were selected to compute the posterior predictive. The posterior predictive obtained in this way fot the SSVS followed the general trend of the true response but also contains noise. The root mean squared error for the posterior predictive means were lowest for the GDP model (.1485) and highest for SSVS (4.225). (See Figure 4 and Table 3)
+
 <div style="text-align:center">
 #### Posterior Predictive Means for Bayesian Models
+
 ![postpred](/assets/ams268/hw/hw1/img/postpred.png)
+<span class="caption text-muted"> 
+  Figure 4
+</span>
 </div>
 
-{::options parse_block_html="false" /}
 
+<div style="text-align:center">
 | |Blasso|GDP|SSVS|
 |:---:|---:|---:|---:|
 | RMSE | .1876811 | .148497 |4.225246|
+
+<span class="caption text-muted"> Table 3 </span>
+</div>
+
+{::options parse_block_html="false" /}
 
 ## Code for Blasso, GDP, and SSVS
 
