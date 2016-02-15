@@ -24,4 +24,6 @@ convert L1blasso.pdf  L1blasso.png
 convert L1gdp.pdf     L1gdp.png
 convert L1ssvn.pdf    L1ssvn.png
 
+convert postpred.pdf    postpred.png
+
 rm -f *.pdf
