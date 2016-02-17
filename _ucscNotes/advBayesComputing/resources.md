@@ -11,3 +11,4 @@ comments: cucumber
         - [Generalized Double Pareto](http://arxiv.org/pdf/1104.0861.pdf)
         - [Bayesian Lasso](http://www.stat.ufl.edu/archived/casella/Papers/Lasso.pdf)
         - [Spike and Slab (SSVN)](http://www-stat.wharton.upenn.edu/~edgeorge/Research_papers/GeorgeMcCulloch97.pdf)
+- [hw 2](/assets/ams268/hw/hw2/instructions/hw2.pdf)
