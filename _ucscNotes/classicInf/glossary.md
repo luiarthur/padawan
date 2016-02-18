@@ -140,8 +140,14 @@ Theorem (for checking an estimator is not UMVUE)
 - And  $p(x \| y,\lambda) = \frac{p(x,y \| \lambda)}{p(y \| \lambda)}$ 
   - Startwith some $\lambda^0$, and sequentially compute: $\lambda^{(i)} = \underset{\lambda}{argmax} E[\log P(x,y \| \lambda) \| \lambda^{(i-1)}, y]$
 
+### Hypothesis testing 
 
+Likelihood Ratio statistic
+: $$\lambda(x) = \frac{\underset{\theta\in H_0}{sup} L(\theta;x,y)}{\underset{\theta\in H_0 \cup H_a}{sup} L(\theta;x,y)}$$
+reject when $\lambda \lt c$ where $c$ is small
 
+Power Function
+: The power function of a hypothesis test with rejection region $R$ is the function of the parameter $\theta$ defined by $$\beta(\theta) = P_\theta(X\in R)$$. When $$\theta = \theta_0$$, $$\beta(\theta) = \alpha$$. Yes, confusing nomenclature.
 
 ### Possible Projects
 
