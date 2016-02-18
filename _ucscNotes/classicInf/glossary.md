@@ -155,7 +155,7 @@ Power Function
 | Null is False| ok | Type II error |
 
 Type I  error $$=\beta(\theta_0) = \alpha$$ 
-Type II error, could be infemum of power.
+Type II error, could be infemum of power, or $$1-\beta(\theta_1) = 1-\gamma$$
 
 ### Possible Projects
 
