@@ -1,6 +1,6 @@
 ---
-layout: quick
-title: "About"
+layout: notes
+title: About
 ---
 
 I am a PhD student at UC - Santa Cruz. My interests are in Bayesian 
