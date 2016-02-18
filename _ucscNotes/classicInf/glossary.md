@@ -149,6 +149,14 @@ reject when $\lambda \lt c$ where $c$ is small
 Power Function
 : The power function of a hypothesis test with rejection region $R$ is the function of the parameter $\theta$ defined by $$\beta(\theta) = P_\theta(X\in R)$$. When $$\theta = \theta_0$$, $$\beta(\theta) = \alpha$$. Yes, confusing nomenclature.
 
+| |Reject Null | Accept Null |
+|---|---|---|
+| Null is True | Type I error | ok |
+| Null is False| ok | Type II error |
+
+Type I  error $$=\beta(\theta_0) = \alpha$$ 
+Type II error, could be infemum of power.
+
 ### Possible Projects
 
 - Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
