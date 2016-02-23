@@ -161,19 +161,25 @@ Most Powerful Test
 : Let $G$ be a class of tests for testing $$H_0:\theta\in\Theta_0$$ vs $$H_a:\theta\in\Theta_0^C$$. A test in class $G$ with power function $\beta(\theta)$ is a uniformly most powerful (UMP) class $G$ test if $\beta \ge \beta'(\theta)$ for every $\theta\in\theta^C$ and every $\beta'(\theta)$ that is a power function of a test in class $G$.
 
 Neyman-Pearson lemma (simple-simple)
-: Consider testing $$H_0: \theta=\theta_0$$ vs $$H_0: \theta=\theta_0$$ where the pdf or pmf is $f(x|\theta\_i)$, $i=0,1$, using a test with rejection region
+: Consider testing $$H_0: \theta=\theta_0$$ vs $$H_0: \theta=\theta_0$$ where the pdf or pmf is $f(x \| \theta\_i)$, $i=0,1$, using a test with rejection region
 
 $$
-  \begin{aligned}
-    X \in R &\text{if}& f(x|\theta_1) \gt kf(x|\theta_0) \\
+  \begin{array}{lcl}
+    X \in R   &\text{if}& f(x|\theta_1) \gt kf(x|\theta_0) \\
     X \in R^C &\text{if}& f(x|\theta_1) \le kf(x|\theta_0) \\
-  \end{aligned}
+  \end{array}
 $$
 
 for some ($k\ge0$) such that $\alpha = \beta(\theta\_0)$. Then
 
-a. Sufficiency: Any test that satisfies this is a UMP level $\alpha$ test.
-b. Necessity: If there is a test satisfying these conditions with $k\gt 0$, then every UMP level $\alpha$ test is a size $\alpha$ and every UMP level $\alpha$ test satisfies the structure of the rejection region except perhaps on a set $A$ satisfying $$P_{\theta_0}(X\in A) = P_{\theta_1}(X\in A) = 0$$.
+1. Sufficiency: Any test that satisfies this is a UMP level $\alpha$ test.
+2. Necessity: If there is a test satisfying these conditions with $k\gt 0$, then every UMP level $\alpha$ test is a size $\alpha$ and every UMP level $\alpha$ test satisfies the structure of the rejection region except perhaps on a set $A$ satisfying $$P_{\theta_0}(X\in A) = P_{\theta_1}(X\in A) = 0$$.
+
+Monotone Likelihood Ratio tests
+: A family of pdfs or pmfs $\brac{g(t\|\theta): \theta\in\Theta}$ for a univariate random variable $T$ with real valued parameter $\theta$ has a monotone likelihood ratio (MLR) if $\forall(\theta\_2 \gt \theta\_1)$, $\frac{g(t\|\theta\_2)}{g(t\|\theta\_1)}$ is a monotone function of $t$. 
+
+Karlin-Rubin Theorem
+: Consider testin $$H_0: \theta \lt \theta_0$$ vs $$H_1: \theta \gt \theta_0$$. Suppose that $T$ is a sufficient statistic for $\theta$ and the family of pdfs or pmfs $\brac{g(t\|\theta): \theta\in\Theta}$ of $T$ has a MLR. Then for any $t\_0$, the test that rejects $H\_0$ iff $T\gt t\_0$ is a UMP level $\alpha$ test where $\alpha = P\_{\theta\_0}(T\gt t\_0)$
 
 ### Possible Projects
 
