@@ -157,6 +157,24 @@ Power Function
 Type I  error $$=\beta(\theta_0) = \alpha$$ 
 Type II error, could be infemum of power, or $$1-\beta(\theta_1) = 1-\gamma$$
 
+Most Powerful Test
+: Let $G$ be a class of tests for testing $$H_0:\theta\in\Theta_0$$ vs $$H_a:\theta\in\Theta_0^C$$. A test in class $G$ with power function $\beta(\theta)$ is a uniformly most powerful (UMP) class $G$ test if $\beta \ge \beta'(\theta)$ for every $\theta\in\theta^C$ and every $\beta'(\theta)$ that is a power function of a test in class $G$.
+
+Neyman-Pearson lemma (simple-simple)
+: Consider testing $$H_0: \theta=\theta_0$$ vs $$H_0: \theta=\theta_0$$ where the pdf or pmf is $f(x|\theta\_i)$, $i=0,1$, using a test with rejection region
+
+$$
+  \begin{aligned}
+    X \in R &\text{if}& f(x|\theta_1) \gt kf(x|\theta_0) \\
+    X \in R^C &\text{if}& f(x|\theta_1) \le kf(x|\theta_0) \\
+  \end{aligned}
+$$
+
+for some ($k\ge0$) such that $\alpha = \beta(\theta\_0)$. Then
+
+a. Sufficiency: Any test that satisfies this is a UMP level $\alpha$ test.
+b. Necessity: If there is a test satisfying these conditions with $k\gt 0$, then every UMP level $\alpha$ test is a size $\alpha$ and every UMP level $\alpha$ test satisfies the structure of the rejection region except perhaps on a set $A$ satisfying $$P_{\theta_0}(X\in A) = P_{\theta_1}(X\in A) = 0$$.
+
 ### Possible Projects
 
 - Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
