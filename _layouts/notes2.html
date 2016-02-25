@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+
+<header class="intro-header" style="background-color:{{page.header-color}}; height:60px; margin:0">
+</header>
+
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 side-bar">
+          <ul>
+          {% for notes in site.ucscNotes %}
+            {% if notes.ams == page.ams%}
+            <li> {{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}} </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-8">
+            <p align="right" style="margin: 0; padding: 0;">{{page.date | date: "%-d %b, %Y"}}</p>
+            <h1> {{page.title}} </h1> 
+            <hr>
+                {{content}}
+
+                {% if page.comments == "fb" %}
+                  <div id="fb-root"></div>
+                  <div class="fb-comments"></div>
+                {% elsif page.comments == "cucumber" %}  
+                  <div id="cucumber"></div>
+                {% elsif page.comments == "disqus" %}  
+                  <hr> <div id="disqus_thread" style="width: 100%;"></div>
+                {% endif %}
+        </div>
+    </div>
+</div>
+
