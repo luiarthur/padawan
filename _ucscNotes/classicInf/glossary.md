@@ -181,6 +181,46 @@ Monotone Likelihood Ratio tests
 Karlin-Rubin Theorem
 : Consider testin $$H_0: \theta \lt \theta_0$$ vs $$H_1: \theta \gt \theta_0$$. Suppose that $T$ is a sufficient statistic for $\theta$ and the family of pdfs or pmfs $\brac{g(t\|\theta): \theta\in\Theta}$ of $T$ has a MLR. Then for any $t\_0$, the test that rejects $H\_0$ iff $T\gt t\_0$ is a UMP level $\alpha$ test where $\alpha = P\_{\theta\_0}(T\gt t\_0)$
 
+p-value
+: A p-value $p(x)$ is a *test statistic* satisfying $0\le p(x) \le 1$ for every sample $x$. Small values of $p(x)$ give evidence that $H\_1$ is true. A p-value is called valud if for every $\theta \in \Theta\_0$ and every $0 \lt \alpha \lt 1$, $P\_{\theta}(p(x) \lt \alpha) \le \alpha$
+
+When the distribution of the test statistic is not available in closed form, we can
+
+1. use asymptotics
+2. permutation test
+
+Wilk's Theorem
+: For testing $H\_0: \theta = \theta\_0$ vs $H\_1: \theta \ne \theta\_0$ suppose $x\_1,...,x\_n$ are iid from $f(x\|\theta)$, $\hat\theta$ is the MLE and $f$ satisfies regularity conditions. Under the null hypothesis, as $n \rightarrow \infty$,
+
+$$
+  -2 log(\lambda) \overset{D}{\rightarrow} \chi_1^2
+$$
+
+More generally, if $H\_0 \in \Theta\_0$ vs $H\_1 \in \Theta\_0^C$ then
+
+$$
+  -2 log(\lambda) \overset{D}{\rightarrow} \chi_d^2
+$$
+
+where $d=dim(\Theta) - dim(\Theta\_0)$
+
+<!-- comment
+The TRUMP test
+: if you are Donald Trump, then you are uniformly most powerful. Otherwise, you're a loser. In other words, you're fired.
+-->
+
+Permutation test
+: if under the null the distribution of the data is invariant under the action of permutations, the distribution of statistics can be easily computed.
+
+### Example
+
+$ X\_1,...,X\_n \sim F\_1$ and $ Y\_1,...,Y\_n \sim F\_2$. $H\_0: F\_1 = F\_2$ vs $H\_1: F\_1 \ne F\_2$.
+
+We can test this by randomly relabelling the samples and testing to see if the distributions are the same by seeing if some statistic of the difference of the distributions $Z = g(X) - g(Y)$ is different from 0.
+
+Wald Likelihood Test
+: w
+
 ### Possible Projects
 
 - Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
