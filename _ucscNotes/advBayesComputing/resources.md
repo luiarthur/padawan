@@ -14,4 +14,3 @@ comments: cucumber
 - [hw 2](/assets/ams268/hw/hw2/instructions/hw2.pdf)
     - [Chopin (2002) - SMC](/assets/ams268/notes/chopin_2002_smc.pdf)
     - [Another SMC Lecture](/assets/ams268/notes/smc.pdf)
-    - [Preditive Process](/assets/ams268/notes/predictiveProcess.pdf)
