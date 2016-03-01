@@ -161,7 +161,7 @@ Most Powerful Test
 : Let $G$ be a class of tests for testing $$H_0:\theta\in\Theta_0$$ vs $$H_a:\theta\in\Theta_0^C$$. A test in class $G$ with power function $\beta(\theta)$ is a uniformly most powerful (UMP) class $G$ test if $\beta \ge \beta'(\theta)$ for every $\theta\in\theta^C$ and every $\beta'(\theta)$ that is a power function of a test in class $G$.
 
 Neyman-Pearson lemma (simple-simple)
-: Consider testing $$H_0: \theta=\theta_0$$ vs $$H_0: \theta=\theta_0$$ where the pdf or pmf is $f(x \| \theta\_i)$, $i=0,1$, using a test with rejection region
+: Consider testing $$H_0: \theta=\theta_0$$ vs $$H_1: \theta=\theta_1$$ where the pdf or pmf is $f(x \| \theta\_i)$, $i=0,1$, using a test with rejection region
 
 $$
   \begin{array}{lcl}
