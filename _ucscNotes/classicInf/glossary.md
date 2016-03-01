@@ -219,7 +219,13 @@ $ X\_1,...,X\_n \sim F\_1$ and $ Y\_1,...,Y\_n \sim F\_2$. $H\_0: F\_1 = F\_2$ v
 We can test this by randomly relabelling the samples and testing to see if the distributions are the same by seeing if some statistic of the difference of the distributions $Z = g(X) - g(Y)$ is different from 0.
 
 Wald Likelihood Test
-: w
+: Under large samples, we can test the two-sided hypothesis $H\_0: \theta=\theta\_0$ vs. $H\_1: \theta\ne\theta\_0$ with the statistic
+
+$$
+  Z_n = \frac{W_n - \theta_0}{S_n}
+$$
+
+Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$.
 
 ### Possible Projects
 
