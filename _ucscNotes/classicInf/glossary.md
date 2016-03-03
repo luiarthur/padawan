@@ -227,6 +227,15 @@ $$
 
 Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$.
 
+Interval Estimation
+: An interval estimate of a real-valued parameter $\theta$ is any pair of functions $L(X)$ and $U(X)$ of a sample that satisfies $L(X) \lt U(X)$ for all $X$ in the sample space. If $X$ is observed the implied inference is that $L(X) \lt \theta \lt U(X)$. Note that here, $X$ is a random variable. 
+
+Confidence Coefficient
+: $\underset{\theta}{inf}~P\_\theta(\theta \in (L(X), U(X)) )$
+
+Pivot
+: Intervals that are based on point estimators whose distribution does not depend on the parameters of the model.
+
 ### Possible Projects
 
 - Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
