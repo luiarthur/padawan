@@ -219,13 +219,13 @@ $ X\_1,...,X\_n \sim F\_1$ and $ Y\_1,...,Y\_n \sim F\_2$. $H\_0: F\_1 = F\_2$ v
 We can test this by randomly relabelling the samples and testing to see if the distributions are the same by seeing if some statistic of the difference of the distributions $Z = g(X) - g(Y)$ is different from 0.
 
 Wald Likelihood Test
-: Under large samples, we can test the two-sided hypothesis $H\_0: \theta=\theta\_0$ vs. $H\_1: \theta\ne\theta\_0$ with the statistic
+: Under large samples, we can test the two-sided hypothesis $H\_0: \theta=\theta\_0$ vs. $H\_1: \theta\ne\theta\_0$ (not necessarily bidirectional, can be simply greater than or less than)  with the statistic
 
 $$
-  Z_n = \frac{W_n - \theta_0}{S_n}
+  Z_n = \frac{\hat\theta-E[\hat\theta]}{\sqrt{Var\p{\hat\theta}}} = \frac{W_n - \theta_0}{S_n}
 $$
 
-Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$.
+Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$. We can also substitute $\sqrt{Var(\hat\theta)}$ with $se(\hat\theta)$. Using $\se(\hat\theta)$ is often easier when inverting a test, and that is used most often in intro stats courses. The wald test is an approximate test. Using a wald test and inverting it to get a confidence interval may show up in the first year exam. (Try doing this for all exponential family distribution models.)
 
 Interval Estimation
 : An interval estimate of a real-valued parameter $\theta$ is any pair of functions $L(X)$ and $U(X)$ of a sample that satisfies $L(X) \lt U(X)$ for all $X$ in the sample space. If $X$ is observed the implied inference is that $L(X) \lt \theta \lt U(X)$. Note that here, $X$ is a random variable. 
@@ -235,6 +235,32 @@ Confidence Coefficient
 
 Pivot
 : Intervals that are based on point estimators whose distribution does not depend on the parameters of the model.
+
+Test Inversion
+: Like probability that confidence interval contains the hypothesized value. The test is constructed such that it will have the desired coverage.
+
+Under regularity conditions (see below), if $x\_i$ are iid $f(x\_i\v\theta)$ and $\hat{\theta}\_n$ are the MLE's for $\theta$ then
+
+$$
+  \frac{\hat\theta - \theta}{\sqrt{Var(\hat\theta)}} \overset{D}{\rightarrow} N(0,1) ~~ \text{assymptotically Normal}
+$$
+
+and 
+
+$$
+  \hat\theta \overset{P}{\rightarrow} \theta ~~ \text{consistent}
+$$
+
+**Regularity Conditions**
+
+1. iid observations
+2. Identifiability of parameters (i.e. $\theta \ne \theta' \Rightarrow f(x\v\theta) \ne f(x\v\theta'), \forall x$)
+3. $f(x\v\theta)$ to have the same support for every $\theta$ (support does not depend of parameter) and be differentiable in $\theta$.
+4. The parameter space contains an open set $\omega$ of which the true value of the parameter $\theta\_0$ is an interior point. (true parameter is not on the boundaries of the parameter space.)
+5. For every $x$ the density $f(x\v\theta)$ is three times differentiable wrt $\theta$, the thrid derivatie is continuous in $\theta$ andd $\int f(x\v\theta) dx$ can be differentiated 3 times under the integral sign.
+6. For any $\theta\_0$ there exists a positive number $c$R and a function $M(x)$ (both of which can depend on $\theta\_0$) such that the $\abs{\frac{\partial^3}{\partial\theta^3}\log f(x\v\theta)} \le M(x)$ for $\theta\_0-c \lt \theta \lt \theta\_0+c$ with $E\_{x|\theta}(M(x)) \lt \infty$
+
+Consistency requies 1-4. Normality requires 1-6.
 
 ### Possible Projects
 
