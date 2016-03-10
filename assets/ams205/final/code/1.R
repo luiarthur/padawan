@@ -7,8 +7,8 @@ lf <- function(y,x,a,b,w,d,s2) {
   if (s2 > 0) {
     mu <- a+b*cos(w*x+d)
     n <- length(y)
-    out <- -sum((y-mu)^2)
-    #out <- -n*log(s2)/2 -sum((y-mu)^2)/(2*s2) 
+    out <- -n*log(s2)/2 -sum((y-mu)^2)/(2*s2) 
+    #out <- -sum((y-mu)^2)
     #out <- -sum((y-mu)^2)/(2*s2) 
   } else {
     out <- -Inf
@@ -25,8 +25,9 @@ Q <- lf_cost <- function(par) {
   -lf(orb$Y,orb$X,a,b,w,d,s2)
 }
 
-mle <- optim(c(2,-1.3,1.8,-10,.04),fn=lf_cost,hessian=TRUE) #1.97,-1.29, 1.79, -9.69, 8.05
+mle <- optim(c(2,-1.3,1.8,-10,.4),fn=lf_cost,hessian=TRUE)
 mle$par
+#1.97,-1.5, 1.75, -9.46, .02
 
 rf <- function(par,x=orb$X) {
   n <- length(x)
@@ -41,7 +42,8 @@ rf <- function(par,x=orb$X) {
   mu
 }
 
-source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,100,.1,init=mle$par); rbind(sgd_mle,mle$par)
+source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,10,c(.01,.01,1,1,1),init=mle$par); rbind(sgd_mle,mle$par)
+source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,10,c(.01,.01,1,1,1),init=c(1,1,1,1,1)); rbind(sgd_mle,mle$par)
 
 xx <- seq(range(orb$X)[1],range(orb$X)[2],len=1000)
 plot(orb$X,orb$Y,pch=20,type="p",col="grey",cex=2)
