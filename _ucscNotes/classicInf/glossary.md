@@ -258,7 +258,7 @@ $$
 3. $f(x\v\theta)$ to have the same support for every $\theta$ (support does not depend of parameter) and be differentiable in $\theta$.
 4. The parameter space contains an open set $\omega$ of which the true value of the parameter $\theta\_0$ is an interior point. (true parameter is not on the boundaries of the parameter space.)
 5. For every $x$ the density $f(x\v\theta)$ is three times differentiable wrt $\theta$, the thrid derivatie is continuous in $\theta$ andd $\int f(x\v\theta) dx$ can be differentiated 3 times under the integral sign.
-6. For any $\theta\_0$ there exists a positive number $c$R and a function $M(x)$ (both of which can depend on $\theta\_0$) such that the $\abs{\frac{\partial^3}{\partial\theta^3}\log f(x\v\theta)} \le M(x)$ for $\theta\_0-c \lt \theta \lt \theta\_0+c$ with $E\_{x|\theta}(M(x)) \lt \infty$
+6. For any $\theta\_0$ there exists a positive number $c$R and a function $M(x)$ (both of which can depend on $\theta\_0$) such that the $\abs{\frac{\partial^3}{\partial\theta^3}\log f(x\v\theta)} \le M(x)$ for $\theta\_0-c \lt \theta \lt \theta\_0+c$ with $E\_{x\v\theta}(M(x)) \lt \infty$
 
 Consistency requies 1-4. Normality requires 1-6.
 
