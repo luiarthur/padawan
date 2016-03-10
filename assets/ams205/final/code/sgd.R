@@ -44,6 +44,7 @@ sgd <- function(x, y, B=10, alpha=1, init=rep(1,5)) {
       theta[5] <- s2-alpha*(-n/(2*s2) +(y[i] - h(x[i],theta))^2 / (2*(s2)^2))
     }
   }
+  theta[5] <- sum((y - h(x,theta))^2)/n
   cat("\n")
 
 
