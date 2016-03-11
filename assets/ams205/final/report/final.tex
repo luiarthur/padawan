@@ -1,0 +1,96 @@
+% To compile: pdflatex file.tex
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{pgffor}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{url} % for underscore in footnote
+\usepackage[UKenglish]{isodate} % for: \today
+\cleanlookdateon                % for: \today
+\usepackage{natbib} % Can remove if no bibliography. bibtex
+%\pagestyle{empty} % Removes page number. Graphs too big.
+
+\def\wl{\par \vspace{\baselineskip}\noindent}
+% Keeping Figures in the right place %%%%%%%
+\usepackage{float}                        %%
+\def\beginmyfig{\begin{figure}[H]\center} %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\endmyfig{\end{figure}}
+\def\ds{\displaystyle}
+\def\tu{\textunderscore}
+\definecolor{grey}{rgb}{.2,.2,.2}
+\definecolor{lgrey}{rgb}{.8,.8,.8}
+\def\hline{ \textcolor{lgrey}{\hrulefill} }
+\newcommand{\m}[1]{\mathbf{\bm{#1}}} % Serif bold math
+\def\ds{\displaystyle}                                                    
+\def\inv{^{\raisebox{.2ex}{$\scriptscriptstyle-1$}}}
+\def\pm{^{\raisebox{.2ex}{$\scriptscriptstyle\prime$}}}
+\def\norm#1{\left\lVert#1\right\rVert}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\bk}[1]{\left[#1\right]}
+\newcommand{\bc}[1]{ \left\{#1\right\} }
+\newcommand{\abs}[1]{ \left|#1\right| }
+\newcommand{\mat}{ \begin{pmatrix} }
+\newcommand{\tam}{ \end{pmatrix} }
+
+% \def for THIS ASSIGNMENT!!!%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% my title:
+\begin{center}
+  {\huge \textbf{Take Home Final (AMS 205B)}
+    %\footnote{\url{https://github.com/luiarthur/bnp_hw/project/bnp_spatialDP}}
+  }\\
+  \wl
+  \noindent\today\\
+  Arthur Lui\\
+  \hline
+\end{center}
+
+\section*{1)}
+\subsection*{1a)}
+Write algorithm HERE:\\
+
+\beginmyfig
+  \includegraphics[scale=.5]{../code/output/grid.pdf}
+  \caption{\small Log likelihood profile evaluated at various $\delta$ and $w$ values. log likelihoods range from -58 to 147. Regions in darkred correspond to a higher log likelihood.}
+  \label{fig:grid}
+\endmyfig
+
+\beginmyfig
+  \includegraphics[scale=.5]{../code/output/mle.pdf}
+  \caption{\small Log likelihood profile evaluated at various $\delta$ and $w$ values. log likelihoods range from -58 to 147. Regions in darkred correspond to a higher log likelihood.}
+  \label{fig:grid}
+\endmyfig
+
+\subsection*{1b)}
+Write down math HERE.\\
+
+\noindent
+A 95\% Confidence interval for $w$ based on the Wald-like test is (\textbf{1.749, 1.756}).\\
+A 95\% Confidence interval for $\delta$ based on the Wald-like test is (\textbf{3.078, 3.131}).
+
+\subsection*{1c)}
+Write down algorithm HERE.\\
+
+\noindent
+A 95\% Confidence interval for $w$ based on the Wald-like test is (\textbf{1.716, 1.804}).\\
+A 95\% Confidence interval for $\delta$ based on the Wald-like test is (\textbf{2.763, 3.398}).\\
+
+\noindent
+For both $w$ and $\delta$, the bootstrapped 95\% confidence intervals contain
+the intervals constructed from a Wald-like test based on the Normal
+approximation. That is, the Wald-like test intervals are narrower.
+
+\subsection*{1d)}
+Since the 95\% confidence interval does not contain 0, we \textbf{reject the
+null hypothesis} at the 95\% confidence level that $\delta=0$.
+
+
+\end{document}
