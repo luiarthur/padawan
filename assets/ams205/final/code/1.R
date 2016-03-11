@@ -1,46 +1,37 @@
-orb <- read.table("../dat/orbits.txt",header=TRUE)
-#orb$Y <- (orb$Y - mean(orb$Y)) / sd(orb$Y)
-#orb$X <- (orb$X - mean(orb$X)) / sd(orb$X)
+source("likeprofile.R")
+system("mkdir -p output")
+#mle <- 1.97, -1.50, 1.75, 3.10, .0198
 
-lf <- function(y,x,a,b,w,d,s2) {
-  out <- NULL
-  if (s2 > 0) {
-    mu <- a+b*cos(w*x+d)
-    n <- length(y)
-    out <- -n*log(s2)/2 -sum((y-mu)^2)/(2*s2) 
-  } else {
-    out <- -Inf
-  }
-  out
-}
+## Explore
+wd <- expand.grid(seq(1.5,2,len=100), seq(.001,2*pi,len=100))
+like_wd <- t(apply(wd,1,function(xx) profile_like(xx)))
+plotmap(like_wd,wd,ylab="delta",xlab="w")
 
-Q <- lf_cost <- function(par) {
-  a <- par[1]
-  b <- par[2]
-  w <- par[3]
-  d <- par[4]
-  s2 <- par[5]
-  -lf(orb$Y,orb$X,a,b,w,d,s2)
-}
+## Compare
+init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2,len=10))
+init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2*pi,len=10))
 
-mle <- optim(c(2,-1.3,1.8,-10,.4),fn=lf_cost,hessian=TRUE)
-mle$par
-#1.97,-1.5, 1.75, -9.46, .02
+# 41 seconds
+system.time(init_likes <- t(apply(init_grid,1, function(init) {
+      opt <- optim(init,fn=function(x) -profile_like(x),hessian=TRUE)
+      c(opt$val,opt$par)
+})))
+top_ten <- init_likes[order(init_likes[,1]),][1:10,]
+colnames(top_ten) <- c("log_like","w","d")
+unique(round(top_ten,4))
 
-rf <- function(par,x=orb$X) {
-  n <- length(x)
-  a <- par[1]
-  b <- par[2]
-  w <- par[3]
-  d <- par[4]
-  s2 <- par[5]
+(optim_result <- top_ten[1,])
+(mle <- all_mle_from_wd(optim_result[-1]))
 
-  mu <- a+b*cos(w*x+d)
-  mu
-}
+
+pred <- function(par,x=orb$X) par[1] + par[2] * cos(par[3]*x + par[4])
+gen_from_mle <- function(n,par,x=seq(0,12,len=100)) cbind(x,rnorm(n,pred(par,x),sqrt(par[5])))
 
 xx <- seq(range(orb$X)[1],range(orb$X)[2],len=1000)
-plot(orb$X,orb$Y,pch=20,type="p",col="grey",cex=2)
-lines(xx,rf(mle$par,xx),pch=20,col="red",lwd=3)
+plot(orb$X,orb$Y,pch=20,type="p",col="black",cex=2)
+points(gen_from_mle(1000,mle),pch=20,col="lightblue",lwd=3)
+lines(xx,pred(mle,xx),pch=20,col="red",lwd=3)
+#mle <- 1.97, -1.50, 1.75, 3.10, .0198
 
+#################
 
