@@ -15,9 +15,9 @@ xx <- theta_0 + 1*seq(-s,s,len=1000)
 
 pdf("../output/power.pdf")
 plot(xx,pow_1(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="red",
-     ylab="Power",xlab=expression(theta),cex.lab=1.3,
+     ylab=expression(beta(theta)),xlab=expression(theta),cex.lab=1.1,
      ylim=c(0,1),xaxt="n",
-     main=expression("Power Functions for "~theta[0]~"=0"))
+     main=expression("Power Functions"))
 lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=100),type='l',lwd=4,col="red")
 lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=1000),type='l',lwd=4,col="red")
 
