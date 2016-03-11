@@ -26,6 +26,13 @@ h <- function(x,par=mle) {
   out
 }
 
-l_ww <- sum(b*X^2*(cos(X*w+d)*(Y-h(X)) - b*sin(X*w+d)^2)) / s2
+l_ww <- sum(  b*X^2*(cos(X*w+d)*(Y-h(X)) - b*sin(X*w+d)^2)  ) / s2
 I_w <- -l_ww
 se_w <- 1/sqrt(I_w)
+(ci_w <- qnorm(c(.025,.975),w,se_w))
+
+l_dd <- sum(  b*cos(X*w+d)*(Y-h(X)) - b^2*sin(X*w+d)^2  )  / s2
+I_d <- -l_dd
+se_d <- 1/sqrt(I_d)
+(ci_d <- qnorm(c(.025,.975),d,se_d))
+

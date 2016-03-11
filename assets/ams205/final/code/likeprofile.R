@@ -18,9 +18,7 @@ analytic_mle <- function(wd,x=orb$X,y=orb$Y) {
   out
 }
 
-profile_like <- function(wd) {
-  x <- orb$X
-  y <- orb$Y
+profile_like <- function(wd,x=orb$X,y=orb$Y) {
   n <- length(y)
 
   ll <- function(a,b,w,d,s2) {
