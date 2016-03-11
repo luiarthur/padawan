@@ -13,6 +13,7 @@ theta_0 <- 1
 s <- 1
 xx <- theta_0 + 1*seq(-s,s,len=1000)
 
+pdf("../output/power.pdf")
 plot(xx,pow_1(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="red",
      ylab="Power",xlab=expression(theta),cex.lab=1.3,
      ylim=c(0,1),xaxt="n",
@@ -38,4 +39,4 @@ legend("topleft",c("Power Function for T statistic","Power Function for Z statis
        col=c("red","blue"),lwd=2,bty="n",cex=1)
 abline(v=theta_0,col="grey",lwd=2)
 abline(h=.1,col="grey",lwd=2)
-
+dev.off()
