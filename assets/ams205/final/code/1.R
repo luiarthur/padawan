@@ -8,8 +8,6 @@ lf <- function(y,x,a,b,w,d,s2) {
     mu <- a+b*cos(w*x+d)
     n <- length(y)
     out <- -n*log(s2)/2 -sum((y-mu)^2)/(2*s2) 
-    #out <- -sum((y-mu)^2)
-    #out <- -sum((y-mu)^2)/(2*s2) 
   } else {
     out <- -Inf
   }
@@ -41,12 +39,6 @@ rf <- function(par,x=orb$X) {
   mu
 }
 
-<<<<<<< HEAD
-=======
-source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,10,c(.01,.01,1,1,1),init=mle$par); rbind(sgd_mle,mle$par)
-source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,10,c(.01,.01,1,1,1),init=c(1,1,1,1,1)); rbind(sgd_mle,mle$par)
-
->>>>>>> bd09635ce1f26eef76f7c86d85d3a6f03a62fa69
 xx <- seq(range(orb$X)[1],range(orb$X)[2],len=1000)
 plot(orb$X,orb$Y,pch=20,type="p",col="grey",cex=2)
 lines(xx,rf(mle$par,xx),pch=20,col="red",lwd=3)
