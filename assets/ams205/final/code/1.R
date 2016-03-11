@@ -1,3 +1,4 @@
+set.seed(205)
 source("likeprofile.R")
 system("mkdir -p output")
 #mle <- 1.97, -1.50, 1.75, 3.10, .0198
@@ -5,7 +6,9 @@ system("mkdir -p output")
 ## Explore
 wd <- expand.grid(seq(1.5,2,len=100), seq(.001,2*pi,len=100))
 like_wd <- t(apply(wd,1,function(xx) profile_like(xx)))
-plotmap(like_wd,wd,ylab="delta",xlab="w")
+pdf("output/grid.pdf")
+  plotmap(like_wd,wd,ylab="delta",xlab="w")
+dev.off()
 
 ## Compare
 init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2,len=10))
@@ -28,10 +31,10 @@ pred <- function(par,x=orb$X) par[1] + par[2] * cos(par[3]*x + par[4])
 gen_from_mle <- function(n,par,x=seq(0,12,len=100)) cbind(x,rnorm(n,pred(par,x),sqrt(par[5])))
 
 xx <- seq(range(orb$X)[1],range(orb$X)[2],len=1000)
-plot(orb$X,orb$Y,pch=20,type="p",col="black",cex=2)
-points(gen_from_mle(1000,mle),pch=20,col="lightblue",lwd=3)
-lines(xx,pred(mle,xx),pch=20,col="red",lwd=3)
+pdf("output/mle.pdf")
+  plot(gen_from_mle(1000,mle),pch=20,col="lightblue",cex=1,xlab="X",ylab="Y",ylim=c(0,4.5))
+  points(orb$X,orb$Y,pch=20,type="p",col="black",cex=2)
+  lines(xx,pred(mle,xx),pch=20,col="red",lwd=3)
+  legend("topleft",legend=c("Data","New Samples","Prediction"),col=c("black","lightblue","red"),lwd=3,bty="n")
+dev.off()
 #mle <- 1.97, -1.50, 1.75, 3.10, .0198
-
-#################
-
