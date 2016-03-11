@@ -37,15 +37,11 @@ rf <- function(par,x=orb$X) {
   s2 <- par[5]
 
   mu <- a+b*cos(w*x+d)
-  #rnorm(n,mu,s2)
   mu
 }
-
-source("sgd.R"); sgd_mle <- sgd(orb$X,orb$Y,100,.1,init=mle$par); rbind(sgd_mle,mle$par)
 
 xx <- seq(range(orb$X)[1],range(orb$X)[2],len=1000)
 plot(orb$X,orb$Y,pch=20,type="p",col="grey",cex=2)
 lines(xx,rf(mle$par,xx),pch=20,col="red",lwd=3)
-lines(xx,rf(sgd_mle,xx),pch=20,col="blue")
 
 
