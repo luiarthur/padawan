@@ -23,7 +23,7 @@ profile_like <- function(wd,x=orb$X,y=orb$Y) {
 
   ll <- function(a,b,w,d,s2) {
     out <- NULL
-    if (s2 > 0 && d > 0 && d < 2*pi) {
+    if (s2 > 0 && d < pi && d > -pi) {
       mu <- a+b*cos(w*x+d)
       n <- length(y)
       out <- -n*log(s2)/2 -sum((y-mu)^2)/(2*s2) 

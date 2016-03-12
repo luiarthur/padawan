@@ -20,11 +20,11 @@ h <- function(x,par=mle) {
 }
 
 
-bootstrap <- function(par,B=100) {
+bootstrap <- function(par,B=100,x=orb$X) {
   out <- matrix(0,B,length(par))
   out[1,] <- par
   for (i in 2:B) {
-    dat <- gen_from_mle(out[i-1,],X)
+    dat <- gen_from_mle(out[i-1,],x)
     mle_wd <- optim(out[i-1,3:4],fn=function(o) -profile_like(o,dat[,1],dat[,2]))$par
     out[i,] <- all_mle_from_wd(mle_wd)
     cat("\r",i,"/",B)

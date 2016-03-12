@@ -1,10 +1,11 @@
 set.seed(205)
 source("likeprofile.R")
 system("mkdir -p output")
-#mle <- 1.97, -1.50, 1.75, 3.10, .0198
+#mle <- 1.97, -1.50, 1.75, -.0373, .0198
 
 ## Explore
-wd <- expand.grid(seq(1.5,2,len=100), seq(.001,2*pi,len=100))
+#wd <- expand.grid(seq(1.5,2,len=100), seq(.001,2*pi,len=100))
+wd <- expand.grid(seq(1.5,2,len=100), seq(-pi,pi,len=100))
 like_wd <- t(apply(wd,1,function(xx) profile_like(xx)))
 pdf("output/grid.pdf")
   plotmap(like_wd,wd,ylab="delta",xlab="w")
@@ -12,7 +13,7 @@ dev.off()
 
 ## Compare
 init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2,len=10))
-init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2*pi,len=10))
+init_grid <- expand.grid(seq(1,5,len=10), seq(-pi,pi,len=10))
 
 # 41 seconds
 system.time(init_likes <- t(apply(init_grid,1, function(init) {
