@@ -225,7 +225,7 @@ $$
   Z_n = \frac{\hat\theta-E[\hat\theta]}{\sqrt{Var\p{\hat\theta}}} = \frac{W_n - \theta_0}{S_n}
 $$
 
-Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$. We can also substitute $\sqrt{Var(\hat\theta)}$ with $se(\hat\theta)$. Using $\se(\hat\theta)$ is often easier when inverting a test, and that is used most often in intro stats courses. The wald test is an approximate test. Using a wald test and inverting it to get a confidence interval may show up in the first year exam. (Try doing this for all exponential family distribution models.)
+Note that when $W\_n$ is the mle and $S_n$ is the $\frac{1}{\sqrt{I(W\_n)}}$, $Z\_n \overset{D}{\rightarrow} N(0,1)$. We can also substitute $\sqrt{Var(\hat\theta)}$ with $se(\hat\theta)$. Using $se(\hat\theta)$ is often easier when inverting a test, and that is used most often in intro stats courses. The wald test is an approximate test. Using a wald test and inverting it to get a confidence interval may show up in the first year exam. (Try doing this for all exponential family distribution models.)
 
 Interval Estimation
 : An interval estimate of a real-valued parameter $\theta$ is any pair of functions $L(X)$ and $U(X)$ of a sample that satisfies $L(X) \lt U(X)$ for all $X$ in the sample space. If $X$ is observed the implied inference is that $L(X) \lt \theta \lt U(X)$. Note that here, $X$ is a random variable. 
