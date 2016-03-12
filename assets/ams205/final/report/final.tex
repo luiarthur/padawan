@@ -66,7 +66,7 @@ Write algorithm HERE:\\
 \beginmyfig
   \includegraphics[scale=.5]{../code/output/mle.pdf}
   \caption{\small Log likelihood profile evaluated at various $\delta$ and $w$ values. log likelihoods range from -58 to 147. Regions in darkred correspond to a higher log likelihood.}
-  \label{fig:grid}
+  \label{fig:mle}
 \endmyfig
 
 \subsection*{1b)}
@@ -102,8 +102,9 @@ Write...
 \beginmyfig
   \includegraphics[scale=.5]{../code/output/power.pdf}
   \caption{\small Power function.}
-  \label{fig:grid}
+  \label{fig:power}
 \endmyfig
-
+\subsection*{3d)}
+The T test above is \textbf{not uniformly most powerful} because for small $n$ ($n=100$), the power $\beta(\theta)$ is not always greater than the power ($\beta'(\theta)$) for all $\theta \in \Theta_0$. For example as seen in Figure $\ref{fig:power}$, when $n=10$, and $\theta > \theta_0$, the power for the test based on the Normal test statistic is greater than that of the T test statistic.
 
 \end{document}

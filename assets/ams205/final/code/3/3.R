@@ -14,16 +14,16 @@ s <- 1
 xx <- theta_0 + 1*seq(-s,s,len=1000)
 
 pdf("../output/power.pdf")
-plot(xx,pow_1(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="coral",
+plot(xx,pow_1(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="red",
      ylab=expression(beta(theta)),xlab=expression(theta),cex.lab=1.1,
      ylim=c(0,1),xaxt="n",
      main=expression("Power Functions"))
-lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=100),type='l',lwd=4,col="red")
-lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=1000),type='l',lwd=4,col="darkred")
+lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=100),type='l',lwd=4,col="orange")
+lines(xx,pow_1(xx,theta_0=theta_0,s=s,n=1000),type='l',lwd=4,col="yellow")
 
-lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="aquamarine",lty=3)
-lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=100),type='l',lwd=4,col="blue",lty=3)
-lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=1000),type='l',lwd=4,col="darkblue",lty=3)
+lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=10),type='l',lwd=4,col="cadetblue",lty=3)
+lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=100),type='l',lwd=4,col="green",lty=3)
+lines(xx,pow_2(xx,theta_0=theta_0,s=s,n=1000),type='l',lwd=4,col="black",lty=3)
 
 axis(1,at=theta_0+s*c(-1,0,1),lab= c(expression(theta[0]~"-s"),
                                      expression(theta[0]),
@@ -35,8 +35,13 @@ axis(1,at=theta_0+s*c(-1,0,1),lab= c(expression(theta[0]~"-s"),
 #                                         expression(theta[0]~""),
 #                                         expression(theta[0]~"+1"),
 #                                         expression(theta[0]~"+2")))
-legend("topleft",c("Power Function for T statistic","Power Function for Z statistic"),
-       col=c("red","blue"),lwd=2,bty="n",cex=1)
+legend("topleft",c("Power Function for T (n=10)",
+                   "Power Function for Z (n=10)",
+                   "Power Function for T (n=100)",
+                   "Power Function for Z (n=100)",
+                   "Power Function for T (n=1000)",
+                   "Power Function for Z (n=1000)"),
+       col=c("red","cadetblue","orange","green","yellow","black"),lwd=3,bty="n",cex=1)
 abline(v=theta_0,col="grey",lwd=2)
 abline(h=.1,col="grey",lwd=2)
 dev.off()
