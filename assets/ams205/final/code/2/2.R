@@ -5,14 +5,24 @@ source("../../../../R_Functions/plotPost.R",chdir=TRUE)
 
 X <- life$x
 Y <- life$y
-
-#X <- rnorm(100,.2,1)
-#Y <- rnorm(100,0,1)
+N <- length(Y)
 
 plot(density(Y),col="red",lwd=2)
 lines(density(X),col="blue",lwd=2)
 
 perm.mean.diff <- permutation.test(X,Y,mean,B=10000)
-mean(mean(X) - mean(Y) <= perm.mean.diff)
+(p_val_perm <- mean(mean(X) - mean(Y) <= perm.mean.diff)) # p-val: .03 < .05 => mean(X) > mean(Y)
 
 # https://en.wikipedia.org/wiki/Resampling_(statistics)
+
+z_stat_wald <- (mean(X) - mean(Y)) / sqrt( (mean(X)^2 + mean(Y)^2) / N)
+(p_val_wald <- pnorm(z_stat_wald,lower=FALSE))
+
+
+l <- seq(1e-3,10,len=100)
+plot(l,dexp(.1,rate=1/l),type='l')
+lines(l,dexp(.5,rate=1/l),type='l')
+lines(l,dexp(1,rate=1/l))
+lines(l,dexp(2,rate=1/l))
+lines(l,dexp(5,rate=1/l))
+
