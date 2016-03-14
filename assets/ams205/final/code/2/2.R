@@ -14,6 +14,7 @@ perm.mean.diff <- permutation.test(X,Y,mean,B=10000)
 (p_val_perm <- mean(mean(X) - mean(Y) <= perm.mean.diff)) # p-val: .03 < .05 => mean(X) > mean(Y)
 
 # https://en.wikipedia.org/wiki/Resampling_(statistics)
+# http://stats.stackexchange.com/questions/81151/likelihood-ratio-for-two-sample-exponential-distribution
 
 z_stat_wald <- (mean(X) - mean(Y)) / sqrt( (mean(X)^2 + mean(Y)^2) / N)
 (p_val_wald <- pnorm(z_stat_wald,lower=FALSE))
