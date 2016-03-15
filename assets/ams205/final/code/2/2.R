@@ -28,4 +28,4 @@ z_stat_wald <- (mean(X) - mean(Y)) / sqrt( (var(X) + var(Y))/N )
 #lines(l,dexp(5,rate=1/l))
 
 lrt <- mean(Y) / mean(X)
-(p_val_LRT <- pf(lrt, 2*N, 2*N, lower.tail=FALSE))
+(p_val_LRT <- pf(lrt, 2*N, 2*N, lower.tail=TRUE))
