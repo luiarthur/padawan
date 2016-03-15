@@ -36,3 +36,8 @@ I_d <- -l_dd
 se_d <- 1/sqrt(I_d)
 (ci_d <- qnorm(c(.025,.975),d,se_d))
 
+opt <- optim(c(w,d),fn=function(x) -profile_like(x), hessian=TRUE)
+se_wd <- 1 / sqrt(opt$hessian)[c(1,4)]
+
+qnorm(c(.025,.975),w,se_wd[1])
+qnorm(c(.025,.975),d,se_wd[2])

@@ -30,7 +30,7 @@
 \newcommand{\m}[1]{\mathbf{\bm{#1}}} % Serif bold math
 \def\ds{\displaystyle}                                                    
 \def\inv{^{\raisebox{.2ex}{$\scriptscriptstyle-1$}}}
-\def\pm{^{\raisebox{.2ex}{$\scriptscriptstyle\prime$}}}
+%\def\pm{^{\raisebox{.2ex}{$\scriptscriptstyle\prime$}}}
 \def\norm#1{\left\lVert#1\right\rVert}
 \newcommand{\p}[1]{\left(#1\right)}
 \newcommand{\bk}[1]{\left[#1\right]}
@@ -53,9 +53,65 @@
   \hline
 \end{center}
 
-\section*{1)}
+
+\def\ci{\cos(wx_i+\delta)}
+\def\si{\sin(wx_i+\delta)}
+\def\hi{\alpha-\beta\ci}
+\def\hci{\cos(\hat w x_i+\delta)}
+\def\hsi{\sin(\hat w x_i+\delta)}
+\def\hhi{\alpha-\beta\hci}
+\def\suml{\sum_{i=1}^n}
+\def\mlevec{(\alpha,\beta,w,\delta,\sigma^2)}
+\def\hmlevec{\hat\alpha,\hat\beta,\hat w,\hat\delta,\hat\sigma^2}
+
 \subsection*{1a)}
-Write algorithm HERE:\\
+The MLE for ($\alpha,\beta,w,\delta,\sigma^2$) = $\underset{\alpha,\beta,w,\delta,\sigma^2}{\text{argmax}}\log f(\bm y|\bm x,\alpha,\beta,w,\delta,\sigma^2)$.
+\[
+\begin{aligned}
+  &= \underset{\alpha,\beta,w,\delta,\sigma^2}{\text{argmax}}\bc{-\frac{n}{2} \log(\sigma^2) - \frac{\sum_{i=1}^n \p{y_i-\alpha-\beta \cos\p{wx_i+\delta}}^2}{2\sigma^2}}\\
+\end{aligned}
+\]
+
+\noindent
+The MLE is not available in closed form because the MLE's of $w$ and $\delta$ cannot be obtained in closed form. For example, to calculate the MLE of $w$ is obtained as follows:\\
+
+\noindent
+Let $l$ be the log likelihood $\log f(x|\alpha,\beta,w,\delta,\sigma^2)$. Then
+\[
+\begin{aligned}
+  l_w &=  -\beta\si\frac{\suml\p{y_i-\hi}}{\sigma^2}\\
+  l_w &:=0\\
+  \Rightarrow -\beta\hsi\frac{\suml\p{y_i-\hhi}}{\sigma^2}&=0\\
+\end{aligned}
+\]
+
+\noindent
+So, there is no obvious closed form solution for $\hat w$, and hence \textbf{no closed form expression for the MLE of} ($\alpha,\beta,w,\delta,\sigma^2$). Similarly, no closed form solution is available for the MLE of $\delta$.\\
+
+\noindent
+With some algebra and linear model theory, the MLE's for $\alpha$, $\alpha$ and $\beta$ can be computed to be:
+\[
+\begin{aligned}
+  \hat\sigma^2 &= \frac{\suml\p{y_i-\hi}^2}{n}\\
+  \begin{pmatrix} \alpha\\\beta\\ \end{pmatrix} &= (C'C)^{-1}C'\mathbf y
+\end{aligned}
+\]
+\noindent where $C=\begin{pmatrix}\mathbf 1 & \mathbf x\end{pmatrix}$.\\
+
+\noindent The MLE of $\mlevec$ can be solved for by optimizing the log
+likelihood profile with respect to $w$ and $\delta$. This was implemented in R
+using the ``optim" function with a grid of initial values and the negative
+likelihood profile as the function to minimize. The hessian matrix was also
+returned to compute the second derivaties for computing the standard errors
+later. The grid of initial values to test was determined by plotting the
+bivariate log likelihood profile evaluated at $w,\delta$. It can be seen from
+Figure \ref{fig:grid} that the maximum occurs periodically along $\delta$ and
+at $w$ between 1.7 and 1.8. The support of $\delta$ was picked to be
+($-\pi,\pi$) since that is most logical for testing the hypothesis in the later
+problem. The $100 \times 100$ grid points plotted in Figure \ref{fig:grid} were used as
+starting values for the optimizer. The $(w,\delta)$ pair that maximized the
+likelihood profile was $(1.75, -.0373)$. \textbf{The resulting MLE in the
+orbits data set for} $\mlevec=(1.97,-1.50, 1.75, -.0373, .0198)$.
 
 \beginmyfig
   \includegraphics[scale=.5]{../code/output/grid.pdf}
@@ -63,38 +119,135 @@ Write algorithm HERE:\\
   \label{fig:grid}
 \endmyfig
 
+\noindent
+New data was simulated using the MLE's to visually examine the goodness of fit.
+
 \beginmyfig
   \includegraphics[scale=.5]{../code/output/mle.pdf}
-  \caption{\small Log likelihood profile evaluated at various $\delta$ and $w$ values. log likelihoods range from -58 to 147. Regions in darkred correspond to a higher log likelihood.}
+  \caption{\small Fitted model plotted against data.}
   \label{fig:mle}
 \endmyfig
 
 \subsection*{1b)}
-Write down math HERE.\\
+In order to use the wald's test normal approximation, we need to check the 6 regularity conditions. 
+
+\begin{itemize}
+  \item[1.]{Under the model assumptions, $\epsilon_i \sim N(0,\sigma^2)$, so we have iid observations.}
+  \item[2.]{The parameters are identifiable as long as constraints are appropriately defined. Specifically, when $w$ is positive and $\delta$ is bound between $-\pi$ and $\pi$, the parameters are identifiable.}
+  \item[3.]{The support of the likelihood is indeed independent of the parameters.}
+  \item[4.]{In this problem, when $w$ and $\delta$ are at the bounds, it is not practical or meaningful to estimate the parameters. When the frequency $w$ is 0, we don't see a relationship between $x$ and $y$. It may be the case that the true $\delta$ is $\pi$ or $-\pi$. But in problems involving seasons in trends, usually someone with subject matter expertise can inform us of possible trends. So we can avoid modelling problems with a shift parameter at the boundaries.}
+  \item[5.]{The likelihood involves linear terms and $w$ and $\delta$ are associated with a trigonometric function in a way such that it is infinitely differentiable with respect to $w$ and $\delta$.}
+  \item[6.]{Not sure what to show here...}
+\end{itemize}
+
+\noindent
+Since the regularity conditions hold, 95\% Confidence intervals for $w$ and
+$\delta$ can be constructed by inverting a Wald-like test can be obtained by
+computing
+\[
+\begin{aligned}
+  w &= \hat w \pm z_{.025} SE(\hat w) \\
+  \delta &= \hat \delta \pm z_{.025} SE(\hat \delta) \\
+\end{aligned}
+\]
+where $\hat w$ and $\hat\delta$ are the MLE's for $w$ and $\delta$
+respectively. The standard errors for $\hat w$ and $\delta$ can be computed as
+$\bk{I(\hat w)}^{-1/2}$ and $\bk{I(\hat\delta)}^{-1/2}$, where $I(\hat w)$ and
+$I(\hat \delta)$ are the observed inverse informations. The observed inverse
+informations are obtained from the hessian output of the optim function used in
+estimating the MLE's. The following are the results.\\
 
 \noindent
 A 95\% Confidence interval for $w$ based on the Wald-like test is (\textbf{1.749, 1.756}).\\
 A 95\% Confidence interval for $\delta$ based on the Wald-like test is (\textbf{-0.06396, -0.01061}).
 
 \subsection*{1c)}
-Write down algorithm HERE.\\
+A parametric bootstrap algorithm can be implemented in the following way:\\
+
+\begin{itemize}
+  \item Initialize $(\hmlevec)^{(0)} = (\hmlevec)$.
+  \item Repeat for $b$ = $1$ to $B$, some big number
+  \begin{itemize}
+    \item Draw $\bm y^{(b)} \sim \bm f(y|\bm x,\hmlevec)$
+    \item set $(\hmlevec)^{(b)}= \underset{\alpha,\beta,w,\delta,\sigma^2}{\text{argmax}}\log f(\bm y^{(b)}|\bm x,\mlevec)$
+  \end{itemize}
+\end{itemize}
+
 
 \noindent
 A 95\% Confidence interval for $w$ based on bootstrap is (\textbf{1.716, 1.804}).\\
 A 95\% Confidence interval for $\delta$ based on bootstrap is (\textbf{-0.3922, 0.2558}).\\
 
 \noindent
-For both $w$ and $\delta$, the bootstrapped 95\% confidence intervals contain
-the intervals constructed from a Wald-like test based on the Normal
-approximation. That is, the Wald-like test intervals are narrower.
+The bootstrapped 95\% confidence intervals contain the intervals constructed
+from a Wald-like test based on the Normal approximation. The 95\% confidence
+interval for $\delta$ estimated using bootstrap includes 0, while that estimated
+using the wald-like test does not.
 
 \subsection*{1d)}
-Since the 95\% confidence interval does not contain 0, we \textbf{reject the
-null hypothesis} at the 95\% confidence level that $\delta=0$.
+Typically, the Wald-like test intervals tend to be narrower than the truth when
+$n$ is small. In any case, the bootstrap interval is more conservative. So in
+this situation where the wald interval for $\delta$ does not include 0 but the
+bootstrap interval for $\delta$ includes 0, and where the upper bound for
+$\delta$ in the wald interval is so close to 0, I would conclude that $\delta$
+is \textbf{not significantly different from 0}.
+
+\subsection*{2a)}
+\[
+\begin{aligned}
+  \lambda(\bm x, \bm y) &= \frac{\underset{\lambda_1-\lambda_2 < 0}{\sup} f(\lambda_1, \lambda_2 | \bm x, \bm y)}{\underset{\lambda_1-\lambda_2 \ne 0}{\sup} f(\lambda_1, \lambda_2 | \bm x, \bm y)}\\
+\end{aligned}
+\]
+
+\noindent
+Under the exponential distribution, the parameter values that maximize the likelihoods are the MLE's for 
+parameters. In this case, since the two samples are independent, the MLE's are just $\bar x, \bar y$. When
+$\bar x < \bar y$, $\lambda(\bm x, \bm y) = 1$ since the numerator and denominators become the same values. 
+The non trivial case and case we examine is when $\bar x \ge \bar y$. When $\bar x \ge \bar y$, the parameters
+that maximize the likelihood are equal. Then, to solve for the parameters in the constrained case, 
+\[
+\begin{aligned}
+  L&=\lambda_0^{-2n}\exp\p{-\frac{\suml x_i + y_i}{\lambda_0}}\\
+  \Rightarrow l=\log L &= -2n\log(\lambda_0) - \frac{\suml x_i + y_i}{\lambda_0}\\
+  \\
+  l' &:=0 \\
+  \Rightarrow -\frac{2n}{\hat\lambda_0} + \frac{\suml x_i + y_i}{\hat\lambda_0^2} &= 0 \\
+  \Rightarrow -2n\hat\lambda_0 + \suml x_i + y_i &= 0 \\
+  \Rightarrow \hat\lambda_0 &= \frac{\suml x_i + y_i}{2n} =  \frac{\bar x + \bar y}{2}
+\end{aligned}
+\]
+Therefore, to compute the LRT, 
+\def\xbar{\bar x}
+\def\ybar{\bar y}
+\[
+\begin{aligned}
+  \lambda(\bm x, \bm y) &= \frac{f(\hat\lambda_0, \hat\lambda_0 | \bm x, \bm y)}{f(\bar x, \bar y | \bm x, \bm y)}\\
+                        &= \frac{\hat\lambda_0^{-2n}\exp\p{-\frac{\suml x_i + \suml y_i}{\hat\lambda_0}}}{\bar x^{-n} \bar y^{-n}\exp\p{-\suml x_i/\bar x - \suml y_i /\bar y}}\\
+                        &= \frac{\hat\lambda_0^{-2n}}{\bar x^{-n} \bar y^{-n}}\\
+                        &= \p{\frac{4\bar x \bar y}{(\bar x + \bar y)^2}}^n \\
+                        &= \p{\frac{(\bar x + \bar y)^2}{4\bar x \bar y}}^{-n} \\
+                        &= \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n}\\
+  \\
+  &(\text{Note that under $H_0$, $\frac{\ybar}{\xbar} = \frac{\xbar}{\ybar} = \frac{2\suml X_i/(2\lambda_1n)}{2\suml Y_i/(2\lambda_1n)} = \frac{\chi^2_{(2n)}/2n}{\chi^2_{(2n)}/2n} \sim F_{n,n}$})\\
+  &\sim \p{\frac{1}{4}\p{1+F_{n,n}}\p{1+F_{n,n}}}^{-n}\\
+  &= \p{\frac{1}{4}\p{1+F_{n,n}}^2}^{-n}\\
+\end{aligned}
+\]
+Therfore, the LRT rejects $H_0$ when $\lambda(\bm x, \bm y) = \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n} < c$, where $c$ is some constant between 0 and 1. The p-value can be computed as follows:
+\[
+\begin{aligned}
+  \text{p-value} &= P\p{\Lambda(\bm X,\bm Y) < \lambda(\bm x,\bm y)}\\
+                 &= P\p{ \p{\frac{1}{4}\p{1+F}^2}^{-n}< \lambda(\bm x,\bm y)}\\
+                 &= P\p{ \p{1+F}^2 > 4\lambda(\bm x,\bm y)^{-1/n}}\\
+                 &= P\p{ F > 4\lambda(\bm x,\bm y)^{-1/2n}-1}\\
+                 &= P\p{ F > \frac{2(\xbar+\ybar)}{\sqrt{\xbar\ybar}}-1}\\
+\end{aligned}
+\]
+where $F\sim F_{n,n}$.
 
 
-\section*{3)}
-Write...
+
+
 \subsection*{3a)}
 Write...
 \subsection*{3b)}

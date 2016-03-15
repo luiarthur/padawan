@@ -12,7 +12,6 @@ pdf("output/grid.pdf")
 dev.off()
 
 ## Compare
-init_grid <- expand.grid(seq(1,5,len=10), seq(.01,2,len=10))
 init_grid <- expand.grid(seq(1,5,len=10), seq(-pi,pi,len=10))
 
 # 41 seconds
@@ -39,3 +38,5 @@ pdf("output/mle.pdf")
   legend("topleft",legend=c("Data","New Samples","Prediction"),col=c("black","lightblue","red"),lwd=3,bty="n")
 dev.off()
 #mle <- 1.97, -1.50, 1.75, 3.10, .0198
+
+#optim(c(-1.75,.01),fn=function(x) -profile_like(x),hessian=TRUE)
