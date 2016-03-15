@@ -3,7 +3,7 @@ pow_1 <- function(theta,n,alpha=.1,theta_0=0,s=1) {
   pt(t_alpha + sqrt(n) *(theta_0-theta) / s, df=n-1, lower.tail=FALSE)
 }
 
-pow_1(0+1,1,.05)
+sapply(2:100,function(n) pow_1(0+1,n,.05))
 
 pow_2 <- function(theta,n,alpha=.1,theta_0=0,s=1) {
   t_alpha <- qnorm(1-alpha)
