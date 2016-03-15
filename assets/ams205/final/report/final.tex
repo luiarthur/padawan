@@ -227,20 +227,24 @@ Therefore, to compute the LRT,
                         &= \p{\frac{4\bar x \bar y}{(\bar x + \bar y)^2}}^n \\
                         &= \p{\frac{(\bar x + \bar y)^2}{4\bar x \bar y}}^{-n} \\
                         &= \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n}\\
-  \\
-  &(\text{Note that under $H_0$, $\frac{\bar X}{\bar Y} = \frac{\bar Y}{\bar X} = \frac{2\suml X_i/(2\lambda_1n)}{2\suml Y_i/(2\lambda_1n)} = \frac{\chi^2_{(2n)}/2n}{\chi^2_{(2n)}/2n} \sim F_{2n,2n}$})\\
-  &\sim \p{\frac{1}{4}\p{1+F_{2n,2n}}\p{1+F_{2n,2n}}}^{-n}\\
-  &= \p{\frac{1}{4}\p{1+F_{2n,2n}}^2}^{-n}\\
+                        &= 4^n\p{1+\frac{\ybar}{\xbar}}^{-n}\p{\frac{\ybar/\xbar}{1+\ybar/\xbar}}^n\\
 \end{aligned}
 \]
-Therfore, the LRT rejects $H_0$ when $\lambda(\bm x, \bm y) = \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n} < c$, where $c$ is some constant between 0 and 1. The p-value can be computed as follows:
+Note that under $H_0$, $\frac{\bar Y}{\bar X} = \frac{2\suml
+Y_i/(2\lambda_1n)}{2\suml X_i/(2\lambda_1n)} =
+\frac{\chi^2_{(2n)}/2n}{\chi^2_{(2n)}/2n} \sim F_{2n,2n}$. Furthermore, it can
+be shown the expression above is monotone decreasing in $\ybar/\xbar$ by taking
+the derivative w.r.t. the statistic.  So, $\lambda(\bm x,\bm y) < c \iff
+\frac{\bar Y}{\bar X} < c$ Therfore, the LRT rejects $H_0$ when $\lambda(\bm x,
+\bm y) =
+4^n\p{1+\frac{\ybar}{\xbar}}^{-n}\p{\frac{\ybar/\xbar}{1+\ybar/\xbar}}^n > c$,
+where $c$ is some constant between 0 and 1. The p-value can be computed as
+follows:
 \[
 \begin{aligned}
   \text{p-value} &= P\p{\Lambda(\bm X,\bm Y) < \lambda(\bm x,\bm y)}\\
-                 &= P\p{ \p{\frac{1}{4}\p{1+F}^2}^{-n}< \lambda(\bm x,\bm y)}\\
-                 &= P\p{ \p{1+F}^2 > 4\lambda(\bm x,\bm y)^{-1/n}}\\
-                 &= P\p{ F > 2\lambda(\bm x,\bm y)^{-1/2n}-1}\\
-                 &= P\p{ F > \frac{\xbar+\ybar}{\sqrt{\xbar\ybar}}-1}\\
+                 &= P\p{\frac{\bar Y}{\bar X} < \frac{\ybar}{\xbar}}\\
+                 &= P\p{F < \frac{\ybar}{\xbar}}\\
 \end{aligned}
 \]
 where $F\sim F_{2n,2n}$.
@@ -278,7 +282,7 @@ permutation test were computed using the above formulas to be:
 \begin{tabular}{c|ccc}
   & LRT & Wald & Permutation \\
   \hline & \hline & \hline & \hline \\
-  p-value  & .411 & .0331 &.0365
+  p-value  & .045 & .0331 &.0365
 \end{tabular}
 \end{center}
 
