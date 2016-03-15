@@ -3,9 +3,12 @@ pow_1 <- function(theta,n,alpha=.1,theta_0=0,s=1) {
   pt(t_alpha + sqrt(n) *(theta_0-theta) / s, df=n-1, lower.tail=FALSE)
 }
 
+pow_1(0+1,1,.05)
+
 pow_2 <- function(theta,n,alpha=.1,theta_0=0,s=1) {
   t_alpha <- qnorm(1-alpha)
-  pnorm(t_alpha + sqrt(n) *(theta_0-theta) / s, lower.tail=FALSE)
+  #pnorm(t_alpha + sqrt(n) *(theta_0-theta) / s, lower.tail=FALSE)
+  pt(t_alpha + sqrt(n) *(theta_0-theta) / s, df=n-1,lower.tail=FALSE)
 }
 
 
@@ -45,3 +48,4 @@ legend("topleft",c("Power Function for T (n=10)",
 abline(v=theta_0,col="grey",lwd=2)
 abline(h=.1,col="grey",lwd=2)
 dev.off()
+

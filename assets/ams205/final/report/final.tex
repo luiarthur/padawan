@@ -228,9 +228,9 @@ Therefore, to compute the LRT,
                         &= \p{\frac{(\bar x + \bar y)^2}{4\bar x \bar y}}^{-n} \\
                         &= \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n}\\
   \\
-  &(\text{Note that under $H_0$, $\frac{\ybar}{\xbar} = \frac{\xbar}{\ybar} = \frac{2\suml X_i/(2\lambda_1n)}{2\suml Y_i/(2\lambda_1n)} = \frac{\chi^2_{(2n)}/2n}{\chi^2_{(2n)}/2n} \sim F_{n,n}$})\\
-  &\sim \p{\frac{1}{4}\p{1+F_{n,n}}\p{1+F_{n,n}}}^{-n}\\
-  &= \p{\frac{1}{4}\p{1+F_{n,n}}^2}^{-n}\\
+  &(\text{Note that under $H_0$, $\frac{\bar X}{\bar Y} = \frac{\bar Y}{\bar X} = \frac{2\suml X_i/(2\lambda_1n)}{2\suml Y_i/(2\lambda_1n)} = \frac{\chi^2_{(2n)}/2n}{\chi^2_{(2n)}/2n} \sim F_{2n,2n}$})\\
+  &\sim \p{\frac{1}{4}\p{1+F_{2n,2n}}\p{1+F_{2n,2n}}}^{-n}\\
+  &= \p{\frac{1}{4}\p{1+F_{2n,2n}}^2}^{-n}\\
 \end{aligned}
 \]
 Therfore, the LRT rejects $H_0$ when $\lambda(\bm x, \bm y) = \p{\frac{1}{4}\p{1+\frac{\ybar}{\xbar}}\p{1+\frac{\xbar}{\ybar}}}^{-n} < c$, where $c$ is some constant between 0 and 1. The p-value can be computed as follows:
@@ -239,25 +239,129 @@ Therfore, the LRT rejects $H_0$ when $\lambda(\bm x, \bm y) = \p{\frac{1}{4}\p{1
   \text{p-value} &= P\p{\Lambda(\bm X,\bm Y) < \lambda(\bm x,\bm y)}\\
                  &= P\p{ \p{\frac{1}{4}\p{1+F}^2}^{-n}< \lambda(\bm x,\bm y)}\\
                  &= P\p{ \p{1+F}^2 > 4\lambda(\bm x,\bm y)^{-1/n}}\\
-                 &= P\p{ F > 4\lambda(\bm x,\bm y)^{-1/2n}-1}\\
-                 &= P\p{ F > \frac{2(\xbar+\ybar)}{\sqrt{\xbar\ybar}}-1}\\
+                 &= P\p{ F > 2\lambda(\bm x,\bm y)^{-1/2n}-1}\\
+                 &= P\p{ F > \frac{\xbar+\ybar}{\sqrt{\xbar\ybar}}-1}\\
 \end{aligned}
 \]
-where $F\sim F_{n,n}$.
+where $F\sim F_{2n,2n}$.
+
+\subsection*{2b)}
+A wald statistic can be defined as 
+\[
+\begin{aligned}
+  Z_n &= \frac{\bar X - \bar Y}{SE(\bar X - \bar Y)} \\
+      &= \frac{\bar X - \bar Y}{\sqrt{SE(X)^2 + SE(Y)^2}}\\
+      &= \frac{\bar X - \bar Y}{\sqrt{Var(X)/n + Var(Y)/n}}\\
+  \\
+  \Rightarrow \text{p-value} = P(Z < z_n) &= \Phi\p{\frac{\bar x - \bar y}{\sqrt{var(x)^2/n + var(y)^2/n}}}
+\end{aligned}
+\]
+
+%z_stat_wald <- (mean(X) - mean(Y)) / sqrt( (mean(X)^2 + mean(Y)^2) / N)
+%(p_val_wald <- pnorm(z_stat_wald,lower=FALSE))
 
 
+\subsection*{2c)}
+A permutation test can be implemented by repeating the following steps many times (e.g. 10000):
+\begin{itemize}
+  \item Relabel the observations (into one of the two groups)
+  \item Compute the difference of the means of two groups
+\end{itemize}
+Computing the proportion of times the sampled difference in means is less than
+the actual observed difference in means will give a p-value for this test.
 
+\subsection*{2d)}
+For the lifetime data, the p-values using the LRT, Wald statistic, and
+permutation test were computed using the above formulas to be:
+
+\begin{center}
+\begin{tabular}{c|ccc}
+  & LRT & Wald & Permutation \\
+  \hline & \hline & \hline & \hline \\
+  p-value  & .411 & .0331 &.0365
+\end{tabular}
+\end{center}
 
 \subsection*{3a)}
-Write...
+\[
+\begin{aligned}
+  \beta(\theta) &= P_\theta(T>t_\alpha) \\
+  \Rightarrow &= P_\theta(\frac{\sqrt{n} (\bar X - \theta_0) }{S} > t_\alpha) \\
+  \Rightarrow &= P_\theta(\frac{\sqrt{n} (\bar X - \theta) }{S} > t_\alpha + \frac{\sqrt{n} (\theta_0-\theta)}{S}) \\
+  \Rightarrow &= P_\theta(T_{n-1} > t_\alpha + \frac{\sqrt{n} (\theta_0-\theta)}{S}) \\
+\end{aligned}
+\]
+where $T_{n-1}$ is a $t$-distribution with $n-1$ degrees of freedom. And
+$t_\alpha$ is chosen for the appropriate size.  That is $t_\alpha =
+\Psi_{n-1}^{-1}(1-\alpha)$, where $\Psi_{n}^{-1}(x)$ is the inverse CDF of the
+t distribution with $n$ degrees of freedom.
+
+
 \subsection*{3b)}
+\[
+\begin{aligned}
+  \beta(\theta) &= P_\theta(T>z_\alpha) \\
+  \Rightarrow &= P_\theta(\frac{\sqrt{n} (\bar X - \theta_0) }{S} > z_\alpha) \\
+  \Rightarrow &= P_\theta(\frac{\sqrt{n} (\bar X - \theta) }{S} > z_\alpha + \frac{\sqrt{n} (\theta_0-\theta)}{S}) \\
+  \Rightarrow &= P_\theta(T_{n-1} > z_\alpha + \frac{\sqrt{n} (\theta_0-\theta)}{S}) \\
+\end{aligned}
+\]
+where $T_{n-1}$ is a $t$-distribution with $n-1$ degrees of freedom. And $z_\alpha$ is chosen for the appropriate size.
+That is $z_\alpha = \Phi^{-1}(1-\alpha)$.
+
 \subsection*{3c)}
+In Figure \ref{fig:power} below, both power curves are plotted for $n=10,100$, and $1000$. The power of the normal
+test is greater than that of the t test for small $n$. As $n$ increases, the powers are approximately equal. At 
+$\theta = \theta_0$, the power is $\alpha$ for both curves.
+
 \beginmyfig
   \includegraphics[scale=.5]{../code/output/power.pdf}
   \caption{\small Power function.}
   \label{fig:power}
 \endmyfig
-\subsection*{3d)}
-The T test above is \textbf{not uniformly most powerful} because for small $n$ ($n=100$), the power $\beta(\theta)$ is not always greater than the power ($\beta'(\theta)$) for all $\theta \in \Theta_0$. For example as seen in Figure $\ref{fig:power}$, when $n=10$, and $\theta > \theta_0$, the power for the test based on the Normal test statistic is greater than that of the T test statistic.
 
+\subsection*{3d)}
+The T test above is \textbf{not uniformly most powerful} because for small $n$,
+the power $\beta(\theta)$ is not always greater than the power
+($\beta'(\theta)$) for all $\theta \in \Theta_0$. For example as seen in Figure
+$\ref{fig:power}$, when $n=10$, and $\theta > \theta_0$, the power for the test
+based on the Normal test statistic is greater than that of the T test
+statistic. \\
+
+\noindent
+To detect an increase in the mean (w.r.t. $\theta_0$) equivalent to two times
+the true standard deviation of the data with probability 0.8, we need to solve
+for the sample size under those conditions when the power is 0.8.
+
+\[
+\begin{aligned}
+  \beta(\theta) &= .8 \\
+  \Rightarrow P_\theta(T_{n-1} > t_\alpha + \frac{\sqrt{n} (\theta_0-(\theta_0+2s))}{s}) &= .8\\
+  \Rightarrow P_\theta(T_{n-1} > t_\alpha - 2\sqrt{n}) &= .8\\
+  \Rightarrow P_\theta(T_{n-1} > t_{.05} - 2\sqrt{n}) &= .8\\
+\end{aligned}
+\]
+
+\noindent
+Since $n$ cannot be solved analytically, we can compute the power function for different values of $n$ to see
+when the power is above 0.8.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rc}
+  n & Power \\ 
+  \hline & \hline \\
+  1 & 0.06 \\ 
+  2 & 0.18 \\ 
+  3 & 0.37 \\ 
+  4 & 0.54 \\ 
+  5 & 0.66 \\ 
+  6 & 0.75 \\ 
+  \textbf 7 & \textbf{0.81} \\ 
+\end{tabular}
+\end{table}
+
+\noindent
+When $\mathbf{n=7}$, we can detect detect an increase in the mean equivalent to two
+times the true standard deviation of the data with probability 0.8.
 \end{document}
