@@ -231,7 +231,7 @@ Interval Estimation
 : An interval estimate of a real-valued parameter $\theta$ is any pair of functions $L(X)$ and $U(X)$ of a sample that satisfies $L(X) \lt U(X)$ for all $X$ in the sample space. If $X$ is observed the implied inference is that $L(X) \lt \theta \lt U(X)$. Note that here, $X$ is a random variable. 
 
 Confidence Coefficient
-: $\underset{\theta}{inf}~P\_\theta(\theta \in (L(X), U(X)) )$
+: $\underset{\theta}{\text{inf}}~P\_\theta(\theta \in (L(X), U(X)) )$
 
 Pivot
 : Intervals that are based on point estimators whose distribution does not depend on the parameters of the model.
@@ -262,7 +262,25 @@ $$
 
 Consistency requies 1-4. Normality requires 1-6.
 
-### Possible Projects
+Likelihood Profile
+: A likelihood of the form $L(\theta\_1,\hat\theta\_0(\theta\_1))$. Where $\hat\theta\_0(\theta\_1)$ are the MLE's for a set of parameters $\theta\_0$ evaluated (in closed form) based on some parameters  $\theta\_1$(for which the MLE's cannont be found in closed form).
+
+### Parametric Bootstrap
+
+For a likelihood $f$,
+
+1. Draw $y\sim f(y\v\hat\theta\_{MLE})$
+2. For $b = 1:B$
+    - $y^{(b)} \sim f(y\v\hat\theta\_{MLE})$
+    - Compute $\hat\theta\_{MLE}(y^{(b)})$
+
+### Nonparametric Bootstrap
+
+Sample data of size $n$ with replacement, fit model, get estimates.
+
+***
+
+# Possible Projects
 
 - Comparing Newton Raphson, SGD, and GD for finding MLE of a (generalized) linear model
     - speed and difficulty
