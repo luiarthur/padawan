@@ -25,8 +25,20 @@ $$
 \end{cases}
 $$
 
-DP($\alpha,G_0$) = PYP($0,\alpha,G_0$).
+DP($\alpha,G_0$) = PYP($0,\alpha,G_0$). 
+NSP($\delta,G_0$) = PYP($\delta,0,G_0$). NSP = Normalized Stationary Process.
 
+So, in the normalized stationary process, NSP($\delta,G_0$), $\delta \in (0,1)$,
+
+$$
+\begin{cases}
+    x_i \sim G_0, & \text{w.p.} ~~ \ds\frac{\delta K_i}{i-1} \\
+    \\
+    x_i = u_k, & \text{w.p.} ~~ \ds\frac{c_k-\delta}{i-1}, \text{ for } k=1,...,K_i \\
+\end{cases}
+$$
+
+Note that in the NSP, the first observation is drawn from the centering distribution $G\_0$.
 
 
 ***
