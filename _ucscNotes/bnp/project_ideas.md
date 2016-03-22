@@ -37,9 +37,10 @@ where $s_{i,k}$ is the number of times the $i^{th}$ word in the *vocabulary* has
     - Hard links are physical copies. You get a file that shares the same location.
     If you change original file, you change the hardlinked file, and vice versea.
 -->
+
 ### R Code 
 {% highlight R linenos %}
-  {% include_relative code/project_ideas/lda/lda_hardlink %}
+{% include_relative code/project_ideas/lda/lda_hardlink %}
 {% endhighlight %}
 
 ### HDP Tutorial & Applications (towards the end) by Michael Jordan
