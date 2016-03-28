@@ -63,6 +63,12 @@ defaults:
       path: "ucsc_notes/advBayesComputing"
     values:
       ams: 268
+  -
+    scope:
+      path: "ucsc_notes/fye"
+    values:
+      ams: "fye"
+
 ##################
 # http://jekyllrb.com/docs/collections/
 collections:

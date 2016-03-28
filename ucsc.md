@@ -41,6 +41,13 @@ comments: off
   {% endif %}
 {% endfor %}
 
+### AMS FYE
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == "fye" %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 ### AMS 5 (Intro to Stats)
 {% for notes in site.ucscNotes %}
   {% if notes.ams == 5 %}
