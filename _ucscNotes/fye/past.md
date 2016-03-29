@@ -8,6 +8,7 @@ date: 2016-03-28
   - [AMS 203 Syllabus](/assets/fye/2015/FYE_syllabus_AMS203_2015.pdf)
   - [Take Home](/assets/fye/2015/ams_fye_takehome_2015.pdf)
   - [Take Home Retake](/assets/fye/2015/fye_retake_2015.pdf)
+  - [Take_Home.R](/assets/fye/2015/Take_Home.R)
 
 ### 2013
   - [Syllabus](/assets/fye/2013/syllabus_2013.pdf)
@@ -23,6 +24,7 @@ date: 2016-03-28
   - [In Class](/assets/fye/2010/fye_2010.pdf)
   - [In Class Answers](/assets/fye/2010/fye_2010_answers.pdf)
   - [Take Home - Stats](/assets/fye/2010/fye_2010_th_s.pdf)
+  - [hpa.csv](/assets/fye/2010/hpa.csv)
   - [Take Home - AM](/assets/fye/2010/fye_2010_th_am.pdf)
 
 ### 2009
