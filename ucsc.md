@@ -41,6 +41,27 @@ comments: off
   {% endif %}
 {% endfor %}
 
+### AMS 256 (Linear Models)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 256 %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
+### AMS 207 (Intermediate Bayesian Modeling)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 207 %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
+### AMS 250 (High Performance Computing)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 250 %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 ### AMS FYE
 {% for notes in site.ucscNotes %}
   {% if notes.ams == "fye" %}

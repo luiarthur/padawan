@@ -68,6 +68,21 @@ defaults:
       path: "ucsc_notes/fye"
     values:
       ams: "fye"
+  -
+    scope:
+      path: "ucsc_notes/lm"
+    values:
+      ams: 256
+  -
+    scope:
+      path: "ucsc_notes/bayesModel"
+    values:
+      ams: 207
+  -
+    scope:
+      path: "ucsc_notes/parallel"
+    values:
+      ams: 250
 
 ##################
 # http://jekyllrb.com/docs/collections/
