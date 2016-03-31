@@ -16,5 +16,6 @@ date: 2016-03-30
         b_n &=& \ds\frac{2}{L} \int_{x_0}^{x_0+L} f(x) \sin\p{\frac{2\pi nx}{L}}dx\\
       \end{array}
       $$
+    - Method of Undertermined Coefficients
 
 
