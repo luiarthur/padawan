@@ -6,6 +6,7 @@ date: 2016-03-30
 ## AMS 211
 
 - Recall how to obtain eigenvalues / eigenvectors
+- Quickly inverting $2 \times 2$ matrices
 - Fourier Series
     - **Gibbs phenomenon:** At discontinuities, there is an overshoot in the Fourier approximation.
     - $f(x) = \ds \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos\p{\frac{2\pi nx}{L}}+ b_n \sin\p{\frac{2\pi nx}{L}}$, where
