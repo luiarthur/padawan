@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../test/mondrianTree.h"
+#include "../src/mondrianTree.h"
 
 using namespace std;
 
