@@ -3,8 +3,8 @@
 #include <vector>
 
 class mondrianTree {
-
-  public:
-
-  private:
+    public:
+        mondrianTree();
+        void sample(std::vector< std::vector<double> > X, double lambda);
+        
 };
