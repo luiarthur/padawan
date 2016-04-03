@@ -25,7 +25,7 @@ struct mondrianNode {
 
   virtual std::string to_string() const {
     std::ostringstream os;
-    os << std::get<0>(dxt) << "," << std::get<1>(dxt) << "," << std::get<2>(dxt) << std::endl;
+    os << std::get<0>(dxt) << "," << std::get<1>(dxt) << "," << std::get<2>(dxt);
     return os.str();
   }
 };

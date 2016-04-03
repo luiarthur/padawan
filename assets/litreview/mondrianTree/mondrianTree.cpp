@@ -37,7 +37,7 @@ std::string mondrianTree::to_string() const {
     os << "NULL\n";
   } else {
     //os << (*root).to_string() << " ";
-    os << (*root).to_string() << " ";
+    os << (*root).to_string() << "\n";
     os << get_left_tree().to_string();
     os << get_right_tree().to_string();
   }
