@@ -35,7 +35,6 @@ class mondrianTree {
     }
 
     void sample(std::vector< std::vector<double> > X, double lambda);
-    void testing(int yy);
 
   private:
     std::vector<int> nodes;
