@@ -1,10 +1,10 @@
 #!/bin/bash
 
-mkdir -p "out"
+#mkdir -p "out"
 filepath="$1"
 filename=$(basename "$filepath")
 file="${filename%.*}"
-out="out/$file.out"
+out="$file.out"
 
 echo g++ -Wall $1 -o $out
 g++ -Wall $1 -o $out

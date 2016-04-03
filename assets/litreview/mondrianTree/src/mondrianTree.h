@@ -34,6 +34,8 @@ class mondrianTree {
       std::cout << std::endl;
     }
 
+    void sample(std::vector< std::vector<double> > X, double lambda);
+
 
 
   private:
