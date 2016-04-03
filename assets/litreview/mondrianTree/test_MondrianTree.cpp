@@ -22,3 +22,4 @@ int main() {
 // How do I better draw a tree?
 //    - D3.js?
 //    - R?
+//    - text: http://stackoverflow.com/questions/801740/c-how-to-draw-a-binary-tree-to-the-console
