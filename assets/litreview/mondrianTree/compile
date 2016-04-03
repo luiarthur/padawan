@@ -9,6 +9,6 @@
 #echo g++ -Wall $1 -o $out
 #g++ -Wall $1 -o $out
 
-g++ -Wall *.cpp
+g++ -std=c++11 -Wall *.cpp
 
 
