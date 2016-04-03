@@ -1,0 +1,9 @@
+#!/bin/bash
+
+filepath="$1"
+filename=$(basename "$filepath")
+file="${filename%.*}"
+out="$file.out"
+
+echo g++ -Wall $1 -o $out
+g++ -Wall $1 -o $out
