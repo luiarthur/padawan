@@ -20,8 +20,8 @@ struct mondrianNode {
                mondrianNode* parent_val=NULL) :
     dxt(dat), left(left_val), right(right_val), parent(parent_val) {}
   
-  // Destructor (to avoid warning message). Does nothing.
-  //virtual ~mondrianNode() {}
+  // Destructor (to avoid warning message). Does nothing. p.200
+  virtual ~mondrianNode() {}
 
   // virtual: to_string() can be overridden by derived class (mondrianTree).
   //          ie. if mondrianTree has its own to_string() function (and it does)
