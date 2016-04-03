@@ -21,7 +21,13 @@ class mondrianTree {
         bool is_leaf() const;
         virtual std::string to_string() const; // draw the tree
 
-    protected: // protected instead of private because "mondrianNode" is secret
+    protected:
+        /* Unlike "private", now the following is visible to, mutable by, but 
+           proteted from children. if "private" were used, root trees
+           would not be immutable to children. 
+           "protected" is good for extending classes. But "private"
+           is usually preferred to restrict the editting of parent
+           classes.  see p.192 */
         mondrianTree(mondrianNode* new_root) : root(new_root) {}
         mondrianNode *root;
 };

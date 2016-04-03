@@ -23,7 +23,10 @@ struct mondrianNode {
   // Destructor (to avoid warning message). Does nothing.
   //virtual ~mondrianNode() {}
 
-  virtual std::string to_string() const {
+  // virtual: to_string() can be overridden by derived class (mondrianTree).
+  //          ie. if mondrianTree has its own to_string() function (and it does)
+  //          then, the proper to_string() function will be used at run-time. p.193.
+  virtual std::string to_string() const { // const indicates the value of object won't change. (optional)
     std::ostringstream os;
     os << std::get<0>(dxt) << "," << std::get<1>(dxt) << "," << std::get<2>(dxt);
     return os.str();
