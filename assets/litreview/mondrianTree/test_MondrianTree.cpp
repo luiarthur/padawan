@@ -9,10 +9,12 @@ int main() {
   tuple<int,double,double> dat1(2,4,6);
   tuple<int,double,double> dat2(1,3,5);
 
-  mondrianTree root(dat);
   mondrianTree lT(dat1);
   mondrianTree rT(dat2);
   mondrianTree big(dat,lT,rT);
+  mondrianTree rbig(dat,big,rT);
+  mondrianTree rrbig(dat,lT,rbig);
 
-  cout << get<0>(big.get_left_tree()->dxt) ;
+  //cout << get<0>(big.get_left_tree().dxt) ;
+  cout << rrbig.to_string();
 }

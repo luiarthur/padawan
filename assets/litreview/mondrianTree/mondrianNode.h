@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <tuple>
+#include <sstream>
 
 // p.254 (List), p.459 (Tree)
 struct mondrianNode {
@@ -21,4 +22,10 @@ struct mondrianNode {
   
   // Destructor (to avoid warning message). Does nothing.
   //virtual ~mondrianNode() {}
+
+  virtual std::string to_string() const {
+    std::ostringstream os;
+    os << std::get<0>(dxt) << "," << std::get<1>(dxt) << "," << std::get<2>(dxt) << std::endl;
+    return os.str();
+  }
 };
