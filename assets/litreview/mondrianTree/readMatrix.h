@@ -37,5 +37,3 @@ void printMatrix(std::vector<std::vector<double> > M) {
        std::cout << std::endl;
     }
 }
-
-

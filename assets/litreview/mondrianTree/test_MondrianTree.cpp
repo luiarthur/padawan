@@ -22,6 +22,7 @@ int main() {
 
   //cout << get<0>(big.get_left_tree().dxt) ;
   cout << rrbig;
+ 
 }
 
 // How do I better draw a tree?
