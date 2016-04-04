@@ -1,7 +1,10 @@
 #pragma once
 #include <iostream>
-#include <vector>
-#include <string>
+#include <cstddef>     // for mondrianTree::to_string()
+#include <sstream>     // for mondrianTree::to_string()
+#include <stdexcept>   // for mondrianTree::to_string()
+#include <string>      // for mondrianTree::to_string()
+
 #include "mondrianNode.h"
 
 class mondrianTree {
@@ -21,6 +24,7 @@ class mondrianTree {
         bool is_leaf() const;
         virtual std::string to_string() const; // draw the tree
 
+
     protected:
         /* Unlike "private", now the following is visible to, mutable by, but 
            proteted from children. if "private" were used, root trees
@@ -31,3 +35,5 @@ class mondrianTree {
         mondrianTree(mondrianNode* new_root) : root(new_root) {}
         mondrianNode *root;
 };
+
+std::ostream& operator<<(std::ostream& out, const mondrianTree& tree);

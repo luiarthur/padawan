@@ -1,7 +1,3 @@
-#include <cstddef>     // for mondrianTree::to_string()
-#include <sstream>     // for mondrianTree::to_string()
-#include <stdexcept>   // for mondrianTree::to_string()
-#include <string>      // for mondrianTree::to_string()
 #include "mondrianTree.h"
 
 mondrianTree mondrianTree::get_left_tree() const {
@@ -11,7 +7,7 @@ mondrianTree mondrianTree::get_left_tree() const {
   return mondrianTree(root->left);
 }
 
-mondrianTree mondrianTree::get_right_tree() const{
+mondrianTree mondrianTree::get_right_tree() const {
   if (root == NULL) {
     throw std::invalid_argument("Cannot get right subtree of Empty Tree.");
   }
@@ -44,7 +40,10 @@ std::string mondrianTree::to_string() const {
   return os.str();
 }
 
+std::ostream& operator<<(std::ostream& out, const mondrianTree& tree) {
+  return out << tree.to_string();
+}
+
 //void mondrianTree::sample(std::vector< std::vector<double> > X, double lambda) {
 //  cout << "HI" << endl;
 //}
-

@@ -3,6 +3,11 @@
 
 using namespace std;
 
+//std::ostream& operator<<(std::ostream& out, const mondrianTree& tree) {
+//  return out << tree.to_string();
+//}
+
+
 int main() {
 
   tuple<int,double,double> dat(1,2,3);
@@ -16,7 +21,7 @@ int main() {
   mondrianTree rrbig(dat,lT,rbig);
 
   //cout << get<0>(big.get_left_tree().dxt) ;
-  cout << rrbig.to_string();
+  cout << rrbig;
 }
 
 // How do I better draw a tree?
