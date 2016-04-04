@@ -5,8 +5,8 @@
 #include <sstream>
 
 // p.254 (List), p.459 (Tree)
+// struct and class are synonymous except that, by default, members are public in a struct.
 struct mondrianNode {
-
   // Data Fields
   std::tuple<int,double,double> dxt; // split dimension, location, time
   mondrianNode *left;
