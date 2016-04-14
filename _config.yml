@@ -90,3 +90,5 @@ collections:
   ucscNotes:
     output: true
     permalink: /ucsc_notes/:path/
+
+### bundle install regularly?
