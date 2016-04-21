@@ -2,6 +2,7 @@
 title: "Bayesian Inference Resources"
 date: 2016-01-07
 comments: cucumber
+ams: 206
 ---
 
 - [hw1](/assets/ams206/hw/hw1.pdf)

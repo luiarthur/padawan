@@ -2,6 +2,7 @@
 title: "Ideas / Things to Investigate"
 date: 2016-01-15
 comments: cucumber 
+ams: 268
 ---
 
 1. Updating Bayesian regression
