@@ -2,6 +2,7 @@
 title: "Distributions"
 date: 2016-01-08
 comments: cucumber 
+ams: 205
 ---
 
 $$

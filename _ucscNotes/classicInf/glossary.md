@@ -2,6 +2,7 @@
 title: "Classical Inference Glossary"
 date: 2016-01-07
 comments: cucumber
+ams: 205
 ---
 
 **Bias:** $E[\hat{\theta}] - \theta$
