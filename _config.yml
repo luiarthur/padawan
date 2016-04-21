@@ -35,17 +35,17 @@ defaults:
       dollar: "on"
   -
     scope:
-      path: "ucsc_notes/bnp"
+      path: "/ucsc_notes/bnp"
     values:
       ams: 241
   -
     scope:
-      path: "ucsc_notes/am"
+      path: "/ucsc_notes/am"
     values:
       ams: 211
   -
     scope:
-      path: "ucsc_notes/ams5"
+      path: "/ucsc_notes/ams5"
     values:
       ams: 5
   -
