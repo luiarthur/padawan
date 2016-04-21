@@ -1,6 +1,7 @@
 ---
 title: Project Ideas
 date: 2015-10-15
+ams: 241
 ---
 
 ## Latent Dirichlet Allocation

@@ -2,6 +2,7 @@
 title: A Review of the Spatial Dirichlet Process (Course Project)
 date: 2015-12-09
 comments: fb
+ams: 241
 ---
 
 <object data="/assets/ams241/project/sdp.pdf" type="application/pdf" width="100%" height="1000px">

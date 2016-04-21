@@ -1,6 +1,7 @@
 ---
 title: Pitman Yor Process & Resources
 date: 2016-03-21
+ams: 241
 ---
 
 ### Pitman-Yor Process
