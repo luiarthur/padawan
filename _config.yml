@@ -52,12 +52,12 @@ defaults:
     scope:
       path: "ucsc_notes/bayesInf"
     values:
-      ams: "206"
+      ams: 206
   -
     scope:
       path: "ucsc_notes/classicInf"
     values:
-      ams: "205"
+      ams: 205
   -
     scope:
       path: "ucsc_notes/advBayesComputing"

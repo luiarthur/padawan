@@ -29,14 +29,14 @@ comments: off
 
 ### AMS 206B (Bayesian Inference)
 {% for notes in site.ucscNotes %}
-  {% if notes.ams == "206" %}
+  {% if notes.ams == 206 %}
   - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
   {% endif %}
 {% endfor %}
 
 ### AMS 205B (Classical Inference)
 {% for notes in site.ucscNotes %}
-  {% if notes.ams == "205" %}
+  {% if notes.ams == 205 %}
   - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
   {% endif %}
 {% endfor %}
