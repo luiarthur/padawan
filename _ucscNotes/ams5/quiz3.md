@@ -1,6 +1,7 @@
 ---
 title: "Quiz 3"
 date: 2016-04-13
+ams: 5
 ---
 
 Here's an example question to help you prepare for quiz 3. You don't have to write as much as I write here. I'm just writing out details to help you understand.

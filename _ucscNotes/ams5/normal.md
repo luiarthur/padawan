@@ -2,6 +2,7 @@
 title: "Normal Approximation"
 date: 2016-02-24
 comments: cucumber
+ams: 5
 ---
 
 ## Drawing stuff from a box
