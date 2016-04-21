@@ -9,6 +9,18 @@ I only have one submodule `assets/R_Functions`. After cloning the main repo,
 > $ git submodule init  
 > $ git submodule update
 
+# Pulling Submodules
+
+- `cd` into to submodule
+> $ git fetch
+> $ git merge origin/master
+
+# Pushing Submodule
+
+- A little more complicated...
+  - https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+
 This will clone the `assets/R_Functions` repo.  
 Learn more about *Git Submodules* [here](http://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
