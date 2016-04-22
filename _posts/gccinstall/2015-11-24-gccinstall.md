@@ -21,12 +21,12 @@ First, you need to download the source from a gcc mirror. Simply google
 `.tar.gz`. This contains the source files for `gcc 5.2`. If you need a
 different version of gcc, you can search for it.
 
-After donwloading the source, `cd` into the directory where your version of gcc was
-installed. Then, enter the following commands, replacing all instances of `gcc-5.2.0`
-with your gcc version. Also, this script will install gcc in your home directory. 
-If you want it installed somewhere else, change the prefix option accordingly.
-The `make` command could take as little as 2 hours and as much as a day, depending
-on your system.
+After donwloading the source, unpack it, and `cd` into the directory where your
+version of gcc was unpacked. Then, enter the following commands, replacing all
+instances of `gcc-5.2.0` with your gcc version. Also, this script will install
+gcc in your home directory. If you want it installed somewhere else, change
+the prefix option accordingly. The `make` command could take as little as 2
+hours and as much as a day, depending on your system.
 
 ~~~
 tar xzf gcc-5.2.0.tar.gz
