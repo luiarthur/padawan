@@ -2,7 +2,7 @@
 layout: post
 title: Using RCall in Julia
 subtitle: Interfacing Julia and R
-description: "How to use R in Julia. can i make R plots from julia? Can I pass data to and from R and Julia?"
+description: "How to use R in Julia. can i make R plots from julia? Can I pass data to and from R and Julia? example Rcall Julia. "
 dollar: off
 comments: cucumber
 ---
