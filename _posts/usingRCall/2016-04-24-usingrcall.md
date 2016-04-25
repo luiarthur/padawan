@@ -7,9 +7,9 @@ dollar: off
 comments: cucumber
 ---
 
-Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific compuing. 
+Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific computing. 
 
-Often when I am working in Julia, I need to use functions in R -- mostly for plotting, sometimes to use nice canned stats functions. So, an interface to R is a big plus. [RCall][6] in Julia is one tool that allows interface with R. It's great, except for the [documentation][4] is very underwhelming... But no worries, here is a brief demonstration of how to exploit the statistical functionalities in R by simply using the RCall package in Julia. I use RCall mostly for plotting figures in R, because so far, no other plotting tools works anywhere as good... Note that there are other tools for interfacing Julia and R. [Rif][5], for instance. However, Rif seems to produce a lot of deprecation warnings. So, I am only taling about RCall.
+Often when I am working in Julia, I need to use functions in R -- mostly for plotting, sometimes to use nice canned stats functions. So, an interface to R is a big plus. [RCall][6] in Julia is one tool that allows interface with R. It's great, except for the [documentation][4] is very underwhelming... But no worries, here is a brief demonstration of how to exploit the statistical functionality in R by simply using the RCall package in Julia. I use RCall mostly for plotting figures in R, because so far, no other plotting tools works anywhere as good... Note that there are other tools for interfacing Julia and R. [Rif][5], for instance. However, Rif seems to produce a lot of deprecation warnings. So, I am only talking about RCall.
 
 I highly recommend Julia for computation. It's concise and fast. But, [here][3] is some other opinions against Julia.
 
@@ -18,16 +18,16 @@ I highly recommend Julia for computation. It's concise and fast. But, [here][3] 
 
 | | Example Julia Command | Notes |
 |:---|:---|:---|
-|Install RCall| `Pkg.add("Rcall")` | |
+|Install RCall| `Pkg.add("RCall")` | |
 |Load RCall | `using RCall`| |
 |Execute a statement in R| `reval("plot(rnorm(10))")` | or `R"plot(rnorm(10))"` |
 |Creating an R variable in R| `R"var <- 123*321"`| You can later refer to `var` by `R"var"`. You could manipulate the variable too: `R"var / 100"`|
-|Create an R Obect| `r_X = RObect([1 2; 4 5; 7 8])`| But I really don't know what this is used for... |
+|Create an R Object| `r_X = RObject([1 2; 4 5; 7 8])`| But I really don't know what this is used for... |
 |Saving an R Function | `R_plot = R"plot"` | use it later in Julia: `R_plot(x=randn(100),ylab='')` |
 |Loading an R Library| `@rlibrary("maps")` or `R"library(maps)"` | Need to have installed the package in R or in Julia by `R"install.packages('maps')"`|
 |Using the loaded R Library| `R"map('county')"` | |
-|Loading a Julia variable into R| `@rput X` | See exampl below |
-|Putting an R variable into Julia| `@rget Z` | See exampl below |
+|Loading a Julia variable into R| `@rput X` | See example below |
+|Putting an R variable into Julia| `@rget Z` | See example below |
 
 
 ### A Cool Example
