@@ -7,11 +7,10 @@ dollar: off
 comments: cucumber
 ---
 
-Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific computing. 
+Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific computing. If you want to hear some arguments against Julia, [here][3] are some other opinions.
 
 Often when I am working in Julia, I need to use functions in R -- mostly for plotting, sometimes to use nice canned stats functions. So, an interface to R is a big plus. [RCall][6] in Julia is one tool that allows interface with R. It's great, except for the [documentation][4] is very underwhelming... But no worries, here is a brief demonstration of how to exploit the statistical functionality in R by simply using the RCall package in Julia. I use RCall mostly for plotting figures in R, because so far, no other plotting tools work anywhere as good... Note that there are other tools for interfacing Julia and R. [Rif][5], for instance. However, Rif seems to produce a lot of deprecation warnings. So, I am only talking about RCall.
 
-I highly recommend Julia for computation. It's concise and fast. But, [here][3] are some other opinions against Julia.
 
 ***
 
