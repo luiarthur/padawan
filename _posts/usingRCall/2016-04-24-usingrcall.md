@@ -9,7 +9,10 @@ comments: cucumber
 
 Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific compuing. 
 
-Often when I am computing Julia, I need to use functions in R -- mostly for plotting, sometimes to use nice statistics functions. So, an interface to R is a big plus. RCall in Julia is one tool that allows interface with R. It's great, except for the [documentation][4] is very underwhelming... But no worries, here is a brief demonstration of how to exploit the statistical functionalities in R by simply using the RCall package in Julia. If you are a casual browser and are on the fence on learning Julia or some other languages, I highly recommend it to supplement your R code. But, you can here some other opinions against Julia [here][3]. I use this mostly for plotting figures in R, because so far, no other plotting tools works anywhere as good...
+Often when I am working in Julia, I need to use functions in R -- mostly for plotting, sometimes to use nice canned stats functions. So, an interface to R is a big plus. [RCall][6] in Julia is one tool that allows interface with R. It's great, except for the [documentation][4] is very underwhelming... But no worries, here is a brief demonstration of how to exploit the statistical functionalities in R by simply using the RCall package in Julia. I use RCall mostly for plotting figures in R, because so far, no other plotting tools works anywhere as good... Note that there are other tools for interfacing Julia and R. [Rif][5], for instance. However, Rif seems to produce a lot of deprecation warnings. So, I am only taling about RCall.
+
+I highly recommend Julia for computation. It's concise and fast. But, [here][3] is some other opinions against Julia.
+
 
 ### TL;DR
 
@@ -71,6 +74,8 @@ R"plot(X[,1],y)"
 [2]: https://dahl.byu.edu/software/jvmr/
 [3]: https://darrenjw.wordpress.com/2013/12/23/scala-as-a-platform-for-statistical-computing-and-data-science/
 [4]: http://rcalljl.readthedocs.org/en/latest/api/RCall/#macro___rget.1
+[5]: https://github.com/lgautier/Rif.jl
+[6]: https://github.com/JuliaStats/RCall.jl
 
 <!--
 As a statistics grad student, I have dabbled around in various language to figure out what my niche is. During my masters and undergrad, I coded quite exclusively in R, sometimes interfacing with C, and occasionally using SAS for things like multivariate analysis and mixed effects models. I even used a little Scala when I first started working with David Dahl (my advisor at BYU). When I began my PhD (at UC - Santa Cruz) last year I took a Bayesian nonparametrics course, I learned that while I really like R (what statistician doesn't?), I needed to get very comfortable with other languages. The goal was to become as conversant in those languages as I was in R. So, for my BNP course, I coded a couple of assignments in C++, and another couple in Julia. Quite a fun learning experience! I continued to use armadillo with OpenBLAS for C++, interfacing from R to get some interactivity, and nice plots.
