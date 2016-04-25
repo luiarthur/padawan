@@ -13,6 +13,7 @@ Often when I am working in Julia, I need to use functions in R -- mostly for plo
 
 I highly recommend Julia for computation. It's concise and fast. But, [here][3] are some other opinions against Julia.
 
+***
 
 ### Quick Reference
 
@@ -29,8 +30,9 @@ I highly recommend Julia for computation. It's concise and fast. But, [here][3] 
 |Loading a Julia variable into R| `@rput X` | See example below |
 |Putting an R variable into Julia| `@rget Z` | See example below |
 
+***
 
-### A Cool Example
+### A Brief Example
 
 ```bash
 #= To Install RCall:
