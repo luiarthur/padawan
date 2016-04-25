@@ -14,7 +14,7 @@ Often when I am working in Julia, I need to use functions in R -- mostly for plo
 I highly recommend Julia for computation. It's concise and fast. But, [here][3] is some other opinions against Julia.
 
 
-### TL;DR
+### Quick Reference
 
 | | Example Julia Command | Notes |
 |:---|:---|:---|
