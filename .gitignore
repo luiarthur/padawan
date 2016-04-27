@@ -3,3 +3,4 @@ node_modules
 .*.swp
 *.bak
 Gemfile.lock
+.jekyll-metadata
