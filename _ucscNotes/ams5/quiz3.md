@@ -1,5 +1,5 @@
 ---
-title: "Quiz 3"
+title: "Quiz 3 - Normal Distribution"
 date: 2016-04-13
 ams: 5
 ---
