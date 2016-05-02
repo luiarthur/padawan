@@ -14,6 +14,7 @@
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
 
@@ -40,6 +41,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Must be put before mathjax to ensure no rendering problems arise. -->
+    {% if page.plotlyjs %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {% endif %}
 
     <!--MathJax-->
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

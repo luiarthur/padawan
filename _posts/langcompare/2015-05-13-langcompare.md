@@ -3,8 +3,10 @@ layout: post
 title: Comparing Programming Languages for Statistics
 subtitle: "Execution vs. Development Time"
 description: "C++ / Scala / Julia / R execution time vs. development time"
-barchart: on
+barchart: off
 dollar: on
+plotlyjs: on
+comments: cucumber
 header-color: "rgb(136,48,48)"
 ---
 
@@ -15,14 +17,14 @@ that is reasonably fast, and quick to develop. Conciseness usually means less
 room for coding errors and higher productivity. I tried out C++, Scala, Python,
 and Julia. (I also attempted C and Go, but soon realized the linear algebra
 libraries were a pain to grind through.) And since my computational work is
-usually Bayesian, I created my own criteria for judging performance — a
+usually Bayesian, I created my own criteria for judging performance -- a
 standard Bayesian multiple linear regression algorithm.
 
 $$
 \begin{array}{rcl}
-   y|\beta & \sim & Normal(X\beta,\sigma^2I) \\\\
-     \beta & \sim & Normal(0,100(X'X)^{-1}) \\\\
-  \sigma^2 & \sim & Gamma(1,1) \\\\
+  y\v\beta & \sim & \text{Normal}(X\beta,\sigma^2I) \\
+     \beta & \sim & \text{Normal}(0,100(X'X)^{-1}) \\
+  \sigma^2 & \sim & \text{Gamma}(1,1)
 \end{array}
 $$
 
@@ -35,6 +37,14 @@ games](http://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=scala&lang2
 do a more thourough job. Though, this study surely offers insights for those
 that do computational statistics.
 
+## Laptop Specs
+
+Here are the specs for the machine I used to run the simulation.
+
+| | HP EliteBook 8560p|
+|:---|:---|
+| CPU    | Quad core 2 threads per core Intel(R) Core(TM) i7-2760QM CPU @ 2.40GHz |
+| Memory | 4 GB |
 
 ## Results
 From the plots below, we can see that Julia seems to be fast and concise. I
@@ -46,16 +56,14 @@ I've included code at the bottom of this page.
 
 ***
 
-<div id="speed">
 <h3 style="text-align:center"> Bayesian Multiple Linear Regression Speed (seconds) </h3> 
-</div>
+<div id="speed"></div>
 <span class="caption text-muted"> C++ wins in execution time. </span>
 
 ***
 
-<div id="conciseness">
 <h3 style="text-align:center"> Bayesian Multiple Linear Regression (Lines of Code) </h3>
-</div>
+<div id="conciseness"></div>
 <span class="caption text-muted"> R wins in conciseness. </span>
 
 ***
@@ -67,6 +75,7 @@ I've included code at the bottom of this page.
 
 ***
 
+
 ## Sample Code
 <div class="btn-group" role="group" aria-label="...">
   <button type="button" class="rcode btn btn-default">R</button>
@@ -77,6 +86,8 @@ I've included code at the bottom of this page.
   <button type="button" class="ccode btn btn-default">c</button>
   <button type="button" class="hcode btn btn-default">my_gsl.h</button>
 </div>
+
+***
 
 <div class="mycode hide" id="r">
 {% highlight R linenos %}{% include_relative code/raw.R %}{% endhighlight %}
@@ -113,6 +124,7 @@ $(document).ready(function(){
 });
 </script>
 
+{::comment}
 <script>
   var data = [{code:"C++",color:"goldenrod",val:1.9},
               {code:"Scala",color:"mediumseagreen",val:7.2},
@@ -121,7 +133,10 @@ $(document).ready(function(){
               {code:"R",color:"darkcyan",val:51.2}];
   barchart(data,"#speed",1);
 </script>
+{:/comment}
 
+
+{::comment}
 <script>
   var data = [{code:"C++",color:"goldenrod",val:124},
               {code:"Scala",color:"mediumseagreen",val:117},
@@ -130,11 +145,22 @@ $(document).ready(function(){
               {code:"R",color:"darkcyan",val:56}];
   barchart(data,"#conciseness");
 </script>
+{:/comment}
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
     window.PLOTLYENV=window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL="https://plot.ly";
-   Plotly.newPlot('scatplot', [{"type":"scatter","y":[1.9,7.2,3.6,23.5,51.2],"text":["C++","Scala","Julia","Python","R"],"line":{"width":1,"color":"grey"},"x":[124,117,75,84,56],"marker":{"size":20,"color":["#EEAD0E","#00CD66","#FF6A6A","#BEBEBE","#7AC5CD"]}}],  {"yaxis":{"title":"Execution Time (seconds)"},"width":670,"xaxis":{"title":"Lines of Code"},"margin":{"r":0,"l":0,"b":50,"t":0},"height":670}, {showLink: false});
- </script>
+   Plotly.newPlot('scatplot', [{"type":"scatter","y":[1.9,7.2,3.6,23.5,51.2],"text":["C++","Scala","Julia","Python","R"],"line":{"width":1,"color":"grey"},"x":[124,117,75,84,56],"marker":{"size":20,"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"title":"Execution Time (seconds)","zeroline":false},"xaxis":{"title":"Lines of Code"},"margin":{"r":50,"l":50,"b":50,"t":0},"height":470}, {showLink: false});
+</script>
 
+<script>
+    window.PLOTLYENV=window.PLOTLYENV || {};
+    window.PLOTLYENV.BASE_URL="https://plot.ly";
+   Plotly.newPlot('speed', [{"type":"bar","y":[1.9,7.2,3.6,23.5,51.2],"x":["C++","Scala","Julia","Python","R"],"marker":{"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"showticklabels":false,"zeroline":false,"showgrid":false},"text":[124,117,75,84,56],"annotations":[{"xanchor":"center","yanchor":"bottom","x":"C++","text":1.9,"showarrow":false,"y":1.9},{"xanchor":"center","yanchor":"bottom","x":"Scala","text":7.2,"showarrow":false,"y":7.2},{"xanchor":"center","yanchor":"bottom","x":"Julia","text":3.6,"showarrow":false,"y":3.6},{"xanchor":"center","yanchor":"bottom","x":"Python","text":23.5,"showarrow":false,"y":23.5},{"xanchor":"center","yanchor":"bottom","x":"R","text":51.2,"showarrow":false,"y":51.2}],"margin":{"t":0},"height":470}, {showLink: false});
+</script>
+
+<script>
+    window.PLOTLYENV=window.PLOTLYENV || {};
+    window.PLOTLYENV.BASE_URL="https://plot.ly";
+   Plotly.newPlot('conciseness', [{"type":"bar","y":[124,117,75,84,56],"x":["C++","Scala","Julia","Python","R"],"marker":{"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"showticklabels":false,"zeroline":false,"showgrid":false},"text":[124,117,75,84,56],"annotations":[{"xanchor":"center","yanchor":"bottom","x":"C++","text":124,"showarrow":false,"y":124},{"xanchor":"center","yanchor":"bottom","x":"Scala","text":117,"showarrow":false,"y":117},{"xanchor":"center","yanchor":"bottom","x":"Julia","text":75,"showarrow":false,"y":75},{"xanchor":"center","yanchor":"bottom","x":"Python","text":84,"showarrow":false,"y":84},{"xanchor":"center","yanchor":"bottom","x":"R","text":56,"showarrow":false,"y":56}],"margin":{"t":0},"height":470}, {showLink: false});
+</script>
