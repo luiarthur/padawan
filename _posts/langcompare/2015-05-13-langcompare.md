@@ -60,7 +60,9 @@ I've included code at the bottom of this page.
 
 ***
 
-![Overall Comparison](/assets/langcompare/img/vs.svg)
+{::comment} ![Overall Comparison](/assets/langcompare/img/vs.svg) {:/comment}
+<h3 style="text-align:center"> Speed vs. Code Length Tradeoff </h3>
+<div id="scatplot" class="plotly-graph-div"></div>
 <span class="caption text-muted">We want things to be in the bottom left quadrant &mdash;  Julia wins that one.</span>
 
 ***
@@ -112,12 +114,12 @@ $(document).ready(function(){
 </script>
 
 <script>
-  var data = [{code:"C++",color:"goldenrod",val:3.3},
+  var data = [{code:"C++",color:"goldenrod",val:1.9},
               {code:"Scala",color:"mediumseagreen",val:7.2},
-              {code:"Julia",color:"crimson",val:9.1},
+              {code:"Julia",color:"crimson",val:3.6},
               {code:"Python",color:"grey",val:23.5},
               {code:"R",color:"darkcyan",val:51.2}];
-  barchart(data,"#speed");
+  barchart(data,"#speed",1);
 </script>
 
 <script>
@@ -128,4 +130,11 @@ $(document).ready(function(){
               {code:"R",color:"darkcyan",val:56}];
   barchart(data,"#conciseness");
 </script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    window.PLOTLYENV=window.PLOTLYENV || {};
+    window.PLOTLYENV.BASE_URL="https://plot.ly";
+   Plotly.newPlot('scatplot', [{"type":"scatter","y":[1.9,7.2,3.6,23.5,51.2],"text":["C++","Scala","Julia","Python","R"],"line":{"width":1,"color":"grey"},"x":[124,117,75,84,56],"marker":{"size":20,"color":["#EEAD0E","#00CD66","#FF6A6A","#BEBEBE","#7AC5CD"]}}],  {"yaxis":{"title":"Execution Time (seconds)"},"width":670,"xaxis":{"title":"Lines of Code"},"margin":{"r":0,"l":0,"b":50,"t":0},"height":670}, {showLink: false});
+ </script>
 
