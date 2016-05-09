@@ -2,7 +2,6 @@ import scala.io.Source
 import java.io.File // write to file. new File("file.txt")
 import scala.util.Random
 
-// put breeze.jar in the scala lib
 import breeze.linalg._
 import breeze.linalg.{DenseMatrix=>dmat,DenseVector=>dvec}
 import breeze.numerics._
