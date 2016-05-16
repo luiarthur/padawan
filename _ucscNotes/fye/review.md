@@ -20,5 +20,22 @@ ams: fye
       \end{array}
       $$
     - Method of Undertermined Coefficients
+    - line integrals
+    - Lagrange Multipliers
+
+
+# AMS 206B
+
+- Jeffreys Prior
+- BF
+- Admissibility?
+
+# AMS 205B
+
+- Change of variables (uni and multi)
+- Pivot
+- Wald
+- sufficient, complete, ancilliary statistics
+- order statistics pdf (marginal and joint)
 
 
