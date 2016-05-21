@@ -1,10 +1,11 @@
-using DataFrames, Distributions, Gadfly
+blas_set_num_threads(1) # because small matrices
+using DataFrames, Distributions#, Gadfly
 
 const dat = readdlm("../data/dat.txt")
 n,k1 = size(dat)
 const k = k1-1
 
-const y =dat[:,1]
+const y = dat[:,1]
 const X = dat[:,2:end]
 
 const XXi = inv(X'X)
@@ -13,10 +14,10 @@ const mle = XXi*X'y
 
 a = 1
 b = 1
-s2=10
-csb=4XXi
-S=chol(csb)'
-css=1
+s2 = 10
+csb = 4XXi
+S = chol(csb)'
+css = 1
 
 function ll(be::Array{Float64,1},sig2::Float64) 
   c = y-X*be
@@ -35,7 +36,6 @@ function mh(B=100000)
   scur = 1.0
 
   println("Starting Metropolis...")
-  #@time @fastmath for i in 1:B
   @time for i in 1:B
 
     # Update β̂: 
@@ -68,8 +68,8 @@ end # End of mh function
 
 bb,ss,accb,accs,B = @time mh();
 
-println("β̂: \n", mean(bb[:,round(B*.9):end],2),"\n")
-println("ŝ²: ",  mean(ss[round(B*.9):end]),"\n")
+println("β̂: \n", mean(bb[:,Int(B*.9):end],2),"\n")
+println("ŝ²: ",  mean(ss[Int(B*.9):end]),"\n")
 
 println("Acceptance rate for β̂: ",accb/B)
 println("Acceptance rate for ŝ²:",accs/B)
