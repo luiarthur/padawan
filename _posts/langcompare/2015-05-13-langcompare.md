@@ -12,13 +12,13 @@ header-color: "rgb(136,48,48)"
 
 As a statistical package with a large support community R serves its purpose
 well. However, at times, especially when doing more computation-heavy analysis,
-R slows down and reaches memory limits. So, I've looked around for a language
-that is reasonably fast, and quick to develop. Conciseness usually means less
-room for coding errors and higher productivity. I tried out C++, Scala, Python,
-and Julia. (I also attempted C and Go, but soon realized the linear algebra
-libraries were a pain to grind through.) And since my computational work is
-usually Bayesian, I created my own criteria for judging performance -- a
-standard Bayesian multiple linear regression algorithm.
+R slows down and reaches memory limits quickly. So, I've looked around for a
+language that is reasonably fast, and quick to develop. Conciseness usually
+means less room for coding errors and higher productivity. I tried out C, C++,
+Scala, Python, and Julia. (I also attempted Go, but soon realized the
+linear algebra libraries were a pain to grind through.) And since my
+computational work is usually Bayesian, I created my own criteria for judging
+performance -- a standard Bayesian multiple linear regression algorithm. 
 
 $$
 \begin{array}{rcl}
@@ -37,6 +37,16 @@ games](http://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=scala&lang2
 do a more thourough job. Though, this study surely offers insights for those
 that do computational statistics.
 
+Note that for C++, I used the [Armadillo](http://arma.sourceforge.net/) library
+with [OpenBLAS](http://www.openblas.net/). For C, I used the GSL library.  I
+*could* have done the C implementation in OpenBLAS. But is it *really* worth
+it?  For Scala, I used the [breeze](https://github.com/scalanlp/breeze)
+library. For Python, I used [Numpy](http://www.numpy.org/). For Julia, I used
+the [Distributions](https://github.com/JuliaStats/Distributions.jl) package
+(which is pretty standard in Julia and extremely well made, in my opinion).
+Last of all, I didn't need any additional libraries in R.
+
+
 ## Laptop Specs
 
 Here are the specs for the machine I used to run the simulation.
@@ -47,7 +57,10 @@ Here are the specs for the machine I used to run the simulation.
 | Memory | 16 GB |
 
 ## Results
-From the plots below, we can see that Julia and Scala seem to be fast and concise.  In Julia, loading libraries still takes some time to compile (as of v0.4.5, it's much faster), but there are also ways to [precompile packages](https://groups.google.com/forum/#!topic/julia-users/uQfBNtJksRo).
+From the plots below, we can see that Julia and Scala seem to be fast and
+concise. In Julia, loading libraries still takes some time to compile (as of
+v0.4.5, it's much faster), but there are also ways to [precompile
+packages](https://groups.google.com/forum/#!topic/julia-users/uQfBNtJksRo).
 
 I've included code at the bottom of this page.
 
@@ -71,6 +84,46 @@ I've included code at the bottom of this page.
 <span class="caption text-muted">We want things to be in the bottom left quadrant &mdash;  Julia wins that one.</span>
 
 ***
+
+It's definitely a toss up between Julia and Scala. Julia is created for 
+technical computing. And some have said that it is also general purpose. 
+It hasn't reached a 1.0 version yet. Sometimes, I'll run into bugs when
+loading new libraries. Searching for fixes is usually a longer process.
+Documentation is not consistent, but all the Julia packages are hosted
+on Github. In short, Julia is lightning fast, and quick to develop in, but
+there is a moderate lack of consistency in documentation and interoperability
+of packages. Still, it's *pretty* fast. Also it's quite mobile because
+it runs the LLVM virtual machine.
+
+Scala is much more mature of a language and has attracted many large
+enterprises and users. It is general purpose. It has full support for
+functional programming and tail call optimization. It is quite fun to program
+in a functional way and think recursively. And Scala is pretty fast. It runs on
+JVM which is exteremly portable. People even write Android apps in Scala. 
+Many users favor gerneral purpose languages for computation because 
+they want to integrate their algorithms into other products. In other words, 
+it's often not enough to only have a fast computation platform; having
+support for functionalities outside of computation is desireable for 
+much commerical work. Perhaps also true for academia. Last of all, the
+distributed computing tool, [Spark](http://spark.apache.org/), is written in
+Scala. That is quite enticing.
+
+Scala and Julia are both *in demand* and desireable skillsets. So
+if you're considering learning one or the other, there are great
+advantages to learning either. If you have the patience, why not 
+even learn both? 
+
+There are many resources for learning Scala. Coursera has two courses centered
+on Scala. One on [Functional
+Programming](https://www.coursera.org/course/progfun), and another on [Reactive
+Programming](https://www.coursera.org/course/reactive).  Both are taught by
+Martin Odersky, the creator of Scala. You can find tutorials here and there for
+Julia. Perhaps the best place to get started is the [Julia
+Homepage](http://julialang.org/).  Note that the [Jupyter
+Project](http://jupyter.org/) also includes Julia, so there are popular
+implementations of ipython notebook for Julia.  (Quick plug-in for Jupyter. You
+can install
+[vim-bindings](https://github.com/lambdalisue/jupyter-vim-binding)!)
 
 
 ## Sample Code
@@ -107,6 +160,7 @@ I've included code at the bottom of this page.
 <div class="mycode hide" id="h">
 {% highlight c linenos %}{% include_relative code/raw.h %}{% endhighlight %}
 </div>
+
 
 
 <script> 
