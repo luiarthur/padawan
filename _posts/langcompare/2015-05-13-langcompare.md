@@ -34,7 +34,7 @@ The simulated data used for this study can be found at my
 This simulation study is not meant to be an official benchmark. Sites such as
 [computer language benchmark
 games](http://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=scala&lang2=gpp)
-do a more thourough job. Though, this study surely offers insights for those
+do a more thorough job. Though, this study surely offers insights for those
 that do computational statistics.
 
 Note that for C++, I used the [Armadillo](http://arma.sourceforge.net/) library
@@ -79,7 +79,7 @@ I've included code at the bottom of this page.
 ***
 
 {::comment} ![Overall Comparison](/assets/langcompare/img/vs.svg) {:/comment}
-<h3 style="text-align:center"> Speed vs. Code Length Tradeoff </h3>
+<h3 style="text-align:center"> Speed vs. Code Length Trade-off </h3>
 <div id="scatplot" class="plotly-graph-div"></div>
 <span class="caption text-muted">We want things to be in the bottom left quadrant &mdash;  Julia wins that one.</span>
 
@@ -99,16 +99,16 @@ Scala is much more mature of a language and has attracted many large
 enterprises and users. It is general purpose. It has full support for
 functional programming and tail call optimization. It is quite fun to program
 in a functional way and think recursively. And Scala is pretty fast. It runs on
-JVM which is exteremly portable. People even write Android apps in Scala. 
-Many users favor gerneral purpose languages for computation because 
+JVM which is extremely portable. People even write Android apps in Scala. 
+Many users favor general purpose languages for computation because 
 they want to integrate their algorithms into other products. In other words, 
 it's often not enough to only have a fast computation platform; having
-support for functionalities outside of computation is desireable for 
-much commerical work. Perhaps also true for academia. Last of all, the
+support for functionality outside of computation is desirable for 
+much commercial work. Perhaps also true for academia. Last of all, the
 distributed computing tool, [Spark](http://spark.apache.org/), is written in
 Scala. That is quite enticing.
 
-Scala and Julia are both *in demand* and desireable skillsets. So
+Scala and Julia are both *in demand* and desirable skill-sets. So
 if you're considering learning one or the other, there are great
 advantages to learning either. If you have the patience, why not 
 even learn both? 
