@@ -127,8 +127,8 @@ $(document).ready(function(){
 {::comment}
 <script>
   var data = [{code:"C++",color:"goldenrod",val:1.9},
-              {code:"Scala",color:"mediumseagreen",val:5.1},
-              {code:"Julia",color:"crimson",val:3.1},
+              {code:"Scala",color:"mediumseagreen",val:4.2},
+              {code:"Julia",color:"crimson",val:3.0},
               {code:"Python",color:"grey",val:23.5},
               {code:"R",color:"darkcyan",val:51.2}];
   barchart(data,"#speed",1);
@@ -150,13 +150,13 @@ $(document).ready(function(){
 <script>
     window.PLOTLYENV=window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL="https://plot.ly";
-   Plotly.newPlot('scatplot', [{"type":"scatter","y":[1.9,5.1,3.1,23.5,51.2],"text":["C++","Scala","Julia","Python","R"],"line":{"width":1,"color":"grey"},"x":[124,93,75,84,56],"marker":{"size":20,"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"title":"Execution Time (seconds)","zeroline":false},"xaxis":{"title":"Lines of Code"},"margin":{"r":50,"l":50,"b":50,"t":0},"height":470}, {showLink: false});
+   Plotly.newPlot('scatplot', [{"type":"scatter","y":[1.9,4.2,3.0,23.5,51.2],"text":["C++","Scala","Julia","Python","R"],"line":{"width":1,"color":"grey"},"x":[124,93,75,84,56],"marker":{"size":20,"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"title":"Execution Time (seconds)","zeroline":false},"xaxis":{"title":"Lines of Code"},"margin":{"r":50,"l":50,"b":50,"t":0},"height":470}, {showLink: false});
 </script>
 
 <script>
     window.PLOTLYENV=window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL="https://plot.ly";
-   Plotly.newPlot('speed', [{"type":"bar","y":[1.9,5.1,3.1,23.5,51.2],"x":["C++","Scala","Julia","Python","R"],"marker":{"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"showticklabels":false,"zeroline":false,"showgrid":false},"text":[124,93,75,84,56],"annotations":[{"xanchor":"center","yanchor":"bottom","x":"C++","text":1.9,"showarrow":false,"y":1.9},{"xanchor":"center","yanchor":"bottom","x":"Scala","text":5.1,"showarrow":false,"y":5.1},{"xanchor":"center","yanchor":"bottom","x":"Julia","text":3.1,"showarrow":false,"y":3.1},{"xanchor":"center","yanchor":"bottom","x":"Python","text":23.5,"showarrow":false,"y":23.5},{"xanchor":"center","yanchor":"bottom","x":"R","text":51.2,"showarrow":false,"y":51.2}],"margin":{"t":0},"height":470}, {showLink: false});
+   Plotly.newPlot('speed', [{"type":"bar","y":[1.9,4.2,3.0,23.5,51.2],"x":["C++","Scala","Julia","Python","R"],"marker":{"color":["goldenrod","mediumseagreen","crimson","lightgrey","darkcyan"]}}],  {"yaxis":{"showticklabels":false,"zeroline":false,"showgrid":false},"text":[124,93,75,84,56],"annotations":[{"xanchor":"center","yanchor":"bottom","x":"C++","text":1.9,"showarrow":false,"y":1.9},{"xanchor":"center","yanchor":"bottom","x":"Scala","text":4.2,"showarrow":false,"y":4.2},{"xanchor":"center","yanchor":"bottom","x":"Julia","text":3.0,"showarrow":false,"y":3.0},{"xanchor":"center","yanchor":"bottom","x":"Python","text":23.5,"showarrow":false,"y":23.5},{"xanchor":"center","yanchor":"bottom","x":"R","text":51.2,"showarrow":false,"y":51.2}],"margin":{"t":0},"height":470}, {showLink: false});
 </script>
 
 <script>
