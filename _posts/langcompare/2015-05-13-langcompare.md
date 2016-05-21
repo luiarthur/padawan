@@ -47,10 +47,7 @@ Here are the specs for the machine I used to run the simulation.
 | Memory | 16 GB |
 
 ## Results
-From the plots below, we can see that Julia seems to be fast and concise. I
-found some things that were non-intuitive. Loading libraries takes a while, but
-there are ways to [precompile
-packages](https://groups.google.com/forum/#!topic/julia-users/uQfBNtJksRo).
+From the plots below, we can see that Julia and Scala seem to be fast and concise.  In Julia, loading libraries still takes some time to compile (as of v0.4.5, it's much faster), but there are also ways to [precompile packages](https://groups.google.com/forum/#!topic/julia-users/uQfBNtJksRo).
 
 I've included code at the bottom of this page.
 
