@@ -82,6 +82,3 @@ print "acc_s:", acc_s / B
 
 elapsed_time = end - start # 23 seconds
 print "Time Elapsed: ", elapsed_time, "\n"
-
-
-
