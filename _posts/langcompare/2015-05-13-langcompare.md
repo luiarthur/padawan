@@ -147,6 +147,6 @@ $(document).ready(function(){
 </script>
 {:/comment}
 
-{% include_relative code/scatter.html %} {::comment} 'scatplot' {:/comment}
-{% include_relative code/bar_line.html %} {::comment} 'conciseness' {:/comment}
-{% include_relative code/bar_time.html %} {::comment} 'speed' {:/comment}
+{% include_relative code/scatter.html %}
+{% include_relative code/bar_line.html %}
+{% include_relative code/bar_time.html %}
