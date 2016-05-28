@@ -85,15 +85,22 @@ I've included code at the bottom of this page.
 
 ***
 
-It's definitely a toss up between Julia and Scala. Julia is created for 
-technical computing. And some have said that it is also general purpose. 
-It hasn't reached a 1.0 version yet. Sometimes, I'll run into bugs when
-loading new libraries. Searching for fixes is usually a longer process.
-Documentation is not consistent, but all the Julia packages are hosted
-on Github. In short, Julia is lightning fast, and quick to develop in, but
-there is a moderate lack of consistency in documentation and interoperability
-of packages. Still, it's *pretty* fast. Also it's quite mobile because
-it runs the LLVM virtual machine.
+It's definitely a toss up between Julia and Scala. Julia is created for
+technical computing. And some have said that it is also general purpose.  It
+hasn't reached a 1.0 version yet. Sometimes, I'll run into bugs when loading
+new libraries. Searching for fixes is usually a longer process.  Documentation
+is not consistent, but all the Julia packages are hosted on Github. I thought
+that Julia didn't support tail-call optimization.  But, there is the `Lazy.jl`
+package, which has an implementation.  You basically use the macro `@bounce`
+before the function definition.  There's an example
+[here](https://github.com/MikeInnes/Lazy.jl). Also, you won't be able to play
+around with your own data structures / classes very much. Things like
+inheritance are only supported for abstract types. (Basically only a few
+built-in types.) In short, Julia is lightning fast, and quick to develop in,
+but there is a moderate lack of consistency in documentation and
+interoperability of packages. Still, it's *pretty* fast for linear algebra
+computations. Also it's quite mobile because it runs the LLVM virtual machine.
+But it I think it fails as a general purpose language.
 
 Scala is much more mature of a language and has attracted many large
 enterprises and users. It is general purpose. It has full support for
@@ -106,7 +113,10 @@ it's often not enough to only have a fast computation platform; having
 support for functionality outside of computation is desirable for 
 much commercial work. Perhaps also true for academia. Last of all, the
 distributed computing tool, [Spark](http://spark.apache.org/), is written in
-Scala. That is quite enticing.
+Scala. That is quite enticing. Scala is fun. But I wish that the linear
+algebra libraries would be better supported. There is breeze, which
+is good, but things like setting the number of threads in 
+openblas are not supported. That's bizzare.
 
 Scala and Julia are both *in demand* and desirable skill-sets. So
 if you're considering learning one or the other, there are great
