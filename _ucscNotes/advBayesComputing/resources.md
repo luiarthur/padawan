@@ -8,6 +8,7 @@ ams: 268
 - [Notes](/assets/ams268/notes/notes.pdf)
 - [Shrink Globally, Act Locally](/assets/ams268/notes/bayesReg.pdf)
 - [hw 1](/assets/ams268/hw/hw1/instructions/hw1.pdf)
+    - [Here is my paper](/assets/ucsc_notes/advBayesComputing/bayeselect)
     - Other Resources for hw 1:
         - [Generalized Double Pareto](http://arxiv.org/pdf/1104.0861.pdf)
         - [Bayesian Lasso](http://www.stat.ufl.edu/archived/casella/Papers/Lasso.pdf)
