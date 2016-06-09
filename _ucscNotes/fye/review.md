@@ -2,6 +2,7 @@
 title: Review
 date: 2016-03-30
 ams: fye
+plotlyjs: on
 ---
 
 ## AMS 211
@@ -22,7 +23,7 @@ ams: fye
     - Method of Undertermined Coefficients
     - line integrals
     - Lagrange Multipliers
-
+<div id="ams211" class="plotly-graph-div"></div>
 
 # AMS 206B
 
@@ -39,3 +40,4 @@ ams: fye
 - order statistics pdf (marginal and joint)
 
 
+{% include_relative plots/ams211.html %}
