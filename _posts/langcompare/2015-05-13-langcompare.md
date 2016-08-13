@@ -139,7 +139,7 @@ can install
 
 <h3 style="text-align:center"> Julia vs. Scala </h3>
 <div id="jlvsc" class="plotly-graph-div"></div>
-<span class="caption text-muted"> The same experiment was performed just for Julia and Scala. The number of columns in the X matrix were varied and the execution times were recorded. </span>
+<span class="caption text-muted"> The same experiment was performed just for Julia and Scala. The number of columns in the X matrix were varied and the execution times were recorded. Since the linear algebra libraries used in both cases were the same (OpenBLAS), the performances were the same. </span>
 
 ***
 
