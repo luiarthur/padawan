@@ -135,6 +135,14 @@ implementations of ipython notebook for Julia.  (Quick plug-in for Jupyter. You
 can install
 [vim-bindings](https://github.com/lambdalisue/jupyter-vim-binding)!)
 
+***
+
+<h3 style="text-align:center"> Julia vs. Scala </h3>
+<div id="jlvsc" class="plotly-graph-div"></div>
+<span class="caption text-muted"> The same experiment was performed just for Julia and Scala. The number of columns in the X matrix were varied and the execution times were recorded. </span>
+
+***
+
 
 ## Sample Code
 <div class="btn-group" role="group" aria-label="...">
@@ -211,3 +219,4 @@ $(document).ready(function(){
 {% include_relative code/scatter.html %}
 {% include_relative code/bar_line.html %}
 {% include_relative code/bar_time.html %}
+{% include_relative code/jlvsc.html %}
