@@ -62,6 +62,20 @@ comments: off
   {% endif %}
 {% endfor %}
 
+### AMS 274 (GLM)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 274 %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
+### AMS 276 (Bayesian Survival Analysis)
+{% for notes in site.ucscNotes %}
+  {% if notes.ams == 276 %}
+  - [{{ notes.date | date: "%-d %b, %Y"}}&raquo; {{notes.title}}]({{notes.url}})
+  {% endif %}
+{% endfor %}
+
 ### AMS FYE
 {% for notes in site.ucscNotes %}
   {% if notes.ams == "fye" %}
