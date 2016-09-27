@@ -83,6 +83,16 @@ defaults:
       path: "ucsc_notes/parallel"
     values:
       ams: 250
+  -
+    scope:
+      path: "ucsc_notes/glm"
+    values:
+      ams: 274
+  -
+    scope:
+      path: "ucsc_notes/survival"
+    values:
+      ams: 276
 
 ##################
 # http://jekyllrb.com/docs/collections/
