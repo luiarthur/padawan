@@ -32,11 +32,13 @@ example.
 Say you want to **run an R-script on an interactive server**. This is one
 way you could do it:
 
-1. Send your script to a server
-    - `sftp put myFile.R`
-2. Log on to the server (say `jerez`)
+1. Launch SFTP (secure file transfer protocol) to send / receive files from a server (say `jerez`)
+   - `sftp myUserName@jerez.soe.ucsc.edu`
+2. Send your script to the server
+    - `put myFile.R`
+3. Log on to the server
     - `ssh myUserName@jerez.soe.ucsc.edu`
-3. Execute the command on your script
+4. Execute the command on your script
     - `Rscript myFile.R &`
     - Note here that the command `Rscript` acts on the script `myFile.R`.
     - The ampersand `&` at the end is optional. It allows you to execute
@@ -45,9 +47,13 @@ way you could do it:
       even log off the server while the job runs. Without the ampersand, 
       you cannot use the terminal until the job is finished. If you
       exit the server before the job is done, your job stops and your
-      results will not be saved.
-4. Send results back to your computer
-    - `sftp get myOutput.rda`
+      results will not be saved. Therefore, add `&` at the end of your commands
+      when you have long-running jobs.
+    - Also, if you plan to run many jobs, you should add `nice` before your
+      command. (e.g. `nice Rscript myFile.R &`) This basically prevents you
+      from becoming a server hog who uses most of the resources on the server.
+5. Send results back to your computer
+    - `get myOutput.rda`
 
 INSERT VIDEO HERE
 
