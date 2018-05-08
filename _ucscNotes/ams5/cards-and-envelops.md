@@ -53,7 +53,7 @@ matches. This is best illustrated with a table.
 From this table, if we have $r$ red cards in red envelops. Then what is the
 number of green cards in green envelops? Well, we know that there are in total
 seven red envelops and three green envelops (column sums). We also know that
-there are in total seven red cards and three green cards (row sums). So, there
+there are in total five red cards and five green cards (row sums). So, there
 must be $7-r$ green envelops containing red cards. Similarly, I can solve for
 the number of red envelops containing green cards to be $7-r$. Now, if I have
 $7-r$ green cards in red envelops, and I have 3 green cards in total, I know I
