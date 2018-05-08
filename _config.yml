@@ -101,4 +101,9 @@ collections:
     output: true
     permalink: /ucsc_notes/:path/
 
-### bundle install regularly?
+### Regularly:
+### - `bundle install`
+### - `gem install update`
+### - For updating / installation help, check:  https://jekyllrb.com/docs/installation/#ubuntu
+
+### jekyll serve --incremental
