@@ -107,3 +107,6 @@ collections:
 ### - For updating / installation help, check:  https://jekyllrb.com/docs/installation/#ubuntu
 
 ### jekyll serve --incremental
+### for drafts: jekyll serve --incremental --drafts
+# OR 
+### bundle exec jeykll serve --incremental
