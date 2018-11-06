@@ -57,3 +57,8 @@ $$
 - $f_{X_{(j)}}(x) = \displaystyle \frac{n!}{(j-1)!(n-j)!}f_X(x)[F_X(x)]^{j-1}[1-F_X(x)]^{n-j}$
 - $f_{X_{(i)},X_{(j)}}(u,v) = \displaystyle\frac{n!}{(i-1)!(j-1-i)!(n-j)!}f_X(u)f_X(v)[F_X(u)]^{i-1}[F_X(v)-F_X(u)]^{j-1-i}[1-F_X(v)]^{n-j}$, for $i \lt j$
 - $f_{ X_{(1)} ,..., X_{(n)} } (x_1,...,x_n) = n! f_X(x_1) ... f_X(x_n)$
+
+## Integrals and finding bounds
+[Resource][1] for computing integrals to find areas and how to find bounds.
+
+[1]: https://nbviewer.jupyter.org/github/luiarthur/ucsc_misc/blob/master/integrals/Integrals.ipynb
