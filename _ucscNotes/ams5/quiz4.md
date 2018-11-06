@@ -2,7 +2,7 @@
 title: "Quiz 4 - Correlation"
 date: 2016-04-27
 ams: 5
-comments: cucumber
+comments: disqus
 dollar: on
 ---
 

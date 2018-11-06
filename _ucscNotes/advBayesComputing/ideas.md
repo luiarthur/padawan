@@ -1,7 +1,7 @@
 ---
 title: "Ideas / Things to Investigate"
 date: 2016-01-15
-comments: cucumber 
+comments: disqus 
 ams: 268
 ---
 

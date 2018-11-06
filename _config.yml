@@ -24,14 +24,14 @@ defaults:
     scope:
       path: ""
     values:
-      comments: "cucumber"
+      comments: "disqus"
   -
     scope:
       path: ""
       type: "ucscNotes"
     values:
       layout: "notes"
-      comments: "cucumber"
+      comments: "disqus"
       dollar: "on"
   -
     scope:

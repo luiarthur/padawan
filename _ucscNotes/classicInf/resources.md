@@ -1,7 +1,7 @@
 ---
 title: "Classical Inference Resources"
 date: 2016-01-07
-comments: cucumber
+comments: disqus
 ams: 205
 ---
 

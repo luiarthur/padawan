@@ -1,7 +1,7 @@
 ---
 title: "Advanced Bayesian Computing Resources"
 date: 2016-01-07
-comments: cucumber
+comments: disqus
 ams: 268
 ---
 

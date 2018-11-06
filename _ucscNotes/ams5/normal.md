@@ -1,7 +1,7 @@
 ---
 title: "Normal Approximation"
 date: 2016-02-24
-comments: cucumber
+comments: disqus
 ams: 5
 ---
 

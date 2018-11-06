@@ -1,7 +1,7 @@
 ---
 title: "Distributions"
 date: 2016-01-08
-comments: cucumber 
+comments: disqus 
 ams: 205
 ---
 
