@@ -4,7 +4,7 @@ title: Using RCall in Julia
 subtitle: Interfacing Julia and R
 description: "How to use R in Julia. can i make R plots from julia? Can I pass data to and from R and Julia? example Rcall Julia. "
 dollar: off
-comments: cucumber
+comments: disqus
 ---
 
 Julia is a great language for computation. It's quick to develop in, and execution time is short compared to many other languages. Check out [the julia home site][1] to see how Julia compares to other languages (including C, Go, Java, and Python) used for scientific computing. If you want to hear some arguments against Julia, [here][3] are some other opinions.

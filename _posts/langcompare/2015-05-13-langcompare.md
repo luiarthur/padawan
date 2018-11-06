@@ -6,7 +6,7 @@ description: "C++ / Scala / Julia / R execution time vs. development time"
 barchart: off
 dollar: on
 plotlyjs: on
-comments: cucumber
+comments: disqus
 header-color: "rgb(136,48,48)"
 ---
 
