@@ -1,6 +1,7 @@
 ---
 layout: notes
 title: Research
+inNav: on
 ---
 
 I am undecided on a dissertation topic. But I have been reading literature to help me decide. Computer simulations, spatial statistics, under a Bayesian framework under the radar.

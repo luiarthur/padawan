@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "UCSC Lecture Notes"
+inNav: on
 comments: off
 ---
 

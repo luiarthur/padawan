@@ -1,6 +1,7 @@
 ---
 layout: notes
 title: About
+inNav: on
 ---
 
 I am a PhD student at UC - Santa Cruz. My interests are in Bayesian 
