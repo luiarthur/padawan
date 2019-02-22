@@ -104,10 +104,11 @@ collections:
 ### Regularly:
 # Remember to run `bundle install` before making any gem-related commits.
 # - `bundle install`
-# - `gem install update`
+# - `gem install update` (this will change Gemfile.lock)
 # - For updating / installation help, check:  https://jekyllrb.com/docs/installation/#ubuntu
 
-# jekyll serve --incremental
-# for drafts: jekyll serve --incremental --drafts
-# OR 
+# Run:
 # bundle exec jeykll serve --incremental
+
+# For drafts:
+# bundle exec jekyll serve --incremental --drafts 
