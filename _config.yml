@@ -102,11 +102,12 @@ collections:
     permalink: /ucsc_notes/:path/
 
 ### Regularly:
-### - `bundle install`
-### - `gem install update`
-### - For updating / installation help, check:  https://jekyllrb.com/docs/installation/#ubuntu
+# Remember to run `bundle install` before making any gem-related commits.
+# - `bundle install`
+# - `gem install update`
+# - For updating / installation help, check:  https://jekyllrb.com/docs/installation/#ubuntu
 
-### jekyll serve --incremental
-### for drafts: jekyll serve --incremental --drafts
+# jekyll serve --incremental
+# for drafts: jekyll serve --incremental --drafts
 # OR 
-### bundle exec jeykll serve --incremental
+# bundle exec jeykll serve --incremental
