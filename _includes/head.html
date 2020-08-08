@@ -48,32 +48,39 @@
 
     <!--MathJax-->
     <!--script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
-    <script type="text/javascript" async
+    <!--script type="text/javascript" async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+    </script-->
     {% if page.dollar %}
-    <script> MathJax.Hub.Config({ 
-               tex2jax: { 
-                 inlineMath: [['$','$'], ['\\(','\\)']], 
-                 processEscapes: true 
-               },
-               TeX: {
-                 extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
-                 Macros: {
-                   norm: ["{\\left\\lVert#1\\right\\rVert}",1],
-                   paren: ["{\\left(#1\\right)}",1],
-                   p: ["{\\left(#1\\right)}",1],
-                   brak: ["{\\left[#1\\right]}",1],
-                   bk: ["{\\left[#1\\right]}",1],
-                   brac: ["{\\{#1\\}}",1],
-                   bc: ["{\\{#1\\}}",1],
-                   abs: ["{\\left|#1\\right|}",1],
-                   ds: [" \\displaystyle "],
-                   v: [" \\vert "]
-                 }
-               }
-             });
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ 
+          TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: {
+              autoNumber: "AMS"
+            },
+            Macros: {
+              norm: ["{\\left\\lVert#1\\right\\rVert}",1],
+              paren: ["{\\left(#1\\right)}",1],
+              p: ["{\\left(#1\\right)}",1],
+              brak: ["{\\left[#1\\right]}",1],
+              bk: ["{\\left[#1\\right]}",1],
+              brac: ["{\\{#1\\}}",1],
+              bc: ["{\\{#1\\}}",1],
+              abs: ["{\\left|#1\\right|}",1],
+              ds: [" \\displaystyle "],
+              v: [" \\vert "]
+            }
+          },
+          tex2jax: { 
+            inlineMath: [['$','$'], ['\\(','\\)']], 
+            displayMath: [['$$', '$$'],['\\[','\\]']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
     </script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     {% endif %}
     <!-- ARTHUR LUI -->
     <link rel="stylesheet" type="text/css" href="/css/mystyle.css" />

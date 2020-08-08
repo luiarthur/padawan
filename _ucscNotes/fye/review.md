@@ -20,7 +20,7 @@ plotlyjs: on
         b_n &=& \ds\frac{2}{L} \int_{x_0}^{x_0+L} f(x) \sin\p{\frac{2\pi nx}{L}}dx\\
       \end{array}
       $$
-    - Method of Undertermined Coefficients
+    - Method of Undetermined Coefficients
     - line integrals
     - Lagrange Multipliers
 <div id="ams211" class="plotly-graph-div"></div>
@@ -36,8 +36,7 @@ plotlyjs: on
 - Change of variables (uni and multi)
 - Pivot
 - Wald
-- sufficient, complete, ancilliary statistics
+- sufficient, complete, ancillary statistics
 - order statistics pdf (marginal and joint)
-
 
 {% include_relative plots/ams211.html %}
