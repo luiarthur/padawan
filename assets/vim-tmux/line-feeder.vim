@@ -20,14 +20,9 @@ function! LineFeederSetUp()
   let ext = expand("%:e")
   if ext == "R"
     let cmd = "R"
-  elseif ext == "rb"
-    let cmd = "irb"
-  elseif ext == "jl"
-    let cmd = "$HOME/programs/julia-1.0.0/bin/julia"
-  elseif ext == "scala"
-    let cmd = "scala -Dscala.color -J-Xmx2g"
   elseif ext == "py"
-    let cmd = "python3"
+    let cmd = "python"
+  " You can extend this for other languages similarly.
   else
     let cmd = "bash"
   endif
