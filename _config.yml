@@ -94,7 +94,7 @@ defaults:
 collections:
   ucscNotes:
     output: true
-    permalink: /ucsc_notes/:path/
+    permalink: /padawan/ucsc_notes/:path/
 
 ### Regularly:
 # Remember to run `bundle install` before making any gem-related commits.
