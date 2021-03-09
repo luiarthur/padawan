@@ -6,14 +6,14 @@ clean:
 	rm -rf _site
 
 serve:
-	bundle exec jekyll serve --incremental
+	bundle exec jekyll serve --incremental --livereload
 
-serve_draft:
+serve-draft:
 	bundle exec jekyll serve --incremental --drafts
 
-clean_serve: clean serve
+clean-serve: clean serve
 
-clean_serve_draft: clean serve_draft
+clean-serve-draft: clean serve_draft
 
 update-gems:
 	rm Gemfile.lock
