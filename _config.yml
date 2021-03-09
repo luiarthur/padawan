@@ -5,7 +5,7 @@ header-color: "#353535"
 email: luiarthur@gmail.com
 description: "Bayesian Statistics / Computation / Research / Arthur Lui / Blog"
 baseurl: ""
-url: "http://luiarthur.github.io"
+# url: "https://luiarthur.github.io"
 #twitter_username: SBootstrap
 github_username:  luiarthur
 facebook_username:  arthur.lui.90
