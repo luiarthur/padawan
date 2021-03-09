@@ -83,16 +83,16 @@
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     {% endif %}
     <!-- ARTHUR LUI -->
-    <link rel="stylesheet" type="text/css" href="/css/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="{{" /css/mystyle.css" | prepend: site.baseurl }}"/>
 
     <!--d3. Not necessary. Just for exploration.-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="/js/clean-blog.min.js"></script>
+    <script src="{{ "/js/clean-blog.min.js" | prepend: site.baseurl }}"></script>
     <!-- jquery.elastic -->
     <!--script type="text/javascript" src="/js/jquery.elastic.source.js"></script-->
 
@@ -102,61 +102,61 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.1/jquery.timeago.js"></script>
       <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
-      <script type="text/javascript" src="/js/jquery.elastic.source.js"></script>
-      <script> $(function(){$("#cucumber").load("/chunks/cucumber.html");}); </script>
-      <link rel="stylesheet" type="text/css" href="/css/cucumber.css">
+      <script type="text/javascript" src="{{ "/js/jquery.elastic.source.js" | prepend: site.baseurl }}"></script>
+      <script> $(function(){$("#cucumber").load("{{ "/chunks/cucumber.html" | prepend: site.baseurl }}");}); </script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/cucumber.css" | prepend: site.baseurl }}">
     {% elsif page.comments == "inlinedisqus" %}
       <!-- Inline Disqus -->
-      <script src="/js/inlineDisqussions.js"></script>
-      <link rel="stylesheet" type="text/css" href="/css/inlineDisqussions.css">
+      <script src="{{ "/js/inlineDisqussions.js" | prepend: site.baseurl }}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/inlineDisqussions.css" | prepend: site.baseurl }}">
     {% elsif page.comments == "disqus" %}
       <!-- Regular Disquss -->
-      <script src="/js/disqus.js"></script>
-      <link rel="stylesheet" type="text/css" href="/css/disqus.css">
+      <script src="{{ "/js/disqus.js" | prepend: site.baseurl }}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/disqus.css" | prepend: site.baseurl }}">
     {% elsif page.comments == "fb" %}
       <!-- fb-comments-->
       <meta property="fb:app_id" content="878506195570478"/>
-      <script src="/js/fb-comments.js"></script>
-      <link rel="stylesheet" type="text/css" href="/css/fb-comments.css">
+      <script src="{{ "/js/fb-comments.js" | prepend: site.baseurl }}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/fb-comments.css" | prepend: site.baseurl }}">
     {% endif %}  
 
 
     <!--pygments syntax highlighting-->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
 
     {% if page.barchart %}
-      <script type="text/javascript" src="/js/barchart.js"></script>
+    <script type="text/javascript" src="{{ "/js/barchart.js" | prepend: site.baseurl }}"></script>
     {% endif  %}
 
     {% if page.multiline %}
-      <script type="text/javascript" src="/js/multilineplot.js"></script>
-      <link rel="stylesheet" href="/css/multilineplot.css">
+      <script type="text/javascript" src="{{ "/js/multilineplot.js" | prepend: site.baseurl }}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/multilineplot.css" | prepend: site.baseurl }}">
     {% endif %}
 
     {% if page.usmap %}
-      <link rel="stylesheet" href="/css/usmap.css">
+      <link rel="stylesheet" href="{{ "/css/usmap.css" | prepend: site.baseurl }}">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-      <script src="/js/usmap.js"></script>
+      <script src="{{ "/js/usmap.js" | prepend: site.baseurl }}"></script>
     {% endif %}
 
     {% if page.histogram %}
-      <script src="/js/histogram.js"></script>
-      <link rel="stylesheet" type="text/css" href="/css/histogram.css">
+      <script type="text/javascript" src="{{ "/js/histogram.js" | prepend: site.baseurl }}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ "/css/histogram.css" | prepend: site.baseurl }}">
     {% endif %}
 
     {% if page.choropleth %}
-      <link rel="stylesheet" href="/css/choropleth.css">
+      <link rel="stylesheet" type="text/css" href="{{ "/css/choropleth.css" | prepend: site.baseurl }}">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-      <script src="/js/choropleth.js"></script>
+      <script type="text/javascript" src="{{ "/js/choropleth.js" | prepend: site.baseurl }}"></script>
     {% endif %}
 
     {% if page.countyChoropleth %}
-      <link rel="stylesheet" href="/css/countyChoropleth.css">
+      <link rel="stylesheet" type="text/css" href="{{ "/css/countyChoropleth.css" | prepend: site.baseurl }}">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-      <script src="/js/countyChoropleth.js"></script>
+      <script type="text/javascript" src="{{ "/js/countyChoropleth.js" | prepend: site.baseurl }}"></script>
     {% endif %}
 
 </head>
