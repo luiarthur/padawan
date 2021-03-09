@@ -15,7 +15,7 @@ Here's an example question to help you prepare for quiz 3. You don't have to wri
 3. Compute the shaded area. The area is the answer.
   - Note that the Normal distribution is symmetric, and the total area under the curve (Graph-4) is 100%. So, the area in Graph-2 is simply $\frac{100\%-68.87\%}{2} = 15.565\% \approx 16\%$.
 
-![image1](/assets/ams5/zzz.png)
+![image1]({{ "/assets/ams5/zzz.png" | prepend: site.baseurl }})
 
 The following problem is a little different but very important as well.
 

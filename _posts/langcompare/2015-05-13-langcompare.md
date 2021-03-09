@@ -78,7 +78,7 @@ I've included code at the bottom of this page.
 
 ***
 
-{::comment} ![Overall Comparison](/assets/langcompare/img/vs.svg) {:/comment}
+{::comment} ![Overall Comparison]({{ "/assets/langcompare/img/vs.svg" | prepend: site.baseurl }}) {:/comment}
 <h3 style="text-align:center"> Speed vs. Code Length Trade-off </h3>
 <div id="scatplot" class="plotly-graph-div"></div>
 <span class="caption text-muted">We want things to be in the bottom left quadrant &mdash;  Julia wins that one.</span>
