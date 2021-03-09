@@ -11,7 +11,7 @@ dollar: on
 In my advanced Bayesian computation course this semester, we compared the performance of several modern regression models[^1]: lasso, rigdge, SSVS, Bayesian lasso, and generalized double pareto prior regression. To compare the performances, we were given some specifications for a simulation study. Here are the specifications and what we wanted to investigate. 
 
 <center>
-<object data="/assets/ams268/hw/hw1/instructions/hw1.pdf" type="application/pdf" width="900px" height="1000px">
+<object data='{{ "/assets/ams268/hw/hw1/instructions/hw1.pdf" | prepend: site.baseurl }}' type="application/pdf" width="900px" height="1000px">
 </object>
 </center>
 
@@ -29,15 +29,15 @@ were compared using the RMSE of the posterior means for the coefficiencts $E[\pm
 <div id="rmse-fig" style="text-align:center">
 <div class="img-blasso">
 #### RMSE sorted by Bayesian Lasso RMSE
-![rmseblasso](/assets/ams268/hw/hw1/img/rmseblasso.png)
+![rmseblasso]({{ "/assets/ams268/hw/hw1/img/rmseblasso.png" | prepend: site.baseurl }})
 </div>
 <div class="img-gdp hide">
 #### RMSE sorted by Generalized Double Pareto Prior Model RMSE
-![rmseblasso](/assets/ams268/hw/hw1/img/rmsegdp.png)
+![rmseblasso]({{ "/assets/ams268/hw/hw1/img/rmsegdp.png" | prepend: site.baseurl }})
 </div>
 <div class="img-ssvn hide">
 #### RMSE sorted by SSVS Model RMSE
-![rmseblasso](/assets/ams268/hw/hw1/img/rmsessvn.png)
+![rmseblasso]({{ "/assets/ams268/hw/hw1/img/rmsessvn.png" | prepend: site.baseurl }})
 </div>
 <span class="caption text-muted"> 
   Figure 1: RMSE of Bayesian regression models sorted according to the various models. Click the figure to change how the figure is sorted. Triangles represent the RMSE of the SSVS model; circles represent the RMSE of the Bayesian lasso model; and crosses represent the RMSE the generalized double pareto prior model. 
@@ -66,19 +66,19 @@ We investigate the performance of Lasso and the Spike and Slab prior model in th
 <div id="lvs" style="text-align: center">
 <div class="img-lvsp">
 #### Lasso Vs. SSVS Prior Model True Positives sorted by Lasso True Positives
-![lassoVssvn](/assets/ams268/hw/hw1/img/lassoVssvnPP.png)
+![lassoVssvn]({{ "/assets/ams268/hw/hw1/img/lassoVssvnPP.png" | prepend: site.baseurl }})
 </div>
 <div class="img-svlp hide">
 #### Lasso Vs. SSVS Prior Model True Positives sorted by SSVS True Positives
-![lassoVssvn](/assets/ams268/hw/hw1/img/ssvnVlassoPP.png)
+![lassoVssvn]({{ "/assets/ams268/hw/hw1/img/ssvnVlassoPP.png" | prepend: site.baseurl }})
 </div>
 <div class="img-lvsf hide">
 #### Lasso Vs. SSVS Prior Model True Positives sorted by Lasso True Negatives
-![lassoVssvn](/assets/ams268/hw/hw1/img/lassoVssvnFF.png)
+![lassoVssvn]({{ "/assets/ams268/hw/hw1/img/lassoVssvnFF.png" | prepend: site.baseurl }})
 </div>
 <div class="img-svlf hide">
 #### Lasso Vs. SSVS Prior Model True Positives sorted by SSVS True Negatives
-![lassoVssvn](/assets/ams268/hw/hw1/img/ssvnVlassoFF.png)
+![lassoVssvn]({{ "/assets/ams268/hw/hw1/img/ssvnVlassoFF.png" | prepend: site.baseurl }})
 </div>
 <span class="caption text-muted"> 
   Figure 2: Proportion of true positives (++) and true negatives (--) of variables being selected in the Lasso (dot) and SSVS model (triangle). Click the image to see them sorted in different orders. The SSVS and lasso models perform poorly at variable selection when all the coefficients are non-zero and the number of preditors is much larger than the number of observations. In those settings, the SSVS performs better than lasso, but worse than guessing.
@@ -111,27 +111,27 @@ The posterior mean lengths of the truly-zero coefficients are generally low when
 <div id="mzero" style="text-align: center">
 <div class="img-Lblasso">
 ## $M\_{zero}$ sorted by Blasso $M\_{zero}$
-![Lblasso](/assets/ams268/hw/hw1/img/Lblasso.png)
+![Lblasso]({{ "/assets/ams268/hw/hw1/img/Lblasso.png" | prepend: site.baseurl }})
 </div>
 <div class="img-Lgdp hide">
 ## $M\_{zero}$ sorted by GDP $M\_{zero}$
-![Lgdp](/assets/ams268/hw/hw1/img/Lgdp.png)
+![Lgdp]({{ "/assets/ams268/hw/hw1/img/Lgdp.png" | prepend: site.baseurl }})
 </div>
 <div class="img-Lssvn hide">
 ## $M\_{zero}$ sorted by SSVS $M\_{zero}$
-![Lssvn](/assets/ams268/hw/hw1/img/Lssvn.png)
+![Lssvn]({{ "/assets/ams268/hw/hw1/img/Lssvn.png" | prepend: site.baseurl }})
 </div>
 <div class="img-L1blasso hide">
 ## $M\_{nonzero}$ sorted by Blasso $M\_{nonzero}$
-![L1blasso](/assets/ams268/hw/hw1/img/L1blasso.png)
+![L1blasso]({{ "/assets/ams268/hw/hw1/img/L1blasso.png" | prepend: site.baseurl }})
 </div>
 <div class="img-L1gdp hide">
 ## $M\_{nonzero}$ sorted by GDP $M\_{nonzero}$
-![L1gdp](/assets/ams268/hw/hw1/img/L1gdp.png)
+![L1gdp]({{ "/assets/ams268/hw/hw1/img/L1gdp.png" | prepend: site.baseurl }})
 </div>
 <div class="img-L1ssvn hide">
 ## $M\_{nonzero}$ sorted by SSVS $M\_{nonzero}$
-![L1ssvn](/assets/ams268/hw/hw1/img/L1ssvn.png)
+![L1ssvn]({{ "/assets/ams268/hw/hw1/img/L1ssvn.png" | prepend: site.baseurl }})
 </div>
 <span class="caption text-muted"> 
   Figure 3
@@ -146,7 +146,7 @@ The posterior predictive means for the Bayesian lasso and GDP models followed th
 <div style="text-align:center">
 #### Posterior Predictive Means for Bayesian Models
 
-![postpred](/assets/ams268/hw/hw1/img/postpred.png)
+![postpred]({{ "/assets/ams268/hw/hw1/img/postpred.png" | prepend: site.baseurl }})
 <span class="caption text-muted"> 
   Figure 4
 </span>
