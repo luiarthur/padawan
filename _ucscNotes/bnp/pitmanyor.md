@@ -46,10 +46,10 @@ Note that in the NSP, the first observation is drawn from the centering distribu
 
 ### Resources
 
-- [Notes1](/assets/ams241/notes/notes-1_2.pdf)
-- [Notes2](/assets/ams241/notes/notes-2_6.pdf)
-- [Notes3](/assets/ams241/notes/notes-3.pdf)
-- [Notes on Convergence](/assets/ams241/notes/notes-convergence.pdf)
-- [Notes on Stochastic Processes](/assets/ams241/notes/notes-stoch-processes.pdf)
-- [References](/assets/ams241/notes/references_8.pdf)
+- [Notes1]({{ "/assets/ams241/notes/notes-1_2.pdf" | prepend: site.baseurl }})
+- [Notes2]({{ "/assets/ams241/notes/notes-2_6.pdf" | prepend: site.baseurl }})
+- [Notes3]({{ "/assets/ams241/notes/notes-3.pdf" | prepend: site.baseurl }})
+- [Notes on Convergence]({{ "/assets/ams241/notes/notes-convergence.pdf" | prepend: site.baseurl }})
+- [Notes on Stochastic Processes]({{ "/assets/ams241/notes/notes-stoch-processes.pdf" | prepend: site.baseurl }})
+- [References]({{ "/assets/ams241/notes/references_8.pdf" | prepend: site.baseurl }})
 
